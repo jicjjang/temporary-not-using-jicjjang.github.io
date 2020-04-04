@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDirs": ["src", "stories"],
+    "jsx": "react",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "noImplicitAny": false,
+    "sourceRoot": "/",
+    "skipLibCheck": true,
+    "lib": ["es2016", "dom"],
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules", "dist", "webpack", "jest"]
+}
