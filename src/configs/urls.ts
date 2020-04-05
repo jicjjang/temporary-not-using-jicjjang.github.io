@@ -1,3 +1,5 @@
 export const PAGE_URL = {
-  HOME: '/'
+  HOME: '/',
+  PRESENTATION: '/presentation',
+  RESUME: '/resume'
 };

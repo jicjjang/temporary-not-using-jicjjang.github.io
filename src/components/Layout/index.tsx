@@ -1,26 +1,27 @@
 import * as React from 'react';
+import styled from 'styled-components';
 
 import { rhythm } from '~/configs/typography';
 import Header from './Header';
 import Footer from './Footer';
 
+const StyledDiv = styled.div<{ rhythm: (value: number) => string }>`
+  margin: 0 auto;
+  max-width: ${props => props.rhythm(24)};
+  padding: ${props => props.rhythm(1.4)} ${props => props.rhythm(3 / 4)};
+`;
+
 interface IProps {
-  pathname: string;
   title: string;
+  pathname: string;
 }
 
-const Layout: React.SFC<React.PropsWithChildren<IProps>> = ({ pathname, title, children }) => (
-  <div
-    style={{
-      marginLeft: `auto`,
-      marginRight: `auto`,
-      maxWidth: rhythm(24),
-      padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`
-    }}>
-    <Header pathname={pathname} title={title} />
+const Layout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname, children }) => (
+  <StyledDiv rhythm={rhythm}>
+    <Header title={title} pathname={pathname} />
     <main>{children}</main>
     <Footer />
-  </div>
+  </StyledDiv>
 );
 
 export default Layout;

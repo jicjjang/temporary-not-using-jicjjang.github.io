@@ -8,8 +8,16 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
+import styled from 'styled-components';
 
 import { rhythm } from '~/configs/typography';
+
+const StyledImage = styled(Image)<{ rhythm: string }>`
+  margin-right: ${props => props.rhythm};
+  margin-bottom: 0;
+  min-width: 50;
+  border-radius: 100%;
+`;
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -39,15 +47,10 @@ const Bio = () => {
         display: `flex`,
         marginBottom: rhythm(2.5)
       }}>
-      <Image
+      <StyledImage
+        rhythm={rhythm(1 / 2)}
         fixed={data.avatar.childImageSharp.fixed}
         alt={author.name}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`
-        }}
         imgStyle={{
           borderRadius: `50%`
         }}

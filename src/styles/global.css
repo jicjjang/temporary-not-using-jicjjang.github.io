@@ -1,0 +1,48 @@
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
+  margin:0;
+  padding:0
+}
+
+img {
+  max-width:100%;
+  vertical-align:middle
+}
+
+figure > img {
+  display:block
+}
+
+figcaption {
+  font-size:14px
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight:600
+}
+
+blockquote > :last-child {
+  margin-bottom:0
+}
+
+pre, code {
+  font-size:15px;
+  border:1px solid #e8e8e8;
+  border-radius:3px;
+  background-color:#eef
+}
+
+code {
+  padding:1px 5px
+}
+
+pre {
+  padding:8px 12px;
+  overflow-x:auto
+}
+
+pre > code {
+  border:0;
+  padding-right:0;
+  padding-left:0
+}
+

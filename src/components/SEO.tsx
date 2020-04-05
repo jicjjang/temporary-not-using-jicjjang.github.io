@@ -13,7 +13,7 @@ interface IQuerySeoData {
 }
 
 interface IProps {
-  title: string;
+  title?: string;
   description?: string;
   meta?: JSX.IntrinsicElements['meta'][];
   lang?: string;
@@ -46,8 +46,8 @@ const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], title, im
       htmlAttributes={{
         lang
       }}
-      title={title}
-      titleTemplate={`%s | ${siteMetadata.title}`}
+      title={title || siteMetadata.title}
+      titleTemplate={title ? `%s | ${siteMetadata.title}` : siteMetadata.title}
       meta={meta.concat([
         {
           name: `og:title`,
