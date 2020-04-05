@@ -3,8 +3,8 @@ module.exports = {
    * @TODO SEO.tsx에 연결되어있으니, 데이터를 채워넣어줘야 함
    */
   siteMetadata: {
-    title: "June's blog",
-    author: 'June',
+    title: 'June',
+    author: 'Junseok, Choi',
     image: '',
     summary: '',
     description: '',
