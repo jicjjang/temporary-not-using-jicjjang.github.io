@@ -8,6 +8,7 @@ import Footer from './Footer';
 const StyledDiv = styled.div<{ rhythm: (value: number) => string }>`
   margin: 0 auto;
   max-width: ${props => props.rhythm(24)};
+  min-width: 320px;
   padding: ${props => props.rhythm(1.4)} ${props => props.rhythm(3 / 4)};
 `;
 

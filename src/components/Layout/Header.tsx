@@ -32,11 +32,18 @@ const StyledUl = styled.ul`
     display: table;
     clear: both;
   }
+
+  @media (max-width: 450px) {
+    display: block;
+    float: none;
+    text-align: center;
+    border-bottom: 2px solid #cfcdcd;
+  }
 `;
 
 const StyledLi = styled.li`
   display: inline-block;
-  padding: 0 20px;
+  padding: 0 15px;
   list-style-type: none;
   vertical-align: middle;
   font-size: 16px;

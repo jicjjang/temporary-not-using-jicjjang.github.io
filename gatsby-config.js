@@ -10,6 +10,7 @@ module.exports = {
     description: '',
     siteUrl: process.env.NODE_ENV === 'production' ? 'https://jicjjang.github.io' : 'http://127.0.0.1:8000',
     social: {
+      mail: 'mailto:jicjjang12@gmail.com',
       github: 'https://github.com/jicjjang',
       linkedin: 'https://www.linkedin.com/in/jicjjang',
       instagram: 'https://www.instagram.com/jicjjang'

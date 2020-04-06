@@ -17,22 +17,22 @@ interface IProps
     title: string;
   }> {}
 
-const PostTemplate: React.SFC<IProps> = ({
-  // pageContext
-  location
-}) => {
+/**
+ * @TODO 타입 찾기
+ */
+const PostTemplate: React.SFC<IProps> = ({ location }) => {
   // @ts-ignore
-  const { title, markdownRemark } = data.site.siteMetadata;
+  const { title, markdownRemark } = data?.site.siteMetadata;
   const {
-    frontmatter: { description, date },
+    frontmatter: { date },
     excerpt,
     html
   } = markdownRemark;
   // const { previous, next } = pageContext;
 
   return (
-    <Layout pathname={location.pathname} title={title}>
-      <SEO title={title} description={description || excerpt} />
+    <Layout title={title} pathname={location.pathname}>
+      <SEO title={title} description={excerpt} />
       <article>
         <header>
           <h1
@@ -107,7 +107,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
+        tags
       }
     }
   }
