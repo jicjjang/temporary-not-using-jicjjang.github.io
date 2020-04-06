@@ -74,8 +74,12 @@ export default ({ path, data }: PageProps) => {
     <>
       <SEO />
       <Layout title={siteTitle!} pathname={path}>
-        {posts.map(({ title, tags, slug, date, excerpt }) => (
-          <StyledArticle rhythm={rhythm(2)} itemScope={true} itemType="http://schema.org/BlogPosting">
+        {posts.map(({ title, tags, slug, date, excerpt }, index: number) => (
+          <StyledArticle
+            key={`${title}-${index}`}
+            rhythm={rhythm(2)}
+            itemScope={true}
+            itemType="http://schema.org/BlogPosting">
             <StyledHeader rhythm={rhythm(1.2)}>
               <StyledH1 scale={scale(0.5)} rhythm={rhythm(0.2)} itemProp="name headline">
                 <StyledH1Link to={slug!}>{title}</StyledH1Link>
