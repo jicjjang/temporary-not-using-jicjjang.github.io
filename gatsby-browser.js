@@ -1,2 +1,2 @@
-import './src/styles/normalize.css';
+import './src/styles/prism.css';
 import './src/styles/global.css';

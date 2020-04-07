@@ -20,25 +20,7 @@ const StyledImage = styled(Image)<{ rhythm: string }>`
 `;
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      site {
-        siteMetadata {
-          author
-          social {
-            instagram
-          }
-        }
-      }
-    }
-  `);
+  const data = useStaticQuery(query);
 
   const { author, social } = data.site.siteMetadata;
   return (
@@ -65,3 +47,23 @@ const Bio = () => {
 };
 
 export default Bio;
+
+const query = graphql`
+  query BioQuery {
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 50, height: 50) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        author
+        social {
+          instagram
+        }
+      }
+    }
+  }
+`;

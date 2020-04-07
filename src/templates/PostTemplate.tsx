@@ -1,64 +1,62 @@
 import * as React from 'react';
 import {
   // Link,
-  graphql
+  graphql,
+  PageProps
 } from 'gatsby';
 
-import Bio from '~/components/bio';
 import Layout from '~/components/Layout';
 import SEO from '~/components/SEO';
-import { rhythm, scale } from '~/configs/typography';
-import { ITemplateProps } from '~/templates/interface';
+import { rhythm } from '~/configs/typography';
+import { IQuerySiteData } from '~/interface';
+import PostHeader from '~/components/PostHeader';
+import PostTags from '~/components/PostTags';
 
-interface IProps
-  extends ITemplateProps<{
-    slug: string;
-    post: string;
-    title: string;
-  }> {}
+interface IQuerydMarkdownData {
+  markdownRemark: {
+    id: string;
+    excerpt: string;
+    html: string;
+    frontmatter: {
+      title: string;
+      date: string;
+      tags: string[];
+    };
+  };
+}
 
-/**
- * @TODO 타입 찾기
- */
-const PostTemplate: React.SFC<IProps> = ({ location }) => {
-  // @ts-ignore
-  const { title, markdownRemark } = data?.site.siteMetadata;
+const PostTemplate: React.SFC<PageProps> = ({ location, data }) => {
+  const { site, markdownRemark } = data as IQuerySiteData<{ title: string }> & IQuerydMarkdownData;
   const {
-    frontmatter: { date },
+    frontmatter: { title, date, tags },
     excerpt,
     html
   } = markdownRemark;
   // const { previous, next } = pageContext;
 
   return (
-    <Layout title={title} pathname={location.pathname}>
+    <Layout title={site.siteMetadata.title} pathname={location.pathname}>
       <SEO title={title} description={excerpt} />
       <article>
-        <header>
-          <h1
+        {/*<header>
+           <h1
             style={{
-              marginTop: rhythm(1),
-              marginBottom: 0
+              marginTop: rhythm(2),
+              marginBottom: 0,
+              fontSize: scale(1).fontSize
             }}>
             {title}
           </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1)
-            }}>
-            {date}
-          </p>
-        </header>
+        </header> */}
+        <PostHeader title={title!} date={date} />
         <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr
           style={{
             marginBottom: rhythm(1)
           }}
         />
-        <footer>
-          <Bio />
+        <footer style={{ color: '#898989' }}>
+          <PostTags tags={tags} />
         </footer>
       </article>
 
@@ -71,6 +69,7 @@ const PostTemplate: React.SFC<IProps> = ({ location }) => {
             listStyle: `none`,
             padding: 0
           }}>
+          {/* @TODO 이전, 이후 포스팅 추가하기 */}
           {/* <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -87,6 +86,7 @@ const PostTemplate: React.SFC<IProps> = ({ location }) => {
           </li> */}
         </ul>
       </nav>
+      {/* @TODO 댓글 라이브러리 추가하기 */}
     </Layout>
   );
 };

@@ -79,21 +79,27 @@ module.exports = {
             }
           },
           {
-            // md 코드 라인을 꾸며줌
+            // 정의된 언어에따라 강조된 html 형태로 재생성
             resolve: `gatsby-remark-prismjs`,
             options: {
-              classPrefix: 'prism--',
+              classPrefix: 'language-',
               inlineCodeMarker: null,
               aliases: {},
-              showLineNumbers: true,
+              showLineNumbers: false,
               noInlineHighlight: false
             }
           },
-          `gatsby-remark-copy-linked-files` // build 시, md파일 내 링크된 파일들을 public으로 같이 옮겨줌
+          `gatsby-remark-copy-linked-files`, // build 시, md파일 내 링크된 파일들을 public으로 같이 옮겨줌
+          // gatsby-remark-images는 jpeg, png만 처리함.
           /**
-           * @TODO gatsby-remark-images는 jpeg, png만 처리함.
-           * gatsby-remark-copy-linked-files로 처리 안되면 넣어보자.
+           * @TODO maxWidth 처리 되는거 맞나...? 아닌거 같은데... 확인 고고
            */
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 480
+            }
+          }
         ]
       }
     },

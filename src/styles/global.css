@@ -1,48 +1,40 @@
-body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
-  margin:0;
-  padding:0
+.gatsby-highlight-code-line {
+  background-color: rgba(27,31,35,.05);
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #f99;
 }
 
-img {
-  max-width:100%;
-  vertical-align:middle
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+ .gatsby-highlight {
+  background-color: #f6f8fa;
+  border-radius: 0.3em;
+  margin: .5em 0;
+  padding: 1em;
+  overflow: auto;
 }
 
-figure > img {
-  display:block
+/**
+ * Remove the default PrismJS theme background-color, border-radius, margin,
+ * padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ */
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
 }
 
-figcaption {
-  font-size:14px
+:not(pre) > code[class*="language-"] {
+  background: rgba(27,31,35,.05);
 }
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight:600
-}
-
-blockquote > :last-child {
-  margin-bottom:0
-}
-
-pre, code {
-  font-size:15px;
-  border:1px solid #e8e8e8;
-  border-radius:3px;
-  background-color:#eef
-}
-
-code {
-  padding:1px 5px
-}
-
-pre {
-  padding:8px 12px;
-  overflow-x:auto
-}
-
-pre > code {
-  border:0;
-  padding-right:0;
-  padding-left:0
-}
-

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { IQueryData } from '~/interface';
+import { IQuerySiteData } from '~/interface';
 
 interface IQuerySeoData {
   title: string;
@@ -23,20 +23,7 @@ interface IProps {
 const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], title, image }) => {
   const {
     site: { siteMetadata }
-  } = useStaticQuery<IQueryData<IQuerySeoData>>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            siteUrl
-          }
-        }
-      }
-    `
-  );
+  } = useStaticQuery<IQuerySiteData<IQuerySeoData>>(query);
 
   const metaDescription = description || siteMetadata.description;
   const metaImage = image || siteMetadata.image;
@@ -120,3 +107,16 @@ const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], title, im
 };
 
 export default SEO;
+
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+        siteUrl
+      }
+    }
+  }
+`;

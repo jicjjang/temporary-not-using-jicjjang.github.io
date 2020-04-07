@@ -1,4 +1,4 @@
-export interface IQueryData<T> {
+export interface IQuerySiteData<T> {
   site: {
     siteMetadata: T;
   };

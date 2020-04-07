@@ -2444,6 +2444,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___classPrefix' |
   'pluginCreator___pluginOptions___showLineNumbers' |
   'pluginCreator___pluginOptions___noInlineHighlight' |
+  'pluginCreator___pluginOptions___maxWidth' |
   'pluginCreator___pluginOptions___policy' |
   'pluginCreator___pluginOptions___policy___userAgent' |
   'pluginCreator___pluginOptions___policy___allow' |
@@ -2739,6 +2740,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___pluginOptions___classPrefix' |
   'pluginOptions___plugins___pluginOptions___showLineNumbers' |
   'pluginOptions___plugins___pluginOptions___noInlineHighlight' |
+  'pluginOptions___plugins___pluginOptions___maxWidth' |
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___ssrAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
@@ -2756,6 +2758,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___classPrefix' |
   'pluginOptions___showLineNumbers' |
   'pluginOptions___noInlineHighlight' |
+  'pluginOptions___maxWidth' |
   'pluginOptions___policy' |
   'pluginOptions___policy___userAgent' |
   'pluginOptions___policy___allow' |
@@ -2892,6 +2895,7 @@ export type SitePluginPluginOptions = {
   classPrefix?: Maybe<Scalars['String']>;
   showLineNumbers?: Maybe<Scalars['Boolean']>;
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
+  maxWidth?: Maybe<Scalars['Int']>;
   policy?: Maybe<Array<Maybe<SitePluginPluginOptionsPolicy>>>;
   trackingId?: Maybe<Scalars['String']>;
   head?: Maybe<Scalars['Boolean']>;
@@ -2917,6 +2921,7 @@ export type SitePluginPluginOptionsFilterInput = {
   classPrefix?: Maybe<StringQueryOperatorInput>;
   showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
+  maxWidth?: Maybe<IntQueryOperatorInput>;
   policy?: Maybe<SitePluginPluginOptionsPolicyFilterListInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
   head?: Maybe<BooleanQueryOperatorInput>;
@@ -2962,6 +2967,7 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
   classPrefix?: Maybe<Scalars['String']>;
   showLineNumbers?: Maybe<Scalars['Boolean']>;
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
+  maxWidth?: Maybe<Scalars['Int']>;
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
@@ -2974,6 +2980,7 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   classPrefix?: Maybe<StringQueryOperatorInput>;
   showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
+  maxWidth?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPolicy = {

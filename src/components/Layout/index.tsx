@@ -12,6 +12,10 @@ const StyledDiv = styled.div<{ rhythm: (value: number) => string }>`
   padding: ${props => props.rhythm(1.4)} ${props => props.rhythm(3 / 4)};
 `;
 
+const StyledMain = styled.main<{ rhythm: (value: number) => string }>`
+  margin-bottom: ${props => props.rhythm(4)};
+`;
+
 interface IProps {
   title: string;
   pathname: string;
@@ -20,7 +24,7 @@ interface IProps {
 const Layout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname, children }) => (
   <StyledDiv rhythm={rhythm}>
     <Header title={title} pathname={pathname} />
-    <main>{children}</main>
+    <StyledMain rhythm={rhythm}>{children}</StyledMain>
     <Footer />
   </StyledDiv>
 );
