@@ -261,10 +261,10 @@ public class BootSpringBootApplication {
 </code>
 </pre>
 
-```
+```java
 public class BootSpringBootApplication {
   public static void main(String[] args) {
-    System.out.println("Hello, Honeymon");
+    System.out.println("Hello, Honeymon"); // test
   }
 }
 ```
@@ -372,7 +372,7 @@ __double underscores__
 
 ```html
 <img src="/path/to/img.jpg" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="RubberDuck" />
-// test
+<!-- test -->
 <br />
 <img src="/path/to/img.jpg" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="RubberDuck" />
 ```

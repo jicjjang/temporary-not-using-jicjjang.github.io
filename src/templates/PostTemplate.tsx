@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import {
   // Link,
   graphql,
@@ -11,6 +12,7 @@ import { rhythm } from '~/configs/typography';
 import { IQuerySiteData } from '~/interface';
 import PostHeader from '~/components/PostHeader';
 import PostTags from '~/components/PostTags';
+import { addComments, removeComments } from '~/utils/comments';
 
 interface IQuerydMarkdownData {
   markdownRemark: {
@@ -26,6 +28,15 @@ interface IQuerydMarkdownData {
 }
 
 const PostTemplate: React.SFC<PageProps> = ({ location, data }) => {
+  /**
+   * @description 댓글 라이브러리를 post에만 추가, unmount에서 제거!
+   */
+  addComments();
+
+  useEffect(() => {
+    return () => removeComments();
+  }, []);
+
   const { site, markdownRemark } = data as IQuerySiteData<{ title: string }> & IQuerydMarkdownData;
   const {
     frontmatter: { title, date, tags },

@@ -13,6 +13,7 @@ const StyledHeader = styled.header<{ rhythm: (value: number) => string }>`
 
 const StyledH3 = styled.h3<{ scale: BaseLine }>`
   display: inline-block;
+  margin: 0;
   font-size: ${({ scale }) => scale.fontSize};
   line-height: ${({ scale }) => scale.lineHeight};
 `;
@@ -26,7 +27,7 @@ const StyledLink = styled(Link)`
 const StyledUl = styled.ul`
   float: right;
   display: inline-block;
-  margin-top: 18px;
+  margin: 18px 0;
   &:after {
     content: '';
     display: table;
@@ -56,6 +57,9 @@ const StyleLiLink = styled(Link)<{ color: string }>`
   color: ${props => props.color};
 `;
 
+const CHOICE_COLOR = '#898989';
+const NOT_CHOICE_COLOR = '#000';
+
 interface IProps {
   title: string;
   pathname: string;
@@ -68,17 +72,19 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => (
     </StyledH3>
     <StyledUl>
       <StyledLi>
-        <StyleLiLink color={pathname === PAGE_URL.HOME ? '#000' : '#898989'} to={PAGE_URL.HOME}>
+        <StyleLiLink color={pathname === PAGE_URL.HOME ? NOT_CHOICE_COLOR : CHOICE_COLOR} to={PAGE_URL.HOME}>
           Posts
         </StyleLiLink>
       </StyledLi>
       <StyledLi>
-        <StyleLiLink color={pathname === PAGE_URL.PRESENTATION ? '#000' : '#898989'} to={PAGE_URL.PRESENTATION}>
+        <StyleLiLink
+          color={pathname === PAGE_URL.PRESENTATION ? NOT_CHOICE_COLOR : CHOICE_COLOR}
+          to={PAGE_URL.PRESENTATION}>
           Presentation
         </StyleLiLink>
       </StyledLi>
       <StyledLi>
-        <StyleLiLink color={pathname === PAGE_URL.RESUME ? '#000' : '#898989'} to={PAGE_URL.RESUME}>
+        <StyleLiLink color={pathname === PAGE_URL.RESUME ? NOT_CHOICE_COLOR : CHOICE_COLOR} to={PAGE_URL.RESUME}>
           Resume
         </StyleLiLink>
       </StyledLi>
