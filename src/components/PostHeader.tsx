@@ -40,11 +40,11 @@ interface IProps {
 const PostHeader: React.SFC<IProps> = ({ title, slug, date }) => {
   return (
     <StyledHeader rhythm={rhythm(1.2)}>
-      <StyledH1 scale={scale(0.5)} rhythm={rhythm(0.2)} itemProp="name headline">
+      <StyledH1 scale={scale(0.5)} rhythm={rhythm(0.2)}>
         {slug ? <StyledH1Link to={slug!}>{title}</StyledH1Link> : title}
       </StyledH1>
       <p className="post-meta">
-        <StyledTime dateTime={date} scale={scale(-0.1)} itemProp="datePublished">
+        <StyledTime dateTime={date} scale={scale(-0.1)}>
           {date}
         </StyledTime>
       </p>

@@ -44,14 +44,10 @@ export default ({ path, data }: PageProps) => {
       <SEO />
       <Layout title={siteTitle!} pathname={path}>
         {posts.map(({ title, tags, slug, date, excerpt }: IPostType, index: number) => (
-          <StyledArticle
-            key={`${title}-${index}`}
-            rhythm={rhythm(2)}
-            itemScope={true}
-            itemType="http://schema.org/BlogPosting">
+          <StyledArticle key={`${title}-${index}`} rhythm={rhythm(2)}>
             <PostHeader title={title!} slug={slug || undefined} date={date} />
             {excerpt && (
-              <StyledDiv rhythm={rhythm(0.5)} itemProp="articleBody">
+              <StyledDiv rhythm={rhythm(0.5)}>
                 <StyledPExcerpt scale={scale(0)}>{excerpt}</StyledPExcerpt>
               </StyledDiv>
             )}
