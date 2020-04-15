@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import { IQuerySiteData } from '~/interface';
+import favicon from '@/contents/assets/favicon.png';
 
 interface IQuerySeoData {
   title: string;
@@ -102,6 +103,7 @@ const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], title, im
           content: metaImage
         }
       ])}
+      link={[{ rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }]}
     />
   );
 };
