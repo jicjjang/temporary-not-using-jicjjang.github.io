@@ -31,6 +31,7 @@ const PostTemplate: React.SFC<PageProps> = ({ location, data }) => {
   /**
    * @description 댓글 라이브러리를 post에만 추가, unmount에서 제거!
    */
+  removeComments();
   addComments();
 
   useEffect(() => {
@@ -66,9 +67,7 @@ const PostTemplate: React.SFC<PageProps> = ({ location, data }) => {
             marginBottom: rhythm(1)
           }}
         />
-        <footer style={{ color: '#898989' }}>
-          <PostTags tags={tags} />
-        </footer>
+        <footer style={{ color: '#898989' }}>{tags?.length && <PostTags tags={tags} />}</footer>
       </article>
 
       <nav>

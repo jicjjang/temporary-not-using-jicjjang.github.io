@@ -51,7 +51,7 @@ export default ({ path, data }: PageProps) => {
                 <StyledPExcerpt scale={scale(0)}>{excerpt}</StyledPExcerpt>
               </StyledDiv>
             )}
-            {tags && <PostTags tags={tags} />}
+            {tags?.length && <PostTags tags={tags} />}
           </StyledArticle>
         ))}
       </Layout>
@@ -69,7 +69,7 @@ export const query = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 180)
           fields {
             slug
           }

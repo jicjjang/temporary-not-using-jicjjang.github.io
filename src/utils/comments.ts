@@ -3,7 +3,7 @@ export const addComments = () => {
   utterancElement.setAttribute('src', 'https://utteranc.es/client.js');
   utterancElement.setAttribute('repo', 'jicjjang/blog2');
   utterancElement.setAttribute('issue-term', 'pathname');
-  utterancElement.setAttribute('label', '✨댓글✨ ');
+  utterancElement.setAttribute('label', '✨댓글✨');
   utterancElement.setAttribute('theme', 'github-light');
   utterancElement.setAttribute('async', 'true');
 

@@ -3,11 +3,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 // import styled from 'styled-components';
 
 import { IQuerySiteData } from '~/interface';
-import { rhythm } from 'public/static/426ec5b4bd531a5bb709c9d98593e2d8/typography';
+import { rhythm } from '~/configs/typography';
 
 interface IQuerySnsData {
-  mail: string;
   social: {
+    mail: string;
     github: string;
     linkedin: string;
     instagram: string;
