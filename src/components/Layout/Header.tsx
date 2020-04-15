@@ -34,7 +34,7 @@ const StyledUl = styled.ul`
     clear: both;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 650px) {
     display: block;
     float: none;
     text-align: center;
@@ -48,6 +48,11 @@ const StyledLi = styled.li`
   list-style-type: none;
   vertical-align: middle;
   font-size: 16px;
+
+  @media (max-width: 450px) {
+    padding: 0 8px;
+    font-size: 14px;
+  }
 `;
 
 /**
@@ -68,12 +73,17 @@ interface IProps {
 const Header: React.SFC<IProps> = ({ title, pathname }) => (
   <StyledHeader rhythm={rhythm}>
     <StyledH3 scale={scale(1.2)}>
-      <StyledLink to={PAGE_URL.HOME}>{title}</StyledLink>
+      <StyledLink to={pathname}>{title}</StyledLink>
     </StyledH3>
     <StyledUl>
       <StyledLi>
         <StyleLiLink color={pathname === PAGE_URL.HOME ? NOT_CHOICE_COLOR : CHOICE_COLOR} to={PAGE_URL.HOME}>
           Posts
+        </StyleLiLink>
+      </StyledLi>
+      <StyledLi>
+        <StyleLiLink color={pathname === PAGE_URL.ARCHIVE ? NOT_CHOICE_COLOR : CHOICE_COLOR} to={PAGE_URL.ARCHIVE}>
+          Archive
         </StyleLiLink>
       </StyledLi>
       <StyledLi>
