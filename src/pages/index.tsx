@@ -15,8 +15,12 @@ const StyledArticle = styled.article<{ rhythm: string }>`
   margin-bottom: ${props => props.rhythm};
 `;
 
-const StyledDiv = styled.div<{ rhythm: string }>`
+const StyledDivPost = styled.div<{ rhythm: string }>`
   margin-bottom: ${props => props.rhythm};
+`;
+const StyledDivEmpty = styled.div<{ rhythm: string }>`
+  text-align: center;
+  margin-top: ${props => props.rhythm};
 `;
 
 const StyledPExcerpt = styled.p<{ scale: BaseLine }>`
@@ -26,34 +30,42 @@ const StyledPExcerpt = styled.p<{ scale: BaseLine }>`
   color: #353535;
 `;
 
+const CURRENT_YEAR = new Date().getFullYear().toString();
+
 type IPostType = MarkdownRemarkFields & MarkdownRemarkFrontmatter & { excerpt: string };
 
 export default ({ path, data }: PageProps) => {
   const siteTitle = (data as Query).site!.siteMetadata!.title;
-  const posts = (data as Query).allMarkdownRemark.edges.reduce((mergedValue: IPostType[], currentValue) => {
-    mergedValue.push({
-      ...currentValue.node.frontmatter,
-      slug: currentValue.node.fields?.slug || '',
-      excerpt: currentValue.node.excerpt || ''
-    });
-    return mergedValue;
-  }, []);
+  const posts = (data as Query).allMarkdownRemark.edges
+    .filter(currentValue => currentValue.node.frontmatter?.date.endsWith(CURRENT_YEAR))
+    .reduce((mergedValue: IPostType[], currentValue) => {
+      mergedValue.push({
+        ...currentValue.node.frontmatter,
+        slug: currentValue.node.fields?.slug || '',
+        excerpt: currentValue.node.excerpt || ''
+      });
+      return mergedValue;
+    }, []);
 
   return (
     <>
       <SEO />
       <Layout title={siteTitle!} pathname={path}>
-        {posts.map(({ title, tags, slug, date, excerpt }: IPostType, index: number) => (
-          <StyledArticle key={`${title}-${index}`} rhythm={rhythm(2)}>
-            <PostHeader title={title!} slug={slug || undefined} date={date} />
-            {excerpt && (
-              <StyledDiv rhythm={rhythm(0.5)}>
-                <StyledPExcerpt scale={scale(0)}>{excerpt}</StyledPExcerpt>
-              </StyledDiv>
-            )}
-            {tags?.length && <PostTags tags={tags} />}
-          </StyledArticle>
-        ))}
+        {posts.length > 0 ? (
+          posts.map(({ title, tags, slug, date, excerpt }: IPostType, index: number) => (
+            <StyledArticle key={`${title}-${index}`} rhythm={rhythm(2)}>
+              <PostHeader title={title!} slug={slug || undefined} date={date} />
+              {excerpt && (
+                <StyledDivPost rhythm={rhythm(0.5)}>
+                  <StyledPExcerpt scale={scale(0)}>{excerpt}</StyledPExcerpt>
+                </StyledDivPost>
+              )}
+              {tags?.length && <PostTags tags={tags} />}
+            </StyledArticle>
+          ))
+        ) : (
+          <StyledDivEmpty rhythm={rhythm(4)}>컨텐츠가 없습니다.</StyledDivEmpty>
+        )}
       </Layout>
     </>
   );
