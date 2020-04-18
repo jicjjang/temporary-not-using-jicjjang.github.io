@@ -11,11 +11,11 @@ export const onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode, basePath: 'posts' });
+    const value = createFilePath({ node, getNode, basePath: 'content/posts', trailingSlash: false });
     createNodeField({
       name: `slug`,
       node,
-      value
+      value: `/posts${value}`
     });
   }
 };
