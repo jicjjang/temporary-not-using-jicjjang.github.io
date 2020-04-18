@@ -4,12 +4,14 @@ import { PageProps } from 'gatsby';
 import Layout from '~/components/Layout';
 import SEO from '~/components/SEO';
 
+const TITLE = 'Resume';
+
 export default ({ location }: PageProps) => {
   return (
     <>
-      <SEO title="Resume" />
-      <Layout title={'Resume'} pathname={location.pathname}>
-        <div>Resume</div>
+      <SEO title={TITLE} />
+      <Layout title={TITLE} pathname={location.pathname}>
+        <div>{TITLE}</div>
       </Layout>
     </>
   );
