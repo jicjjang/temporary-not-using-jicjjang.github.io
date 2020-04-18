@@ -9,7 +9,7 @@ tags: [서울드링커, 서울시 공공앱 공모전]
 #### [Github repository](https://github.com/seouldrinker/seoulDrinkerFront)
 
 2년전 참여했던 서울 앱 공모전을 다시 참가하게 되었는데... 똑같이 10월 31일까지 제출이었네요.
-[2015 서울 앱 공모전](https://jicjjang.github.io/2015/11/08/seoul-app-contest-with-django)
+[2015 서울 앱 공모전](/posts/seoul-app-contest-with-django)
 그때의 실패를 밑바탕으로 다시 한 번 도전하게 되었습니다.
 
 결과부터 말하자면!!! 아직 결과는 안나왔습니다... (쪼오금 기대를 하고는 있습... 읍읍)

@@ -10,7 +10,7 @@ tags: [서울드링커, 서울시 공공앱 공모전]
 
 ---
 
-지난주 월요일... 제출했던 [서울시 앱 공모전](https://jicjjang.github.io/post/seoul-app-contest-with-node-and-react-native)
+지난주 월요일... 제출했던 [서울시 앱 공모전](/posts/2017-seoul-app-contest-develop)
 에 대한 결과를 메일로 받았습니다. 결과는 `예선 당선`. 본선엔 나가지 못하고 예선으로 끝났습니다.
 하지만 지속적으로 서버 로그와 디비 로그를 살펴보고 있던 저희팀에겐 궁금증이 많았죠. ^^
 

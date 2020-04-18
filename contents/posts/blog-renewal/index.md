@@ -4,7 +4,7 @@ date: '2018-02-10'
 tags: [블로그, 개편]
 ---
 
-요 근래 [서울드링커 프로젝트 사건(?)](https://jicjjang.github.io/post/life/)
+요 근래 [서울드링커 프로젝트 사건(?)](/posts/2017-seoul-app-contest-result)
 이후로 개인프로젝트에 대해서 약간 손을 놓고있었습니다. ㅠㅠ
 
 ![빵꾸난 잔디](./commit.png)
@@ -105,7 +105,7 @@ Reveal.initialize({
 
 ### 2-5. Resume
 
-[Resume 페이지](https://jicjjang.github.io/resume)도 함께 옮겼습니다.
+[Resume 페이지](/resume)도 함께 옮겼습니다.
 Layout을 따로 만들었는데, 바뀐건 거의 메타데이터 밖에 없네요.
 
 ### 2.6 Deployment

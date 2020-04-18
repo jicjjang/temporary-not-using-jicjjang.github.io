@@ -84,14 +84,7 @@ ES6도 알려주고 싶고... 많은 것을 전달해주고 싶어하는 것을 
 `자바스크립트 핵심 가이드`를 제외하고 처음이었습니다. 그 다음단계로 넘어가기가 힘들었는데 그 다음 계단을
 올라갈 수 있게 도와준 책이라 생각됩니다.
 
-<figure style="text-align: center; cursor: pointer;">
-  <a href="http://www.hanbit.co.kr/store/books/look.php?p_code=B8227329776" target="_blank"
-    style="border: none;">
-    <img src="https://jicjjang.github.io/static/image/review/youdontknowjs/hanbit.jpg"
-      alt="image" style="display:inline-block; width:100%; margin:0 auto;">
-  </a>
-  <figcaption>&lt;You don't know js&gt;</figcaption>
-</figure>
+![hanbit](./hanbit.jpg)
 
 중고급 개발자로 올라갈 수 있게 도와주는 (번역된)서적이 적은 국내시장에서 한단계 올라갈 수 있는
 발판이 될 수 있는 책이라 확신합니다.
