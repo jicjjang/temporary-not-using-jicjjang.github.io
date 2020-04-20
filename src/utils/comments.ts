@@ -11,7 +11,7 @@ export const addComments = () => {
 };
 
 export const removeComments = () => {
-  if (document) {
+  if (typeof document !== 'undefined') {
     const utterancesElement = document.querySelector('.utterances');
     if (utterancesElement && document.querySelector('.utterances-frame')) {
       utterancesElement.remove();
