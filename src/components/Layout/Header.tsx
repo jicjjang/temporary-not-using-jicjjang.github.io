@@ -65,6 +65,20 @@ const StyleLiLink = styled(Link)<{ color: string }>`
 const CHOICE_COLOR = '#898989';
 const NOT_CHOICE_COLOR = '#000';
 
+enum MENU {
+  POSTS = 'Posts',
+  ARCHIVE = 'Archive',
+  PRESENTATION = 'Presentation',
+  RESUME = 'Resume'
+}
+
+const MENU_MAPPED_PATH = {
+  [MENU.POSTS]: PAGE_URL.HOME,
+  [MENU.ARCHIVE]: PAGE_URL.ARCHIVE,
+  [MENU.PRESENTATION]: PAGE_URL.PRESENTATION,
+  [MENU.RESUME]: PAGE_URL.RESUME
+};
+
 interface IProps {
   title: string;
   pathname: string;
@@ -76,28 +90,15 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => (
       <StyledLink to={pathname}>{title}</StyledLink>
     </StyledH3>
     <StyledUl>
-      <StyledLi>
-        <StyleLiLink color={pathname === PAGE_URL.HOME ? NOT_CHOICE_COLOR : CHOICE_COLOR} to={PAGE_URL.HOME}>
-          Posts
-        </StyleLiLink>
-      </StyledLi>
-      <StyledLi>
-        <StyleLiLink color={pathname === PAGE_URL.ARCHIVE ? NOT_CHOICE_COLOR : CHOICE_COLOR} to={PAGE_URL.ARCHIVE}>
-          Archive
-        </StyleLiLink>
-      </StyledLi>
-      <StyledLi>
-        <StyleLiLink
-          color={pathname === PAGE_URL.PRESENTATION ? NOT_CHOICE_COLOR : CHOICE_COLOR}
-          to={PAGE_URL.PRESENTATION}>
-          Presentation
-        </StyleLiLink>
-      </StyledLi>
-      <StyledLi>
-        <StyleLiLink color={pathname === PAGE_URL.RESUME ? NOT_CHOICE_COLOR : CHOICE_COLOR} to={PAGE_URL.RESUME}>
-          Resume
-        </StyleLiLink>
-      </StyledLi>
+      {Object.keys(MENU).map(key => (
+        <StyledLi key={key}>
+          <StyleLiLink
+            color={pathname === MENU_MAPPED_PATH[MENU[key]] ? NOT_CHOICE_COLOR : CHOICE_COLOR}
+            to={MENU_MAPPED_PATH[MENU[key]]}>
+            {MENU[key]}
+          </StyleLiLink>
+        </StyledLi>
+      ))}
     </StyledUl>
   </StyledHeader>
 );
