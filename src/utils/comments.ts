@@ -11,8 +11,10 @@ export const addComments = () => {
 };
 
 export const removeComments = () => {
-  const utterancesElement = document.querySelector('.utterances');
-  if (utterancesElement && document.querySelector('.utterances-frame')) {
-    utterancesElement.remove();
+  if (document) {
+    const utterancesElement = document.querySelector('.utterances');
+    if (utterancesElement && document.querySelector('.utterances-frame')) {
+      utterancesElement.remove();
+    }
   }
 };

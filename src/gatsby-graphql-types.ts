@@ -2524,11 +2524,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___plugins___browserAPIs' |
   'pluginCreator___pluginOptions___plugins___ssrAPIs' |
   'pluginCreator___pluginOptions___plugins___pluginFilepath' |
-  'pluginCreator___pluginOptions___configFile' |
-  'pluginCreator___pluginOptions___silent' |
   'pluginCreator___pluginOptions___pathToConfigModule' |
-  'pluginCreator___pluginOptions___path' |
-  'pluginCreator___pluginOptions___name' |
   'pluginCreator___pluginOptions___offsetY' |
   'pluginCreator___pluginOptions___icon' |
   'pluginCreator___pluginOptions___className' |
@@ -2559,6 +2555,10 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___documentPaths' |
   'pluginCreator___pluginOptions___codegenDelay' |
+  'pluginCreator___pluginOptions___configFile' |
+  'pluginCreator___pluginOptions___silent' |
+  'pluginCreator___pluginOptions___path' |
+  'pluginCreator___pluginOptions___name' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
   'pluginCreator___browserAPIs' |
@@ -2776,11 +2776,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___ssrAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
-  'pluginOptions___configFile' |
-  'pluginOptions___silent' |
   'pluginOptions___pathToConfigModule' |
-  'pluginOptions___path' |
-  'pluginOptions___name' |
   'pluginOptions___offsetY' |
   'pluginOptions___icon' |
   'pluginOptions___className' |
@@ -2811,6 +2807,10 @@ export type SitePluginFieldsEnum =
   'pluginOptions___fileName' |
   'pluginOptions___documentPaths' |
   'pluginOptions___codegenDelay' |
+  'pluginOptions___configFile' |
+  'pluginOptions___silent' |
+  'pluginOptions___path' |
+  'pluginOptions___name' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
   'browserAPIs' |
@@ -2925,11 +2925,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
-  configFile?: Maybe<Scalars['String']>;
-  silent?: Maybe<Scalars['Boolean']>;
   pathToConfigModule?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
   offsetY?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
   className?: Maybe<Scalars['String']>;
@@ -2958,16 +2954,16 @@ export type SitePluginPluginOptions = {
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   codegenDelay?: Maybe<Scalars['Int']>;
+  configFile?: Maybe<Scalars['String']>;
+  silent?: Maybe<Scalars['Boolean']>;
+  path?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
-  configFile?: Maybe<StringQueryOperatorInput>;
-  silent?: Maybe<BooleanQueryOperatorInput>;
   pathToConfigModule?: Maybe<StringQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
   offsetY?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
   className?: Maybe<StringQueryOperatorInput>;
@@ -2996,6 +2992,10 @@ export type SitePluginPluginOptionsFilterInput = {
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
   codegenDelay?: Maybe<IntQueryOperatorInput>;
+  configFile?: Maybe<StringQueryOperatorInput>;
+  silent?: Maybe<BooleanQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
