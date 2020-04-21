@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { BaseLine } from 'typography';
 
-import { PAGE_URL } from '~/configs/urls';
+import { PAGE_URL, compareTrailingUrl } from '~/configs/urls';
 import { scale, rhythm } from '~/configs/typography';
 
 const StyledHeader = styled.header<{ rhythm: (value: number) => string }>`
@@ -93,15 +93,18 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => {
         <StyledLink to={pathname}>{title}</StyledLink>
       </StyledH3>
       <StyledUl>
-        {Object.keys(MENU).map(key => (
-          <StyledLi key={key}>
-            <StyleLiLink
-              color={pathname === MENU_MAPPED_PATH[MENU[key]] ? CHOICE_COLOR : NOT_CHOICE_COLOR}
-              to={MENU_MAPPED_PATH[MENU[key]]}>
-              {MENU[key]}
-            </StyleLiLink>
-          </StyledLi>
-        ))}
+        {Object.keys(MENU).map(key => {
+          console.log(compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]));
+          return (
+            <StyledLi key={key}>
+              <StyleLiLink
+                color={compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]) ? CHOICE_COLOR : NOT_CHOICE_COLOR}
+                to={MENU_MAPPED_PATH[MENU[key]]}>
+                {MENU[key]}
+              </StyleLiLink>
+            </StyledLi>
+          );
+        })}
       </StyledUl>
     </StyledHeader>
   );
