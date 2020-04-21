@@ -21,12 +21,17 @@ interface IProps {
   pathname: string;
 }
 
-const Layout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname, children }) => (
-  <StyledDiv rhythm={rhythm}>
-    <Header title={title} pathname={pathname} />
-    <StyledMain rhythm={rhythm}>{children}</StyledMain>
-    <Footer />
-  </StyledDiv>
-);
+const Layout: React.SFC<React.PropsWithChildren<IProps>> = props => {
+  const { title, pathname, children } = props;
+  console.log(props);
+  debugger;
+  return (
+    <StyledDiv rhythm={rhythm}>
+      <Header title={title} pathname={pathname} />
+      <StyledMain rhythm={rhythm}>{children}</StyledMain>
+      <Footer />
+    </StyledDiv>
+  );
+};
 
 export default Layout;
