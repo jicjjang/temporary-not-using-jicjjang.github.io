@@ -88,15 +88,19 @@ interface IProps {
 const Header: React.SFC<IProps> = ({ title, pathname }) => {
   const aa = useMemo(() => {
     console.log(11);
-    return Object.keys(MENU).map(key => (
-      <StyledLi key={key}>
-        <StyleLiLink
-          color={pathname === MENU_MAPPED_PATH[MENU[key]] ? NOT_CHOICE_COLOR : CHOICE_COLOR}
-          to={MENU_MAPPED_PATH[MENU[key]]}>
-          {MENU[key]}
-        </StyleLiLink>
-      </StyledLi>
-    ));
+    return Object.keys(MENU).map(key => {
+      console.log(key);
+      console.log(MENU_MAPPED_PATH[MENU[key]]);
+      return (
+        <StyledLi key={key}>
+          <StyleLiLink
+            color={pathname === MENU_MAPPED_PATH[MENU[key]] ? NOT_CHOICE_COLOR : CHOICE_COLOR}
+            to={MENU_MAPPED_PATH[MENU[key]]}>
+            {MENU[key]}
+          </StyleLiLink>
+        </StyledLi>
+      );
+    });
   }, [pathname]);
 
   return (
