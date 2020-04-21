@@ -25,7 +25,7 @@ const StyledLink = styled(Link)`
 
 type IPostType = MarkdownRemarkFields & MarkdownRemarkFrontmatter;
 
-export default ({ data }: PageProps) => {
+export default ({ data, location: pLocation }: PageProps) => {
   const posts = {};
   (data as Query).allMarkdownRemark.edges.forEach(currentValue => {
     if (!posts[currentValue.node.frontmatter?.date]) {
@@ -41,7 +41,7 @@ export default ({ data }: PageProps) => {
   return (
     <>
       <SEO title={TITLE} />
-      <Layout title={TITLE} pathname={location.pathname}>
+      <Layout title={TITLE} pathname={pLocation.pathname}>
         {YEAR_KEYS.map(
           yearKey =>
             posts[yearKey] && (

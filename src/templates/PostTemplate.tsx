@@ -50,16 +50,6 @@ const PostTemplate: React.SFC<PageProps> = ({ location, data }) => {
     <Layout title={site.siteMetadata.title} pathname={location.pathname}>
       <SEO title={title} description={excerpt} />
       <article>
-        {/*<header>
-           <h1
-            style={{
-              marginTop: rhythm(2),
-              marginBottom: 0,
-              fontSize: scale(1).fontSize
-            }}>
-            {title}
-          </h1>
-        </header> */}
         <PostHeader title={title!} date={date} />
         <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr
@@ -96,7 +86,6 @@ const PostTemplate: React.SFC<PageProps> = ({ location, data }) => {
           </li> */}
         </ul>
       </nav>
-      {/* @TODO 댓글 라이브러리 추가하기 */}
     </Layout>
   );
 };
