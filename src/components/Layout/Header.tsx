@@ -94,7 +94,7 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => {
       </StyledH3>
       <StyledUl>
         {Object.keys(MENU).map(key => {
-          console.log(compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]));
+          console.log(compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]) ? CHOICE_COLOR : NOT_CHOICE_COLOR);
           return (
             <StyledLi key={key}>
               <StyleLiLink
