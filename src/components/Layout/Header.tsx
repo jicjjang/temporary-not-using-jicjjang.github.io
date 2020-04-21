@@ -55,13 +55,6 @@ const StyledLi = styled.li`
   }
 `;
 
-/**
- * @description 이 안에서 색을 고르는 삼항연산자는 warning이 발생함...
- */
-const StyleLiLink = styled(Link)<{ color: string }>`
-  color: ${props => props.color};
-`;
-
 const NOT_CHOICE_COLOR = '#898989';
 const CHOICE_COLOR = '#000';
 
@@ -87,6 +80,13 @@ interface IProps {
 const Header: React.SFC<IProps> = ({ title, pathname }) => {
   console.log(11);
   console.log(pathname);
+  /**
+   * @description 이 안에서 색을 고르는 삼항연산자는 warning이 발생함...
+   */
+  const StyleLiLink = styled(Link)<{ color: string }>`
+    color: ${props => props.color};
+  `;
+
   return (
     <StyledHeader rhythm={rhythm}>
       <StyledH3 scale={scale(1.2)}>
