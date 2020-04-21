@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useMemo } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { BaseLine } from 'typography';
@@ -84,23 +85,28 @@ interface IProps {
   pathname: string;
 }
 
-const Header: React.SFC<IProps> = ({ title, pathname }) => (
-  <StyledHeader rhythm={rhythm}>
-    <StyledH3 scale={scale(1.2)}>
-      <StyledLink to={pathname}>{title}</StyledLink>
-    </StyledH3>
-    <StyledUl>
-      {Object.keys(MENU).map(key => (
-        <StyledLi key={key}>
-          <StyleLiLink
-            color={pathname === MENU_MAPPED_PATH[MENU[key]] ? NOT_CHOICE_COLOR : CHOICE_COLOR}
-            to={MENU_MAPPED_PATH[MENU[key]]}>
-            {MENU[key]}
-          </StyleLiLink>
-        </StyledLi>
-      ))}
-    </StyledUl>
-  </StyledHeader>
-);
+const Header: React.SFC<IProps> = ({ title, pathname }) => {
+  const aa = useMemo(() => {
+    console.log(11);
+    return Object.keys(MENU).map(key => (
+      <StyledLi key={key}>
+        <StyleLiLink
+          color={pathname === MENU_MAPPED_PATH[MENU[key]] ? NOT_CHOICE_COLOR : CHOICE_COLOR}
+          to={MENU_MAPPED_PATH[MENU[key]]}>
+          {MENU[key]}
+        </StyleLiLink>
+      </StyledLi>
+    ));
+  }, [pathname]);
+
+  return (
+    <StyledHeader rhythm={rhythm}>
+      <StyledH3 scale={scale(1.2)}>
+        <StyledLink to={pathname}>{title}</StyledLink>
+      </StyledH3>
+      <StyledUl>{aa}</StyledUl>
+    </StyledHeader>
+  );
+};
 
 export default Header;
