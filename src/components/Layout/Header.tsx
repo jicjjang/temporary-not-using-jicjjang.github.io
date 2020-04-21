@@ -63,8 +63,8 @@ const StyleLiLink = styled(Link)<{ color: string }>`
   color: ${props => props.color};
 `;
 
-const CHOICE_COLOR = '#898989';
-const NOT_CHOICE_COLOR = '#000';
+const NOT_CHOICE_COLOR = '#898989';
+const CHOICE_COLOR = '#000';
 
 enum MENU {
   POSTS = 'Posts',
@@ -91,10 +91,11 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => {
     return Object.keys(MENU).map(key => {
       console.log(key);
       console.log(MENU_MAPPED_PATH[MENU[key]]);
+      console.log(pathname === MENU_MAPPED_PATH[MENU[key]]);
       return (
         <StyledLi key={key}>
           <StyleLiLink
-            color={pathname === MENU_MAPPED_PATH[MENU[key]] ? NOT_CHOICE_COLOR : CHOICE_COLOR}
+            color={pathname === MENU_MAPPED_PATH[MENU[key]] ? CHOICE_COLOR : NOT_CHOICE_COLOR}
             to={MENU_MAPPED_PATH[MENU[key]]}>
             {MENU[key]}
           </StyleLiLink>
