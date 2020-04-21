@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><style data-href="/styles.8bc7d8bd447b1029c4d8.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.gatsby-highlight-code-line{background-color:rgba(27,31,35,.05);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #f99}.gatsby-highlight{background-color:#f6f8fa;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%}:not(pre)>code[class*=language-]{background:rgba(27,31,35,.05)}</style><meta name="generator" content="Gatsby 2.19.45"/><style data-styled="" data-styled-version="5.0.1">.nRpiy{margin-top:0;margin-bottom:1.95rem;}
+data-styled.g1[id="Header__StyledHeader-sc-2c73rl-0"]{content:"nRpiy,"}
+.bklxND{display:inline-block;margin:0;font-size:2.2974rem;line-height:3.25rem;}
+data-styled.g2[id="Header__StyledH3-sc-2c73rl-1"]{content:"bklxND,"}
+.sXWUv{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:#000;}
+data-styled.g3[id="Header__StyledLink-sc-2c73rl-2"]{content:"sXWUv,"}
+.gzNcZz{float:right;display:inline-block;margin:18px 0;}
+.gzNcZz:after{content:'';display:table;clear:both;}
+@media (max-width:650px){.gzNcZz{display:block;float:none;text-align:center;border-bottom:2px solid #cfcdcd;}}
+data-styled.g4[id="Header__StyledUl-sc-2c73rl-3"]{content:"gzNcZz,"}
+.xeSmE{display:inline-block;padding:0 15px;list-style-type:none;vertical-align:middle;font-size:16px;}
+@media (max-width:450px){.xeSmE{padding:0 8px;font-size:14px;}}
+data-styled.g5[id="Header__StyledLi-sc-2c73rl-4"]{content:"xeSmE,"}
+.YvSMa{color:#898989;}
+data-styled.g6[id="Header__StyleLiLink-sc-2c73rl-5"]{content:"YvSMa,"}
+.HedPV{margin:0 auto;max-width:39rem;min-width:320px;padding:2.275rem 1.21875rem;}
+data-styled.g7[id="Layout__StyledDiv-sc-1twk8tq-0"]{content:"HedPV,"}
+.bHSVSP{margin-bottom:6.5rem;}
+data-styled.g8[id="Layout__StyledMain-sc-1twk8tq-1"]{content:"bHSVSP,"}
+.fvBhoY{color:#000;margin-bottom:0.325rem;border-bottom:none;font-size:1.41421rem;font-weight:500;line-height:2.4375rem;}
+data-styled.g9[id="common__StyledH1Title-sc-93z372-0"]{content:"fvBhoY,"}
+.fNCiuf{margin-bottom:1.95rem;}
+data-styled.g10[id="PostHeader__StyledHeader-sc-77g6iv-0"]{content:"fNCiuf,"}
+.bnobUL{color:#898989;font-size:0.93303rem;line-height:1.625rem;}
+data-styled.g12[id="PostHeader__StyledTime-sc-77g6iv-2"]{content:"bnobUL,"}
+.bIAqZh{color:#898989;font-size:0.93303rem;line-height:1.625rem;}
+data-styled.g13[id="PostTags__StyledPTags-sc-1ielp4x-0"]{content:"bIAqZh,"}
+</style><style type="text/css">
+    .autolink-headers--.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .autolink-headers--.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .autolink-headers-- svg,
+    h2 .autolink-headers-- svg,
+    h3 .autolink-headers-- svg,
+    h4 .autolink-headers-- svg,
+    h5 .autolink-headers-- svg,
+    h6 .autolink-headers-- svg {
+      visibility: hidden;
+    }
+    h1:hover .autolink-headers-- svg,
+    h2:hover .autolink-headers-- svg,
+    h3:hover .autolink-headers-- svg,
+    h4:hover .autolink-headers-- svg,
+    h5:hover .autolink-headers-- svg,
+    h6:hover .autolink-headers-- svg,
+    h1 .autolink-headers--:focus svg,
+    h2 .autolink-headers--:focus svg,
+    h3 .autolink-headers--:focus svg,
+    h4 .autolink-headers--:focus svg,
+    h5 .autolink-headers--:focus svg,
+    h6 .autolink-headers--:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">심심풀이 LIFF 앱개발 | June</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU2MTI2NzdEQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU2MTI2NzdFQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTYxMjY3N0JDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTYxMjY3N0NDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MsIj9AAAFcUlEQVR42rxXa0wUVxQ+MwiSAgnyMLxLaRNE3lixNRVSAkkJFAilQKCQQHgINRgSY439UYs2xrQVGyg2EA0SSJGXIsFHIVBTKRKELluWXR67PEpdFlYLC8rCzN7pmTUQXdgFDTCbk0lm597vO9+993xnKI7jYDMXwzCmIpEoEO/GV69e/TImJqZ2aGhof39/v29mZuYl/llsbOyvtra2cnd3d4GpqemzTU3MEzAUs7OztleuXPkqODhYSNM0S1EU4Ye9HC8/MzIyYg8dOiQuLi4+MzMz47TR/Ab/rK2tPYrZTOoCbjacnZ1nysvLTxBC6NcioFKprHJycurfFFg3kpOTf0M1HDdFgJctLCysd6vAV+LgwYNDExMT7gYJzM/PW4WGhv611eArERAQMKKrxCsEsrOzb24X+ErExcXdZ1nWeA2B+vr6rO0GX4mysrLTqwRko6MwPTNj4+bmptgpApaWlguTk5OuYxPjQMunFXCjoSFTJpPthR26sLaYVVZWHsfEAUZkUrOgoCCxIcZWVlbEwcGBvGG2Ghyv0X3u6eEhlwwNWoNQKHzfiKb1Tp6YmMhJJBIyOjpKkpKSXgs8Pj6eHRgYWMaSzWBBW4PR1tYWBU1NTanrlVc+7OzsOB44PDycHDt2jBMIBBuqwGeL5ZizsbEhY2NjTGRkJNvX18cgeY1u+e7t7Q2iW1tbw3E3UuutFQ+M6wV37tyhUCkwMzMD9AO9a+vq6sq1tLSw5ubmJCoqikxNTVHd3d1gbW0NeKd0PIgquXz5BJ2WllZMv1iCNRcWJsre3h4wI8DMuOXlZcC6rpfAnj17wNHRkVpcXAQfHx/AO2lsbCR1dXXU8PDwKwRQAYiJjq6BhISEdn1y8lLevn2bw+xJV1cXwVLK4XE1uARFRUUsZrs0Pj7OyuVy5vz584y+d0tLS09DRUVFvr49sBLR0dEcnlt+0xBeiY32ga+vr0ahULDp6emsofdQ/Waoqak5uhEBPqRSKefn58dh88EPZNbZsMTb21u70QIDA/n1Z7A50Tsvj4nKfgi5ubkGbRcn5S5evMip1Wquo6NDg0HQsNZMnJqayiqVSiYvL29ZLBYzFy5cYDdKKiMjowl6enqCkc2aQoEdEHf37l3S3t6O+45wJSUlxNPTU29G/EY+deoU29DQsJyfn89sBI6Y3L179+LhjwcPPlnvBTzzHKpDTp48SbCYEBMTky33hIcPH4aAVCazwB5OqvsntlJayTs7O3kf33JwPE1K0cCAPfQKBFBUXFSwnkT+/v7a+3Y4YkFBwS9CUT/A9fo6GBCLHVxcXGZ3yo4tLCyW+oR97g2NjUAvqtUwv7Dw+Ny5c9/tlB2fPXv2EvYig6p5FdDGu3bB0MgwfHTkSGFKSsrv2w0eGREhwML2rUgiBmNjY9A6C4U/wd9C9pszZ744fPiwbLvAPTw8FN//+ENiv0T8fMVTXhCgKVhYWOCbk3/xEysCSUi3GhxryFR1dfWnjxWKwadPn6666qq38o6nmJ6Gscl/JNcqKkJwOe5vFThK/ggd8WPl7H/d6Cla6XkF8DsTjD77PG71RZ4Vr8ScSjWXkJBY5e3lxWClPIC2vPtNgLEdW8SSXJh3/Hja4MiwHA0KduGe4wgHe233wnvvuAFVdb16zUCNRqNV5IPAQGAZ9t3Gmzdzq6qq4rGzcdoM8L59+6awA7qBLdnPmJXoUU8Pnj9uVXY+8wP+AeC1f/86BPCkmpm/pWX4/NlzWFxSg7OTE5ia7LZRzc15ouE43Lp1Ky4rK+snNKmvQ0JCWtGinzQ3N0fjh00hrq+V89suf7KsZmoalxRLOKiXlkD5RLnazPAE/Hx8wdfbG/4XYACmHwCj2D06CgAAAABJRU5ErkJggg=="/><meta data-react-helmet="true" name="og:title" property="og:title" content="심심풀이 LIFF 앱개발"/><meta data-react-helmet="true" name="og:site_name" property="og:site_name" content="심심풀이 LIFF 앱개발"/><meta data-react-helmet="true" name="og:url" property="og:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="og:description" property="og:description" content="…"/><meta data-react-helmet="true" name="description" property="description" content="…"/><meta data-react-helmet="true" name="og:type" property="og:type" content="website"/><meta data-react-helmet="true" name="og:image" property="og:image"/><meta data-react-helmet="true" name="twitter:description" property="twitter:description" content="…"/><meta data-react-helmet="true" name="twitter:title" property="twitter:title" content="심심풀이 LIFF 앱개발"/><meta data-react-helmet="true" name="twitter:url" property="twitter:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:site" property="twitter:site" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:domain" property="twitter:domain" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:image" property="twitter:image"/><link as="script" rel="preload" href="/webpack-runtime-5ab011e68a90a6d90c9b.js"/><link as="script" rel="preload" href="/styles-3587c726462a045c8fe1.js"/><link as="script" rel="preload" href="/app-6d17006438cb290388c8.js"/><link as="script" rel="preload" href="/commons-18b81939df440dacfcba.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-93b3b010fa1c6bf08722.js"/><link as="fetch" rel="preload" href="/page-data/posts/liff-app/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout__StyledDiv-sc-1twk8tq-0 HedPV"><header class="Header__StyledHeader-sc-2c73rl-0 nRpiy"><h3 scale="[object Object]" class="Header__StyledH3-sc-2c73rl-1 bklxND"><a aria-current="page" class="Header__StyledLink-sc-2c73rl-2 sXWUv" href="/posts/liff-app">June</a></h3><ul class="Header__StyledUl-sc-2c73rl-3 gzNcZz"><li class="Header__StyledLi-sc-2c73rl-4 xeSmE"><a color="#898989" class="Header__StyleLiLink-sc-2c73rl-5 YvSMa" href="/">Posts</a></li><li class="Header__StyledLi-sc-2c73rl-4 xeSmE"><a color="#898989" class="Header__StyleLiLink-sc-2c73rl-5 YvSMa" href="/archive">Archive</a></li></ul></header><main class="Layout__StyledMain-sc-1twk8tq-1 bHSVSP"><article><header class="PostHeader__StyledHeader-sc-77g6iv-0 fNCiuf"><h1 scale="[object Object]" class="common__StyledH1Title-sc-93z372-0 fvBhoY">심심풀이 LIFF 앱개발</h1><p class="post-meta"><time dateTime="July 09, 2018" scale="[object Object]" class="PostHeader__StyledTime-sc-77g6iv-2 bnobUL">July 09, 2018</time></p></header><section><p>이직을 하고 한달도 되지 않아 회사가 이사를 하고, 집이 이사를 하고... 바쁘다는 핑계로
+방탕한(커밋을 하지 않으면 방탕한 인생이지...만 삶의 질이 올라갔다!) 삶을 보내고 있습니다.
+이런 삶을 좀 청산하고자... 블로그로 가벼운 스타트를 하려 합니다 ㅋㅋ</p>
+<hr>
+<p>책좀 읽고 뒹굴뒹굴 거리다 라인에서 <a href="https://engineering.linecorp.com/ko/blog/detail/299">LIFF</a>
+라는 프로젝트를 진행하고 있는 것을 보았습니다. 라인앱의 App Scheme을 만들어서 사용할 수 있게 해주는 프레임워크로,
+간단히 만드는 과정 및 후기를 남기려 합니다.</p>
+<p>만드는 과정을 설명한다곤 했으나, 이미 라인에서 훌륭한
+<a href="https://developers.line.me/en/docs/liff/overview/">가이드라인</a>을 작성해 놨습니다.
+훌륭한 독해 실력과! 리뷰따위는 필요가 없으신 고수님들은! (따흐흑) 가이드 라인을 따라가셔도 <del>안</del>됩니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fab66a5ac7f92f5a46d810dc1a39feb2/1320e/liff1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAAB/ElEQVQoz52T+WsTURDH97+tBVO1EfGgxKTNfdIcogZUrCYmbZPWVFQMBps2LS35QUQsbbIJiJKac3fTPZOv7z2aNkpa0AezM2+ODzOzPK60V8a8wwWnxweH20e0Hza7E0uJFKIPHjHb7vIQ8bI8X3ARBxUejWYbx63OH/LjuAXuQ6GIqWkTTDNmXJ2ZhemaGVNXTAguxnDf5mB3883bmCVy/cYt3LlrwbfDQ8iKjOFweCbkg1/tDritXdKh3QOXJwinO8C0bcGNZCqDn40GREmCqmpQFBWqpqEniMTXBz0MNKbbPRHcZmkfc5YFBrHOuxj83pyNjJzGpGMMBhDEc+BZhxTYFcAVd/ZhsTpgPQVSMAO+TLPiv4s0TYcgXQKs1L9jr1xGrVZHla+B5+uoVHkcVWtsxPFCBtSNy4FtQZo4mkx2Rvf2z8BWV2SOARlvJCSVLP4EivofwGZHgK7rMAwDOhViD9jiJfRPZGZT3yiHdt0lf9o4zTXGapqdHjihr0wceYiLj3FBUJJVcDvkpfj9fkQiEUSjUcRiMQQCASRepfA4HkcoFEI4HGYxalNfksRGNaM6n9eLfOETuC8HR1jJ5pDOrONh/AmevUhiZS2Hj5vbePM+j9X1DSSXM3hOniK1N97lUSiWsJx9zfKeLiWQzb1FanUN5c9f8RuuqkjU77k7vwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="liff1"
+        title="liff1"
+        src="/static/fab66a5ac7f92f5a46d810dc1a39feb2/e85cb/liff1.png"
+        srcset="/static/fab66a5ac7f92f5a46d810dc1a39feb2/070ae/liff1.png 120w,
+/static/fab66a5ac7f92f5a46d810dc1a39feb2/8ff5a/liff1.png 240w,
+/static/fab66a5ac7f92f5a46d810dc1a39feb2/e85cb/liff1.png 480w,
+/static/fab66a5ac7f92f5a46d810dc1a39feb2/37523/liff1.png 720w,
+/static/fab66a5ac7f92f5a46d810dc1a39feb2/d9199/liff1.png 960w,
+/static/fab66a5ac7f92f5a46d810dc1a39feb2/1320e/liff1.png 1292w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>오늘 만져볼 liff의 구현체는 위와 같은 모양으로 나올 겁니다. 여러 사이즈에 대한 App Scheme이
+미리 정의되어 있습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1d0d136be09067ef7d006787ed2c4153/8cdda/liff2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA+ElEQVQoz4WRSZKEIBBFuf/l3KlhdF3AgUFEAYffmalW1KLaJuL5EzTxKaooClRVhaZpUJalUNe15OvnJbltG3gcx8HXk8/6DaCcc7CE1gbeT3DjKMlMUxB2aj6uPd7g2/yASikjr6tYpJSwUp1zlprXI+WyLIjxzJswz9d6lJxpzj3KaA1rDUa2HAY4a8mKDT2cmGtJvj+SvXMjQgjUY2GMkeRnGO5RrLozx5VU7GS777tYfybb/zfU4CM6nzBMTEZnPAZ9Gt9v52TLvu/l0+4D+oYyIUGHLExxhZ0z8WxynvYfht0Y0ZJh6zNaO2Egi4V+9JPF06a/ATNuvb9lXIgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="liff2"
+        title="liff2"
+        src="/static/1d0d136be09067ef7d006787ed2c4153/e85cb/liff2.png"
+        srcset="/static/1d0d136be09067ef7d006787ed2c4153/070ae/liff2.png 120w,
+/static/1d0d136be09067ef7d006787ed2c4153/8ff5a/liff2.png 240w,
+/static/1d0d136be09067ef7d006787ed2c4153/e85cb/liff2.png 480w,
+/static/1d0d136be09067ef7d006787ed2c4153/37523/liff2.png 720w,
+/static/1d0d136be09067ef7d006787ed2c4153/d9199/liff2.png 960w,
+/static/1d0d136be09067ef7d006787ed2c4153/8cdda/liff2.png 1168w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>계정을 만들고, 앱을 만들어서 배포하고, LIFF에 App을 등록하는 순서대로 진행하겠습니다.</p>
+<hr>
+<h2 id="1-계정계" style="position:relative;">1. 계정계<a href="#1-%EA%B3%84%EC%A0%95%EA%B3%84" aria-label="1 계정계 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>가장 기본적으로 라인 App Scheme에 등록할 앱을 등록할
+<a href="https://developers.line.me/en/docs/liff/getting-started/#spy-creating-a-channel">계정</a>
+을 만듭니다. 계정을 만들고 나서는 <code class="language-text">Provider</code>와 <code class="language-text">Channel</code>을 만들어 주셔야 합니다.
+<code class="language-text">Provider</code>는 제공할 기능들에 대한 그룹, <code class="language-text">Channel</code>은 그룹에 대한 제공할 기능 단위라고 생각해주시면 됩니다.</p>
+<h3 id="꿀팁" style="position:relative;">꿀팁<a href="#%EA%BF%80%ED%8C%81" aria-label="꿀팁 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p>문서에는 안나와있고, 해보면 알 수 있는 부분이지만 <code class="language-text">Channel</code>을 만들 때, 2가지 경우가 있습니다.
+바로 <code class="language-text">Login API</code>, <code class="language-text">Message API</code>가 있는데요, 문서에는 <code class="language-text">Message API</code>만 만들어서 보여주기 때문에
+뭘 선택하라는 거지... 했습니다. 두 가지 케이스는 동일하고 이름에서 보이듯 <code class="language-text">Login API</code>에서는
+<code class="language-text">Message API</code>전에 앱에 대한 로그인이 추가되는 API 입니다.
+(아마 앱에다가 로그인 세션을 넣어주기 위해 재로그인 하는 듯 하다!)</p>
+<p>우리가 할 테스트엔 Login이 따로 필요 없으니, <code class="language-text">Message API</code>로 충분합니다.</p>
+<h2 id="2-앱-개발--배포" style="position:relative;">2. 앱 개발 &#x26; 배포<a href="#2-%EC%95%B1-%EA%B0%9C%EB%B0%9C--%EB%B0%B0%ED%8F%AC" aria-label="2 앱 개발  배포 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<h3 id="2-1-앱-개발" style="position:relative;">2-1. 앱 개발<a href="#2-1-%EC%95%B1-%EA%B0%9C%EB%B0%9C" aria-label="2 1 앱 개발 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p>앱을 개발해줍니다. 문서에서는 heroku로 배포하는 것으로 되어있는데요, SSL 인증이 들어간 https 프로토콜로
+만들어진 도메인이라면 굳이 heroku로 배포할 필요 없이, 본인이 배포할 서버로 넣어주시면 됩니다.</p>
+<h3 id="2-2-배포" style="position:relative;">2-2. 배포<a href="#2-2-%EB%B0%B0%ED%8F%AC" aria-label="2 2 배포 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p><a href="https://github.com/line/line-liff-starter">line-liff-starter</a>로 만들어진 프로젝트를
+heroku에 배포하여 테스트 해볼 수 있는데요! 오늘 배포는 이 프로젝트로 진행할 예정입니다.
+(앱 개발에 대해서는 추후에)</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/15d67376b880bbaa648a3d62858b807c/27f8b/liff3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABGklEQVQoz6WS20rDQBCG8/4voBfeK/ggoojgRbG1pUkb2yRtk81hjXtI8rlJqCCCxTrw8e8Mw+4c1quqiul0hh+s8P2A1WpNGL5xrnlSSuI4IYpitttoYB2GKKXRemQ8my9fG4syLdq2gx5p2g6vrmuyTJCm2YAQOaWr+hgbNR3iadb7LqeQHEqLkHbQI/2lXp7nBEFA4C9Jkpj/mauw6zpyadgcFPvCaaqIhGaX6/FlIekfTXZ7pwV9/m94bdsQZ4rZ1jCPNJusQTfgxoFpOoxtsNZijBn05FKU+qAoBZUsKWWFrEpXiaCu38/b8n4neLib8Hj/wvPTYvg6S0ec7FwLnGzxR8uLSc7N5Zzri1durxbfR/zHy3o+Ad/qufsxrKr0AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="liff3"
+        title="liff3"
+        src="/static/15d67376b880bbaa648a3d62858b807c/e85cb/liff3.png"
+        srcset="/static/15d67376b880bbaa648a3d62858b807c/070ae/liff3.png 120w,
+/static/15d67376b880bbaa648a3d62858b807c/8ff5a/liff3.png 240w,
+/static/15d67376b880bbaa648a3d62858b807c/e85cb/liff3.png 480w,
+/static/15d67376b880bbaa648a3d62858b807c/37523/liff3.png 720w,
+/static/15d67376b880bbaa648a3d62858b807c/d9199/liff3.png 960w,
+/static/15d67376b880bbaa648a3d62858b807c/27f8b/liff3.png 1730w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>위 링크를 타고 들어가 보라색 버튼의 heroku를 클릭하여 heroku에 배포할 수 있습니다.
+(계정은 직접 만들어주세요)</p>
+<p>그럼 간단한 [테스트용 웹페이지]((<a href="https://liff-starter-test-app.herokuapp.com/">https://liff-starter-test-app.herokuapp.com/</a>)가 나옵니다.
+비어있는 정보들에 대해선 liff의 데이터가 들어가니, liff에 추가된 후 확인해 봅시다.</p>
+<h2 id="3-스크립팅" style="position:relative;">3. 스크립팅<a href="#3-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8C%85" aria-label="3 스크립팅 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>몇번의 스크립트를 넣는 작업이 필요합니다. 계정의 access<em>token을 얻고, 해당하는 access</em>token에
+App을 등록하는 작업입니다. 물론 넣은 이후에 url이나 화면의 타입 (Compact, Tall, Full)을
+바꾸는 스크립트, 등록된 App list를 확인하는 스크립트, 등록된 App을 지우는 스크립트 등이 있습니다.</p>
+<h3 id="3-1-access_token-얻기" style="position:relative;">3-1. access_token 얻기<a href="#3-1-access_token-%EC%96%BB%EA%B8%B0" aria-label="3 1 access_token 얻기 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">curl</span> -v -X POST https://api.line.me/v2/oauth/accessToken <span class="token punctuation">\</span>
+-H <span class="token string">"Content-Type:application/x-www-form-urlencoded"</span> <span class="token punctuation">\</span>
+--data-urlencode <span class="token string">'grant_type=client_credentials'</span> <span class="token punctuation">\</span>
+--data-urlencode <span class="token string">'client_id={ channel ID }'</span> <span class="token punctuation">\</span>
+--data-urlencode <span class="token string">'client_secret={ channel secret }'</span>
+
+<span class="token comment"># 보기좋게 정렬한 Response</span>
+<span class="token comment"># {</span>
+<span class="token comment">#   "access_token": "blahblah",</span>
+<span class="token comment">#   "expires_in": 2592000,</span>
+<span class="token comment">#   "token_type": "Bearer"</span>
+<span class="token comment"># }</span></code></pre></div>
+<h3 id="3-2-liff에-App-등록" style="position:relative;">3-2. liff에 App 등록<a href="#3-2-liff%EC%97%90-App-%EB%93%B1%EB%A1%9D" aria-label="3 2 liff에 App 등록 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">curl</span> -X POST https://api.line.me/liff/v1/apps <span class="token punctuation">\</span>
+-H <span class="token string">"Authorization: Bearer { channel access_token }"</span> <span class="token punctuation">\</span>
+-H <span class="token string">"Content-Type: application/json"</span> <span class="token punctuation">\</span>
+-d <span class="token string">'{
+  "view": {
+    "type": "full",
+    "url": "https://liff-starter-test-app.herokuapp.com/"
+  }
+}'</span>
+
+<span class="token comment"># 보기좋게 정렬한 Response</span>
+<span class="token comment"># {</span>
+<span class="token comment">#   "liffId": "1142586872-1234567"</span>
+<span class="token comment"># }</span></code></pre></div>
+<h2 id="3-테스트하기" style="position:relative;">3. 테스트하기!<a href="#3-%ED%85%8C%EC%8A%A4%ED%8A%B8%ED%95%98%EA%B8%B0" aria-label="3 테스트하기 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p><code class="language-text">line://app/{ liffId }</code> 링크로 이동하면 됩니다. (Line App을 설치한 모바일에서만 가능)</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2755ab8b3894d716dd903b7554ae6313/6b964/liff4.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 129.99999999999997%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAaABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEBgP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABkfSqmWNaVw4UtLGWB//EABwQAAEEAwEAAAAAAAAAAAAAAAEAAgMQERMUEv/aAAgBAQABBQIQPcucrVLWDTk/f7HQjf8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFhEAAwAAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/ASv/xAAkEAABAQQLAAAAAAAAAAAAAAAAAQIQEyISICEjMTJBYoGRkv/aAAgBAQAGPwKZGk4MV8mRrosNH3cOjuJodT//xAAeEAADAAIBBQAAAAAAAAAAAAAAAREhYRAxQXGBkf/aAAgBAQABPyG19G6XnZ2JgbbU69iS1PIwRRbN/YpjyvVFV5//2gAMAwEAAgADAAAAEE8ZAP/EABYRAQEBAAAAAAAAAAAAAAAAABEAEP/aAAgBAwEBPxAjf//EABYRAAMAAAAAAAAAAAAAAAAAAAERIP/aAAgBAgEBPxBmH//EABsQAQADAQEBAQAAAAAAAAAAAAEAETEhQWGB/9oACAEBAAE/EHvJbcTI+olgHDG0ZJQfCEQkDlg2ItqIm1sLPk7VQVTrXcgs2eVpUQrB/IZHZ//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="liff4"
+        title="liff4"
+        src="/static/2755ab8b3894d716dd903b7554ae6313/7cc5e/liff4.jpg"
+        srcset="/static/2755ab8b3894d716dd903b7554ae6313/e439a/liff4.jpg 120w,
+/static/2755ab8b3894d716dd903b7554ae6313/09b79/liff4.jpg 240w,
+/static/2755ab8b3894d716dd903b7554ae6313/7cc5e/liff4.jpg 480w,
+/static/2755ab8b3894d716dd903b7554ae6313/6b964/liff4.jpg 537w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>결과는 위 이미지처럼 나오게 됩니다. (기존 url로 들어갔을 때와는 다르게 정보들이 채워집니다.
+liff에서 데이터를 가진 object를 내려줬기 때문이죠)</p>
+<h2 id="4-마무리" style="position:relative;">4. 마무리<a href="#4-%EB%A7%88%EB%AC%B4%EB%A6%AC" aria-label="4 마무리 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>위 예제들이 기본이고, 이를 활용한 앱을 만들면 됩니다.
+(물론 저도 이달안에 만들 앱에 대한 고민을 해놓음!)</p>
+<h3 id="참고-1-Login-API" style="position:relative;">참고 1. Login API<a href="#%EC%B0%B8%EA%B3%A0-1-Login-API" aria-label="참고 1 Login API permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p>제일 처음에 <code class="language-text">Channel</code>을 만들 때, <code class="language-text">Login API</code>를 선택한다면</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6ebd89374c8ee5cd67b81ee56b9058f3/d6a76/liff5.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 178.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAECBQP/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQME/9oADAMBAAIQAxAAAAHtbVlMprClqllIw+pMbDHn/8QAGhAAAQUBAAAAAAAAAAAAAAAAAAECAxMUMP/aAAgBAQABBQLGhhQxcrZBsjyx5//EABkRAAIDAQAAAAAAAAAAAAAAAAABAxIgIf/aAAgBAwEBPwHEj4WZ/8QAGBEAAgMAAAAAAAAAAAAAAAAAABECEDH/2gAIAQIBAT8BY7ngz//EABwQAAEEAwEAAAAAAAAAAAAAAAABMjORAiAxEP/aAAgBAQAGPwKTKiRaJFrTmnfHqOUcp//EABsQAAICAwEAAAAAAAAAAAAAAAABEBEhMUFx/9oACAEBAAE/IXmtg0cBUHXNtPYsseGWF7AMLMQf/9oADAMBAAIAAwAAABB8MzyIL//EABgRAAMBAQAAAAAAAAAAAAAAAAABERBh/9oACAEDAQE/EITXJYzqf//EABgRAAMBAQAAAAAAAAAAAAAAAAARIRBR/9oACAECAQE/EGG2YG6f/8QAIhABAAIBAwMFAAAAAAAAAAAAAQARITFRgUFx0WGRobHx/9oACAEBAAE/EG9wUVfmL6GmMPMBA0/R5heAOWA3kK7yiWlcVFwT0SKvRYraQl9ntGpm3EuH7YNUZ3n70//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="liff5"
+        title="liff5"
+        src="/static/6ebd89374c8ee5cd67b81ee56b9058f3/7cc5e/liff5.jpg"
+        srcset="/static/6ebd89374c8ee5cd67b81ee56b9058f3/e439a/liff5.jpg 120w,
+/static/6ebd89374c8ee5cd67b81ee56b9058f3/09b79/liff5.jpg 240w,
+/static/6ebd89374c8ee5cd67b81ee56b9058f3/7cc5e/liff5.jpg 480w,
+/static/6ebd89374c8ee5cd67b81ee56b9058f3/d6a76/liff5.jpg 539w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>라는 화면 이 먼저 뜨게 됩니다.</p>
+<h3 id="참고-2-sendMessage" style="position:relative;">참고 2. sendMessage<a href="#%EC%B0%B8%EA%B3%A0-2-sendMessage" aria-label="참고 2 sendMessage permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/459225572c71a0a43a4e8cac4d61879f/b542f/liff6.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 129.16666666666669%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAaABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABmasiQy2HQ6XtWCw//8QAHBAAAgEFAQAAAAAAAAAAAAAAAQIAAxAREhMh/9oACAEBAAEFAtGM5GavArMOTwjBpFdMpKnrm/8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAHRAAAgEEAwAAAAAAAAAAAAAAABEBAiBBkSExMv/aAAgBAQAGPwLl6M6OpHSYFIpqR6Js/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARITGRURD/2gAIAQEAAT8hL+ONGcIp1xikMHsLMHRETYQSFl7Cy69iFjZNvv8A/9oADAMBAAIAAwAAABA8Nzz/xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8QI3//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQIBAT8QZ3//xAAdEAEBAQEAAgMBAAAAAAAAAAABEQAhMUFRcbGB/9oACAEBAAE/EHIfam6n8bvF4svyxoFIqn7kgv8ActjYDkly6huMc5jwFHzGMujxPfN+WPGd/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="liff6"
+        title="liff6"
+        src="/static/459225572c71a0a43a4e8cac4d61879f/7cc5e/liff6.jpg"
+        srcset="/static/459225572c71a0a43a4e8cac4d61879f/e439a/liff6.jpg 120w,
+/static/459225572c71a0a43a4e8cac4d61879f/09b79/liff6.jpg 240w,
+/static/459225572c71a0a43a4e8cac4d61879f/7cc5e/liff6.jpg 480w,
+/static/459225572c71a0a43a4e8cac4d61879f/b542f/liff6.jpg 535w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><a href="https://github.com/line/line-liff-starter/issues/1">line-liff-starter issue</a>
+에서 보실 수 있듯이 특정 디바이스에서의 <code class="language-text">sendMessage 버튼</code>을 누르면 위와 같은 이슈가 나타납니다.
+이점 유의해서 테스트 해주세요.</p>
+<hr>
+<p>오랜만에 블로그 글을 쓰려니 간단한 리뷰임에도 시간이 조금 걸렸습니다.
+이런 식으로 App Scheme을 사용자가 생성하도록 공유하는 방식은 개인적으로 처음 보았는데
+활용함에 따라 개발 유저들을 끌어들일 수 있는 요소가 될 수 있다고 느꼈습니다.
+위에 작성한대로 이달 안에 뭔가 재밌는걸 해보려고 하는데 저도 기대되네요 ㅎㅎ</p></section><hr style="margin-bottom:1.625rem"/><footer style="color:#898989"><p scale="[object Object]" class="PostTags__StyledPTags-sc-1ielp4x-0 bIAqZh">#Line <!-- -->#LIFF </p></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"></ul></nav></main><footer style="text-align:center"><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://github.com/jicjjang" target="_blank"><img src="/static/b33838e421fcf2eaeb2da472c1e32060/github.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.instagram.com/jicjjang" target="_blank"><img src="/static/64b2774f0c50daac23fd881877dae854/instagram.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.linkedin.com/in/jicjjang" target="_blank"><img src="/static/3e51027afe6b45fb6d7b38b1e194dcbb/linkedin.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="mailto:jicjjang12@gmail.com" target="_blank"><img src="/static/ababfdf6167a3ee6c8f91dd6d29c765d/mail.png" style="display:block;width:100%"/></a></span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-59806888-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/liff-app";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-6d17006438cb290388c8.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-93b3b010fa1c6bf08722.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-fd6c8a177f9424398b23.js"],"component---src-pages-archive-tsx":["/component---src-pages-archive-tsx-8b006ad13687039cacba.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-8e055f10e58d1f240194.js"],"component---src-pages-presentation-tsx":["/component---src-pages-presentation-tsx-cd282e42a44a460a159e.js"],"component---src-pages-resume-tsx":["/component---src-pages-resume-tsx-4f3cc286dbf22caef177.js"]};/*]]>*/</script><script src="/component---src-templates-post-template-tsx-93b3b010fa1c6bf08722.js" async=""></script><script src="/commons-18b81939df440dacfcba.js" async=""></script><script src="/app-6d17006438cb290388c8.js" async=""></script><script src="/styles-3587c726462a045c8fe1.js" async=""></script><script src="/webpack-runtime-5ab011e68a90a6d90c9b.js" async=""></script></body></html>

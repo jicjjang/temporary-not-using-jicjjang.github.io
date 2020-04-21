@@ -1,0 +1,369 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><style data-href="/styles.8bc7d8bd447b1029c4d8.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.gatsby-highlight-code-line{background-color:rgba(27,31,35,.05);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #f99}.gatsby-highlight{background-color:#f6f8fa;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%}:not(pre)>code[class*=language-]{background:rgba(27,31,35,.05)}</style><meta name="generator" content="Gatsby 2.19.45"/><style data-styled="" data-styled-version="5.0.1">.nRpiy{margin-top:0;margin-bottom:1.95rem;}
+data-styled.g1[id="Header__StyledHeader-sc-2c73rl-0"]{content:"nRpiy,"}
+.bklxND{display:inline-block;margin:0;font-size:2.2974rem;line-height:3.25rem;}
+data-styled.g2[id="Header__StyledH3-sc-2c73rl-1"]{content:"bklxND,"}
+.sXWUv{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:#000;}
+data-styled.g3[id="Header__StyledLink-sc-2c73rl-2"]{content:"sXWUv,"}
+.gzNcZz{float:right;display:inline-block;margin:18px 0;}
+.gzNcZz:after{content:'';display:table;clear:both;}
+@media (max-width:650px){.gzNcZz{display:block;float:none;text-align:center;border-bottom:2px solid #cfcdcd;}}
+data-styled.g4[id="Header__StyledUl-sc-2c73rl-3"]{content:"gzNcZz,"}
+.xeSmE{display:inline-block;padding:0 15px;list-style-type:none;vertical-align:middle;font-size:16px;}
+@media (max-width:450px){.xeSmE{padding:0 8px;font-size:14px;}}
+data-styled.g5[id="Header__StyledLi-sc-2c73rl-4"]{content:"xeSmE,"}
+.YvSMa{color:#898989;}
+data-styled.g6[id="Header__StyleLiLink-sc-2c73rl-5"]{content:"YvSMa,"}
+.HedPV{margin:0 auto;max-width:39rem;min-width:320px;padding:2.275rem 1.21875rem;}
+data-styled.g7[id="Layout__StyledDiv-sc-1twk8tq-0"]{content:"HedPV,"}
+.bHSVSP{margin-bottom:6.5rem;}
+data-styled.g8[id="Layout__StyledMain-sc-1twk8tq-1"]{content:"bHSVSP,"}
+.fvBhoY{color:#000;margin-bottom:0.325rem;border-bottom:none;font-size:1.41421rem;font-weight:500;line-height:2.4375rem;}
+data-styled.g9[id="common__StyledH1Title-sc-93z372-0"]{content:"fvBhoY,"}
+.fNCiuf{margin-bottom:1.95rem;}
+data-styled.g10[id="PostHeader__StyledHeader-sc-77g6iv-0"]{content:"fNCiuf,"}
+.bnobUL{color:#898989;font-size:0.93303rem;line-height:1.625rem;}
+data-styled.g12[id="PostHeader__StyledTime-sc-77g6iv-2"]{content:"bnobUL,"}
+.bIAqZh{color:#898989;font-size:0.93303rem;line-height:1.625rem;}
+data-styled.g13[id="PostTags__StyledPTags-sc-1ielp4x-0"]{content:"bIAqZh,"}
+</style><style type="text/css">
+    .autolink-headers--.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .autolink-headers--.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .autolink-headers-- svg,
+    h2 .autolink-headers-- svg,
+    h3 .autolink-headers-- svg,
+    h4 .autolink-headers-- svg,
+    h5 .autolink-headers-- svg,
+    h6 .autolink-headers-- svg {
+      visibility: hidden;
+    }
+    h1:hover .autolink-headers-- svg,
+    h2:hover .autolink-headers-- svg,
+    h3:hover .autolink-headers-- svg,
+    h4:hover .autolink-headers-- svg,
+    h5:hover .autolink-headers-- svg,
+    h6:hover .autolink-headers-- svg,
+    h1 .autolink-headers--:focus svg,
+    h2 .autolink-headers--:focus svg,
+    h3 .autolink-headers--:focus svg,
+    h4 .autolink-headers--:focus svg,
+    h5 .autolink-headers--:focus svg,
+    h6 .autolink-headers--:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">자바스크립트 성능 최적화 2 | June</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU2MTI2NzdEQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU2MTI2NzdFQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTYxMjY3N0JDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTYxMjY3N0NDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MsIj9AAAFcUlEQVR42rxXa0wUVxQ+MwiSAgnyMLxLaRNE3lixNRVSAkkJFAilQKCQQHgINRgSY439UYs2xrQVGyg2EA0SSJGXIsFHIVBTKRKELluWXR67PEpdFlYLC8rCzN7pmTUQXdgFDTCbk0lm597vO9+993xnKI7jYDMXwzCmIpEoEO/GV69e/TImJqZ2aGhof39/v29mZuYl/llsbOyvtra2cnd3d4GpqemzTU3MEzAUs7OztleuXPkqODhYSNM0S1EU4Ye9HC8/MzIyYg8dOiQuLi4+MzMz47TR/Ab/rK2tPYrZTOoCbjacnZ1nysvLTxBC6NcioFKprHJycurfFFg3kpOTf0M1HDdFgJctLCysd6vAV+LgwYNDExMT7gYJzM/PW4WGhv611eArERAQMKKrxCsEsrOzb24X+ErExcXdZ1nWeA2B+vr6rO0GX4mysrLTqwRko6MwPTNj4+bmptgpApaWlguTk5OuYxPjQMunFXCjoSFTJpPthR26sLaYVVZWHsfEAUZkUrOgoCCxIcZWVlbEwcGBvGG2Ghyv0X3u6eEhlwwNWoNQKHzfiKb1Tp6YmMhJJBIyOjpKkpKSXgs8Pj6eHRgYWMaSzWBBW4PR1tYWBU1NTanrlVc+7OzsOB44PDycHDt2jBMIBBuqwGeL5ZizsbEhY2NjTGRkJNvX18cgeY1u+e7t7Q2iW1tbw3E3UuutFQ+M6wV37tyhUCkwMzMD9AO9a+vq6sq1tLSw5ubmJCoqikxNTVHd3d1gbW0NeKd0PIgquXz5BJ2WllZMv1iCNRcWJsre3h4wI8DMuOXlZcC6rpfAnj17wNHRkVpcXAQfHx/AO2lsbCR1dXXU8PDwKwRQAYiJjq6BhISEdn1y8lLevn2bw+xJV1cXwVLK4XE1uARFRUUsZrs0Pj7OyuVy5vz584y+d0tLS09DRUVFvr49sBLR0dEcnlt+0xBeiY32ga+vr0ahULDp6emsofdQ/Waoqak5uhEBPqRSKefn58dh88EPZNbZsMTb21u70QIDA/n1Z7A50Tsvj4nKfgi5ubkGbRcn5S5evMip1Wquo6NDg0HQsNZMnJqayiqVSiYvL29ZLBYzFy5cYDdKKiMjowl6enqCkc2aQoEdEHf37l3S3t6O+45wJSUlxNPTU29G/EY+deoU29DQsJyfn89sBI6Y3L179+LhjwcPPlnvBTzzHKpDTp48SbCYEBMTky33hIcPH4aAVCazwB5OqvsntlJayTs7O3kf33JwPE1K0cCAPfQKBFBUXFSwnkT+/v7a+3Y4YkFBwS9CUT/A9fo6GBCLHVxcXGZ3yo4tLCyW+oR97g2NjUAvqtUwv7Dw+Ny5c9/tlB2fPXv2EvYig6p5FdDGu3bB0MgwfHTkSGFKSsrv2w0eGREhwML2rUgiBmNjY9A6C4U/wd9C9pszZ744fPiwbLvAPTw8FN//+ENiv0T8fMVTXhCgKVhYWOCbk3/xEysCSUi3GhxryFR1dfWnjxWKwadPn6666qq38o6nmJ6Gscl/JNcqKkJwOe5vFThK/ggd8WPl7H/d6Cla6XkF8DsTjD77PG71RZ4Vr8ScSjWXkJBY5e3lxWClPIC2vPtNgLEdW8SSXJh3/Hja4MiwHA0KduGe4wgHe233wnvvuAFVdb16zUCNRqNV5IPAQGAZ9t3Gmzdzq6qq4rGzcdoM8L59+6awA7qBLdnPmJXoUU8Pnj9uVXY+8wP+AeC1f/86BPCkmpm/pWX4/NlzWFxSg7OTE5ia7LZRzc15ouE43Lp1Ky4rK+snNKmvQ0JCWtGinzQ3N0fjh00hrq+V89suf7KsZmoalxRLOKiXlkD5RLnazPAE/Hx8wdfbG/4XYACmHwCj2D06CgAAAABJRU5ErkJggg=="/><meta data-react-helmet="true" name="og:title" property="og:title" content="자바스크립트 성능 최적화 2"/><meta data-react-helmet="true" name="og:site_name" property="og:site_name" content="자바스크립트 성능 최적화 2"/><meta data-react-helmet="true" name="og:url" property="og:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="og:description" property="og:description" content="1장에 이어서 2장도 바로 진행하겠습니다~ 2. 데이터 접근 데이터는 총 4개의 형식으로 이루어집니다. 리터럴 값 (Number, boolean, Object, Array, Function, Regex, null, undefined…"/><meta data-react-helmet="true" name="description" property="description" content="1장에 이어서 2장도 바로 진행하겠습니다~ 2. 데이터 접근 데이터는 총 4개의 형식으로 이루어집니다. 리터럴 값 (Number, boolean, Object, Array, Function, Regex, null, undefined…"/><meta data-react-helmet="true" name="og:type" property="og:type" content="website"/><meta data-react-helmet="true" name="og:image" property="og:image"/><meta data-react-helmet="true" name="twitter:description" property="twitter:description" content="1장에 이어서 2장도 바로 진행하겠습니다~ 2. 데이터 접근 데이터는 총 4개의 형식으로 이루어집니다. 리터럴 값 (Number, boolean, Object, Array, Function, Regex, null, undefined…"/><meta data-react-helmet="true" name="twitter:title" property="twitter:title" content="자바스크립트 성능 최적화 2"/><meta data-react-helmet="true" name="twitter:url" property="twitter:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:site" property="twitter:site" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:domain" property="twitter:domain" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:image" property="twitter:image"/><link as="script" rel="preload" href="/webpack-runtime-5ab011e68a90a6d90c9b.js"/><link as="script" rel="preload" href="/styles-3587c726462a045c8fe1.js"/><link as="script" rel="preload" href="/app-6d17006438cb290388c8.js"/><link as="script" rel="preload" href="/commons-18b81939df440dacfcba.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-93b3b010fa1c6bf08722.js"/><link as="fetch" rel="preload" href="/page-data/posts/javascript-optimize-2/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout__StyledDiv-sc-1twk8tq-0 HedPV"><header class="Header__StyledHeader-sc-2c73rl-0 nRpiy"><h3 scale="[object Object]" class="Header__StyledH3-sc-2c73rl-1 bklxND"><a aria-current="page" class="Header__StyledLink-sc-2c73rl-2 sXWUv" href="/posts/javascript-optimize-2">June</a></h3><ul class="Header__StyledUl-sc-2c73rl-3 gzNcZz"><li class="Header__StyledLi-sc-2c73rl-4 xeSmE"><a color="#898989" class="Header__StyleLiLink-sc-2c73rl-5 YvSMa" href="/">Posts</a></li><li class="Header__StyledLi-sc-2c73rl-4 xeSmE"><a color="#898989" class="Header__StyleLiLink-sc-2c73rl-5 YvSMa" href="/archive">Archive</a></li></ul></header><main class="Layout__StyledMain-sc-1twk8tq-1 bHSVSP"><article><header class="PostHeader__StyledHeader-sc-77g6iv-0 fNCiuf"><h1 scale="[object Object]" class="common__StyledH1Title-sc-93z372-0 fvBhoY">자바스크립트 성능 최적화 2</h1><p class="post-meta"><time dateTime="May 18, 2017" scale="[object Object]" class="PostHeader__StyledTime-sc-77g6iv-2 bnobUL">May 18, 2017</time></p></header><section><p>1장에 이어서 2장도 바로 진행하겠습니다~</p>
+<h2 id="2-데이터-접근" style="position:relative;">2. 데이터 접근<a href="#2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%91%EA%B7%BC" aria-label="2 데이터 접근 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>데이터는 총 4개의 형식으로 이루어집니다.</p>
+<ol>
+<li>리터럴 값 (Number, boolean, Object, Array, Function, Regex, null, undefined)</li>
+<li>변수</li>
+<li>배열 항목</li>
+<li>객체 맴버</li>
+</ol>
+<p>각 데이터 저장 위치와 브라우저마다 I/O 시간이 모두 다릅니다.</p>
+<h3 id="2-1-스코프-관리" style="position:relative;">2-1. 스코프 관리<a href="#2-1-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B4%80%EB%A6%AC" aria-label="2 1 스코프 관리 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p>자바스크립트의 함수는 객체 (Function의 인스턴스) 입니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> sum <span class="token operator">=</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>간단한 add 함수가 있을 때, add 함수의 scope chain 입니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/55129c19ed8cd4fa8b18a14547ef9461/e9b2c/scope1.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 35.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAIDBf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB0qDNkD//xAAYEAACAwAAAAAAAAAAAAAAAAABAgARMf/aAAgBAQABBQI6wap//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGBAAAgMAAAAAAAAAAAAAAAAAACEBEDH/2gAIAQEABj8C0Uuv/8QAGRAAAgMBAAAAAAAAAAAAAAAAABEBITFR/9oACAEBAAE/IY6dcKCYWoen/9oADAMBAAIAAwAAABBwH//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAQEBAQEBAAAAAAAAAAAAAAERACFRcf/aAAgBAQABPxBWYRJCX3ddg9WHMABWC/d//9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="scope1"
+        title="scope1"
+        src="/static/55129c19ed8cd4fa8b18a14547ef9461/7cc5e/scope1.jpg"
+        srcset="/static/55129c19ed8cd4fa8b18a14547ef9461/e439a/scope1.jpg 120w,
+/static/55129c19ed8cd4fa8b18a14547ef9461/09b79/scope1.jpg 240w,
+/static/55129c19ed8cd4fa8b18a14547ef9461/7cc5e/scope1.jpg 480w,
+/static/55129c19ed8cd4fa8b18a14547ef9461/80e3c/scope1.jpg 720w,
+/static/55129c19ed8cd4fa8b18a14547ef9461/6a068/scope1.jpg 960w,
+/static/55129c19ed8cd4fa8b18a14547ef9461/e9b2c/scope1.jpg 1758w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>이 add 함수를 실행할 때의 scope chain의 변화 입니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> total <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/edc65000570fb1b7c79a9dfc4428e94e/6eed6/scope2.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 60.83333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEDBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAehLVDNQw//EABkQAQADAQEAAAAAAAAAAAAAAAECERIAIv/aAAgBAQABBQJk6kuYPl5LAo//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAAABwEAAAAAAAAAAAAAAAAAARESICFBUf/aAAgBAQAGPwJG10Hkf//EABkQAAMBAQEAAAAAAAAAAAAAAAABESEQsf/aAAgBAQABPyH0gNVRZdvKGJipI//aAAwDAQACAAMAAAAQCD//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxBH/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARITFB/9oACAEBAAE/ELK0DUEIFOIsRKutW/YCpclTmTdSD7P/2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="scope2"
+        title="scope2"
+        src="/static/edc65000570fb1b7c79a9dfc4428e94e/7cc5e/scope2.jpg"
+        srcset="/static/edc65000570fb1b7c79a9dfc4428e94e/e439a/scope2.jpg 120w,
+/static/edc65000570fb1b7c79a9dfc4428e94e/09b79/scope2.jpg 240w,
+/static/edc65000570fb1b7c79a9dfc4428e94e/7cc5e/scope2.jpg 480w,
+/static/edc65000570fb1b7c79a9dfc4428e94e/80e3c/scope2.jpg 720w,
+/static/edc65000570fb1b7c79a9dfc4428e94e/6a068/scope2.jpg 960w,
+/static/edc65000570fb1b7c79a9dfc4428e94e/6eed6/scope2.jpg 1790w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Activeation object는 생성이 될때마다 만들어졌다 파괴되었다를 반복합니다. 변수를 할당하거나 계산할 때, 등등에서 자신의 값에 맞는 변수를 찾기 위해 scope chain을 검색합니다.
+Activation object에 값이 있다면 할당을, 없으면 Global object에서 다시 검색을 진행합니다. 이 검색의 과정이 복잡할수록 성능이 떨어집니다.
+성능 개선을 위해선 최대한 지역 변수, Global object에 있는 값들을 사용해야 합니다.</p>
+<p>반복되는 전역객체는 할당 후 사용을 해야합니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">,</span>
+link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span>getElementById<span class="token operator">...</span></code></pre></div>
+<p>가 아닌</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> doc <span class="token operator">=</span> document<span class="token punctuation">,</span>
+bd <span class="token operator">=</span> doc<span class="token punctuation">.</span>body<span class="token punctuation">,</span>
+link <span class="token operator">=</span> doc<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+
+doc<span class="token punctuation">.</span>getElementById<span class="token operator">...</span></code></pre></div>
+<p>와 같은 작업이 필요합니다. 이 예제는 매우 간단하지만 수십, 수백번 전역 객체에 접근을 매번 새로한다고 생각하면 끔찍하네요.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">assignEvents</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> id <span class="token operator">=</span> <span class="token string">'xdi9592'</span><span class="token punctuation">;</span>
+
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'save-btn'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">saveDocument</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>클로저를 생각해봅시다. 함수안에 함수가 존재하네요. 이런 경우에는 scope chain을 공유하게 됩니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cec4d1c4967727bb4ce3a32b56703d7b/d2602/closure1.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwACBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAHo4cBSKL//xAAZEAEAAwEBAAAAAAAAAAAAAAABAhEhEkH/2gAIAQEAAQUCvkZZBs8kWRw//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGBAAAgMAAAAAAAAAAAAAAAAAACEBAiD/2gAIAQEABj8CrDFn/8QAGhAAAwADAQAAAAAAAAAAAAAAAAERIUFRYf/aAAgBAQABPyGYmS0jPbNR8G1buTReDoouT6f/2gAMAwEAAgADAAAAEFDv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EABkQAQEBAQEBAAAAAAAAAAAAAAERACExcf/aAAgBAQABPxCiMkWgfclEQXLFKipM8JTjImjbbMEtWn27/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="closure1"
+        title="closure1"
+        src="/static/cec4d1c4967727bb4ce3a32b56703d7b/7cc5e/closure1.jpg"
+        srcset="/static/cec4d1c4967727bb4ce3a32b56703d7b/e439a/closure1.jpg 120w,
+/static/cec4d1c4967727bb4ce3a32b56703d7b/09b79/closure1.jpg 240w,
+/static/cec4d1c4967727bb4ce3a32b56703d7b/7cc5e/closure1.jpg 480w,
+/static/cec4d1c4967727bb4ce3a32b56703d7b/80e3c/closure1.jpg 720w,
+/static/cec4d1c4967727bb4ce3a32b56703d7b/6a068/closure1.jpg 960w,
+/static/cec4d1c4967727bb4ce3a32b56703d7b/d2602/closure1.jpg 4032w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>실행 당시에 생성되는 Activation object를 closure도 공유를 하는데, 함수인 closure가 생성될 때에는 Activation object가
+생성이 안될까요? 물론 생성됩니다. 그렇기 때문에 scope chain이 또 한번 변경이 됩니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2faa21858524d7eda2f064220a4fb365/5d96e/closure2.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 69.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAgABBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAHoYwShD//EABgQAQADAQAAAAAAAAAAAAAAAAEAAhES/9oACAEBAAEFAtemzzV0cjXQrk//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAEAAgMAAAAAAAAAAAAAAAAAITEBEEH/2gAIAQEABj8CvDiVI1//xAAaEAADAQADAAAAAAAAAAAAAAAAAREhMUGh/9oACAEBAAE/IXQsfRFHaH6Fz0JdisTHBLKf/9oADAMBAAIAAwAAABCEL//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/EIj/xAAbEAEBAQEAAwEAAAAAAAAAAAABESEAMVFxkf/aAAgBAQABPxDw8RhcfeEFDu0fm8sWONZP3qHuDCvEZEaUvMkGtwnf/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="closure2"
+        title="closure2"
+        src="/static/2faa21858524d7eda2f064220a4fb365/7cc5e/closure2.jpg"
+        srcset="/static/2faa21858524d7eda2f064220a4fb365/e439a/closure2.jpg 120w,
+/static/2faa21858524d7eda2f064220a4fb365/09b79/closure2.jpg 240w,
+/static/2faa21858524d7eda2f064220a4fb365/7cc5e/closure2.jpg 480w,
+/static/2faa21858524d7eda2f064220a4fb365/80e3c/closure2.jpg 720w,
+/static/2faa21858524d7eda2f064220a4fb365/6a068/closure2.jpg 960w,
+/static/2faa21858524d7eda2f064220a4fb365/5d96e/closure2.jpg 1882w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>여기서 발생하는 성능문제가 있죠. 우선순위가 0, 1인 scope chain에서 값을 찾지 못했을 경우인데요, 만약 closure가 여러겹으로 있다고 한다면
+상당한 성능 저하로 이어지게 됩니다.</p>
+<h3 id="2-2-객체-멤버" style="position:relative;">2-2. 객체 멤버<a href="#2-2-%EA%B0%9D%EC%B2%B4-%EB%A9%A4%EB%B2%84" aria-label="2 2 객체 멤버 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p>객체 멤버 접근은 리터럴, 변수, 배열 접근보다 느립니다. 그 이유를 알아봅시다.</p>
+<p>자바스크립트의 객체는 프로토타입에 기반합니다. 프로토타입은 다른 객체의 기반이 되는 객체로, 새 객체가 가져야 할 멤버를 정의 및 구현합니다.
+프로토타입 객체는 해당 객체의 모든 인스턴스 사이에서 공유됩니다.</p>
+<p>객체는 내부 속성을 통해 자신의 프로토타입에 묶이며, 브라우저들은 이 속성을 <code class="language-text">__proto__</code>라는 이름으로 노출합니다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> book <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token operator">:</span> <span class="token string">'High Performance Javascript'</span><span class="token punctuation">,</span>
+  publisher<span class="token operator">:</span> <span class="token string">'Junseok'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>book<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [object Object]</span></code></pre></div>
+<p>prototype 또한 객체이기 때문에 prototype에 대한 키가 존재합니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0a2ec293cd77b8bcdb6800b1d114af05/5ed7a/prototype1.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHSrkTA/8QAGBAAAgMAAAAAAAAAAAAAAAAAABICAxH/2gAIAQEAAQUCsYm5p//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAEFAAAAAAAAAAAAAAAAAAABEBEhIv/aAAgBAQAGPwLKlS3/xAAYEAADAQEAAAAAAAAAAAAAAAAAAREhMf/aAAgBAQABPyGiWBBquNhR/9oADAMBAAIAAwAAABCL/wD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAYEAEBAQEBAAAAAAAAAAAAAAABESEAQf/aAAgBAQABPxCFNjuheVt5p4vS97//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="prototype1"
+        title="prototype1"
+        src="/static/0a2ec293cd77b8bcdb6800b1d114af05/7cc5e/prototype1.jpg"
+        srcset="/static/0a2ec293cd77b8bcdb6800b1d114af05/e439a/prototype1.jpg 120w,
+/static/0a2ec293cd77b8bcdb6800b1d114af05/09b79/prototype1.jpg 240w,
+/static/0a2ec293cd77b8bcdb6800b1d114af05/7cc5e/prototype1.jpg 480w,
+/static/0a2ec293cd77b8bcdb6800b1d114af05/80e3c/prototype1.jpg 720w,
+/static/0a2ec293cd77b8bcdb6800b1d114af05/6a068/prototype1.jpg 960w,
+/static/0a2ec293cd77b8bcdb6800b1d114af05/5ed7a/prototype1.jpg 1832w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>prototype 구조는 다음과 같으며 title, publisher를 제외하는 prototype에 기능이 포함되어 있기 때문에, 위 코드의 toString과 같은 함수는 prototype에 있는 기능을
+사용하게 됩니다. (scope chain을 보면 알 수 있듯이 Activation object에 toString이 있다면 그 기능으로 사용합니다. like overriding)</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Book</span><span class="token punctuation">(</span><span class="token parameter">title<span class="token punctuation">,</span> publisher</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>title <span class="token operator">=</span> title<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>publisher <span class="token operator">=</span> publisher<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Book</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">sayTitle</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> book1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token string">'High performance js 1'</span><span class="token punctuation">,</span> <span class="token string">'junseok'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> book2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token string">'High performance js 2'</span><span class="token punctuation">,</span> <span class="token string">'junseok'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>boo1 <span class="token keyword">instanceof</span> <span class="token class-name">Book</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>boo1 <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+
+book1<span class="token punctuation">.</span><span class="token function">sayTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'High performance js 1'</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>book1<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [object Object]</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/06af69c4f7ab3769dfcef555c204a483/9ded1/prototype2.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHaqqEWH//EABkQAQEBAAMAAAAAAAAAAAAAAAERAhATIv/aAAgBAQABBQJffazO1IWcf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAEFAAAAAAAAAAAAAAAAABAAETJBgf/aAAgBAQAGPwKWKg5//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAERIUExUf/aAAgBAQABPyGGu3ociLF4jpkWJPEQlh//2gAMAwEAAgADAAAAEPMf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EABsQAQEBAAMBAQAAAAAAAAAAAAERACFBcVHB/9oACAEBAAE/EKyjErh58yWAEaNypdEcE3Xe11v5ayAPDf/Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="prototype2"
+        title="prototype2"
+        src="/static/06af69c4f7ab3769dfcef555c204a483/7cc5e/prototype2.jpg"
+        srcset="/static/06af69c4f7ab3769dfcef555c204a483/e439a/prototype2.jpg 120w,
+/static/06af69c4f7ab3769dfcef555c204a483/09b79/prototype2.jpg 240w,
+/static/06af69c4f7ab3769dfcef555c204a483/7cc5e/prototype2.jpg 480w,
+/static/06af69c4f7ab3769dfcef555c204a483/80e3c/prototype2.jpg 720w,
+/static/06af69c4f7ab3769dfcef555c204a483/6a068/prototype2.jpg 960w,
+/static/06af69c4f7ab3769dfcef555c204a483/9ded1/prototype2.jpg 3384w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>코드와 코드에 해당하는 prototype chain 구조입니다. Book 함수의 프로토타입(prototype)은 Book.prototype 이고, Book 인스턴스의 프로토타입(<code class="language-text">__proto__</code>) 또한 Book.prototype 입니다.
+그리고 Book.prototype의 프로토타입 (Book.prototype.prototype)은 Object가 됩니다.</p>
+<p><code class="language-text">물론 관계가 깊어질수록 성능은 저하됩니다.</code></p>
+<p>객체 멤버를 해석하는 작업도 있습니다. <code class="language-text">.</code> 마다 객체 멤버를 해석하는 작업을하기 때문에 window.location.href가 window.location.href.toString()보다 빠릅니다.</p>
+<hr>
+<p>2장도 짧은 정리로 끝났는데, HTML4를 사용하던 때의, 오래된 책이지만 몰랐던 부분이 간간히 나옵니다.
+중요한 부분을 잘 집어서 더 정리해보겠습니다 ^^</p></section><hr style="margin-bottom:1.625rem"/><footer style="color:#898989"><p scale="[object Object]" class="PostTags__StyledPTags-sc-1ielp4x-0 bIAqZh">#javascript <!-- -->#performance </p></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"></ul></nav></main><footer style="text-align:center"><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://github.com/jicjjang" target="_blank"><img src="/static/b33838e421fcf2eaeb2da472c1e32060/github.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.instagram.com/jicjjang" target="_blank"><img src="/static/64b2774f0c50daac23fd881877dae854/instagram.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.linkedin.com/in/jicjjang" target="_blank"><img src="/static/3e51027afe6b45fb6d7b38b1e194dcbb/linkedin.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="mailto:jicjjang12@gmail.com" target="_blank"><img src="/static/ababfdf6167a3ee6c8f91dd6d29c765d/mail.png" style="display:block;width:100%"/></a></span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-59806888-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/javascript-optimize-2";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-6d17006438cb290388c8.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-93b3b010fa1c6bf08722.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-fd6c8a177f9424398b23.js"],"component---src-pages-archive-tsx":["/component---src-pages-archive-tsx-8b006ad13687039cacba.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-8e055f10e58d1f240194.js"],"component---src-pages-presentation-tsx":["/component---src-pages-presentation-tsx-cd282e42a44a460a159e.js"],"component---src-pages-resume-tsx":["/component---src-pages-resume-tsx-4f3cc286dbf22caef177.js"]};/*]]>*/</script><script src="/component---src-templates-post-template-tsx-93b3b010fa1c6bf08722.js" async=""></script><script src="/commons-18b81939df440dacfcba.js" async=""></script><script src="/app-6d17006438cb290388c8.js" async=""></script><script src="/styles-3587c726462a045c8fe1.js" async=""></script><script src="/webpack-runtime-5ab011e68a90a6d90c9b.js" async=""></script></body></html>

@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{pGrV:function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),r=n("VXBa"),l=n("1Yd/"),c="Presentation";t.default=function(e){var t=e.location;return a.createElement(a.Fragment,null,a.createElement(l.a,{title:c}),a.createElement(r.a,{title:c,pathname:t.pathname},a.createElement("div",null,c)))}}}]);
+//# sourceMappingURL=component---src-pages-presentation-tsx-cd282e42a44a460a159e.js.map
