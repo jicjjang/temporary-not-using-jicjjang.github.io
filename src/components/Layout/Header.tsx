@@ -58,7 +58,7 @@ const StyledLi = styled.li`
 /**
  * @description 이 안에서 색을 고르는 삼항연산자는 warning이 발생함...
  */
-const StyleLiLink = styled(GatsbyLink)<{ color: string }>`
+const StyleLiLink = styled(props => <GatsbyLink {...props} />)<{ color: string }>`
   color: ${props => props.color};
 `;
 
