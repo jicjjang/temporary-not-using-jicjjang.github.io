@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import { BaseLine } from 'typography';
 
@@ -18,7 +18,7 @@ const StyledH3 = styled.h3<{ scale: BaseLine }>`
   line-height: ${({ scale }) => scale.lineHeight};
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(GatsbyLink)`
   box-shadow: none;
   text-decoration: none;
   color: #000;
@@ -58,7 +58,7 @@ const StyledLi = styled.li`
 /**
  * @description 이 안에서 색을 고르는 삼항연산자는 warning이 발생함...
  */
-const StyleLiLink = styled(Link)<{ color: string }>`
+const StyleLiLink = styled(GatsbyLink)<{ color: string }>`
   color: ${props => props.color};
 `;
 
