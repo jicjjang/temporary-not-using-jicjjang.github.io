@@ -82,7 +82,10 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => {
    * @description 이 안에서 색을 고르는 삼항연산자는 warning이 발생함...
    */
   const StyleLiLink = styled(Link)<{ color: string }>`
-    color: ${props => props.color};
+    color: ${props => {
+      console.log(props.color);
+      return props.color;
+    }};
   `;
 
   return (
