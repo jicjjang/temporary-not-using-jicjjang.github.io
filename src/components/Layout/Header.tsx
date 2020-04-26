@@ -18,7 +18,7 @@ const StyledH3 = styled.h3<{ scale: BaseLine }>`
   line-height: ${({ scale }) => scale.lineHeight};
 `;
 
-const StyledLink = styled(Link)`
+const StyledH3Link = styled(Link)`
   box-shadow: none;
   text-decoration: none;
   color: #000;
@@ -42,17 +42,22 @@ const StyledUl = styled.ul`
   }
 `;
 
-const StyledLi = styled.li`
+const StyledLi = styled.li<{ color: string }>`
   display: inline-block;
   padding: 0 15px;
   list-style-type: none;
   vertical-align: middle;
   font-size: 16px;
+  color: ${props => props.color};
 
   @media (max-width: 450px) {
     padding: 0 8px;
     font-size: 14px;
   }
+`;
+
+const StyleLiLink = styled(Link)`
+  color: inherit;
 `;
 
 const NOT_CHOICE_COLOR = '#898989';
@@ -78,29 +83,17 @@ interface IProps {
 }
 
 const Header: React.SFC<IProps> = ({ title, pathname }) => {
-  /**
-   * @description 이 안에서 색을 고르는 삼항연산자는 warning이 발생함...
-   */
-  const StyleLiLink = styled(Link)<{ color: string }>`
-    color: ${props => {
-      console.log(props.color, pathname);
-      return props.color;
-    }};
-  `;
-
   return (
     <StyledHeader rhythm={rhythm}>
       <StyledH3 scale={scale(1.2)}>
-        <StyledLink to={pathname}>{title}</StyledLink>
+        <StyledH3Link to={pathname}>{title}</StyledH3Link>
       </StyledH3>
       <StyledUl>
         {Object.keys(MENU).map(key => (
-          <StyledLi key={key}>
-            <StyleLiLink
-              color={compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]) ? CHOICE_COLOR : NOT_CHOICE_COLOR}
-              to={MENU_MAPPED_PATH[MENU[key]]}>
-              {MENU[key]}
-            </StyleLiLink>
+          <StyledLi
+            key={key}
+            color={compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]) ? CHOICE_COLOR : NOT_CHOICE_COLOR}>
+            <StyleLiLink to={MENU_MAPPED_PATH[MENU[key]]}>{MENU[key]}</StyleLiLink>
           </StyledLi>
         ))}
       </StyledUl>
