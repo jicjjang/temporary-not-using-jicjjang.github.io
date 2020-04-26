@@ -83,7 +83,7 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => {
    */
   const StyleLiLink = styled(Link)<{ color: string }>`
     color: ${props => {
-      console.log(props.color);
+      console.log(props.color, pathname);
       return props.color;
     }};
   `;
