@@ -36,7 +36,7 @@ type IPostType = MarkdownRemarkFields & MarkdownRemarkFrontmatter & { excerpt: s
 
 export default (props: PageProps) => {
   const { path, data } = props;
-  console.log(props);
+
   const siteTitle = (data as Query).site!.siteMetadata!.title;
   const posts = (data as Query).allMarkdownRemark.edges
     .filter(currentValue => currentValue.node.frontmatter?.date.endsWith(CURRENT_YEAR))

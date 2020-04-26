@@ -23,7 +23,6 @@ interface IProps {
 
 const Layout: React.SFC<React.PropsWithChildren<IProps>> = props => {
   const { title, pathname, children } = props;
-  console.log(props);
   return (
     <StyledDiv rhythm={rhythm}>
       <Header title={title} pathname={pathname} />

@@ -78,8 +78,6 @@ interface IProps {
 }
 
 const Header: React.SFC<IProps> = ({ title, pathname }) => {
-  console.log(11);
-  console.log(pathname);
   /**
    * @description 이 안에서 색을 고르는 삼항연산자는 warning이 발생함...
    */
@@ -93,18 +91,15 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => {
         <StyledLink to={pathname}>{title}</StyledLink>
       </StyledH3>
       <StyledUl>
-        {Object.keys(MENU).map(key => {
-          console.log(compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]) ? CHOICE_COLOR : NOT_CHOICE_COLOR);
-          return (
-            <StyledLi key={key}>
-              <StyleLiLink
-                color={compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]) ? CHOICE_COLOR : NOT_CHOICE_COLOR}
-                to={MENU_MAPPED_PATH[MENU[key]]}>
-                {MENU[key]}
-              </StyleLiLink>
-            </StyledLi>
-          );
-        })}
+        {Object.keys(MENU).map(key => (
+          <StyledLi key={key}>
+            <StyleLiLink
+              color={compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]) ? CHOICE_COLOR : NOT_CHOICE_COLOR}
+              to={MENU_MAPPED_PATH[MENU[key]]}>
+              {MENU[key]}
+            </StyleLiLink>
+          </StyledLi>
+        ))}
       </StyledUl>
     </StyledHeader>
   );
