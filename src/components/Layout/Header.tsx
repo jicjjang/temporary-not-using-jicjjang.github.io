@@ -3,8 +3,11 @@ import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import { BaseLine } from 'typography';
 
-import { PAGE_URL, compareTrailingUrl } from '~/configs/urls';
+import { PAGE_URL } from '~/configs/urls';
 import { scale, rhythm } from '~/configs/typography';
+
+const NOT_CHOICE_COLOR = '#898989';
+const CHOICE_COLOR = '#000';
 
 const StyledHeader = styled.header<{ rhythm: (value: number) => string }>`
   margin-top: 0;
@@ -58,12 +61,9 @@ const StyledLi = styled.li`
 /**
  * @description 이 안에서 색을 고르는 삼항연산자는 warning이 발생함...
  */
-const StyleLiLink = styled(props => <GatsbyLink {...props} />)<{ color: string }>`
-  color: ${props => props.color};
+const StyleLiLink = styled(GatsbyLink)`
+  color: ${NOT_CHOICE_COLOR};
 `;
-
-const NOT_CHOICE_COLOR = '#898989';
-const CHOICE_COLOR = '#000';
 
 enum MENU {
   POSTS = 'Posts',
@@ -84,7 +84,7 @@ interface IProps {
   pathname: string;
 }
 
-const Header: React.SFC<IProps> = ({ title, pathname }) => (
+const Header: React.SFC<IProps> = ({ title, pathname = '/' }) => (
   <StyledHeader rhythm={rhythm}>
     <StyledH3 scale={scale(1.2)}>
       <StyledLink to={pathname}>{title}</StyledLink>
@@ -93,7 +93,9 @@ const Header: React.SFC<IProps> = ({ title, pathname }) => (
       {Object.keys(MENU).map(key => (
         <StyledLi key={key}>
           <StyleLiLink
-            color={compareTrailingUrl(pathname, MENU_MAPPED_PATH[MENU[key]]) ? CHOICE_COLOR : NOT_CHOICE_COLOR}
+            activeStyle={{
+              color: CHOICE_COLOR
+            }}
             to={MENU_MAPPED_PATH[MENU[key]]}>
             {MENU[key]}
           </StyleLiLink>
