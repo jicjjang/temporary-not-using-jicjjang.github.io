@@ -1,6 +1,6 @@
 ---
-title: [Review] 중급자를 위한 You don't know JS
-date: '2017-08-20'
+title: "[Review] 중급자를 위한 You don't know JS"
+date: "2017-08-20"
 tags: [review, javascript]
 ---
 

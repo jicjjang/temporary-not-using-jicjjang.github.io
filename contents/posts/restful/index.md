@@ -1,6 +1,6 @@
 ---
-title: RESTful한 코드작성과 REST, CRUD에 대해
-date: '2015-06-24'
+title: "RESTful한 코드작성과 REST, CRUD에 대해"
+date: "2015-06-24"
 tags: [rest]
 ---
 

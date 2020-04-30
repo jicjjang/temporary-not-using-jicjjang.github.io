@@ -1,6 +1,6 @@
 ---
-title: [Review] 모던 스타트업
-date: '2018-09-17'
+title: "[Review] 모던 스타트업"
+date: "2018-09-17"
 tags: [review, 모던 스타트업]
 ---
 

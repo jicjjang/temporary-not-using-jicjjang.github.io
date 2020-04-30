@@ -1,6 +1,6 @@
 ---
-title: [Review] 2018 IT 트렌트 스페셜 리포트
-date: '2017-12-17'
+title: "[Review] 2018 IT 트렌트 스페셜 리포트"
+date: "2017-12-17"
 tags: [review, '2018', 'it 트렌드']
 ---
 

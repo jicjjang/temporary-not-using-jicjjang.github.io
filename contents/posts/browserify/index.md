@@ -1,6 +1,6 @@
 ---
-title: Browserify와 Watchify
-date: '2015-08-11'
+title: "Browserify와 Watchify"
+date: "2015-08-11"
 tags: [javascript, browserify, watchify]
 ---
 

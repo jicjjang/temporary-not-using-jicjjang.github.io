@@ -1,6 +1,6 @@
 ---
-title: <자바기초> generic에서 타입 제한하기
-date: '2015-08-30'
+title: "<자바기초> generic에서 타입 제한하기"
+date: "2015-08-30"
 tags: [java]
 ---
 

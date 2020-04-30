@@ -1,6 +1,6 @@
 ---
-title: 심심풀이 LIFF 앱개발
-date: '2018-07-09'
+title: "심심풀이 LIFF 앱개발"
+date: "2018-07-09"
 tags: [Line, LIFF]
 ---
 

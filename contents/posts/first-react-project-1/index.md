@@ -1,6 +1,6 @@
 ---
-title: 첫 React 프로젝트 - 개발
-date: '2016-12-28'
+title: "첫 React 프로젝트 - 개발"
+date: "2016-12-28"
 tags: [javascript, react, frontend]
 ---
 

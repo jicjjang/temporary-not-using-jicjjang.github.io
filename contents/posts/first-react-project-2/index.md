@@ -1,6 +1,6 @@
 ---
-title: 첫 React 프로젝트 - 서버 세팅
-date: '2016-12-30'
+title: "첫 React 프로젝트 - 서버 세팅"
+date: "2016-12-30"
 tags: [javascript, react, server]
 ---
 

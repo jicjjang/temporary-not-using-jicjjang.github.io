@@ -1,6 +1,6 @@
 ---
-title: Dooray bot scheduler (Front)
-date: '2017-06-27'
+title: "Dooray bot scheduler (Front)"
+date: "2017-06-27"
 tags: [dooray, bot, nhn]
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: <자바기초> component에 색상 넣기
-date: '2015-09-02'
+title: "<자바기초> component에 색상 넣기"
+date: "2015-09-02"
 tags: [java]
 ---
 

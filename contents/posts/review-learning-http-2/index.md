@@ -1,6 +1,6 @@
 ---
-title: [Review] learning http/2
-date: '2018-02-14'
+title: "[Review] learning http/2"
+date: "2018-02-14"
 tags: [review, http2]
 ---
 

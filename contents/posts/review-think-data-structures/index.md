@@ -1,6 +1,6 @@
 ---
-title: [Review] Think Data Structures
-date: '2018-07-24'
+title: "[Review] Think Data Structures"
+date: "2018-07-24"
 tags: [review, java, data structures]
 ---
 

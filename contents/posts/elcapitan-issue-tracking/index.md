@@ -1,6 +1,6 @@
 ---
-title: Problem in El Capitan
-date: '2015-11-20'
+title: "Problem in El Capitan"
+date: "2015-11-20"
 tags: [OSX, el capitan]
 ---
 

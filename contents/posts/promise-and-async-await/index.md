@@ -1,6 +1,6 @@
 ---
-title: 자바스크립트 promise와 async/await
-date: '2017-02-05'
+title: "자바스크립트 promise와 async/await"
+date: "2017-02-05"
 tags: [javascript, async, await]
 ---
 

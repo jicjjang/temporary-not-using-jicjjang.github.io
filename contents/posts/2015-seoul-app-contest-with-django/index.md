@@ -1,6 +1,6 @@
 ---
-title: seoul app contest with django
-date: '2015-11-08'
+title: "seoul app contest with django"
+date: "2015-11-08"
 tags: [python, django, seoul]
 ---
 

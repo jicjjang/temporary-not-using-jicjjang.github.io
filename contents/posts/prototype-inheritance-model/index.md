@@ -1,6 +1,6 @@
 ---
-title: 자바스크립트 상속 모델
-date: '2018-02-12'
+title: "자바스크립트 상속 모델"
+date: "2018-02-12"
 tags: [javascript, inherit]
 ---
 

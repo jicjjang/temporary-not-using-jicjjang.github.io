@@ -1,6 +1,6 @@
 ---
-title: PIP로 라이브러리 배포 및 사용하기
-date: '2016-06-26'
+title: "PIP로 라이브러리 배포 및 사용하기"
+date: "2016-06-26"
 tags: [python, pip, deploy]
 ---
 

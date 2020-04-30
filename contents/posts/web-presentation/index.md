@@ -1,6 +1,6 @@
 ---
-title: Web Presentation
-date: '2015-02-11'
+title: "Web Presentation"
+date: "2015-02-11"
 tags: [presentation]
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Fast CGI => php5-fpm.sock 오류 해결하기
-date: '2015-07-11'
+title: "Fast CGI => php5-fpm.sock 오류 해결하기"
+date: "2015-07-11"
 tags: [php, fastcgi]
 ---
 

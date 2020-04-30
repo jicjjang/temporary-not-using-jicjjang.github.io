@@ -1,6 +1,6 @@
 ---
-title: [Review] RxJS 프로그래밍
-date: '2018-10-09'
+title: "[Review] RxJS 프로그래밍"
+date: "2018-10-09"
 tags: [review, rxjs]
 ---
 

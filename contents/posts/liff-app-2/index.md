@@ -1,6 +1,6 @@
 ---
-title: LIFF 활용기
-date: '2018-08-02'
+title: "LIFF 활용기"
+date: "2018-08-02"
 tags: [Line, LIFF]
 ---
 

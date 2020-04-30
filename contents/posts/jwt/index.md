@@ -1,6 +1,6 @@
 ---
-title: Would you mind using a JWT?
-date: '2017-08-09'
+title: "Would you mind using a JWT?"
+date: "2017-08-09"
 tags: [jwt]
 ---
 
