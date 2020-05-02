@@ -78,6 +78,17 @@ module.exports = {
               isIconAfterHeader: true
             }
           },
+
+          /**
+           * @descriptoin markdown의 링크를 외부로 보내줌
+           */
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'noopener'
+            }
+          },
           {
             // 정의된 언어에따라 강조된 html 형태로 재생성
             resolve: `gatsby-remark-prismjs`,
@@ -109,10 +120,6 @@ module.exports = {
      */
     `gatsby-plugin-sharp`, // https://github.com/lovell/sharp - sharp 라이브러리로 이미지를 감싸줌,
     `gatsby-transformer-sharp`, // sharp 라이브러리로 감싸진 이미지를 graphQL에서 사용할 수 있게 도와줌
-    /**
-     * @TODO
-     * sharp에 대해 좀 찾아보자
-     */
     `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-robots-txt',
