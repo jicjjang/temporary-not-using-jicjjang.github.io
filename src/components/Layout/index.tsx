@@ -18,10 +18,10 @@ const StyledMain = styled.main<{ rhythm: (value: number) => string }>`
 
 interface IProps {
   title: string;
-  pathname: string;
+  pathname?: string;
 }
 
-const Layout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname, children }) => (
+const Layout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname = '/', children }) => (
   <StyledDiv rhythm={rhythm}>
     <Header title={title} pathname={pathname} />
     <StyledMain rhythm={rhythm}>{children}</StyledMain>

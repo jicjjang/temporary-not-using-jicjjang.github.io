@@ -27,7 +27,7 @@ interface IQuerydMarkdownData {
   };
 }
 
-const PostTemplate: React.SFC<PageProps> = ({ location, data }) => {
+const PostTemplate: React.SFC<PageProps> = ({ data }) => {
   /**
    * @description 댓글 라이브러리를 post에만 추가, unmount에서 제거!
    */
@@ -47,7 +47,7 @@ const PostTemplate: React.SFC<PageProps> = ({ location, data }) => {
   // const { previous, next } = pageContext;
 
   return (
-    <Layout title={site.siteMetadata.title} pathname={location.pathname}>
+    <Layout title={site.siteMetadata.title}>
       <SEO title={title} description={excerpt} />
       <article>
         <PostHeader title={title!} date={date} />
