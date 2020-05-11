@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 // import Layout from '../components/Layout';
 // import SEO from '../components/seo';
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
   // const siteTitle = data.site.siteMetadata.title;
 
   return (
@@ -16,9 +16,7 @@ const NotFoundPage = () => {
     </>
     // </Layout>
   );
-};
-
-export default NotFoundPage;
+}
 
 export const pageQuery = graphql`
   query {

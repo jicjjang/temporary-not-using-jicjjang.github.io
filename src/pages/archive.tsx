@@ -25,7 +25,7 @@ const StyledLink = styled(Link)`
 
 type IPostType = MarkdownRemarkFields & MarkdownRemarkFrontmatter;
 
-export default ({ data, location: pLocation }: PageProps) => {
+export default function Archive({ data, location: pLocation }: PageProps) {
   const posts = {};
   (data as Query).allMarkdownRemark.edges.forEach(currentValue => {
     if (!posts[currentValue.node.frontmatter?.date]) {
@@ -67,7 +67,7 @@ export default ({ data, location: pLocation }: PageProps) => {
       </Layout>
     </>
   );
-};
+}
 
 export const query = graphql`
   query {

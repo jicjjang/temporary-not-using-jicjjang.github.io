@@ -6,7 +6,7 @@ import SEO from '~/components/SEO';
 
 const TITLE = 'Resume';
 
-export default ({ location }: PageProps) => {
+export default function Resume({ location }: PageProps) {
   return (
     <>
       <SEO title={TITLE} />
@@ -15,4 +15,4 @@ export default ({ location }: PageProps) => {
       </Layout>
     </>
   );
-};
+}
