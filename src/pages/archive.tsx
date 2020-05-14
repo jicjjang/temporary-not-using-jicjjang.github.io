@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { PageProps, graphql } from 'gatsby';
 
 import { scale, rhythm } from '~/configs/typography';
-import Layout from '~/components/Layout';
+import DefaultLayout from '~/components/layout/Default';
 import SEO from '~/components/SEO';
 import { Query, MarkdownRemarkFields, MarkdownRemarkFrontmatter } from '~/gatsby-graphql-types';
 import { StyledH1Title } from '~/components/common';
@@ -41,7 +41,7 @@ export default function Archive({ data, location: pLocation }: PageProps) {
   return (
     <>
       <SEO title={TITLE} />
-      <Layout title={TITLE} pathname={pLocation.pathname}>
+      <DefaultLayout title={TITLE} pathname={pLocation.pathname}>
         {YEAR_KEYS.map(
           yearKey =>
             posts[yearKey] && (
@@ -64,7 +64,7 @@ export default function Archive({ data, location: pLocation }: PageProps) {
               </div>
             )
         )}
-      </Layout>
+      </DefaultLayout>
     </>
   );
 }

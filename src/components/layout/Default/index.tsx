@@ -21,7 +21,7 @@ interface IProps {
   pathname?: string;
 }
 
-const Layout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname = '/', children }) => (
+const DefaultLayout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname = '/', children }) => (
   <StyledDiv rhythm={rhythm}>
     <Header title={title} pathname={pathname} />
     <StyledMain rhythm={rhythm}>{children}</StyledMain>
@@ -29,4 +29,4 @@ const Layout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname = 
   </StyledDiv>
 );
 
-export default Layout;
+export default DefaultLayout;

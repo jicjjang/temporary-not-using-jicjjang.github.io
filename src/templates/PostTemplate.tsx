@@ -6,7 +6,7 @@ import {
   PageProps
 } from 'gatsby';
 
-import Layout from '~/components/Layout';
+import DefaultLayout from '~/components/layout/Default';
 import SEO from '~/components/SEO';
 import { rhythm } from '~/configs/typography';
 import { IQuerySiteData } from '~/interface';
@@ -47,7 +47,7 @@ const PostTemplate: React.SFC<PageProps> = ({ data }) => {
   // const { previous, next } = pageContext;
 
   return (
-    <Layout title={site.siteMetadata.title}>
+    <DefaultLayout title={site.siteMetadata.title}>
       <SEO title={title} description={excerpt} />
       <article>
         <PostHeader title={title!} date={date} />
@@ -86,7 +86,7 @@ const PostTemplate: React.SFC<PageProps> = ({ data }) => {
           </li> */}
         </ul>
       </nav>
-    </Layout>
+    </DefaultLayout>
   );
 };
 

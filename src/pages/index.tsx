@@ -3,7 +3,7 @@ import { PageProps, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { BaseLine } from 'typography';
 
-import Layout from '~/components/Layout';
+import DefaultLayout from '~/components/layout/Default';
 import SEO from '~/components/SEO';
 import { Query, MarkdownRemarkFields, MarkdownRemarkFrontmatter } from '~/gatsby-graphql-types';
 import { rhythm } from '~/configs/typography';
@@ -52,7 +52,7 @@ export default (props: PageProps) => {
   return (
     <>
       <SEO />
-      <Layout title={siteTitle!} pathname={path}>
+      <DefaultLayout title={siteTitle!} pathname={path}>
         {posts.length > 0 ? (
           posts.map(({ title, tags, slug, date, excerpt }: IPostType, index: number) => (
             <StyledArticle key={`${title}-${index}`} rhythm={rhythm(2)}>
@@ -68,7 +68,7 @@ export default (props: PageProps) => {
         ) : (
           <StyledDivEmpty rhythm={rhythm(4)}>컨텐츠가 없습니다.</StyledDivEmpty>
         )}
-      </Layout>
+      </DefaultLayout>
     </>
   );
 };
