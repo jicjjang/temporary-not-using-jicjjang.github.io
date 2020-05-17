@@ -4,7 +4,7 @@ import { BaseLine } from 'typography';
 import { Link } from 'gatsby';
 
 import { scale, rhythm } from '~/configs/typography';
-import { StyledH1Title } from '~/components/common';
+import { StyledCommonH1Title } from '~/components/common';
 
 const StyledHeader = styled.header<{ rhythm: string }>`
   margin-bottom: ${props => props.rhythm};
@@ -25,16 +25,16 @@ const StyledTime = styled.time<{ scale: BaseLine }>`
 
 interface IProps {
   title: string;
-  slug?: string;
+  path?: string;
   date: string;
 }
 
-const PostHeader: React.SFC<IProps> = ({ title, slug, date }) => {
+const PostHeader: React.SFC<IProps> = ({ title, path, date }) => {
   return (
     <StyledHeader rhythm={rhythm(1.2)}>
-      <StyledH1Title scale={scale(0.5)} rhythm={rhythm(0.2)}>
-        {slug ? <StyledH1Link to={slug!}>{title}</StyledH1Link> : title}
-      </StyledH1Title>
+      <StyledCommonH1Title scale={scale(0.5)} rhythm={rhythm(0.2)}>
+        {path ? <StyledH1Link to={path!}>{title}</StyledH1Link> : title}
+      </StyledCommonH1Title>
       <p className="post-meta">
         <StyledTime dateTime={date} scale={scale(-0.1)}>
           {date}
