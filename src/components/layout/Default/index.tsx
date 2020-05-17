@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { rhythm } from '~/configs/typography';
 import Header from './Header';
 import Footer from './Footer';
+import SEO from '~/components/SEO';
 
 const StyledDiv = styled.div<{ rhythm: (value: number) => string }>`
   margin: 0 auto;
@@ -19,14 +20,23 @@ const StyledMain = styled.main<{ rhythm: (value: number) => string }>`
 interface IProps {
   title: string;
   pathname?: string;
+  description?: string;
 }
 
-const DefaultLayout: React.SFC<React.PropsWithChildren<IProps>> = ({ title, pathname = '/', children }) => (
-  <StyledDiv rhythm={rhythm}>
-    <Header title={title} pathname={pathname} />
-    <StyledMain rhythm={rhythm}>{children}</StyledMain>
-    <Footer />
-  </StyledDiv>
+const DefaultLayout: React.SFC<React.PropsWithChildren<IProps>> = ({
+  title,
+  pathname = '/',
+  description,
+  children
+}) => (
+  <>
+    <SEO title={title} description={description} />
+    <StyledDiv rhythm={rhythm}>
+      <Header title={title} pathname={pathname} />
+      <StyledMain rhythm={rhythm}>{children}</StyledMain>
+      <Footer />
+    </StyledDiv>
+  </>
 );
 
 export default DefaultLayout;

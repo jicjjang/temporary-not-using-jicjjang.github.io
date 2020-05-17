@@ -5,9 +5,8 @@ import { PageProps, graphql } from 'gatsby';
 
 import { scale, rhythm } from '~/configs/typography';
 import DefaultLayout from '~/components/layout/Default';
-import SEO from '~/components/SEO';
 import { Query, MarkdownRemarkFields, MarkdownRemarkFrontmatter } from '~/gatsby-graphql-types';
-import { StyledH1Title } from '~/components/common';
+import { StyledCommonH1Title } from '~/components/common';
 import PostTags from '~/components/PostTags';
 
 const TITLE = 'Archive';
@@ -39,33 +38,30 @@ export default function Archive({ data, location: pLocation }: PageProps) {
   });
 
   return (
-    <>
-      <SEO title={TITLE} />
-      <DefaultLayout title={TITLE} pathname={pLocation.pathname}>
-        {YEAR_KEYS.map(
-          yearKey =>
-            posts[yearKey] && (
-              <div
-                key={yearKey}
-                style={{
-                  marginBottom: '20px'
-                }}>
-                <StyledH1Title scale={scale(0.5)} rhythm={rhythm(0.2)}>
-                  {yearKey}
-                </StyledH1Title>
-                {posts[yearKey].map((post: IPostType, index: number) => (
-                  <div key={post.title || index}>
-                    <>
-                      <StyledLink to={post.slug!}>{post.title}</StyledLink>
-                      {post.tags?.length && <PostTags tags={post.tags} isInlineBlock={true} />}
-                    </>
-                  </div>
-                ))}
-              </div>
-            )
-        )}
-      </DefaultLayout>
-    </>
+    <DefaultLayout title={TITLE} pathname={pLocation.pathname}>
+      {YEAR_KEYS.map(
+        yearKey =>
+          posts[yearKey] && (
+            <div
+              key={yearKey}
+              style={{
+                marginBottom: '20px'
+              }}>
+              <StyledCommonH1Title scale={scale(0.5)} rhythm={rhythm(0.2)}>
+                {yearKey}
+              </StyledCommonH1Title>
+              {posts[yearKey].map((post: IPostType, index: number) => (
+                <div key={post.title || index}>
+                  <>
+                    <StyledLink to={post.slug!}>{post.title}</StyledLink>
+                    {post.tags?.length && <PostTags tags={post.tags} isInlineBlock={true} />}
+                  </>
+                </div>
+              ))}
+            </div>
+          )
+      )}
+    </DefaultLayout>
   );
 }
 

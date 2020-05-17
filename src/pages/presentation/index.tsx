@@ -1,18 +1,52 @@
 import * as React from 'react';
-import { PageProps } from 'gatsby';
+import { PageProps, graphql } from 'gatsby';
 
+import { Query } from '~/gatsby-graphql-types';
 import DefaultLayout from '~/components/layout/Default';
-import SEO from '~/components/SEO';
+import { removeTrailingSlash, PRESENTATION_DATA, IPresentationData } from '~/configs/urls';
+import { StyledCommonArticle, StyledCommonDivEmpty } from '~/components/common';
+import PostTags from '~/components/PostTags';
+import PostHeader from '~/components/PostHeader';
+import { rhythm } from '~/configs/typography';
 
 const TITLE = 'Presentation';
 
-export default function Presentation({ location }: PageProps) {
+export default function Presentation({ data, location: pLocation }: PageProps) {
+  const presentations: IPresentationData[] = [];
+  (data as Query).allSitePage.edges.forEach(presentationData => {
+    const path = removeTrailingSlash(presentationData.node.path);
+    presentations.push({
+      ...PRESENTATION_DATA[path],
+      path
+    });
+  });
+
   return (
-    <>
-      <SEO title={TITLE} />
-      <DefaultLayout title={TITLE} pathname={location.pathname}>
-        <div>{TITLE}</div>
-      </DefaultLayout>
-    </>
+    <DefaultLayout title={TITLE} pathname={pLocation.pathname}>
+      {presentations.length > 0 ? (
+        presentations.map(({ title, tags, date, path }: IPresentationData, index: number) => (
+          <StyledCommonArticle key={`${title}-${index}`} rhythm={rhythm(2)}>
+            <PostHeader title={title!} path={path} date={date} />
+            {tags?.length ? <PostTags tags={tags} /> : null}
+          </StyledCommonArticle>
+        ))
+      ) : (
+        <StyledCommonDivEmpty rhythm={rhythm(4)}>컨텐츠가 없습니다.</StyledCommonDivEmpty>
+      )}
+    </DefaultLayout>
   );
 }
+
+export const query = graphql`
+  query {
+    allSitePage(filter: { path: { regex: "/^/presentation/[\\w]/i"}}) {
+      edges {
+        node {
+          id
+          path
+          matchPath
+        }
+      }
+    }
+  }
+`;

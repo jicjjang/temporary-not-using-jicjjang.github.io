@@ -7,7 +7,6 @@ import {
 } from 'gatsby';
 
 import DefaultLayout from '~/components/layout/Default';
-import SEO from '~/components/SEO';
 import { rhythm } from '~/configs/typography';
 import { IQuerySiteData } from '~/interface';
 import PostHeader from '~/components/PostHeader';
@@ -47,8 +46,7 @@ const PostTemplate: React.SFC<PageProps> = ({ data }) => {
   // const { previous, next } = pageContext;
 
   return (
-    <DefaultLayout title={site.siteMetadata.title}>
-      <SEO title={title} description={excerpt} />
+    <DefaultLayout title={site.siteMetadata.title} description={excerpt}>
       <article>
         <PostHeader title={title!} date={date} />
         <section dangerouslySetInnerHTML={{ __html: html }} />

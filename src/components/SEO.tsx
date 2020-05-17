@@ -17,11 +17,13 @@ interface IProps {
   title?: string;
   description?: string;
   meta?: JSX.IntrinsicElements['meta'][];
+  link?: JSX.IntrinsicElements['link'][];
+  script?: JSX.IntrinsicElements['script'][];
   lang?: string;
   image?: string;
 }
 
-const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], title, image }) => {
+const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], link = [], script = [], title, image }) => {
   const {
     site: { siteMetadata }
   } = useStaticQuery<IQuerySiteData<IQuerySeoData>>(query);
@@ -103,7 +105,8 @@ const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], title, im
           content: metaImage
         }
       ])}
-      link={[{ rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }]}
+      link={link.concat([{ rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }])}
+      script={script}
     />
   );
 };
