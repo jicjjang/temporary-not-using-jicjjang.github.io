@@ -81,7 +81,7 @@ Multipart XHR은 기본 XHR 통신과 거의 같습니다. 다만, n개의 파�
 
 서버에서 base64 인코딩을 한 결과 값들을 특정 구분자로 이어붙여서 리턴하면 그 값을 javascript에서 다시 잘라서 사용합니다.
 
-```shell
+```sh
 $images = array('a.jpg', 'b.jpg', 'c.jpg');
 foreach ($images as $image) {
   $image_fh = fopen($image, 'r');
