@@ -3204,7 +3204,37 @@ export type Unnamed_6_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
 export type Unnamed_7_QueryVariables = {};
 
 
-export type Unnamed_7_Query = { allSitePage: { edges: Array<{ node: Pick<SitePage, 'id' | 'path' | 'matchPath'> }> } };
+export type Unnamed_7_Query = { site?: Maybe<{ siteMetadata?: Maybe<{ social?: Maybe<Pick<SiteSiteMetadataSocial, 'linkedin'>> }> }> };
+
+export type Unnamed_8_QueryVariables = {};
+
+
+export type Unnamed_8_Query = { site?: Maybe<{ siteMetadata?: Maybe<{ social?: Maybe<Pick<SiteSiteMetadataSocial, 'linkedin'>> }> }> };
+
+export type Unnamed_9_QueryVariables = {};
+
+
+export type Unnamed_9_Query = { site?: Maybe<{ siteMetadata?: Maybe<{ social?: Maybe<Pick<SiteSiteMetadataSocial, 'linkedin'>> }> }> };
+
+export type Unnamed_10_QueryVariables = {};
+
+
+export type Unnamed_10_Query = { site?: Maybe<{ siteMetadata?: Maybe<{ social?: Maybe<Pick<SiteSiteMetadataSocial, 'linkedin'>> }> }> };
+
+export type Unnamed_11_QueryVariables = {};
+
+
+export type Unnamed_11_Query = { site?: Maybe<{ siteMetadata?: Maybe<{ social?: Maybe<Pick<SiteSiteMetadataSocial, 'linkedin'>> }> }> };
+
+export type Unnamed_12_QueryVariables = {};
+
+
+export type Unnamed_12_Query = { site?: Maybe<{ siteMetadata?: Maybe<{ social?: Maybe<Pick<SiteSiteMetadataSocial, 'linkedin'>> }> }> };
+
+export type Unnamed_13_QueryVariables = {};
+
+
+export type Unnamed_13_Query = { allSitePage: { edges: Array<{ node: Pick<SitePage, 'id' | 'path' | 'matchPath'> }> } };
 
 export type BlogPostBySlugQueryVariables = {
   slug: Scalars['String'];
