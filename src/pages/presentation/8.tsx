@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PageProps } from 'gatsby';
+import { PageProps, graphql } from 'gatsby';
 
 import PresentationLayout from '~/components/layout/Presentation';
 import { PRESENTATION_DATA, removeTrailingSlash } from '~/configs/urls';
@@ -544,3 +544,13 @@ export default function vueApolloGraphql({ location: pLocation, data }: PageProp
     </PresentationLayout>
   );
 }
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`;
