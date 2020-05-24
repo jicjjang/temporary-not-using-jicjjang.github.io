@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 02 May 2020 08:41:10 GMT</lastBuildDate><item><title><![CDATA[Gatsby Link 이슈]]></title><description><![CDATA[현재 진행 중인 블로그 개편을 (매번 할 프로젝트 없을 때, 테스트베드가 되는 블로그...) Gatsbyjs를 이용하여
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 24 May 2020 10:00:26 GMT</lastBuildDate><item><title><![CDATA[Gatsby 블로그 개편]]></title><link>https://jicjjang.github.io/posts/2020-rebuild-blog</link><guid isPermaLink="false">https://jicjjang.github.io/posts/2020-rebuild-blog</guid><pubDate>Sun, 03 May 2020 00:00:00 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[Gatsby Link 이슈]]></title><description><![CDATA[현재 진행 중인 블로그 개편을 (매번 할 프로젝트 없을 때, 테스트베드가 되는 블로그...) Gatsbyjs를 이용하여
 진행중 입니다. Gatsbyjs…]]></description><link>https://jicjjang.github.io/posts/gatsby-linke-issue</link><guid isPermaLink="false">https://jicjjang.github.io/posts/gatsby-linke-issue</guid><pubDate>Sat, 02 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;현재 진행 중인 블로그 개편을 (매번 할 프로젝트 없을 때, 테스트베드가 되는 블로그...) &lt;a href=&quot;https://www.gatsbyjs.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Gatsbyjs&lt;/a&gt;를 이용하여
 진행중 입니다. Gatsbyjs를 이용하며 블로그를 만들며 찾은 이슈에 대해 알아보겠습니다.&lt;/p&gt;
 &lt;hr&gt;
@@ -3168,17 +3168,17 @@ document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;p&gt;Multipart XHR은 기본 XHR 통신과 거의 같습니다. 다만, n개의 파일을 가져올 때 n번의 XHR요청을 보내는 것이 아니라
 1번의 요청을 보내면서 n개의 파일을 하나로 합쳐서 받는 것입니다.&lt;/p&gt;
 &lt;p&gt;서버에서 base64 인코딩을 한 결과 값들을 특정 구분자로 이어붙여서 리턴하면 그 값을 javascript에서 다시 잘라서 사용합니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$images&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;a.jpg&apos;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&apos;b.jpg&apos;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&apos;c.jpg&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-foreach &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$images&lt;/span&gt; as &lt;span class=&quot;token variable&quot;&gt;$image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token variable&quot;&gt;$image_fh&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fopen&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$image&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&apos;r&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token variable&quot;&gt;$image_data&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fread&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$image_fh&lt;/span&gt;, filesize&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  fclose&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$image_fh&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token variable&quot;&gt;$payloads&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; base64_encode&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$image_data&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;$images = array(&amp;#39;a.jpg&amp;#39;, &amp;#39;b.jpg&amp;#39;, &amp;#39;c.jpg&amp;#39;);
+foreach ($images as $image) {
+  $image_fh = fopen($image, &amp;#39;r&amp;#39;);
+  $image_data = fread($image_fh, filesize($image));
+  fclose($image_fh);
+  $payloads[] = base64_encode($image_data);
+}
 
-&lt;span class=&quot;token variable&quot;&gt;$newline&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; chr&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  // 구분자. unicode &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+$newline = chr(1);  // 구분자. unicode 1
 
-&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; implode&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$newline&lt;/span&gt;, &lt;span class=&quot;token variable&quot;&gt;$payloads&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  // &lt;span class=&quot;token variable&quot;&gt;$newline&lt;/span&gt;을 구분자로 &lt;span class=&quot;token variable&quot;&gt;$payloads&lt;/span&gt;를 연결시킴.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+echo implode($newline, $payloads);  // $newline을 구분자로 $payloads를 연결시킴.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;splitImages&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;imageString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; imageData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; imageString&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;\u001&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// unicode 1. 구분자를 기준으로 나눔.&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; imageElement&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -3516,211 +3516,7 @@ switch가 더 효율적입니다.&lt;/p&gt;
 성능이 아주 중요한 함수는 이러한 &lt;code class=&quot;language-text&quot;&gt;메모이제이션&lt;/code&gt; 기능을 &lt;code class=&quot;language-text&quot;&gt;직접&lt;/code&gt; 추가하는 것이 좋습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;4장도 모두 포스팅했습니다. 정규표현식(5장)은 일단 건너뛰고 진행하려합니다.
-남은 장도 열심히 포스팅하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 3]]></title><description><![CDATA[읽을수록 모르던 부분이 계속 등장하는데요, 3장도 바로 진행해보겠습니다. 3. DOM 스크립팅 DOM 병목이 쉽게 일어나고, 스크립팅 시간이 오래걸리는데 DOM에 대한 접근과 수정 DOM 요소의 스타일 변경, 화면 재구성을 초래하는 것 DOM…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-3</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-3</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;읽을수록 모르던 부분이 계속 등장하는데요, 3장도 바로 진행해보겠습니다.&lt;/p&gt;
-&lt;h2 id=&quot;3-DOM-스크립팅&quot; style=&quot;position:relative;&quot;&gt;3. DOM 스크립팅&lt;a href=&quot;#3-DOM-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8C%85&quot; aria-label=&quot;3 DOM 스크립팅 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;DOM 병목이 쉽게 일어나고, 스크립팅 시간이 오래걸리는데&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;DOM에 대한 접근과 수정&lt;/li&gt;
-&lt;li&gt;DOM 요소의 스타일 변경, 화면 재구성을 초래하는 것&lt;/li&gt;
-&lt;li&gt;DOM 이벤트를 통한 사용자 상호작용 처리&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;3가지를 주제로 진행하겠습니다.&lt;/p&gt;
-&lt;h3 id=&quot;3-1-브라우저-세계의-DOM&quot; style=&quot;position:relative;&quot;&gt;3-1. 브라우저 세계의 DOM&lt;a href=&quot;#3-1-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%84%B8%EA%B3%84%EC%9D%98-DOM&quot; aria-label=&quot;3 1 브라우저 세계의 DOM permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;브라우저마다 DOM과 DOM 스크립팅에 각각 다른 엔진을 사용합니다.
-서로 다른 엔진간의 통신을 하기 때문에 느릴수 밖에 없는데요,
-그렇다면 어떻게 성능을 끌어올릴지 알아봅시다.&lt;/p&gt;
-&lt;h3 id=&quot;3-2-DOM-접근과-수정&quot; style=&quot;position:relative;&quot;&gt;3-2. DOM 접근과 수정&lt;a href=&quot;#3-2-DOM-%EC%A0%91%EA%B7%BC%EA%B3%BC-%EC%88%98%EC%A0%95&quot; aria-label=&quot;3 2 DOM 접근과 수정 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;DOM에 접근하기만 해도 리소스를 소모합니다. 그런 상황에서 DOM을 수정한다면?
-더욱 많은 리소스를 잡아먹게 되겠죠? 최대한 DOM에 대한 접근을 최소화해야 하기 때문에
-수정 및 접근 작업에서 반복문은 최악입니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;innerHTMLLoop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;15000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;here&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;앞에서 봤던 이슈와 동일합니다. DOM에 대한 접근이 많아진다면 DOM을 변수에 할당하고 사용해야 합니다.
-위 코드는 DOM에 접근할 때 한번, DOM의 값을 바꿀 때 한번, 반복문을 돌 때마다 2번씩 요소에 접근하게 됩니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;innerHTMLLoop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; content &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;15000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    content &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-  document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;here&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; content&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;모든 브라우저에서 이처럼 변수에 DOM을 저장하고 사용하는 것이 효과적으로 나타납니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;HTML 컬렉션을 반환하는 메서드에 대해서 알아보겠습니다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;document.getElementsByName()&lt;/li&gt;
-&lt;li&gt;document.getElementsByClassName()&lt;/li&gt;
-&lt;li&gt;document.getElementsByTagName()&lt;/li&gt;
-&lt;li&gt;document.images&lt;/li&gt;
-&lt;li&gt;document.links&lt;/li&gt;
-&lt;li&gt;document.forms&lt;/li&gt;
-&lt;li&gt;document.forms[0].elements&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;이러한 HTML Collection은 동적이기 때문에&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; alldivs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; alldivs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 코드가 무한루프로 동작하게 됩니다. body에 div 태그가 추가될 때마다
-alldivs는 동적으로 증가하기 때문에 i가 1씩 증가할 때 alldivs도 1씩 증가하기 때문입니다.
-(그렇기 때문에 &lt;code class=&quot;language-text&quot;&gt;느.립.니.다.&lt;/code&gt;)&lt;/p&gt;
-&lt;p&gt;또한 HTML Collection은 일반 array가 아니기 때문에 반복문보다 느립니다. 그래서 사용할 때에는
-반복문에 복사한 뒤 사용해야 합니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;coll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; len &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; coll&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    a&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; coll&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;반복하거나 length에 접근하는 것만으로도 Collection을 갱신해야 하기 때문입니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;DOM의 특정 부분에 접근하는 방법에 대해 알아보겠습니다. childNodes나 nextSibling으로 형제 요소를
-선택하여 작업할 수 있는데&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;testNextSibling&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  val el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ddd&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      ch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;firstChild&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nodeName&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nextSibling&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;testChildNodes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ddd&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      ch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;childNodes&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      len &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ch&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nodeName&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;둘 중 어떠한 방법을 사용해도 상관이 없습니다. 다만, childNodes 같은 경우엔
-length를 캐시한 뒤 사용해야 합니다.&lt;/p&gt;
-&lt;p&gt;자식요소를 조금 더 세밀하게 정해야 할 때가 있습니다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;document.getElementById&lt;/li&gt;
-&lt;li&gt;document.getElementsByName&lt;/li&gt;
-&lt;li&gt;document.getElementsByClassName&lt;/li&gt;
-&lt;li&gt;document.getElementsByTagName&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;위 4가지 방식 뿐만 아니라&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;document.querySelectorAll(&apos;#menu a&apos;)&lt;/li&gt;
-&lt;li&gt;document.querySelector(&apos;#menu a&apos;)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;이런 방식 또한 가능합니다. 여러번 질의하는 것 보다는 querySelector가 훨씬 효율적입니다.&lt;/p&gt;
-&lt;h3 id=&quot;3-3-리페인트와-리플로우&quot; style=&quot;position:relative;&quot;&gt;3-3. 리페인트와 리플로우&lt;a href=&quot;#3-3-%EB%A6%AC%ED%8E%98%EC%9D%B8%ED%8A%B8%EC%99%80-%EB%A6%AC%ED%94%8C%EB%A1%9C%EC%9A%B0&quot; aria-label=&quot;3 3 리페인트와 리플로우 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;브라우저가 데이터를 내려받으면 페이지 구조를 나타내는 DOM 트리와
-DOM 트리를 어떻게 표시할 지에 대한 정보를 가진 랜더 트리, 두가지를 만듭니다.&lt;/p&gt;
-&lt;p&gt;두 트리를 다 만들면 브라우저는 페이지 요소를 표시합니다. (페인트)&lt;/p&gt;
-&lt;p&gt;resize 이벤트가 발생하거나 비슷한 이벤트가 발생한다면 요소들의 정보를 다시 계산 (리플로우)해야하고
-계산 한 뒤 다시 그려줘야 합니다.(리페인트) 리소스를 많이 잡아먹는것이 리플로우인데 배경색만 바꾼다고
-가정한다면 리플로우 없이 리페인트만 일어납니다.&lt;/p&gt;
-&lt;p&gt;이러한 경우 리소스가 많이 소모되지 않기 때문에 성능 저하가 일어나지 않습니다.
-그렇기 때문에 리플로우를 최소화 하는 작업이 필수입니다.&lt;/p&gt;
-&lt;p&gt;리플로우가 일어나는 조건은&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ol&gt;
-&lt;li&gt;보이는 (display, visibility)DOM 요소를 추가 혹은 제거&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;요소의 위치가 바뀜&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;요소의 크기가 바뀜&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;텍스트의 내용 변경, 이미지가 다른 크기 이미지로 대체되는 등의 내용 변경&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ol start=&quot;5&quot;&gt;
-&lt;li&gt;페이지를 처음 표시&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ol start=&quot;6&quot;&gt;
-&lt;li&gt;브라우저 창의 크기 변경&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;어떤 것을 바꾸느냐에 따라 전체를, 일부를 다시 계산합니다.
-리플로우를 계속 발생하는 것도 낭비기 때문에 랜더 트리를 큐에 모았다 실행할 수 있습니다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;offsetTop, offsetLeft, offsetWidht, offsetHeight&lt;/li&gt;
-&lt;li&gt;scrollTop, scrollLeft, scrollWidht, scrollHeight&lt;/li&gt;
-&lt;li&gt;clientTop, clientLeft, clientWidht, clientHeight&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;이런 속성은 레이아웃을 바로바로 반영해야 하므로 브라우저가 랜더링 큐에 대기중인 랜더 트리와 함께
-강제로 리플로우를 진행합니다. 그렇기 때문에 스타일을 바꿀 때 &lt;code class=&quot;language-text&quot;&gt;위 속성을 쓰지 않는게 중요합니다.&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; computed &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;red&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundColor&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;white&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundImage&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;green&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundAttachment&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 코드처럼 레이아웃을 속성을 변경하고, 값을 가져오는 일을 번갈아가며 하는 것을 매우 비효율적 이므로&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; computed &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;red&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;white&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;green&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundColor&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundImage&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundAttachment&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이렇게 같은 일을 한꺼번에 몰아주는 것이 효율적이고 더 빠릅니다.&lt;/p&gt;
-&lt;p&gt;그리고&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;divv&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;borderLeft &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;1px&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;borderRight &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;2px&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;padding &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;5px&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;최악의 경우 리플로우가 3번 일어나는 코드입니다. 이런 코드는&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;divv&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cssText &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;border-left: 1px; border-right: 2px; padding: 5px;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이렇게 바꿔줄 수 있습니다. 다른 방법으론 class를 토글하는 방법도 있습니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;하지만 어쩔 수 없이 여러번 계산을 해야 할 때에는 DOM의 변경을 문서의 흐름에서 분리하고
-다 변경된 후 적용시키는 방법이 있습니다.&lt;/p&gt;
-&lt;p&gt;데이터를 넣은 &amp;#x3C;li&gt; 태그를 삽입한다고 가정할 때,
-createElement를 통해 li 여러개를 생성한 후, &amp;#x3C;ul&gt; 태그 안에 넣고
-가장 마지막에 DOM에 추가하는 것입니다. 이렇게 하면 리플로우를 최소화할 수 있습니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;애니메이션을 할 때에는 절대 위치를 지정한 후 동작해야합니다.
-절대 위치에서는 리플로우가 동작하지 않기 때문에 포지션 변경, 애니메이션, 포지션 복귀
-순서로 진행을 해야합니다.&lt;/p&gt;
-&lt;h3 id=&quot;3-4-이벤트-위임&quot; style=&quot;position:relative;&quot;&gt;3-4. 이벤트 위임&lt;a href=&quot;#3-4-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%9C%84%EC%9E%84&quot; aria-label=&quot;3 4 이벤트 위임 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;자바스크립트에서 이벤트는 발생 후 부모 요소로 버블링되어 올라가므로 부모 요소에서 자식 요소의
-이벤트를 처리할 수 있습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;one&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;two&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;a&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onclick&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;...&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;a&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위와 같은 코드에서 &amp;#x3C;a&gt; 태그를 클릭하면 #two 요소, 그 다음으로 #one 요소, 마지막으로 window까지
-이벤트가 전파됩니다. 이렇게 이벤트가 퍼져 이벤트 대상이 아닌 다른 요소에서 이벤트를 동작시키는 것을
-위임이라고 합니다.&lt;/p&gt;
-&lt;p&gt;물론 stopPropagation 메서드와 preventDefault 메서드로 위임을 제어할 수 있습니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;3장의 내용은 여기까지 입니다. 프론트엔드에서 가장 중요하다고 생각한 Reflow와 Repaint에 대한 내용이
-실려있는 장이었습니다. 앞으로도 많은 내용이 기대되네요!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 2]]></title><description><![CDATA[1장에 이어서 2장도 바로 진행하겠습니다~ 2. 데이터 접근 데이터는 총 4개의 형식으로 이루어집니다. 리터럴 값 (Number, boolean, Object, Array, Function, Regex, null, undefined…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-2</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-2</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;1장에 이어서 2장도 바로 진행하겠습니다~&lt;/p&gt;
+남은 장도 열심히 포스팅하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 2]]></title><description><![CDATA[1장에 이어서 2장도 바로 진행하겠습니다~ 2. 데이터 접근 데이터는 총 4개의 형식으로 이루어집니다. 리터럴 값 (Number, boolean, Object, Array, Function, Regex, null, undefined…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-2</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-2</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;1장에 이어서 2장도 바로 진행하겠습니다~&lt;/p&gt;
 &lt;h2 id=&quot;2-데이터-접근&quot; style=&quot;position:relative;&quot;&gt;2. 데이터 접근&lt;a href=&quot;#2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%91%EA%B7%BC&quot; aria-label=&quot;2 데이터 접근 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;데이터는 총 4개의 형식으로 이루어집니다.&lt;/p&gt;
 &lt;ol&gt;
@@ -3995,7 +3791,211 @@ book1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;p&gt;객체 멤버를 해석하는 작업도 있습니다. &lt;code class=&quot;language-text&quot;&gt;.&lt;/code&gt; 마다 객체 멤버를 해석하는 작업을하기 때문에 window.location.href가 window.location.href.toString()보다 빠릅니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;2장도 짧은 정리로 끝났는데, HTML4를 사용하던 때의, 오래된 책이지만 몰랐던 부분이 간간히 나옵니다.
-중요한 부분을 잘 집어서 더 정리해보겠습니다 ^^&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 1]]></title><description><![CDATA[5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
+중요한 부분을 잘 집어서 더 정리해보겠습니다 ^^&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 3]]></title><description><![CDATA[읽을수록 모르던 부분이 계속 등장하는데요, 3장도 바로 진행해보겠습니다. 3. DOM 스크립팅 DOM 병목이 쉽게 일어나고, 스크립팅 시간이 오래걸리는데 DOM에 대한 접근과 수정 DOM 요소의 스타일 변경, 화면 재구성을 초래하는 것 DOM…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-3</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-3</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;읽을수록 모르던 부분이 계속 등장하는데요, 3장도 바로 진행해보겠습니다.&lt;/p&gt;
+&lt;h2 id=&quot;3-DOM-스크립팅&quot; style=&quot;position:relative;&quot;&gt;3. DOM 스크립팅&lt;a href=&quot;#3-DOM-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8C%85&quot; aria-label=&quot;3 DOM 스크립팅 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;DOM 병목이 쉽게 일어나고, 스크립팅 시간이 오래걸리는데&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;DOM에 대한 접근과 수정&lt;/li&gt;
+&lt;li&gt;DOM 요소의 스타일 변경, 화면 재구성을 초래하는 것&lt;/li&gt;
+&lt;li&gt;DOM 이벤트를 통한 사용자 상호작용 처리&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;3가지를 주제로 진행하겠습니다.&lt;/p&gt;
+&lt;h3 id=&quot;3-1-브라우저-세계의-DOM&quot; style=&quot;position:relative;&quot;&gt;3-1. 브라우저 세계의 DOM&lt;a href=&quot;#3-1-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%84%B8%EA%B3%84%EC%9D%98-DOM&quot; aria-label=&quot;3 1 브라우저 세계의 DOM permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;브라우저마다 DOM과 DOM 스크립팅에 각각 다른 엔진을 사용합니다.
+서로 다른 엔진간의 통신을 하기 때문에 느릴수 밖에 없는데요,
+그렇다면 어떻게 성능을 끌어올릴지 알아봅시다.&lt;/p&gt;
+&lt;h3 id=&quot;3-2-DOM-접근과-수정&quot; style=&quot;position:relative;&quot;&gt;3-2. DOM 접근과 수정&lt;a href=&quot;#3-2-DOM-%EC%A0%91%EA%B7%BC%EA%B3%BC-%EC%88%98%EC%A0%95&quot; aria-label=&quot;3 2 DOM 접근과 수정 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;DOM에 접근하기만 해도 리소스를 소모합니다. 그런 상황에서 DOM을 수정한다면?
+더욱 많은 리소스를 잡아먹게 되겠죠? 최대한 DOM에 대한 접근을 최소화해야 하기 때문에
+수정 및 접근 작업에서 반복문은 최악입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;innerHTMLLoop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;15000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;here&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;앞에서 봤던 이슈와 동일합니다. DOM에 대한 접근이 많아진다면 DOM을 변수에 할당하고 사용해야 합니다.
+위 코드는 DOM에 접근할 때 한번, DOM의 값을 바꿀 때 한번, 반복문을 돌 때마다 2번씩 요소에 접근하게 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;innerHTMLLoop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; content &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;15000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    content &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;here&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; content&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;모든 브라우저에서 이처럼 변수에 DOM을 저장하고 사용하는 것이 효과적으로 나타납니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;HTML 컬렉션을 반환하는 메서드에 대해서 알아보겠습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;document.getElementsByName()&lt;/li&gt;
+&lt;li&gt;document.getElementsByClassName()&lt;/li&gt;
+&lt;li&gt;document.getElementsByTagName()&lt;/li&gt;
+&lt;li&gt;document.images&lt;/li&gt;
+&lt;li&gt;document.links&lt;/li&gt;
+&lt;li&gt;document.forms&lt;/li&gt;
+&lt;li&gt;document.forms[0].elements&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이러한 HTML Collection은 동적이기 때문에&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; alldivs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; alldivs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드가 무한루프로 동작하게 됩니다. body에 div 태그가 추가될 때마다
+alldivs는 동적으로 증가하기 때문에 i가 1씩 증가할 때 alldivs도 1씩 증가하기 때문입니다.
+(그렇기 때문에 &lt;code class=&quot;language-text&quot;&gt;느.립.니.다.&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;또한 HTML Collection은 일반 array가 아니기 때문에 반복문보다 느립니다. 그래서 사용할 때에는
+반복문에 복사한 뒤 사용해야 합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;coll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; len &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; coll&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    a&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; coll&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;반복하거나 length에 접근하는 것만으로도 Collection을 갱신해야 하기 때문입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;DOM의 특정 부분에 접근하는 방법에 대해 알아보겠습니다. childNodes나 nextSibling으로 형제 요소를
+선택하여 작업할 수 있는데&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;testNextSibling&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  val el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ddd&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      ch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;firstChild&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nodeName&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nextSibling&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;testChildNodes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ddd&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      ch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;childNodes&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      len &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; count&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ch&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nodeName&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;둘 중 어떠한 방법을 사용해도 상관이 없습니다. 다만, childNodes 같은 경우엔
+length를 캐시한 뒤 사용해야 합니다.&lt;/p&gt;
+&lt;p&gt;자식요소를 조금 더 세밀하게 정해야 할 때가 있습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;document.getElementById&lt;/li&gt;
+&lt;li&gt;document.getElementsByName&lt;/li&gt;
+&lt;li&gt;document.getElementsByClassName&lt;/li&gt;
+&lt;li&gt;document.getElementsByTagName&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;위 4가지 방식 뿐만 아니라&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;document.querySelectorAll(&apos;#menu a&apos;)&lt;/li&gt;
+&lt;li&gt;document.querySelector(&apos;#menu a&apos;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이런 방식 또한 가능합니다. 여러번 질의하는 것 보다는 querySelector가 훨씬 효율적입니다.&lt;/p&gt;
+&lt;h3 id=&quot;3-3-리페인트와-리플로우&quot; style=&quot;position:relative;&quot;&gt;3-3. 리페인트와 리플로우&lt;a href=&quot;#3-3-%EB%A6%AC%ED%8E%98%EC%9D%B8%ED%8A%B8%EC%99%80-%EB%A6%AC%ED%94%8C%EB%A1%9C%EC%9A%B0&quot; aria-label=&quot;3 3 리페인트와 리플로우 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;브라우저가 데이터를 내려받으면 페이지 구조를 나타내는 DOM 트리와
+DOM 트리를 어떻게 표시할 지에 대한 정보를 가진 랜더 트리, 두가지를 만듭니다.&lt;/p&gt;
+&lt;p&gt;두 트리를 다 만들면 브라우저는 페이지 요소를 표시합니다. (페인트)&lt;/p&gt;
+&lt;p&gt;resize 이벤트가 발생하거나 비슷한 이벤트가 발생한다면 요소들의 정보를 다시 계산 (리플로우)해야하고
+계산 한 뒤 다시 그려줘야 합니다.(리페인트) 리소스를 많이 잡아먹는것이 리플로우인데 배경색만 바꾼다고
+가정한다면 리플로우 없이 리페인트만 일어납니다.&lt;/p&gt;
+&lt;p&gt;이러한 경우 리소스가 많이 소모되지 않기 때문에 성능 저하가 일어나지 않습니다.
+그렇기 때문에 리플로우를 최소화 하는 작업이 필수입니다.&lt;/p&gt;
+&lt;p&gt;리플로우가 일어나는 조건은&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;보이는 (display, visibility)DOM 요소를 추가 혹은 제거&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;요소의 위치가 바뀜&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;요소의 크기가 바뀜&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;텍스트의 내용 변경, 이미지가 다른 크기 이미지로 대체되는 등의 내용 변경&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;페이지를 처음 표시&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;브라우저 창의 크기 변경&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;어떤 것을 바꾸느냐에 따라 전체를, 일부를 다시 계산합니다.
+리플로우를 계속 발생하는 것도 낭비기 때문에 랜더 트리를 큐에 모았다 실행할 수 있습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;offsetTop, offsetLeft, offsetWidht, offsetHeight&lt;/li&gt;
+&lt;li&gt;scrollTop, scrollLeft, scrollWidht, scrollHeight&lt;/li&gt;
+&lt;li&gt;clientTop, clientLeft, clientWidht, clientHeight&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이런 속성은 레이아웃을 바로바로 반영해야 하므로 브라우저가 랜더링 큐에 대기중인 랜더 트리와 함께
+강제로 리플로우를 진행합니다. 그렇기 때문에 스타일을 바꿀 때 &lt;code class=&quot;language-text&quot;&gt;위 속성을 쓰지 않는게 중요합니다.&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; computed &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;red&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundColor&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;white&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundImage&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;green&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundAttachment&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드처럼 레이아웃을 속성을 변경하고, 값을 가져오는 일을 번갈아가며 하는 것을 매우 비효율적 이므로&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; computed &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;red&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;white&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;green&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundColor&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundImage&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; bodyStyle&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;backgroundAttachment&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 같은 일을 한꺼번에 몰아주는 것이 효율적이고 더 빠릅니다.&lt;/p&gt;
+&lt;p&gt;그리고&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;divv&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;borderLeft &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;1px&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;borderRight &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;2px&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;padding &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;5px&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;최악의 경우 리플로우가 3번 일어나는 코드입니다. 이런 코드는&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;divv&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cssText &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;border-left: 1px; border-right: 2px; padding: 5px;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 바꿔줄 수 있습니다. 다른 방법으론 class를 토글하는 방법도 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;하지만 어쩔 수 없이 여러번 계산을 해야 할 때에는 DOM의 변경을 문서의 흐름에서 분리하고
+다 변경된 후 적용시키는 방법이 있습니다.&lt;/p&gt;
+&lt;p&gt;데이터를 넣은 &amp;#x3C;li&gt; 태그를 삽입한다고 가정할 때,
+createElement를 통해 li 여러개를 생성한 후, &amp;#x3C;ul&gt; 태그 안에 넣고
+가장 마지막에 DOM에 추가하는 것입니다. 이렇게 하면 리플로우를 최소화할 수 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;애니메이션을 할 때에는 절대 위치를 지정한 후 동작해야합니다.
+절대 위치에서는 리플로우가 동작하지 않기 때문에 포지션 변경, 애니메이션, 포지션 복귀
+순서로 진행을 해야합니다.&lt;/p&gt;
+&lt;h3 id=&quot;3-4-이벤트-위임&quot; style=&quot;position:relative;&quot;&gt;3-4. 이벤트 위임&lt;a href=&quot;#3-4-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%9C%84%EC%9E%84&quot; aria-label=&quot;3 4 이벤트 위임 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;자바스크립트에서 이벤트는 발생 후 부모 요소로 버블링되어 올라가므로 부모 요소에서 자식 요소의
+이벤트를 처리할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;one&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;two&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;a&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onclick&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;...&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;a&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같은 코드에서 &amp;#x3C;a&gt; 태그를 클릭하면 #two 요소, 그 다음으로 #one 요소, 마지막으로 window까지
+이벤트가 전파됩니다. 이렇게 이벤트가 퍼져 이벤트 대상이 아닌 다른 요소에서 이벤트를 동작시키는 것을
+위임이라고 합니다.&lt;/p&gt;
+&lt;p&gt;물론 stopPropagation 메서드와 preventDefault 메서드로 위임을 제어할 수 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;3장의 내용은 여기까지 입니다. 프론트엔드에서 가장 중요하다고 생각한 Reflow와 Repaint에 대한 내용이
+실려있는 장이었습니다. 앞으로도 많은 내용이 기대되네요!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 1]]></title><description><![CDATA[5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
 회사에서 준 yes2…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-1</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-1</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
 회사에서 준 yes24 도서이용권으로 (공짜 책!!!)구매한 자바스크립트 성능 최적화에 대한 간단한 정리를 해보려 합니다.
 요점만 집어서! 써보겠습니다 :D&lt;/p&gt;
