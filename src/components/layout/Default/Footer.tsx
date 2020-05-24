@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-// import styled from 'styled-components';
 
 import { IQuerySiteData } from '~/interface';
 import { rhythm } from '~/configs/typography';
