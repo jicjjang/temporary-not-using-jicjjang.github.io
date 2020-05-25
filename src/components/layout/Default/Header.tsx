@@ -67,15 +67,15 @@ const StyleLiLink = styled(GatsbyLink)`
 
 enum MENU {
   POSTS = 'Posts',
-  PRESENTATION = 'Presentation',
-  ARCHIVE = 'Archive'
+  ARCHIVE = 'Archive',
+  PRESENTATION = 'Presentation'
   // RESUME = 'Resume'
 }
 
 const MENU_MAPPED_PATH = {
   [MENU.POSTS]: PAGE_URL.HOME,
-  [MENU.PRESENTATION]: PAGE_URL.PRESENTATION,
-  [MENU.ARCHIVE]: PAGE_URL.ARCHIVE
+  [MENU.ARCHIVE]: PAGE_URL.ARCHIVE,
+  [MENU.PRESENTATION]: PAGE_URL.PRESENTATION
   // [MENU.RESUME]: PAGE_URL.RESUME
 };
 
