@@ -15,6 +15,7 @@ interface IQuerySeoData {
 
 interface IProps {
   title?: string;
+  url?: string;
   description?: string;
   meta?: JSX.IntrinsicElements['meta'][];
   link?: JSX.IntrinsicElements['link'][];
@@ -23,7 +24,7 @@ interface IProps {
   image?: string;
 }
 
-const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], link = [], script = [], title, image }) => {
+const SEO: React.SFC<IProps> = ({ description, lang = 'ko', url, meta = [], link = [], script = [], title, image }) => {
   const {
     site: { siteMetadata }
   } = useStaticQuery<IQuerySiteData<IQuerySeoData>>(query);
@@ -42,17 +43,17 @@ const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], link = []
         {
           name: `og:title`,
           property: `og:title`,
-          content: title
+          content: title || siteMetadata.title
         },
         {
           name: `og:site_name`,
           property: `og:site_name`,
-          content: title
+          content: title || siteMetadata.title
         },
         {
           name: `og:url`,
           property: `og:url`,
-          content: siteMetadata.siteUrl
+          content: url || siteMetadata.siteUrl
         },
         {
           name: `og:description`,
@@ -82,22 +83,22 @@ const SEO: React.SFC<IProps> = ({ description, lang = 'ko', meta = [], link = []
         {
           name: `twitter:title`,
           property: `twitter:title`,
-          content: title
+          content: title || siteMetadata.title
         },
         {
           name: `twitter:url`,
           property: `twitter:url`,
-          content: siteMetadata.siteUrl
+          content: url || siteMetadata.siteUrl
         },
         {
           name: `twitter:site`,
           property: `twitter:site`,
-          content: siteMetadata.siteUrl
+          content: url || siteMetadata.siteUrl
         },
         {
           name: `twitter:domain`,
           property: `twitter:domain`,
-          content: siteMetadata.siteUrl
+          content: url || siteMetadata.siteUrl
         },
         {
           name: `twitter:image`,
