@@ -39,7 +39,7 @@ export default function Presentation({ data, location: pLocation }: PageProps) {
 
 export const query = graphql`
   query {
-    allSitePage(filter: { path: { regex: "/^/presentation/[\\w]/i"}}, sort: {fields: [path], order:DESC}) {
+    allSitePage(filter: { path: { regex: "/^\/presentation\/[\\w]/i"}}, sort: {fields: [path], order:DESC}) {
       edges {
         node {
           id
