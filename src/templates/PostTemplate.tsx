@@ -12,6 +12,7 @@ import { IQuerySiteData } from '~/interface';
 import PostHeader from '~/components/PostHeader';
 import PostTags from '~/components/PostTags';
 import { addComments, removeComments } from '~/utils/comments';
+import speech from '~/utils/speech';
 
 interface IQuerydMarkdownData {
   markdownRemark: {
@@ -34,7 +35,10 @@ const PostTemplate: React.SFC<PageProps> = ({ data }) => {
   addComments();
 
   useEffect(() => {
-    return () => removeComments();
+    return () => {
+      removeComments();
+      speech.stopSpeech();
+    };
   }, []);
 
   const { site, markdownRemark } = data as IQuerySiteData<{ title: string }> & IQuerydMarkdownData;
@@ -48,7 +52,7 @@ const PostTemplate: React.SFC<PageProps> = ({ data }) => {
   return (
     <DefaultLayout title={site.siteMetadata.title} description={excerpt}>
       <article>
-        <PostHeader title={title!} date={date} />
+        <PostHeader title={title!} date={date} isPost={true} />
         <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr
           style={{
