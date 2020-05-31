@@ -1,4 +1,4 @@
-class speech {
+class Speech {
   constructor() {}
 
   private isSupportedSpeech() {
@@ -6,6 +6,9 @@ class speech {
       console.error('This browser does not support speech API');
       return false;
     }
+
+    window.onbeforeunload = () => this.stopSpeech();
+
     return true;
   }
 
@@ -16,10 +19,18 @@ class speech {
       }
 
       const message = new SpeechSynthesisUtterance(text);
+      message.rate = 0.3;
       const voices = speechSynthesis.getVoices();
 
       message.voice = voices[voiceIndex];
       speechSynthesis.speak(message);
+    }
+  }
+
+  public sendContentsMessage() {
+    const postArticleElement = document.querySelector('.post_article') as HTMLElement;
+    if (postArticleElement?.innerText) {
+      this.sendMessage(postArticleElement?.innerText);
     }
   }
 
@@ -30,4 +41,4 @@ class speech {
   }
 }
 
-export default new speech();
+export default new Speech();

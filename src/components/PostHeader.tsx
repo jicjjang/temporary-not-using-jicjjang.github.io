@@ -49,7 +49,7 @@ const PostHeader: React.SFC<IProps> = ({ title, path, date, isPost = false }) =>
     <StyledHeader rhythm={rhythm(1.2)}>
       <StyledCommonH1Title scale={scale(0.5)} rhythm={rhythm(0.2)}>
         {path ? <StyledH1Link to={path!}>{title}</StyledH1Link> : title}
-        {isPost && <StyledSpeechSpan onClick={() => speech.sendMessage('안녕하세요 재밌어요')} />}
+        {isPost && <StyledSpeechSpan onClick={() => speech.sendContentsMessage()} />}
       </StyledCommonH1Title>
       <p className="post-meta">
         <StyledTime dateTime={date} scale={scale(-0.1)}>

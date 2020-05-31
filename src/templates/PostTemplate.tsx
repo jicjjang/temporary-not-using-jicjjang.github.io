@@ -37,7 +37,7 @@ const PostTemplate: React.SFC<PageProps> = ({ data }) => {
   useEffect(() => {
     return () => {
       removeComments();
-      speech.stopSpeech();
+      speech.stopSpeech(); // speech.ts의 onbeforeunload와 이벤트가 겹칠 수 있긴 함.
     };
   }, []);
 
@@ -51,7 +51,7 @@ const PostTemplate: React.SFC<PageProps> = ({ data }) => {
 
   return (
     <DefaultLayout title={site.siteMetadata.title} description={excerpt}>
-      <article>
+      <article className="post_article">
         <PostHeader title={title!} date={date} isPost={true} />
         <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr
