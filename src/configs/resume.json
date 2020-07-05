@@ -27,12 +27,22 @@
       "company": "Kakaopay",
       "contents": [
         {
+          "link": "https://n.news.naver.com/article/018/0004629281",
+          "title": "펀드 자동투자 및 동전 모으기 & 알 모으기",
+          "content": "펀드를 오픈하자 마자 진행하게 된 펀드 내 부가 기능입니다. 조건을 설정해 자동으로 펀드에 투자하고, 결제 후 남은 잔돈을 펀드에 투자하고, 결제 리워드인 알 리워드를 펀드에 투자하게 설정하는 <a href='https://ifttt.com/' target='_blank'>IFTTT</a> 방식의 서비스 입니다. 이후 IFTTT 기반의 다른 기능을 쉽게 추가할 수 있도록 모듈화를 함께 진행하였습니다."
+        },
+        {
+          "link": "http://www.bloter.net/archives/372305",
+          "title": "펀드 서비스",
+          "content": "펀드 투자 서비스 입니다. 회사에서 인수한 바로증권 (현 카카오 페이 증권) 인력들과 협력하여 만들게 된 서비스 입니다. (p2p 투자 서비스도 동일하지만) 상당히 복잡한 페이지 구조로 구성되어 있어서 기본적인 history 구조 만으론 작업할 수 없었기에 클라이언트처럼 뒤로가기 동작에 대해 이동할 페이지를 지정하는 방식과 history 구조를 섞어서 사용하는 특징을 가지고 있습니다. api 논의, 변경되는 스펙 F/W(법적 이슈, 신규 스펙, 내부 건의 등등...) 등이 많았습니다. 현재 무사히 오픈 후, 20만 이상의 펀드 투자 계좌를 보유하고 있습니다."
+        },
+        {
           "title": "혜택 서비스",
           "content": "쿠폰과 이벤트 서비스를 통합한 서비스 입니다. 기존 서비스들과 다르게 타 팀과의 협업을 통해 만든 서비스 입니다. (모놀리틱 서비스에서 마이크로 서비스로의 전환) 개발적 성장 보다는 팀간의 커뮤니케이션 방식에 대한 많은 생각을 하게 해준 서비스 입니다."
         },
         {
           "link": "https://www.kakaopay.com/paystory/services/investment",
-          "title": "투자 서비스",
+          "title": "P2P 서비스",
           "content": "메인으로 담당하고 있는 프로젝트로, 입사 후 부터 현재까지 담당을 하고 있는 프로젝트 입니다. 처음 개발부터 3번 이상의 개편이 진행되었으며 (UI + Refactoring) 처음에는 SSR로 제작, 현재는 CSR로 serving되고 있습니다. CSR에서의 static serving 서버 등등 프론트 환경 위에서의 서버에 대한 경험도 함께 쌓고 있습니다. (이전 SSR에서의 노드서버경험 또한 가지고 있습니다.) 현재까지도 많은 업데이트가 진행되고 있으며 회사에서 주목받는 프로젝트 입니다."
         },
         {
@@ -169,13 +179,37 @@
     }
   ],
   "skill": [
-    { "title": "React & Mobx & ...", "level": 90 },
-    { "title": "Javascript & jQuery", "level": 80 },
-    { "title": "HTML5 & CSS", "level": 75 },
-    { "title": "Vue & Vuex", "level": 70 },
-    { "title": "Spring", "level": 60 },
-    { "title": "Python & Django", "level": 40 },
-    { "title": "Php & slim", "level": 20 },
-    { "title": "Photoshop", "level": 20 }
+    {
+      "title": "React & Mobx & MST & ...",
+      "level": 90
+    },
+    {
+      "title": "Javascript & jQuery",
+      "level": 80
+    },
+    {
+      "title": "HTML5 & CSS",
+      "level": 75
+    },
+    {
+      "title": "Vue & Vuex",
+      "level": 70
+    },
+    {
+      "title": "Spring",
+      "level": 60
+    },
+    {
+      "title": "Python & Django",
+      "level": 40
+    },
+    {
+      "title": "Php & slim",
+      "level": 20
+    },
+    {
+      "title": "Photoshop",
+      "level": 20
+    }
   ]
 }
