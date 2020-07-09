@@ -240,7 +240,7 @@ export default function graphqlStartClient({ location: pLocation }: PageProps) {
 
         <section>
           <section>
-            <h2>마무리</h2>
+            <h2>(어색한) 마무리</h2>
             <div>
               솔직히 이렇게 해도 안될 수 있음. 고민할 부분이 많음. / 센트리 서버가 불안정함하고 sourcemap 맵핑이
               간헐적으로 안됨. 잘 안올라감 / sourcemap 코드는 실제 tenth에는 올리지 않음....
