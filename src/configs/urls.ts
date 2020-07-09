@@ -11,7 +11,8 @@ export const PAGE_URL = {
   PRESENTATION_6: '/presentation/6',
   PRESENTATION_7: '/presentation/7',
   PRESENTATION_8: '/presentation/8',
-  PRESENTATION_9: '/presentation/9'
+  PRESENTATION_9: '/presentation/9',
+  PRESENTATION_10: '/presentation/10'
 };
 
 export interface IPresentationData {
@@ -65,6 +66,11 @@ export const PRESENTATION_DATA: { [key: string]: IPresentationData } = {
     title: 'Vuetiful korea 5회 세미나 내용 정리',
     date: 'Aug, 15, 2018',
     tags: ['vue', 'vuetifulkorea', '5th']
+  },
+  [PAGE_URL.PRESENTATION_10]: {
+    title: 'Sentry - Kakaopay FE 세미나',
+    date: 'Jul, 09, 2020',
+    tags: ['react', 'sentry', 'sourcemap']
   }
 };
 
