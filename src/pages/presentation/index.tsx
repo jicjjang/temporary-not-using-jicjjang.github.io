@@ -13,13 +13,16 @@ const TITLE = 'Presentation';
 
 export default function Presentation({ data, location: pLocation }: PageProps) {
   const presentations: IPresentationData[] = [];
-  (data as Query).allSitePage.edges.forEach(presentationData => {
-    const path = removeTrailingSlash(presentationData.node.path);
-    presentations.push({
-      ...PRESENTATION_DATA[path],
-      path
+  (data as Query).allSitePage.edges
+    .sort((a, b) => parseInt(b.node.path.split('/')[2], 10) - parseInt(a.node.path.split('/')[2], 10))
+    .forEach(presentationData => {
+      const path = removeTrailingSlash(presentationData.node.path);
+      console.log(path);
+      presentations.push({
+        ...PRESENTATION_DATA[path],
+        path
+      });
     });
-  });
 
   return (
     <DefaultLayout title={TITLE} pathname={pLocation.pathname}>
@@ -39,7 +42,7 @@ export default function Presentation({ data, location: pLocation }: PageProps) {
 
 export const query = graphql`
   query {
-    allSitePage(filter: { path: { regex: "/^\/presentation\/[\\w]/i"}}, sort: {fields: [path], order:DESC}) {
+    allSitePage(filter: { path: { regex: "/^\/presentation\/[\\w]/i"}}) {
       edges {
         node {
           id
