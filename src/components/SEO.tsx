@@ -24,7 +24,7 @@ interface IProps {
   image?: string;
 }
 
-const SEO: React.SFC<IProps> = ({ description, lang = 'ko', url, meta = [], link = [], script = [], title, image }) => {
+const SEO: React.FunctionComponent<IProps> = ({ description, lang = 'ko', url, meta = [], link = [], script = [], title, image }) => {
   const {
     site: { siteMetadata }
   } = useStaticQuery<IQuerySiteData<IQuerySeoData>>(query);

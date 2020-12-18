@@ -6,7 +6,7 @@ interface IProps {
   github: string;
 }
 
-const SideBar: React.SFC<IProps> = ({ siteUrl, mail, github }) => {
+const SideBar: React.FunctionComponent<IProps> = ({ siteUrl, mail, github }) => {
   return (
     <div className="sidebar-wrapper">
       <div className="profile-container">

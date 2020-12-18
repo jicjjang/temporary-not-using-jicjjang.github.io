@@ -23,7 +23,7 @@ interface IProps {
   description?: string;
 }
 
-const DefaultLayout: React.SFC<React.PropsWithChildren<IProps>> = ({
+const DefaultLayout: React.FunctionComponent<React.PropsWithChildren<IProps>> = ({
   title,
   pathname = '/',
   description,

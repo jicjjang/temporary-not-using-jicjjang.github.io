@@ -44,7 +44,7 @@ interface IProps {
   isPost?: boolean;
 }
 
-const PostHeader: React.SFC<IProps> = ({ title, path, date, isPost = false }) => {
+const PostHeader: React.FunctionComponent<IProps> = ({ title, path, date, isPost = false }) => {
   return (
     <StyledHeader rhythm={rhythm(1.2)}>
       <StyledCommonH1Title scale={scale(0.5)} rhythm={rhythm(0.2)}>

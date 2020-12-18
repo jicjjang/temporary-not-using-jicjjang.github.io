@@ -18,7 +18,7 @@ interface IProps {
   description?: string;
 }
 
-const PresentationLayout: React.SFC<React.PropsWithChildren<IProps>> = ({
+const PresentationLayout: React.FunctionComponent<React.PropsWithChildren<IProps>> = ({
   title,
   // pathname = '/',
   description,
