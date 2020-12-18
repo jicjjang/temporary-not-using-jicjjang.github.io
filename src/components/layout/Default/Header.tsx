@@ -96,9 +96,7 @@ const Header: React.FunctionComponent<IProps> = ({ title, pathname }) => (
             activeStyle={{
               color: CHOICE_COLOR
             }}
-            to={MENU_MAPPED_PATH[MENU[key]] + '/'}>
-            {' '}
-            {/* trailing slash issue... this slash for activeStyle... */}
+            to={MENU_MAPPED_PATH[MENU[key]]}>
             {MENU[key]}
           </StyleLiLink>
         </StyledLi>
