@@ -27,7 +27,7 @@ interface IQuerydMarkdownData {
   };
 }
 
-const PostTemplate: React.SFC<PageProps> = ({ data }) => {
+const PostTemplate: React.FunctionComponent<PageProps> = ({ data }) => {
   /**
    * @description 댓글 라이브러리를 post에만 추가, unmount에서 제거!
    */

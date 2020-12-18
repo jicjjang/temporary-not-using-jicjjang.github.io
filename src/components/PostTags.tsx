@@ -21,7 +21,7 @@ interface IProps {
   isInlineBlock?: boolean;
 }
 
-const PostTags: React.SFC<IProps> = ({ tags, isInlineBlock = false }) => (
+const PostTags: React.FunctionComponent<IProps> = ({ tags, isInlineBlock = false }) => (
   <StyledPTags isInlineBlock={isInlineBlock} scale={scale(-0.1)}>
     {tags.map(tag => (tag ? `#${tag} ` : ''))}
   </StyledPTags>

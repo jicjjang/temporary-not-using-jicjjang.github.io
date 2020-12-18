@@ -7,7 +7,7 @@ interface IProps {
   url: string;
 }
 
-const ResumeLayout: React.SFC<React.PropsWithChildren<IProps>> = ({ children, title, url }) => {
+const ResumeLayout: React.FunctionComponent<React.PropsWithChildren<IProps>> = ({ children, title, url }) => {
   return (
     <>
       <SEO title={title} link={RESUME_LIB.link} script={RESUME_LIB.script} url={url} />

@@ -24,7 +24,7 @@ interface IQueryAllFilesData {
   };
 }
 
-const Footer: React.SFC<any> = () => {
+const Footer: React.FunctionComponent<any> = () => {
   const {
     site: {
       siteMetadata: { social }

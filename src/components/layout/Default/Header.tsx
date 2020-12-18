@@ -84,7 +84,7 @@ interface IProps {
   pathname: string;
 }
 
-const Header: React.SFC<IProps> = ({ title, pathname }) => (
+const Header: React.FunctionComponent<IProps> = ({ title, pathname }) => (
   <StyledHeader rhythm={rhythm}>
     <StyledH3 scale={scale(1.2)}>
       <StyledLink to={pathname}>{title}</StyledLink>
