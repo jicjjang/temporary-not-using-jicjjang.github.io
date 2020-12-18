@@ -24,12 +24,12 @@
 <url> <loc>https://jicjjang.github.io/posts/dooray-bot-front</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/airbnb-review</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-8</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://jicjjang.github.io/posts/javascript-optimize-6</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-7</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/posts/javascript-optimize-6</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-4</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://jicjjang.github.io/posts/javascript-optimize-3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://jicjjang.github.io/posts/javascript-optimize-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/posts/javascript-optimize-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/posts/javascript-optimize-3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/front-end-question</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/promise-and-async-await</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/first-react-project-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -48,6 +48,7 @@
 <url> <loc>https://jicjjang.github.io/posts/web-presentation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/archive/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/resume/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/presentation/1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/presentation/10/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/presentation/2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -59,5 +60,4 @@
 <url> <loc>https://jicjjang.github.io/presentation/8/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/presentation/9/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/presentation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://jicjjang.github.io/resume/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
