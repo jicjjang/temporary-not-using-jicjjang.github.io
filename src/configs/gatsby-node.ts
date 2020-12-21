@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { CreatePagesArgs, CreateNodeArgs } from 'gatsby';
-import { Query } from '~/gatsby-graphql-types';
+// import { Query } from '~/gatsby-graphql-types';
 
 /**
  * @description This onCreateNode function will be called by Gatsby whenever a new node is created (or updated).
@@ -26,7 +26,7 @@ export const onCreateNode = ({ node, actions, getNode }: CreateNodeArgs) => {
 export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   const { createPage } = actions;
   const PostTemplate = path.resolve(__dirname, '../templates/PostTemplate.tsx');
-  const { errors, data } = await graphql<Query>(
+  const { errors, data } = await graphql(
     `
       {
         allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
@@ -48,7 +48,7 @@ export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
     throw errors;
   }
 
-  const posts = data?.allMarkdownRemark.edges;
+  const posts = (data as any).allMarkdownRemark.edges;
   if (posts) {
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node;
