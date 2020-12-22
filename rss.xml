@@ -1,4 +1,288 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 22 Dec 2020 04:10:45 GMT</lastBuildDate><item><title><![CDATA[next.js 스타일 로드 이슈]]></title><description><![CDATA[Next.js를 최근 사용해보기 시작하며 PoC를 많이 작성하고 있는데, 여러 이슈를 만나보고 있습니다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 22 Dec 2020 11:01:24 GMT</lastBuildDate><item><title><![CDATA[next-redux-wrapper issue with Redux-observable]]></title><description><![CDATA[현재 Next.js와 함께 사용하는 skill set은 Redux (observable), Redux toolkit 입니다.
+SSR을 위해 Next.js를 사용하고 있는데, Custom server 코드가 아닌 Component…]]></description><link>https://jicjjang.github.io/posts/next-redux-wrapper</link><guid isPermaLink="false">https://jicjjang.github.io/posts/next-redux-wrapper</guid><pubDate>Wed, 23 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;현재 Next.js와 함께 사용하는 skill set은 Redux (observable), Redux toolkit 입니다.
+SSR을 위해 Next.js를 사용하고 있는데, &lt;a href=&quot;https://nextjs.org/docs/advanced-features/custom-server&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Custom server&lt;/a&gt; 코드가 아닌 Component 코드 만으로 최대한 data pre-fetching을 하기 위해 &lt;code class=&quot;language-text&quot;&gt;getInitialProps&lt;/code&gt;를 사용합니다. (&lt;a href=&quot;https://nextjs.org/docs/api-reference/data-fetching/getInitialProps&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;이젠 getServerSideProps, getStaticProps로 사용됨&lt;/a&gt;)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; stars &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;Next stars&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;stars&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+Page&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;getInitialProps&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;https://api.github.com/repos/vercel/next.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; json &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; stars&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; json&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stargazers_count &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Page&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/43d9290520422c1f857d533b7b98f05a/536c7/default.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABEklEQVQoz32SiQrEIAxE/f8/7A+U3vd9ZXnCLK7QFaYxNRMnie66LhPO87T7vo31PI+N42h5nltRFNa2rS3LYtu2WcgRD7B34U/svu8e67pa13WWZZlPWNe1TdNk8zz/xL8mBFKVJImlafoNJjnK2aOSuFil4AgIARkVqEMRvpLiUzr7mAeO4zBHT7hdN7DnsGkaG4bBJ8FHOT7/uTDmqE2+5HhBqKrK+r73IBmK6SMJEREv8viEKICkyeoQ+eGQAH5Zln5IxCoe5YjgIkcgPQoDIKonKgULAYWchQLg/y0ZIlPWE8GHhM8z4qLXkuOh6KnQM0rB0hJZehu+QQ2FPD4hnxgcAkpDFeVg9axEDqEWfQDLRFqaMYW9WAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;default&quot;
+        title=&quot;default&quot;
+        src=&quot;/static/43d9290520422c1f857d533b7b98f05a/e85cb/default.png&quot;
+        srcset=&quot;/static/43d9290520422c1f857d533b7b98f05a/070ae/default.png 120w,
+/static/43d9290520422c1f857d533b7b98f05a/8ff5a/default.png 240w,
+/static/43d9290520422c1f857d533b7b98f05a/e85cb/default.png 480w,
+/static/43d9290520422c1f857d533b7b98f05a/37523/default.png 720w,
+/static/43d9290520422c1f857d533b7b98f05a/d9199/default.png 960w,
+/static/43d9290520422c1f857d533b7b98f05a/536c7/default.png 1480w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 때, redux를 사용 중이고, &lt;code class=&quot;language-text&quot;&gt;getInitialProps&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;dispatch&lt;/code&gt;를 사용해 store를 업데이트를 하려면 어떻게 해야 할까요?&lt;/p&gt;
+&lt;h2 id=&quot;간단한-해결책은-next-redux-wrapper-라이브러리를-사용하는-것입니다&quot; style=&quot;position:relative;&quot;&gt;간단한 해결책은 &lt;a href=&quot;https://github.com/kirill-konshin/next-redux-wrapper&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;next-redux-wrapper&lt;/code&gt;&lt;/a&gt; 라이브러리를 사용하는 것입니다.&lt;a href=&quot;#%EA%B0%84%EB%8B%A8%ED%95%9C-%ED%95%B4%EA%B2%B0%EC%B1%85%EC%9D%80-next-redux-wrapper-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;간단한 해결책은 next redux wrapper 라이브러리를 사용하는 것입니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;redux configure에 대한 약간의 설정은 필요하지만, 번거로운 작업 없이 getInitialProps에서 fetch한 데이터를 server side의 store에 저장한 뒤, 이를 client side의 store로 그대로 넘길 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/821263d3022cd15658c28fa8da0ad3b3/3ceac/next-redux-wrapper.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABLElEQVQoz22S2aqEQAxE+///0HdFHfdxX3M5gRoauYHQMZ2qVNKG67oMP8/T/b5vw57nse/3a5/Px73rOluWxfZ9N2HeWOIQJzmP43DQuq7Wtq2VZWlVVVnTNDbPs5PG9YrBOSGKcD6wcRwtSRIriuJXvG2b1xDTCPXcxVh5oKMcBdM0+aio44QAIu65Y3RyMU5Y6gLjqQvquASEQnbHqBBwNwyDNwIcKyOGB2zQqEpiAABCwv5Q1ve91XXtedXFBg+NA8U4BiBNU49Rk+e5E+mhAFGDav0JGHjUsesAqzpSmGWZq2VsviGmkBocQgkQIXlqXGE8MkowLtghJ+MDYOEQkVfdvyPrUQRQN9ThPAyvzeja4/vHBv9TyOwEuJbPmDixmmhPqn3HTILyP9vmV17GWFkaAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;next-redux-wrapper&quot;
+        title=&quot;next-redux-wrapper&quot;
+        src=&quot;/static/821263d3022cd15658c28fa8da0ad3b3/e85cb/next-redux-wrapper.png&quot;
+        srcset=&quot;/static/821263d3022cd15658c28fa8da0ad3b3/070ae/next-redux-wrapper.png 120w,
+/static/821263d3022cd15658c28fa8da0ad3b3/8ff5a/next-redux-wrapper.png 240w,
+/static/821263d3022cd15658c28fa8da0ad3b3/e85cb/next-redux-wrapper.png 480w,
+/static/821263d3022cd15658c28fa8da0ad3b3/37523/next-redux-wrapper.png 720w,
+/static/821263d3022cd15658c28fa8da0ad3b3/d9199/next-redux-wrapper.png 960w,
+/static/821263d3022cd15658c28fa8da0ad3b3/3ceac/next-redux-wrapper.png 1456w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;하지만 문제는, 사용하려고 했던 스펙 중 &lt;code class=&quot;language-text&quot;&gt;Redux-observable&lt;/code&gt;에 대한 support가 이루어지지 않는 부분이었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4926ce354edb31d89a0315b840a1cad1/442cb/supports.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 90.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAACd0lEQVQ4y31UaXPaMBDl//+Qfmg/ddqQTlOSHjlKEhKoMWdsjE0IOBcJWJIP6XVl1VMopjvzZllAT28vVZRSWK4ijO5j9KYCwWOSe/tWQEoFbfo/6yhsPS58RX8QQmD6nMAnsvAlxfghyS94WGYoszLiwipaRRILeESgVfXvRE42nMfoULzkMlcqlcH64UxuKtSo/L0mxTISRBJjMBO5WivgsCcCdYehOzW+PeG4cBlOhhFOCTrO1kpTKW7IMiJkMZwwweTJpKzruStluSvldcIVEbqhIbuZG8I0227MrqZsKJRE+LKKiSyB90A1nMVoeCyvYf77P53ehTXCDK9UQ0crI8K7Zz0+PG8WTzSp0jKMh8Iu21DI6KD7jBzBK+A8GSyolDEMROFT8qkkr8gbbDZFSizvH+F1ffTaPoJBgFEvgP1rjHZrjOaVB5++61BsUXw5fEUrEHnHL0cMTZ8jyQpCgh5h9v4NRh8/o189gn9whEH1EO6nQ/T2agi+HGFYrcGpHUNW30J1riH/lErKkhpqhdH3A7iUU3sF+HTDjTC+x4AJne5HgE2p8jAEutemaFKW11Bbsv8OzlkLzWML7qWN/s82nAsb1okFr2FjWLdgnQ8w+rBPhFemPTLb7jJjHJOFRLcxxKB2isHXOpxvdfjH57g7u4D34zxH1GwAlKqyr4BoaXqt1LZCzgVtB+3uvYKzBMaU8i03mFOHabsQUNqsGOhicLSqsrHRCvXutsYMnQmDO+foTxluZhzhgnZbz2PIIeIsr5lOsyBTZQojItQPQota74bmcTDDvL3DKCHZIoxj/fal+aMwW6S4pS3Rg7rrcf0f4W/ZvGfcQtARygAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;supports&quot;
+        title=&quot;supports&quot;
+        src=&quot;/static/4926ce354edb31d89a0315b840a1cad1/e85cb/supports.png&quot;
+        srcset=&quot;/static/4926ce354edb31d89a0315b840a1cad1/070ae/supports.png 120w,
+/static/4926ce354edb31d89a0315b840a1cad1/8ff5a/supports.png 240w,
+/static/4926ce354edb31d89a0315b840a1cad1/e85cb/supports.png 480w,
+/static/4926ce354edb31d89a0315b840a1cad1/37523/supports.png 720w,
+/static/4926ce354edb31d89a0315b840a1cad1/442cb/supports.png 752w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;support 항목엔 없었지만, &lt;a href=&quot;https://github.com/kirill-konshin/next-redux-wrapper/issues/303&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;아래 issue의 답변&lt;/a&gt;처럼 observable에서도 사용 가능하다는 뉘앙스를 확인할 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a9396690eda163a1810a9f3443dc47be/7e318/observable-supports.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAf0lEQVQI13WLaw6DIBAGuf/12t5AQLS8YqAKwldYif3VTSazmeyy1+OJaeIwzkOtb1i/3YS4I50FRz6xH7mRhn/7Z09067dAjS3LCuccVDMXkpi4IIScIWdFzRgLYx1ZN5z37c9Da3N1a5FSBsOYGCMRQhiOd+uUUlBr/Uuf7i/B4ObZCwWZegAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;observable-supports&quot;
+        title=&quot;observable-supports&quot;
+        src=&quot;/static/a9396690eda163a1810a9f3443dc47be/e85cb/observable-supports.png&quot;
+        srcset=&quot;/static/a9396690eda163a1810a9f3443dc47be/070ae/observable-supports.png 120w,
+/static/a9396690eda163a1810a9f3443dc47be/8ff5a/observable-supports.png 240w,
+/static/a9396690eda163a1810a9f3443dc47be/e85cb/observable-supports.png 480w,
+/static/a9396690eda163a1810a9f3443dc47be/37523/observable-supports.png 720w,
+/static/a9396690eda163a1810a9f3443dc47be/d9199/observable-supports.png 960w,
+/static/a9396690eda163a1810a9f3443dc47be/7e318/observable-supports.png 1892w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;redux-saga와 redux-observable로 PoC를 구성하여 기술적 테스트를 진행하였는데, redux-saga에선 아래와 같이 정상적인 동작이 나왔습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8201661ba75a3322ad1487bb533cb14a/75a80/redux-saga-normal.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 235.83333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;redux-saga-normal&quot;
+        title=&quot;redux-saga-normal&quot;
+        src=&quot;/static/8201661ba75a3322ad1487bb533cb14a/e85cb/redux-saga-normal.png&quot;
+        srcset=&quot;/static/8201661ba75a3322ad1487bb533cb14a/070ae/redux-saga-normal.png 120w,
+/static/8201661ba75a3322ad1487bb533cb14a/8ff5a/redux-saga-normal.png 240w,
+/static/8201661ba75a3322ad1487bb533cb14a/e85cb/redux-saga-normal.png 480w,
+/static/8201661ba75a3322ad1487bb533cb14a/37523/redux-saga-normal.png 720w,
+/static/8201661ba75a3322ad1487bb533cb14a/d9199/redux-saga-normal.png 960w,
+/static/8201661ba75a3322ad1487bb533cb14a/75a80/redux-saga-normal.png 1134w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;2. Page.getStaticProps uses the store to dispatch things&lt;/code&gt;가 getInitialProps에서 data fetch하는 action을 실행한 로그입니다. (이후 내부에서 비동기로 update action이 실행 됨) 이후 &lt;code class=&quot;language-text&quot;&gt;3. getProps after dispatches has store state&lt;/code&gt; 로그에서 데이터가 제대로 업데이트 된 모습을 볼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8683332316adcf6599d84f062e0939b1/f73a1/redux-observable-issue.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 210%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;redux-observable-issue&quot;
+        title=&quot;redux-observable-issue&quot;
+        src=&quot;/static/8683332316adcf6599d84f062e0939b1/e85cb/redux-observable-issue.png&quot;
+        srcset=&quot;/static/8683332316adcf6599d84f062e0939b1/070ae/redux-observable-issue.png 120w,
+/static/8683332316adcf6599d84f062e0939b1/8ff5a/redux-observable-issue.png 240w,
+/static/8683332316adcf6599d84f062e0939b1/e85cb/redux-observable-issue.png 480w,
+/static/8683332316adcf6599d84f062e0939b1/37523/redux-observable-issue.png 720w,
+/static/8683332316adcf6599d84f062e0939b1/f73a1/redux-observable-issue.png 822w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;하지만 observable에선 &lt;code class=&quot;language-text&quot;&gt;2. Page.getStaticProps uses the store to dispatch things&lt;/code&gt;로그가 나오는 getInitialProps에서 data fetch를 하였으나, &lt;code class=&quot;language-text&quot;&gt;3. getProps after dispatches has store state&lt;/code&gt; 로그에서 데이터가 제대로 들어오지 않은 모습을 볼 수 있습니다. 현재 이미지에는 없으나, Server에서 Client로 store를 넘겨주는 &lt;code class=&quot;language-text&quot;&gt;__NEXT_REDUX_WRAPPER_HYDRATE__&lt;/code&gt; 로그 단계 이후에 Server측 store의 data가 업데이트 되는 로그가 나왔습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;saga와 observable의 차이는 아래와 같이 rootStore를 구성할 때, 3번 영역처럼 sagaTask를 가진다는점 이었습니다.
+하지만 이는 redux-saga자체에서 지원하는 기능으로, redux-observable에선 .run 실행 시, return type이 void 입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// store.tsx&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SagaStore&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Store&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    sagaTask&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Task&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; makeStore&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MakeStore&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;State&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;context&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 1: Create the middleware&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sagaMiddleware &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createSagaMiddleware&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// 2: Add an extra parameter for applying middleware:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; store &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createStore&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;reducer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;applyMiddleware&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sagaMiddleware&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// 3: Run your sagas on server&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;store &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; SagaStore&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sagaTask &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; sagaMiddleware&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rootSaga&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// 4: now return the store:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; store&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// ------------------------------------------------------------------&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// pages/index.tsx&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; getServerSideProps &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ReduxWrapper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getServerSideProps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; store&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;etc &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// regular stuff&lt;/span&gt;
+    store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ApplicationSlice&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;actions&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;updateConfiguration&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// end the saga&lt;/span&gt;
+    store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;END&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sagaTask&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toPromise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// sagaTask의 Promise를 기다림&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;현재 &lt;a href=&quot;https://github.com/kirill-konshin/next-redux-wrapper/issues/307&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;이슈&lt;/a&gt;를 남겨 진행 중이지만, Owner가 redux-observable에 대해 대응하는 작업을 진행하지 않았고, 대응 또한 빠르지 않아 근 시일내에 문제를 해결하는 것은 어려워 보입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/18016b39dc84a2005cea95b249b1a80e/89557/result.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAjklEQVQI122O2w6DMAxD+f8fHO8DSjVYL2m60gJe2rGHSYt0ZEuxlXT9rcc0zTDWY1kNrA9wFOCJm75SRi470paF8sOWC0JMcNIhjtiPA52eNYwxUKL3YcQwTo3qldIY5dhjWaVEsM5L1uJ5YZ2TR1zzXo6f54kO13CMiEJVZv54USJCSqmFD/ngH3X35Q3roucQq5PU2AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;result&quot;
+        title=&quot;result&quot;
+        src=&quot;/static/18016b39dc84a2005cea95b249b1a80e/e85cb/result.png&quot;
+        srcset=&quot;/static/18016b39dc84a2005cea95b249b1a80e/070ae/result.png 120w,
+/static/18016b39dc84a2005cea95b249b1a80e/8ff5a/result.png 240w,
+/static/18016b39dc84a2005cea95b249b1a80e/e85cb/result.png 480w,
+/static/18016b39dc84a2005cea95b249b1a80e/37523/result.png 720w,
+/static/18016b39dc84a2005cea95b249b1a80e/d9199/result.png 960w,
+/static/18016b39dc84a2005cea95b249b1a80e/89557/result.png 1928w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Next.js 스타일 로드 이슈]]></title><description><![CDATA[Next.js를 최근 사용해보기 시작하며 PoC를 많이 작성하고 있는데, 여러 이슈를 만나보고 있습니다.
 Next.js에서 Custom webpack 설정 시, 갑작스럽게 생긴 이슈에 대해 공유하고자 합니다. 기본적으로 Next.js…]]></description><link>https://jicjjang.github.io/posts/nextjs-style-issue</link><guid isPermaLink="false">https://jicjjang.github.io/posts/nextjs-style-issue</guid><pubDate>Tue, 22 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Next.js를 최근 사용해보기 시작하며 PoC를 많이 작성하고 있는데, 여러 이슈를 만나보고 있습니다.
 Next.js에서 Custom webpack 설정 시, 갑작스럽게 생긴 이슈에 대해 공유하고자 합니다.&lt;/p&gt;
 &lt;hr&gt;
@@ -56,7 +340,6 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;p&gt;사전에 공지가 있었는진 확인을 못했지만 갑작스레 사용하려던 라이브러리가 하루아침에(...) deprecated가 되어있었고, npm package 에서도 없어지진 않았지만 금방 사라질 라이브러리를 사용할 순 없다고 판단해 대체 방안을 찾아볼 수 밖에 없었습니다.&lt;/p&gt;
 &lt;h2 id=&quot;1-그래도-일단-zeitnext-sass-zeitnext-css를-사용하자&quot; style=&quot;position:relative;&quot;&gt;1. 그래도 일단 @zeit/next-sass, @zeit/next-css를 사용하자&lt;a href=&quot;#1-%EA%B7%B8%EB%9E%98%EB%8F%84-%EC%9D%BC%EB%8B%A8-zeitnext-sass-zeitnext-css%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%9E%90&quot; aria-label=&quot;1 그래도 일단 zeitnext sass zeitnext css를 사용하자 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;위 라이브러리들을 사용한다면 기존 &lt;code class=&quot;language-text&quot;&gt;@zeit/next-sass&lt;/code&gt; 사용법처럼 sass, css options를 모두 넣을 수 있었습니다.&lt;/p&gt;
-&lt;h3 id=&quot;before&quot; style=&quot;position:relative;&quot;&gt;&lt;before&gt;&lt;a href=&quot;#before&quot; aria-label=&quot;before permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// next.config.js&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; withSass &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;@zeit/next-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;withSass&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -621,7 +904,7 @@ PM과 면담에선 애자일 모델이 아닌 워터폴 모델도 고려해보�
 영어공부를 (하려고 노력)하고 있다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;2-1-DDD--Architecture-510점&quot; style=&quot;position:relative;&quot;&gt;2-1. DDD / Architecture [5/10점]&lt;a href=&quot;#2-1-DDD--Architecture-510%EC%A0%90&quot; aria-label=&quot;2 1 DDD  Architecture 510점 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;펀드 서비스의 &lt;code class=&quot;language-text&quot;&gt;설계&lt;/code&gt; 부분은 화면에서의 복잡도가 이슈였다. 펀드 서비스를 이용하기 위해선 증권사와의 통신(법적 요구사항)이 중요했기 떄문에 이 부분을 풀기위해 여러 화면을 왔다갔다 해야했다.
+&lt;p&gt;펀드 서비스의 &lt;code class=&quot;language-text&quot;&gt;설계&lt;/code&gt; 부분은 화면에서의 복잡도가 이슈였다. 펀드 서비스를 이용하기 위해선 증권사와의 통신(법적 요구사항)이 중요했기 때문에 이 부분을 풀기위해 여러 화면을 왔다갔다 해야했다.
 일주일 정도의 시간으로 설계 및 구현을 다 끝냈으나(OCP원칙을 매우 위반...) 다른 모듈을 붙이기 위해선 전체 구조가 변해야하는... 괴이한 구조를 가지게 되었다.
 이 경험을 기반으로 아키텍쳐에 대한 관심을 가지게 되었고, 찾아보던 중
 &lt;a href=&quot;https://khalilstemmler.com/articles/typescript-domain-driven-design/ddd-frontend/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;가장 도움이 된 글&lt;/a&gt;은 이 글이었다.

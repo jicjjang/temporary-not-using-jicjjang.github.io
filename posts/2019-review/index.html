@@ -147,7 +147,7 @@ PM과 면담에선 애자일 모델이 아닌 워터폴 모델도 고려해보�
 영어공부를 (하려고 노력)하고 있다.</p>
 <hr>
 <h2 id="2-1-DDD--Architecture-510점" style="position:relative;">2-1. DDD / Architecture [5/10점]<a href="#2-1-DDD--Architecture-510%EC%A0%90" aria-label="2 1 DDD  Architecture 510점 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
-<p>펀드 서비스의 <code class="language-text">설계</code> 부분은 화면에서의 복잡도가 이슈였다. 펀드 서비스를 이용하기 위해선 증권사와의 통신(법적 요구사항)이 중요했기 떄문에 이 부분을 풀기위해 여러 화면을 왔다갔다 해야했다.
+<p>펀드 서비스의 <code class="language-text">설계</code> 부분은 화면에서의 복잡도가 이슈였다. 펀드 서비스를 이용하기 위해선 증권사와의 통신(법적 요구사항)이 중요했기 때문에 이 부분을 풀기위해 여러 화면을 왔다갔다 해야했다.
 일주일 정도의 시간으로 설계 및 구현을 다 끝냈으나(OCP원칙을 매우 위반...) 다른 모듈을 붙이기 위해선 전체 구조가 변해야하는... 괴이한 구조를 가지게 되었다.
 이 경험을 기반으로 아키텍쳐에 대한 관심을 가지게 되었고, 찾아보던 중
 <a href="https://khalilstemmler.com/articles/typescript-domain-driven-design/ddd-frontend/" target="_blank" rel="noopener">가장 도움이 된 글</a>은 이 글이었다.
