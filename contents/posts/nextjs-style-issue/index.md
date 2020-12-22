@@ -41,7 +41,6 @@ module.exports = {
 
 위 라이브러리들을 사용한다면 기존 `@zeit/next-sass` 사용법처럼 sass, css options를 모두 넣을 수 있었습니다.
 
-### <before>
 ```javascript
 // next.config.js
 const withSass = require('@zeit/next-sass')
