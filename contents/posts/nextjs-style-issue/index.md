@@ -1,5 +1,5 @@
 ---
-title: "next.js 스타일 로드 이슈"
+title: "Next.js 스타일 로드 이슈"
 date: "2020-12-22"
 tags: [javascript, next.js, style, zeit/next-sass, zeit/next-css]
 ---
