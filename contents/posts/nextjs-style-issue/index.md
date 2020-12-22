@@ -1,7 +1,7 @@
 ---
 title: "next.js 스타일 로드 이슈"
 date: "2020-12-22"
-tags: [javascript, next.js, style, @zeit/next-sass, @zeit/next-css]
+tags: [javascript, next.js, style, zeit/next-sass, zeit/next-css]
 ---
 
 Next.js를 최근 사용해보기 시작하며 PoC를 많이 작성하고 있는데, 여러 이슈를 만나보고 있습니다.
