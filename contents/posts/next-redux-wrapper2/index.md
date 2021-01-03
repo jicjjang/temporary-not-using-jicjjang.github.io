@@ -1,6 +1,6 @@
 ---
 title: "next-redux-wrapper issue with Redux-observable 2"
-date: "2021-01-04"
+date: "2021-01-03"
 tags: [javascript, next.js, redux, redux-observable, rxjs, next-redux-wrapper]
 ---
 
