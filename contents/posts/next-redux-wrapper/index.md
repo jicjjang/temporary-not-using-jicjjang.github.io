@@ -4,6 +4,10 @@ date: "2020-12-23"
 tags: [javascript, next.js, redux, redux-observable, rxjs, next-redux-wrapper]
 ---
 
+연결된 다음 포스트 : [next-redux-wrapper issue with Redux-observable 2](https://jicjjang.github.io/posts/next-redux-wrapper2)
+
+---
+
 현재 Next.js와 함께 사용하는 skill set은 Redux (observable), Redux toolkit 입니다.
 SSR을 위해 Next.js를 사용하고 있는데, [Custom server](https://nextjs.org/docs/advanced-features/custom-server) 코드가 아닌 Component 코드 만으로 최대한 data pre-fetching을 하기 위해 `getInitialProps`를 사용합니다. ([이젠 getServerSideProps, getStaticProps로 사용됨](https://nextjs.org/docs/api-reference/data-fetching/getInitialProps))
 
@@ -99,6 +103,3 @@ export const getServerSideProps = ReduxWrapper.getServerSideProps(
 현재 [이슈](https://github.com/kirill-konshin/next-redux-wrapper/issues/307)를 남겨 진행 중이지만, Owner가 redux-observable에 대해 대응하는 작업을 진행하지 않았고, 대응 또한 빠르지 않아 근 시일내에 문제를 해결하는 것은 어려워 보입니다.
 
 ![result](./result.png)
-
-
-
