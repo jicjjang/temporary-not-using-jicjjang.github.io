@@ -4,11 +4,11 @@ date: "2021-01-03"
 tags: [javascript, next.js, redux, redux-observable, rxjs, next-redux-wrapper]
 ---
 
-연결된 이전 포스트 : [next-redux-wrapper issue with Redux-observable 1](https://jicjjang.github.io/posts/next-redux-wrapper)
+연결된 이전 포스트 : [next-redux-wrapper issue with Redux-observable 1](/posts/next-redux-wrapper)
 
 ---
 
-얼마 전에 올렸던 [next-redux-wrapper issue with Redux-observable](https://jicjjang.github.io/posts/next-redux-wrapper) 포스트에 대한 해결책을 찾아
+얼마 전에 올렸던 [next-redux-wrapper issue with Redux-observable](/posts/next-redux-wrapper) 포스트에 대한 해결책을 찾아
 결과를 공유하는 글을 간단~히 준비했습니다.
 (매우 짧습니다)
 
