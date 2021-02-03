@@ -4,7 +4,7 @@ date: "2020-12-23"
 tags: [javascript, next.js, redux, redux-observable, rxjs, next-redux-wrapper]
 ---
 
-연결된 다음 포스트 : [next-redux-wrapper issue with Redux-observable 2](https://jicjjang.github.io/posts/next-redux-wrapper2)
+연결된 다음 포스트 : [next-redux-wrapper issue with Redux-observable 2](/posts/next-redux-wrapper2)
 
 ---
 
