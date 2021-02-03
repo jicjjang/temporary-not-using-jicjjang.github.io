@@ -1,4 +1,600 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Jan 2021 19:01:44 GMT</lastBuildDate><item><title><![CDATA[이직기 2-2]]></title><description><![CDATA[…]]></description><link>https://jicjjang.github.io/posts/new-jobs2-2</link><guid isPermaLink="false">https://jicjjang.github.io/posts/new-jobs2-2</guid><pubDate>Thu, 14 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이 포스팅은 회고록이므로 존칭이 없습니다 :)&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 03 Feb 2021 15:22:07 GMT</lastBuildDate><item><title><![CDATA[next-redux-wrapper 설정 이슈]]></title><description><![CDATA[next.js를 처음 사용하며 지속적으로 store에 대해 수정할 부분이 생겼습니다.
+심지어 redux도 2016년 이후로 처음 사용하며 (그동안 mobx, mobx-state-tree…]]></description><link>https://jicjjang.github.io/posts/next-redux-wrapper-settings</link><guid isPermaLink="false">https://jicjjang.github.io/posts/next-redux-wrapper-settings</guid><pubDate>Fri, 05 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;next.js를 처음 사용하며 지속적으로 store에 대해 수정할 부분이 생겼습니다.
+심지어 redux도 2016년 이후로 처음 사용하며 (그동안 mobx, mobx-state-tree를 열심히 썼었죠) 공부를 해야했기 때문에 새로운 모듈을
+동시다발적으로 많이 추가하게 되었습니다. redux-saga, redux-observable (둘 중 비동기 라이브러리를 어떤걸 쓰느냐 PoC를 진행하며 모두 공부해야 했습니다),
+next-redux-wrapper, redux-saga-test-plan...&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;얼마 전, &lt;a href=&quot;/posts/next-redux-wrapper&quot;&gt;next-redux-wrapper 에서의 redux-observable 이슈&lt;/a&gt;를 공유드리면서
+next-redux-wrapper가 next.js에서 해결하려고 했던 부분에 대해 간략히 설명을 드렸었습니다.&lt;/p&gt;
+&lt;p&gt;바로 &lt;code class=&quot;language-text&quot;&gt;SSR에서 fetch한 데이터를 store에 저장하고, 이를 client와 공유하는 부분&lt;/code&gt;이었죠.&lt;/p&gt;
+&lt;p&gt;오늘도 열심히 개발을 하다가! 바로 &lt;a href=&quot;https://github.com/vercel/next.js/discussions/15954&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;next-redux-wrapper에서 당황스러운 이슈&lt;/a&gt;에 맞닿게 되었습니다.&lt;/p&gt;
+&lt;p&gt;(뜬금없지만?! 전 카카오페이에 입사한 이후로 자바스크립트로 프로젝트를 한 경험이 딱 한번 있네요. 물론 이번에도 팀원들에게 열심히 &lt;a href=&quot;/posts/why-typescript&quot;&gt;typescript를 전파&lt;/a&gt;하였고 (typescript를 쓰지 않고 계셨습니다.) webpack도 직접 다 설정 하는 등, 많은 노력을 기울였습니다.)&lt;/p&gt;
+&lt;h2 id=&quot;설정&quot; style=&quot;position:relative;&quot;&gt;설정&lt;a href=&quot;#%EC%84%A4%EC%A0%95&quot; aria-label=&quot;설정 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;이 이슈는 제가 typescript를 사용하면서 root store에서 타입을 정의하기 위해 꼼수를 부리다 생긴 이슈였는데요.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;createStore&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; applyMiddleware&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Store&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;redux&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;MakeStore&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; createWrapper&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Context&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;next-redux-wrapper&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; createSagaMiddleware&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;Task&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;redux-saga&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; reducer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;State&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./reducer&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; rootSaga &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./saga&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SagaStore&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Store&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  sagaTask&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Task&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; makeStore&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MakeStore&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;State&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 1: Create the middleware&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sagaMiddleware &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createSagaMiddleware&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 2: Add an extra parameter for applying middleware:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; store &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createStore&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;reducer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;applyMiddleware&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sagaMiddleware&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 3: Run your sagas on server&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;store &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; SagaStore&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sagaTask &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; sagaMiddleware&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rootSaga&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 4: now return the store:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; store&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; wrapper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token generic-function&quot;&gt;&lt;span class=&quot;token function&quot;&gt;createWrapper&lt;/span&gt;&lt;span class=&quot;token generic class-name&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;State&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;makeStore&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;debug&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드가 &lt;a href=&quot;https://github.com/kirill-konshin/next-redux-wrapper#usage-with-redux-saga&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;next-redux-wrapper와 redux-saga를 함께 사용할 때의 root store설정 방법&lt;/a&gt;입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;IAppDispatch&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; rootStore&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dispatch&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;하지만 저는 위와 같이 rootStore의 dispatch값을 타입으로 정의하고 싶었습니다. makeStore에 감싸져 있는 store는 따로 타입으로 정의할 수 없었습니다.
+그래서 아래와 같이 store를 조각조각내어 사용하게 되었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sagaMiddleware &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createSagaMiddleware&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// dispatch 타입 정의를 위해 setupStore에서 바깥으로 빼냄&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; rootStore &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;configureStore&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  reducer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; rootReducer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  middleware&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    sagaMiddleware&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;createLogger&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// in development&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  devTools&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; setupStore&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MakeStore&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;IRootState&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; IRootAction&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rootStore &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; SagaStore&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sagaTask &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; sagaMiddleware&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rootSaga&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; rootStore&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; makeStore&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MakeStore&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;IRootState&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; IRootAction&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupStore&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; nextReduxWrapper &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token generic-function&quot;&gt;&lt;span class=&quot;token function&quot;&gt;createWrapper&lt;/span&gt;&lt;span class=&quot;token generic class-name&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;IRootState&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;makeStore&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  debug&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// in development&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;IAppDispatch&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; rootStore&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dispatch&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; nextReduxWrapper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;당연히 문제는 없어 보입니다. 하나의 함수로 되어있던 root store를 그저 쪼개기만 했으니까요.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;이슈&quot; style=&quot;position:relative;&quot;&gt;이슈&lt;a href=&quot;#%EC%9D%B4%EC%8A%88&quot; aria-label=&quot;이슈 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;1-원인&quot; style=&quot;position:relative;&quot;&gt;1. 원인&lt;a href=&quot;#1-%EC%9B%90%EC%9D%B8&quot; aria-label=&quot;1 원인 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;왜 그동안 아무도 이런 이슈를 알아채지 못했을까요?&lt;/p&gt;
+&lt;p&gt;root store는 환경 설정시 세팅 후, 동작이 잘 되는 한 거의 살펴보지 않게 되는 경향이 있죠. 또한 개발 초기에는 store에 들어간 데이터의 정합성에 대해 크게 신경쓸 필요가 없었을 겁니다. 데이터가 타입대로 잘 들어가지만 하면 된거죠(?!) 대부분 fetch가 주가 되었고, 새로고침을 하더라도 저장되어있는 데이터가 그대로 잘 나타나니 알아차릴 방법이 없었을겁니다.&lt;/p&gt;
+&lt;p&gt;makeStore 메서드 내에 변수로 존재해야 할 root store를 밖으로 꺼내놨으니, 싱글 스레드인 Node의 store에 저장된 데이터가 지속적으로 유지되고, 새롭게 init되는 과정이 없어진 것이었습니다. 가이드처럼 makeStore를 재구성해주면 해결될 문제인 것으로 판단되었습니다.&lt;/p&gt;
+&lt;p&gt;fetch가 아닌 post/put/delete의 동작을 실행하게 되니, 바로 이슈를 알아차릴 수 있었... 다면 얼마나 좋았을까요 ㅠㅠ&lt;/p&gt;
+&lt;h3 id=&quot;2-과정&quot; style=&quot;position:relative;&quot;&gt;2. 과정&lt;a href=&quot;#2-%EA%B3%BC%EC%A0%95&quot; aria-label=&quot;2 과정 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;사실 원인에 간단히 써놓은 것과 다르게 원인을 파악하는 데에만 하루정도의 시간이 소요되었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. nextjs 서비스를 새로 실행한다.
+2. 브라우저 접속 시 getServerSideProps를 통해 redux의 action 및 fetch가 실행되고 store에 데이터가 저장된다.
+3. 새로고침을 한다.
+4. redux action은 실행되지만 업데이트가 안됨
+5. 왜???&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;수없이 많은 로그를 남겼으나, 의심가는 곳은 한 두 곳이 아니었습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;reselect&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reselect로 가져오는 데이터가 데이터를 캐싱하는걸까?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;하지만, client 레벨의 reselect가 새로고침하는 과정까지 데이터를 들고있을 순 없지...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;next.js
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a9680dd1baf217c83d9b15ce5cb24bfc/efb68/action-log.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 89.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAACcElEQVQ4y2WUWZLiQAxEOUfjfV/AOxjbQDP9OTH3v06OUlAOQ38oWJz1lFJJ3gVhiL7vUVUViqJEnhcIghCO48C2GTbquobnefB8H23bahRlqfooiuC6rupsObPjjyzLcL0uOJ/PGIZBE6RpKiLrCWwa+AIjlIDpcsE0TapllGWhOucJ9MRVLoJZgYTzoBGYzEzsv4AXATJKcclEW+3O83yURSEOryriASNYgRIEBkGAOI5VO8+zGrEsa9WpQ2bI5MHtdkMjvWH/9iKi0HrBtsBQEi4CHE4nBX4m33l+gC5L8HMecO0aVGGAOgpQSdSBQOwn2ACrOMSjbzG3NdyP1qhDT0RdGuPn1OFbhKc8QZeEaOVgE3rvQJmIoyT6M7SY6qP+3jpcS07SDNOyYJQe+pLga7/Xsvci3m9KDgVAyCg3fBF9Lr03PVyBnK1jluJ7PGNspeQ0QeI6iB37FRbcjcM0CnGT9ixDh0bGxczgCnQFOEmZf88d7occSy63WCQSqXxPMCcBIimb/fK15BD/xl41jct2OL9L5i0PMoNt1yNKEny9bnhbMmeTJUcyNqdxxLGqkWb5OgUmBBjoVizSEwbnKxUosxFibtD0kMFN4Sxy1DjcRkuNOiykuVylk8wW97TUPS00zNYYIAebC8Ct4opSezgc9JPP1WEijpiRQSC3xYDsj1tmsIr7/Y6u6/TFwfO87VfJvk487RNIlxTx/8/VMw4JY7Aqutzu/nOXxe7j8VhFBL69HD52mSUTxDcNy6UhMz7qkEAK+JDBNw7js2TCeIH8ZDJT5tvY6PRLZtq2zEthIzRAfmdy13N/QbbxHxOZCQvzerZ7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;action-log&quot;
+        title=&quot;action-log&quot;
+        src=&quot;/static/a9680dd1baf217c83d9b15ce5cb24bfc/e85cb/action-log.png&quot;
+        srcset=&quot;/static/a9680dd1baf217c83d9b15ce5cb24bfc/070ae/action-log.png 120w,
+/static/a9680dd1baf217c83d9b15ce5cb24bfc/8ff5a/action-log.png 240w,
+/static/a9680dd1baf217c83d9b15ce5cb24bfc/e85cb/action-log.png 480w,
+/static/a9680dd1baf217c83d9b15ce5cb24bfc/37523/action-log.png 720w,
+/static/a9680dd1baf217c83d9b15ce5cb24bfc/d9199/action-log.png 960w,
+/static/a9680dd1baf217c83d9b15ce5cb24bfc/efb68/action-log.png 2032w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;애매하다... 위 이미지와 같은 로그가 생기긴 했는데, 저 url은 언제 바뀐거지..?&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;/_next/data/development/index.json&lt;/code&gt;에 데이터가 저장되어 있음. 음... 이 로그는 refresh 가 안되나...?&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;문서에 따로 저장해서 그걸 지속적으로 활용한다는 말이 없음...&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;When you request this page on client-side page transitions through next/link (documentation),
+Next.js sends an API request to server, which runs getServerSideProps.
+It’ll return a JSON that contains the result of running getServerSideProps,
+and the JSON will be used to render the page. (https://nextjs.org/docs/basic-features/data-fetching)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;redux-saga&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;takeLatest, takeEvery 문제?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;바꿔바도 문제 없음&lt;/li&gt;
+&lt;li&gt;문제가 된다면 action 로그도 안찍혔겠지...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;next-redux-wrapper&lt;/li&gt;
+&lt;li&gt;음.... 심증만 있고 물증이 없다...&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;3-해결&quot; style=&quot;position:relative;&quot;&gt;3. 해결&lt;a href=&quot;#3-%ED%95%B4%EA%B2%B0&quot; aria-label=&quot;3 해결 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;역시나 믿을건 구글링 밖에 없었고, 결국 구글링으로 &lt;a href=&quot;https://github.com/vercel/next.js/discussions/15954&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;동일한 이슈를 가진 discussion&lt;/a&gt;을 찾게 되었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;The first was that the store that we were using with next-redux-wrapper was defined globally const, instead of internally within makeStore...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이슈 해결에 대한 얘기의 바로 첫 문장에서 아차 하는 마음이 들었습니다;; 바로 root store의 global한 store 구성을 제거하였고, 새로고침 시 데이터가 제대로 fetch 됨을 확인할 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;이를 위해 &lt;code class=&quot;language-text&quot;&gt;IAppDispatch&lt;/code&gt;를 포기하게 되었지만, 사용에 문제가 없었기에 기능을 우선시 할 수밖에 없었습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;해결에 하루 넘게 걸린 이슈도 막상 해결하고 정리하면 간단하게 끝나지만, 뿌듯함은 이루 말할수가 없네요 :)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Why typescript?]]></title><description><![CDATA[SPA Library 3대장을 비교해보자 Angular 뭐... 애초에 Angular에서 사용하면서 유명해진 것은 모두 아는 사실  React React를 만든 facebook팀에선 PropTypes…]]></description><link>https://jicjjang.github.io/posts/why-typescript</link><guid isPermaLink="false">https://jicjjang.github.io/posts/why-typescript</guid><pubDate>Thu, 04 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;SPA-Library-3대장을-비교해보자&quot; style=&quot;position:relative;&quot;&gt;SPA Library 3대장을 비교해보자&lt;a href=&quot;#SPA-Library-3%EB%8C%80%EC%9E%A5%EC%9D%84-%EB%B9%84%EA%B5%90%ED%95%B4%EB%B3%B4%EC%9E%90&quot; aria-label=&quot;SPA Library 3대장을 비교해보자 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Angular&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;뭐... 애초에 Angular에서 사용하면서 유명해진 것은 모두 아는 사실&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e029f1210b5cddae1d44d151055b0b85/5c4aa/angular.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAs0lEQVQY032P2w6CMBBE+f9vM74ZL0CMgoqFgtwKLZVjgfDgg05yMukkO931blGEiK5U5Yu0qZBSOn9iR8s44hh/UjeKRmkmrZkXHA742w3n8IQvE4Ig5JTueGP5J/cXQXxnf4mIZcmjKDC6xotvd46uROY51gwYYzD9QNd1KKUci6/v1tH3y1apSHgkApFllFU1Z15RvMhcIIRwJzTzYLsWzCXfhRO91vOOZjBYa9F68Ukfyms0kD3idsQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;angular&quot;
+        title=&quot;angular&quot;
+        src=&quot;/static/e029f1210b5cddae1d44d151055b0b85/e85cb/angular.png&quot;
+        srcset=&quot;/static/e029f1210b5cddae1d44d151055b0b85/070ae/angular.png 120w,
+/static/e029f1210b5cddae1d44d151055b0b85/8ff5a/angular.png 240w,
+/static/e029f1210b5cddae1d44d151055b0b85/e85cb/angular.png 480w,
+/static/e029f1210b5cddae1d44d151055b0b85/37523/angular.png 720w,
+/static/e029f1210b5cddae1d44d151055b0b85/d9199/angular.png 960w,
+/static/e029f1210b5cddae1d44d151055b0b85/5c4aa/angular.png 2492w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;React&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;React를 만든 facebook팀에선 &lt;a href=&quot;https://github.com/facebook/prop-types&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PropTypes&lt;/a&gt; 라는 런타임 타입 체킹 라이브러리를 만듬&lt;/li&gt;
+&lt;li&gt;자체 타입 체킹 툴을 만든 팀이 타 라이브러리를 쓰기는 조금 애매함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vue&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;이미 타입스크립트 사용 중!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://v3.vuejs.org/guide/typescript-support.html#defining-vue-components&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;하지만 완전 갈아엎을 수 없으므로... vue를 한번 감싸는 방식으로 사용ㅠ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1da081ccffb59e0edf85956545e3545f/d1442/vue-next.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 24.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA0UlEQVQY032R3WrDMAyF8/4vs1fYdRnLVgoj0JU0zdLfxYntpnFl55uTi7FC1wNCOgiOjqTkcum5h2EY7kYIYeqvsjmvz09s8zWLl5TPVYF4T1JsSsqyZL74YJZXpPsU3euHoiOcsxTZO66zN0YSpRqOxxNVtePQGrRrkSAPnY7QtqO2DucH+qvgRKZekkfLqmkiCQzRMnEjER9DpvyfYHX65i1bst4eWH7t2NdqHE9SK0WrNcZYGm2mum012hiMtb83uxGNPHihO58Rd8X9+cMPmByDfu/0rf0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;vue-next&quot;
+        title=&quot;vue-next&quot;
+        src=&quot;/static/1da081ccffb59e0edf85956545e3545f/e85cb/vue-next.png&quot;
+        srcset=&quot;/static/1da081ccffb59e0edf85956545e3545f/070ae/vue-next.png 120w,
+/static/1da081ccffb59e0edf85956545e3545f/8ff5a/vue-next.png 240w,
+/static/1da081ccffb59e0edf85956545e3545f/e85cb/vue-next.png 480w,
+/static/1da081ccffb59e0edf85956545e3545f/37523/vue-next.png 720w,
+/static/1da081ccffb59e0edf85956545e3545f/d9199/vue-next.png 960w,
+/static/1da081ccffb59e0edf85956545e3545f/d1442/vue-next.png 2538w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;언어의-상승-추이&quot; style=&quot;position:relative;&quot;&gt;언어의 상승 추이&lt;a href=&quot;#%EC%96%B8%EC%96%B4%EC%9D%98-%EC%83%81%EC%8A%B9-%EC%B6%94%EC%9D%B4&quot; aria-label=&quot;언어의 상승 추이 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://madnight.github.io/githut/#/pull_requests/2020/2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHut 지표 참고&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4be7e3ecd5546eee35e8186c19cbc411/81501/github-trend.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABWElEQVQoz02RyU4DQQxE+/9/DokLQogDBCFIZu99m6Lc0xNyeCpl7Kq2HTWEHcIYd0yd+YGb9rh8XfB5+cDvavgN99rZL96x56gW6OtDGLAISZSNNuHGIGEwsX07aujhoA8MRQtVN5cx+nIPWGPBlgp0x+RKEokwKUDHwHpuPdK7kLkjA6krX519ojk0xGQ7Lp9k+FKopCnr+eg13bcE30LVOdUac2OLnCjtDZ0q1pCx8MHZxa7EZ0zUidsNPMlAvRp+DxVqZcBkY7vVz2Ka8XuYMBqPgXczIcGSIKt7rh25DXVtpOORrhuHUDLRqB0n4j2s5zoV2nnEwum0Rkxs3jQ24xAYlusOR/VyX3mMW2zUjVvqDCjd17OZjcSXHYEkGisAFyKeX9/x9PLGUAuWWi3Wo1c8lmqynEgmTMePFlj+A8UgE1nnUGpF5p+hjWkTt1rvFY94z8A/1Uy75TTLRZwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;github-trend&quot;
+        title=&quot;github-trend&quot;
+        src=&quot;/static/4be7e3ecd5546eee35e8186c19cbc411/e85cb/github-trend.png&quot;
+        srcset=&quot;/static/4be7e3ecd5546eee35e8186c19cbc411/070ae/github-trend.png 120w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/8ff5a/github-trend.png 240w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/e85cb/github-trend.png 480w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/37523/github-trend.png 720w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/d9199/github-trend.png 960w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/81501/github-trend.png 2886w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;16년도-js-554-ts-없음&quot; style=&quot;position:relative;&quot;&gt;16년도 (js 55.4%, ts 없음)&lt;a href=&quot;#16%EB%85%84%EB%8F%84-js-554-ts-%EC%97%86%EC%9D%8C&quot; aria-label=&quot;16년도 js 554 ts 없음 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2dff3209366d0b3d518f705df61c886a/248b0/stackoverflow-most-tech-16.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 128.33333333333331%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAACXBIWXMAABYlAAAWJQFJUiTwAAADLElEQVRIx51Va08TQRTtT1ETH4lixIggaEQ0+kmjiSICCf/AX+gH4gcgWJ6lD6G2tFh2u2Uf7b4fM8e7s6yksC3KJmfvzO7OmXPnPjb3ZOIpxsenMPV0GqMPx/BobAJPJp8JTE49x8T4M4w9nsC9kQcYuT+K23fu4tr1m7h+Iwu3kHv39h0+zs5jbm4Bn2a/YGFxicaLmFtYwOz7JSy9/4rPX+bx4cMnvJh5jZmXbwivMzE9/Qo5qVZCrbCO8s8qisUiNje3sFso4PhYgizJkOU2JFmGJMWQTu1FyPRNPp9Hjts6DLkJSemg0WjgoFpF/fAQV7larRZyERv0mveDM0RRNBSe5yEXL+3aPhodC23DgaTbwipdF7LhkvXQ0hwY9E26zbBLEOp2gAPZpIU2am1TkEu6g0PFEuPyb4M2cRNCzodCEIaBD9c2yasQYBHZiMzZGDyZe74PfwDid2EYJoSGrqP+q4rAc+A5FsGG79rCpojnQQaS5w5CWuunZ+h4ASpHFOWOCY2OSiXvThz+T1BdDsVmaBoB3CBKCFXLx/KvHpYPDCxXDaweedjqAJsKJyATGzHaHD9khuIJx7bko+dFaVB8rNS79NDDxm8HO+0AJQ0oqrwPpVNUNI59HaioDBstl5Sd5l4alBPTxUrDRpFICiqwewLsdDh2SeUZuMA2jY8ND5brn2Us5RKjG0sJY4Xbso8yEZb+KknG6bM9mje7EdSek5kuaUoJQs3ysN60MgljxO5JvQAWnRFj/QSZhKrpYXlfJZcY9sjdAh1yitjFfY1B0iwEYdRHdObyOULDCbBFUeoPBEgxR81gUKwIrh+KszqvaCBhQQlR0ROSyqnr9S6nOndF4WcpG6hQo1peO3KxrSSRjXMwVqabDiLGL5CdJ81UuFbTUFSoSRh0ZjoXVneofoNwqLpshVQp30ptrNZ7FAiIQGy0qWH2QnLZ+3/COMrrRzbKpOqnltSl4gCmz66mME7s7/sd5JsmOnYk2lHWgoG9vZ+Qo+dGyFMNlxVPuMiEmsubaWZixzdGTTSiJhs32ljdMPcuUyoIxQ/GD4gsoGoIkWzCroQ/vcmIiodQlX0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;stackoverflow-most-tech-16&quot;
+        title=&quot;stackoverflow-most-tech-16&quot;
+        src=&quot;/static/2dff3209366d0b3d518f705df61c886a/e85cb/stackoverflow-most-tech-16.png&quot;
+        srcset=&quot;/static/2dff3209366d0b3d518f705df61c886a/070ae/stackoverflow-most-tech-16.png 120w,
+/static/2dff3209366d0b3d518f705df61c886a/8ff5a/stackoverflow-most-tech-16.png 240w,
+/static/2dff3209366d0b3d518f705df61c886a/e85cb/stackoverflow-most-tech-16.png 480w,
+/static/2dff3209366d0b3d518f705df61c886a/37523/stackoverflow-most-tech-16.png 720w,
+/static/2dff3209366d0b3d518f705df61c886a/d9199/stackoverflow-most-tech-16.png 960w,
+/static/2dff3209366d0b3d518f705df61c886a/248b0/stackoverflow-most-tech-16.png 1316w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;17년도-js-625-ts-95&quot; style=&quot;position:relative;&quot;&gt;17년도 (js 62.5%, ts 9.5%)&lt;a href=&quot;#17%EB%85%84%EB%8F%84-js-625-ts-95&quot; aria-label=&quot;17년도 js 625 ts 95 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b2ccc731b54e6695fb0fe5b548a5de55/b5a09/stackoverflow-most-tech-17.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAC2klEQVQ4y5WUyW8TMRTG85/QInqhiEUgpW3YDiBalooWJBChaYELB/4ujkjcuHFAqCAEIWnahizN2rRZZk1m8Wwfz06arYkQlj49ezz+zXv25wmFwxGEFyJYun4bl69cw8JiBItLN7AUIS3ewkL4Jq5eC2P+wiWcn7+Imdk5nJk5d0ozs6Szcwitr63jRXQTG7FXeLmxhVjsNTY33+B5NIqNJ2+x9ewdorEYHq89xfLKQ6zcX+3p0ZBWcW/5Ae7cXUHIVBpo5hIolqvIZrNI7uyIaBgGTNOEwdXrW5Z1SqZpwXEclCsVxONxhDzbQFs6hqppkKUWmo26iP/bZFlGPp9HKOCjwIPFHGiWhw7zYZB0k0HpMBFViprB4Ps+giCYKD7neR5CnOcyG3XFQPpQRbHRxn5VRaXVwUFdR6amYa+iCHme3188Lv6cNwFkbgBXvHwyEfRfGG7TshuWAEpthkLTQEW2UFNtVBUbmSMdh7IJzvV5VhM+MKkJoGWZqFSqKJVKyB8cCGl6W5wgP91/yejFfoaMMXGysiRBUxXRZ7SvrsPg0JxzEtnomM97JN91RL8P7NgutvMSEjUTeR3IkTIqSenFMWVJeQ34Q/O7MvC9ylDV3EHJSsfG12IbSQmINwKh35PU5HPAT9LnIkNWcuH4EHazHE8cpgDqloPtUgcJWpBsghT0hJHxL+pnCFLXyZe2T+7why0wKLlNwFTDRZpK2JcC7FMZXQ36aerXdJdMT5kE/piVyAn+EJBn+K2gYLfldwFj0F3aioJKN8hifX+e+A5jYwFUDRvbBRUpWpgiWKoVDGKrm92RxmDYzkhWfeg4UKP7+qNqYYcWJwnSFWgcYI/Ax7oDmw1g02IPGJBtPOzR/qW1bonp3t6V9QBaxxopa6TcyUDyId2IRK6MVFUSB8NL5+BW24Yt7DAZNhWo0u34+OE9Pn3ZRk7xodCvijuC/zD8KaBpwL9dK7WevrDybwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;stackoverflow-most-tech-17&quot;
+        title=&quot;stackoverflow-most-tech-17&quot;
+        src=&quot;/static/b2ccc731b54e6695fb0fe5b548a5de55/e85cb/stackoverflow-most-tech-17.png&quot;
+        srcset=&quot;/static/b2ccc731b54e6695fb0fe5b548a5de55/070ae/stackoverflow-most-tech-17.png 120w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/8ff5a/stackoverflow-most-tech-17.png 240w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/e85cb/stackoverflow-most-tech-17.png 480w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/37523/stackoverflow-most-tech-17.png 720w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/d9199/stackoverflow-most-tech-17.png 960w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/b5a09/stackoverflow-most-tech-17.png 1360w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;18년도-js-698-ts-174&quot; style=&quot;position:relative;&quot;&gt;18년도 (js 69.8%, ts 17.4%)&lt;a href=&quot;#18%EB%85%84%EB%8F%84-js-698-ts-174&quot; aria-label=&quot;18년도 js 698 ts 174 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a0cd0c034d602afaad65ea7ae8f416d0/bb072/stackoverflow-most-tech-18.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 108.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAABYlAAAWJQFJUiTwAAACU0lEQVQ4y52UfW/SUBSH+SZuZks0TuPMUCCbxsTJon9NjXOMl2UfwQ9qYiAyxLkCpcsKbaGl7/T+POUWobzJbPLk0tL79HdODySSeykkn2ewf/Aau8+S2EumkM4cIJXZRzr9EukXr+j7NB4/2cWjnad48HAH9za2sLG5TWzF2Ly/jcSH42OcnBaQL5zjNFdEsXSBs7MS8sUSvnw6x8XHr8jlC/h8ksPh23fIHr1HNrsAuv7m8AgJVfqN9uU3XAlN1Go1lMtl/KhW0e0q0DRthKpyxueL6PV6qFQqSARWH7rcQlfR0Gq1IAgCGs0mgiDAXQ9JkkhIH0zLQbPRGF0QSSrLtzBNE4ZhYDBYE7pX13UkQrNlWZRKREtso9NRoGp9eN4Q7h3xfZ8LXddGu1GHbSjhGcBsYGjeGRZEQsexIDV/Ar4B5un/BcJ16EUlmwbE6wqYq1JAdbSuj8b3eX0wFnChbRmQxUuSKWAOB6twp3A6dH8HoHIZY5OS5RsBzB9Q2dSLCCzFoEQGXykVi8ZmIrRNdMQqPbE7eeIqwp75K4UWhF8V9JV27MVglr8SFhtoFp3HEgr173CMW9rYoyZzMMYLV42XyXfGmBdSD29adZ4qSohFDJ2JcGqdE9qWycsdDkhGQp+DWQI3nnBVybJYi80hYihx2cwxnzB8y9IVH84IjAmFQ2thqUuFLvVQk6+jZFo0/RqXhclmXsI/E7qOjb4q0WZrqn98yMM5W1bqUqFH/zZSswZdbfMfeVh2mC4Urih1qdD3HMjUQ1uXJ8LZZGsm/ANex1+91kdt0AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;stackoverflow-most-tech-18&quot;
+        title=&quot;stackoverflow-most-tech-18&quot;
+        src=&quot;/static/a0cd0c034d602afaad65ea7ae8f416d0/e85cb/stackoverflow-most-tech-18.png&quot;
+        srcset=&quot;/static/a0cd0c034d602afaad65ea7ae8f416d0/070ae/stackoverflow-most-tech-18.png 120w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/8ff5a/stackoverflow-most-tech-18.png 240w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/e85cb/stackoverflow-most-tech-18.png 480w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/37523/stackoverflow-most-tech-18.png 720w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/d9199/stackoverflow-most-tech-18.png 960w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/bb072/stackoverflow-most-tech-18.png 1318w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;19년도-js-678-ts-212&quot; style=&quot;position:relative;&quot;&gt;19년도 (js 67.8%, ts 21.2%)&lt;a href=&quot;#19%EB%85%84%EB%8F%84-js-678-ts-212&quot; aria-label=&quot;19년도 js 678 ts 212 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8356b072bc5b7dbd053f40f35b196d30/0f79a/stackoverflow-most-tech-19.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.33333333333331%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAABYlAAAWJQFJUiTwAAADnklEQVRIx5WV2W7bRhiF9SLZ2+SiF23d1EvTJXWWXrRIASOOlaBXBfpEfYc+RQoUBdKgQVzbsWRLshZLpCRqISlS3GbImdN/SNmVLcluCHzgcEQenH8b5ZY++SxcuruKldUv5adLy1heuYfVta+w+sU9rH38EGufr+Pu8gru3PkIN27extVrt3Dl6s0Zrl3/ANdvfIjcj0+ehBtP83i29UJuPnuOfP6nlI3NTeR/+AX5jZ/xdGsLj7/7Ht+uP8L6g8d0P4vau3//Ib7+5gFyrtEIu7UiGk1dlstl7OzuoXHchDsew3UzHNdNnz3Pm2FM+0EQoFyuYHt7G7nEtwN32IHjjKQ5MGB0dbiOhfe9DMNAtVpFTgLJOALalpCaKaGTVscW0IYcx32O5oCjZjB0TA5ICSHEDJL2kyRBHCfIcc4QMiENm0Mb0IcWR6PHMHBi6CTSJqrdiSBkxhxhJaquHGNMslgiiBIZcaHEwWKBgO5xIqH21O+c8EIBN8ielbASOU8uJoe6KVDuCtT7ArWeRL2XoNBiFG6MUpuhqDHa46h0OPabDEM3Sd2cF0sdch7DGzuo1ypoHddRq1ZgmQMkPEQU+uBRAM4CsChDrcPApwoT/gRah2GYOaSQEUURhn0DY8dG4LmIWQiIOEVOOL+GjE/fUWuRxJOQYw7LDfDnTgMNqmjHBfQRoNnyvfBZltc0hzb1zet9HYeaixb92LLE/0ajFjui3DtUrFQwIYf9UYCX/7RR0DkODYED4vAS1DsHVMh3beoMnrkTYiJoOR4K9T7MAOi5gpAL6Y//w/IzWDLdNjGD6TL8VbIud0WO9juZK7VOhDwdvSlBDtvx8fagdaEzgxh6Mm12JaSY7r9TQRXy0Anx6mBAyZUoGQnKPTFDiRzWh2ddnQjNOLSoym+PTDRt4JgOh4aJ9ONpqgOB9kgunJCp0eMYjUO8KbZQbAypOAOUdYdCpFPHEYREl+iMspCnP57rMG0bO8AfewYKbY53WpTeS5NClHpZEZqWOCNwcchUlH1y1veQOuu6masTnFCmJ8yiUM85VG0T4dWhRW5k2g7TrbKri1RwnruFIZvkcLvUpXzRHNtZ8k+Y9+HFIdMsOz6jc8+nUOmvYJQJqiKovAV8thCXOIxl3/Lw8u8jWdRDmlGZhqomwvQXh7rYYSJgGZr8/bdfUSnsoudTYahd1GRc5m6uoKST0fRivD7ypWqPPWJHy9plUd4uEvwXnl7NTuhRud0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;stackoverflow-most-tech-19&quot;
+        title=&quot;stackoverflow-most-tech-19&quot;
+        src=&quot;/static/8356b072bc5b7dbd053f40f35b196d30/e85cb/stackoverflow-most-tech-19.png&quot;
+        srcset=&quot;/static/8356b072bc5b7dbd053f40f35b196d30/070ae/stackoverflow-most-tech-19.png 120w,
+/static/8356b072bc5b7dbd053f40f35b196d30/8ff5a/stackoverflow-most-tech-19.png 240w,
+/static/8356b072bc5b7dbd053f40f35b196d30/e85cb/stackoverflow-most-tech-19.png 480w,
+/static/8356b072bc5b7dbd053f40f35b196d30/0f79a/stackoverflow-most-tech-19.png 689w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;js의-성장률--413&quot; style=&quot;position:relative;&quot;&gt;js의 성장률 = 4.13%&lt;a href=&quot;#js%EC%9D%98-%EC%84%B1%EC%9E%A5%EB%A5%A0--413&quot; aria-label=&quot;js의 성장률  413 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;ts의-성장률--706&quot; style=&quot;position:relative;&quot;&gt;ts의 성장률 = 7.06%&lt;a href=&quot;#ts%EC%9D%98-%EC%84%B1%EC%9E%A5%EB%A5%A0--706&quot; aria-label=&quot;ts의 성장률  706 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;-여기서-참고할-점-ts를-사용하려면-js자체가-바탕이-되어야-함-ts를-사용한다면-js의-사용-빈도도-늘어난다는-얘기이다-&quot; style=&quot;position:relative;&quot;&gt;* 여기서 참고할 점. ts를 사용하려면 js자체가 바탕이 되어야 함. ts를 사용한다면 js의 사용 빈도도 늘어난다는 얘기이다 (!!!)&lt;a href=&quot;#-%EC%97%AC%EA%B8%B0%EC%84%9C-%EC%B0%B8%EA%B3%A0%ED%95%A0-%EC%A0%90-ts%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%A0%A4%EB%A9%B4-js%EC%9E%90%EC%B2%B4%EA%B0%80-%EB%B0%94%ED%83%95%EC%9D%B4-%EB%90%98%EC%96%B4%EC%95%BC-%ED%95%A8-ts%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C%EB%8B%A4%EB%A9%B4-js%EC%9D%98-%EC%82%AC%EC%9A%A9-%EB%B9%88%EB%8F%84%EB%8F%84-%EB%8A%98%EC%96%B4%EB%82%9C%EB%8B%A4%EB%8A%94-%EC%96%98%EA%B8%B0%EC%9D%B4%EB%8B%A4-&quot; aria-label=&quot; 여기서 참고할 점 ts를 사용하려면 js자체가 바탕이 되어야 함 ts를 사용한다면 js의 사용 빈도도 늘어난다는 얘기이다  permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h1 id=&quot;도입-하고자-하는-이유&quot; style=&quot;position:relative;&quot;&gt;도입 하고자 하는 이유&lt;a href=&quot;#%EB%8F%84%EC%9E%85-%ED%95%98%EA%B3%A0%EC%9E%90-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;도입 하고자 하는 이유 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;저 또한 typescript를 처음 배우는 시점에선 개인 프로젝트를 할 때 javascript를 사용하였습니다. 익숙하지 않았으니까요. 익숙해진 이후론 typescript가 없는게 오히려 이상하고, mobx와 같이 inject, observer에 대한 변수가 사방팔방 퍼져있어서 변화를 추적하기 특히나 어려운 경우엔 javascript로 짜면 제가 짠 코드도 이해를 할 수 없었습니다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;팀 프로젝트에선 어느정도 정형화 된 타입이 있어야 서로 오해없이, 다른 개발자가 짠 코드를 쉽게 이해할 수 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;오해 ⇒ 만든이는 api에서 10이란 숫자가 넘어올 것을 알고 개발함. 하지만 &lt;code class=&quot;language-text&quot;&gt;&amp;#39;10&amp;#39;&lt;/code&gt; 이라는 string값이 오는 것이었음 (혹은 서버 개발자가 타입을 변경해버림!!!). 타 개발자가 이 부분을 수정할 때 코드만 보고 해당 내용을 이해할 수 있는가?&lt;/li&gt;
+&lt;li&gt;누군가 대규모 프로젝트에서 prototype를 수정하고 인수인계를 안해줬다고 한다면... 감당할 자신이 있는가?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;팀원들이라는 모듈이 프로젝트와 팀원 모두 라는 서비스에 강하게 결합되어 있는데, 팀원들 개개인과 프로젝트 사이에 인터페이스를 두자는 얘기로 봐주시면 될 것 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/325de5a3304fc00774ac7927445ba26e/1d8ab/interface.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.16666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe7pCgsAD//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEAAQUCH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABgQAAMBAQAAAAAAAAAAAAAAAAERIAAx/9oACAEBAAE/IU4PcI//2gAMAwEAAgADAAAAEKMAPP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EAB0QAQACAgIDAAAAAAAAAAAAAAEAERAhMYFBUZH/2gAIAQEAAT8QQrV98yzyl46lNmvkOu8JuBRP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;interface&quot;
+        title=&quot;interface&quot;
+        src=&quot;/static/325de5a3304fc00774ac7927445ba26e/7cc5e/interface.jpg&quot;
+        srcset=&quot;/static/325de5a3304fc00774ac7927445ba26e/e439a/interface.jpg 120w,
+/static/325de5a3304fc00774ac7927445ba26e/09b79/interface.jpg 240w,
+/static/325de5a3304fc00774ac7927445ba26e/7cc5e/interface.jpg 480w,
+/static/325de5a3304fc00774ac7927445ba26e/80e3c/interface.jpg 720w,
+/static/325de5a3304fc00774ac7927445ba26e/6a068/interface.jpg 960w,
+/static/325de5a3304fc00774ac7927445ba26e/1d8ab/interface.jpg 1627w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;비-Typescript-유저의-걱정&quot; style=&quot;position:relative;&quot;&gt;비 Typescript 유저의 걱정&lt;a href=&quot;#%EB%B9%84-Typescript-%EC%9C%A0%EC%A0%80%EC%9D%98-%EA%B1%B1%EC%A0%95&quot; aria-label=&quot;비 Typescript 유저의 걱정 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;러닝커브&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;배우는데 얼마나 걸리려나...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;생산성 저하&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;타입을 넣는 거라면, 결국 코드량이 증가할거고 생산성이 저하되지 않을까?&lt;/li&gt;
+&lt;li&gt;이 변수에 어떤 값이 오는거지? 라는 생각을 팀원마다 1번씩 하고, 10명이 1번씩하면 10번을 생각하고, 이런 변수가 10개있고... 이런 경우보단 타입을 한번 정의해서 어떤 타입인지 명확히 알게 하면, 결국 나중엔 생산성이 오히려 올라갈 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;자바를 쓸 때 처럼 강타입의 타입 체킹..?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;타입 체킹 레벨은 팀 협의 하에 조절 가능합니다!&lt;/li&gt;
+&lt;li&gt;아무 타입이나 넣을 수 있는 any. any타입을 허용할지 말지에 대한 부분도 tsconfig 설정으로 조절 가능!&lt;/li&gt;
+&lt;li&gt;물론 &lt;a href=&quot;https://vomvoru.github.io/blog/tsconfig-compiler-options-kr/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;옵션의 종류는 많습니다&lt;/a&gt;. 하지만 하면서 나오는 불필요한 타입 체킹에 대해서는 팀 논의 후 조절하면 됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;업데이트는 제대로 돼?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;지난달(20년 8월) &lt;a href=&quot;https://devblogs.microsoft.com/typescript/announcing-typescript-4-0/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;4 버전대&lt;/a&gt;가 나왔습니다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;1달 만에 4.1버전 beta버전이 나온상황입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;자세한 내용은 &lt;a href=&quot;https://devblogs.microsoft.com/typescript/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;업데이트 히스토리&lt;/a&gt;를 참고해주세요.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;사용자는 괜찮아? 문서는?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;상단의 &lt;code class=&quot;language-text&quot;&gt;언어의 상승추이&lt;/code&gt; 를 보시면, 점차 성장하는 모습을 보실 수 있습니다.&lt;/li&gt;
+&lt;li&gt;위에 말씀드린 &lt;a href=&quot;https://typescript-kr.github.io/pages/release-notes/typescript-4.0.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;4 버전대에 대한 핸드북이 한글 번역&lt;/a&gt;되어 이미 나왔으며, 검색해보시면 4.0 버전에 대한 내용이 수두룩하니 나옵니다 :)&lt;/li&gt;
+&lt;li&gt;지금까지 typescript로 개발하면서 해결하지 못한 이슈는 없습니다. 물론 복잡도 높은 generic (필수는 아니지만요) 문법은 저도 잘 사용하진 못합니다 ^^;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;자바스크립트로만 작성된 라이브러리, 프레임워크를 typescript로 어떻게 사용하는가?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;DefinitelyTypes&lt;/a&gt; 라는 repo가 있습니다. 해당 레포는 package.json에서 &lt;code class=&quot;language-text&quot;&gt;@types/***&lt;/code&gt; 경로로 설치가 됩니다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;typescript의 type에 대한 기본 경로이며, &lt;code class=&quot;language-text&quot;&gt;typescript로 되어있지 않은 코드는 **.d.ts라는 파일을 만듬으로써 타입스크립트가 쓸 수 있는 인터페이스를 만들어준다. (해당 파일 경로는 기본이 @types/~ 이며, tsconfig에서 설정 가능)&lt;/code&gt; 라고 생각해주시면 될 것 같습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://git.linecorp.com/LINE-FE-Welcome/introduce-junseok-liff&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;제가 했던 커리큘럼&lt;/a&gt; 을 보시면 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;/src&lt;/code&gt;경로를 추가해 주었고, &lt;code class=&quot;language-text&quot;&gt;/src&lt;/code&gt;안에 &lt;code class=&quot;language-text&quot;&gt;[global.d.ts](https://git.linecorp.com/LINE-FE-Welcome/introduce-junseok-liff/blob/master/src/global.d.ts)&lt;/code&gt;라는 파일을 두었습니다. 해당 파일은 html, image files를 불러오기 위한 file-loader를 통해 이미지를 불러올 때 typescript로 사용하기 위함입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// /tsconfig.json&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;compilerOptions&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;typeRoots&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;./node_modules/@types&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;./src&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//---------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//---------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//---------------------------------------------&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// /src/global.d.ts&lt;/span&gt;
+declare module &lt;span class=&quot;token string&quot;&gt;&apos;*.html&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; content&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; content&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+declare module &lt;span class=&quot;token string&quot;&gt;&quot;*.jpg&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+declare module &lt;span class=&quot;token string&quot;&gt;&quot;*.png&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;안정성&quot; style=&quot;position:relative;&quot;&gt;안정성&lt;a href=&quot;#%EC%95%88%EC%A0%95%EC%84%B1&quot; aria-label=&quot;안정성 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;type을 사용하는 근본적인 이유는 안정성이라고 생각했었습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;하지만 안정성은 test code로 보충해야 하죠 ㅎㅎ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;약타입의 타입을 줌으로써, 다른 타입의 값을 넣었을 때 확실한 값을 넣어달라는 푸시를 개발자에게 줄 수 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;안타깝게도 특정 라인에 &lt;code class=&quot;language-text&quot;&gt;[// @ts-ignore&lt;/code&gt; 라는 플래그](&lt;a href=&quot;https://stackoverflow.com/questions/51145180/how-to-use-ts-ignore-for-a-block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://stackoverflow.com/questions/51145180/how-to-use-ts-ignore-for-a-block&lt;/a&gt;)를 넣음으로써 바로 아래 1개의 라인만 코드를 무시할 수 있게 하는 기능은 Deprecated 되어가고 있는 듯 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;버그를 줄이고, 코드의 정확성을 높일 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;생산성&quot; style=&quot;position:relative;&quot;&gt;생산성&lt;a href=&quot;#%EC%83%9D%EC%82%B0%EC%84%B1&quot; aria-label=&quot;생산성 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;새로운 도구를 사용하는데, 처음엔 당연히 생산성이 떨어질 수밖에 없습니다.&lt;/li&gt;
+&lt;li&gt;javascript의 슈퍼셋이다. 처음부터 100퍼센트로 프로젝트를 커버하지 않아도 된다. 넣고싶은 부분에만 코드를 넣을 수 있습니다.&lt;/li&gt;
+&lt;li&gt;javascript와 혼용 또한 가능! tsconfig에서 물론 설정 가능 ㅎㅎ&lt;/li&gt;
+&lt;li&gt;해당 문서를 정리하며 인터넷을 찾아보니 &lt;code class=&quot;language-text&quot;&gt;타이핑 수가 늘어난다, 코드양이 늘어난다&lt;/code&gt; 등의 내용이 있었습니다.&lt;/li&gt;
+&lt;li&gt;참고로 vscode, webstorm 모두 타입스크립트 지원 기능이 내장되어 있기 때문에 별도의 설정 없이도 타입스크립트 파일 및 tsconfig.json 파일을 인식할 수 있고 코드 검사, 빠른 수정, 실행 및 디버깅 등의 다양한 기능을 바로 사용할 수 있습니다. (단, 컴파일러는 포함되어 있지 않기 때문에 별도로 설치해야 합니다.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;논문&quot; style=&quot;position:relative;&quot;&gt;논문&lt;a href=&quot;#%EB%85%BC%EB%AC%B8&quot; aria-label=&quot;논문 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://earlbarr.com/publications/typestudy.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;뜬금없이 왠 논문...?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;제일 상단의 Abstract만 읽어보셔도 됩니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;개발 과정에서 flow, typescript로 중요한 버그를 &lt;code class=&quot;language-text&quot;&gt;15%&lt;/code&gt; 성공적으로 발견할 수 있다고 합니다.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;다른-타입의-도구도-있지-않느냐&quot; style=&quot;position:relative;&quot;&gt;다른 타입의 도구도 있지 않느냐&lt;a href=&quot;#%EB%8B%A4%EB%A5%B8-%ED%83%80%EC%9E%85%EC%9D%98-%EB%8F%84%EA%B5%AC%EB%8F%84-%EC%9E%88%EC%A7%80-%EC%95%8A%EB%8A%90%EB%83%90&quot; aria-label=&quot;다른 타입의 도구도 있지 않느냐 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;flow&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;로드맵이 없네요... (&lt;a href=&quot;https://github.com/facebook/flow/wiki/3rd-party-tools&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;위키&lt;/a&gt;) (&lt;a href=&quot;https://flow.org/blog/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;공식 홈페이지&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;커피스크립트, elm 등... 사실 들어본적이 거의 없습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;타입스크립트의-목표&quot; style=&quot;position:relative;&quot;&gt;타입스크립트의 목표&lt;a href=&quot;#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98-%EB%AA%A9%ED%91%9C&quot; aria-label=&quot;타입스크립트의 목표 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Microsoft/TypeScript/wiki/TypeScript-Design-Goals&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;한번 읽어보면 좋습니다.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;레퍼런스&quot; style=&quot;position:relative;&quot;&gt;레퍼런스&lt;a href=&quot;#%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4&quot; aria-label=&quot;레퍼런스 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@constell99/%EC%9A%B0%EB%A6%AC%EA%B0%80-typescript%EB%A5%BC-%EC%84%A0%ED%83%9D%ED%95%9C-%EC%9D%B4%EC%9C%A0-b0a423654f1e&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;레딧에서 typescript를 도입하게 된 이유 (번역)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://hyunseob.github.io/2018/08/12/do-you-need-to-use-ts/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;저와 비슷한 내용의 글&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;인용--참고&quot; style=&quot;position:relative;&quot;&gt;인용 &amp;#x26; 참고&lt;a href=&quot;#%EC%9D%B8%EC%9A%A9--%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;인용  참고 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/h2oche/typescript-summary&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/h2oche/typescript-summary&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://heropy.blog/2020/01/27/typescript/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://heropy.blog/2020/01/27/typescript/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[이직기 2-2]]></title><description><![CDATA[…]]></description><link>https://jicjjang.github.io/posts/new-jobs2-2</link><guid isPermaLink="false">https://jicjjang.github.io/posts/new-jobs2-2</guid><pubDate>Thu, 14 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이 포스팅은 회고록이므로 존칭이 없습니다 :)&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;이미 이직하고 수습이 끝난 이 시점에 새로운 이직기를 써본다.
 카카오페이에 입사하고 나서 정말 바쁘게 살아왔다. 정말 바쁘고 너무 바빴다.
@@ -148,9 +744,9 @@ FE와 연관이 없는 질문들도 나왔다. FE 관련된 질문들에 대한 
 좋은 회사에 합격했으니 그대로 갈까 했지만, 연봉협상을 하는데 답을 하면 그 다음 답문이 2주나 뒤에 왔다...
 (나중에 들어보니 대표님이 출장을 가셔서 진행이 안됐다고;; ㅠㅠ 말좀 해주시지!!!)
 그러한 과정을 2번 정도 하다 보니 너무 피로해지고 협상은 아무것도 받아들여지지 않아서 포기하게 되었다&lt;/p&gt;
-&lt;p&gt;(To Be Continue...)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[next-redux-wrapper issue with Redux-observable 2]]></title><description><![CDATA[얼마 전에 올렸던 next-redux-wrapper issue with Redux-observable 포스트에 대한 해결책을 찾아
-결과를 공유하는 글을 간단~히 준비했습니다.
-(매우 짧습니다) stackoverflow…]]></description><link>https://jicjjang.github.io/posts/next-redux-wrapper2</link><guid isPermaLink="false">https://jicjjang.github.io/posts/next-redux-wrapper2</guid><pubDate>Sun, 03 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마 전에 올렸던 &lt;a href=&quot;https://jicjjang.github.io/posts/next-redux-wrapper&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;next-redux-wrapper issue with Redux-observable&lt;/a&gt; 포스트에 대한 해결책을 찾아
+&lt;p&gt;(To Be Continue...)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[next-redux-wrapper issue with Redux-observable 2]]></title><description><![CDATA[연결된 이전 포스트 : next-redux-wrapper issue with Redux-observable 1 얼마 전에 올렸던 next-redux-wrapper issue with Redux-observable…]]></description><link>https://jicjjang.github.io/posts/next-redux-wrapper2</link><guid isPermaLink="false">https://jicjjang.github.io/posts/next-redux-wrapper2</guid><pubDate>Sun, 03 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;연결된 이전 포스트 : &lt;a href=&quot;/posts/next-redux-wrapper&quot;&gt;next-redux-wrapper issue with Redux-observable 1&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;얼마 전에 올렸던 &lt;a href=&quot;/posts/next-redux-wrapper&quot;&gt;next-redux-wrapper issue with Redux-observable&lt;/a&gt; 포스트에 대한 해결책을 찾아
 결과를 공유하는 글을 간단~히 준비했습니다.
 (매우 짧습니다)&lt;/p&gt;
 &lt;hr&gt;
@@ -244,8 +840,10 @@ FE와 연관이 없는 질문들도 나왔다. FE 관련된 질문들에 대한 
 &lt;hr&gt;
 &lt;p&gt;해당 PoC를 진행하면서 typesafe-actions 에서 redux-toolkit을 사용하기로 결정되었기에 PoC 또한 이를 변경하는 작업을 함께 진행하였는데요! 결국 핵심적으로 바뀐 부분은 위와 같이 getInitialProps (getStaticProps, getServerSideProps) 부분이었습니다.&lt;/p&gt;
 &lt;p&gt;약간의 문제로 보자면, typesafe-actions에서 redux-toolkit으로 교체하며 action들에 대한 type을 typesafe-actions 대비 redux-toolkit이 제대로 지원해주지 못하고 있습니다. (애초에 redux-thunk만 정식 지원이긴 합니다... &lt;a href=&quot;https://redux-toolkit.js.org/usage/usage-with-typescript#createasyncthunk&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;create async thunk...&lt;/a&gt;너무 thunk만 지원을... ㅠㅠ)&lt;/p&gt;
-&lt;p&gt;결론적으로 typesafe-actions를 지우지 못하고, type을 뽑아오는 부분에서만 사용하고 있습니다. 이 부분에 대해 좋은 방법을 아시고 계신 분은 알려주시면 감사하겠습니다!! ㅎㅎ&lt;/p&gt;</content:encoded></item><item><title><![CDATA[next-redux-wrapper issue with Redux-observable]]></title><description><![CDATA[현재 Next.js와 함께 사용하는 skill set은 Redux (observable), Redux toolkit 입니다.
-SSR을 위해 Next.js를 사용하고 있는데, Custom server 코드가 아닌 Component…]]></description><link>https://jicjjang.github.io/posts/next-redux-wrapper</link><guid isPermaLink="false">https://jicjjang.github.io/posts/next-redux-wrapper</guid><pubDate>Wed, 23 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;현재 Next.js와 함께 사용하는 skill set은 Redux (observable), Redux toolkit 입니다.
+&lt;p&gt;결론적으로 typesafe-actions를 지우지 못하고, type을 뽑아오는 부분에서만 사용하고 있습니다. 이 부분에 대해 좋은 방법을 아시고 계신 분은 알려주시면 감사하겠습니다!! ㅎㅎ&lt;/p&gt;</content:encoded></item><item><title><![CDATA[next-redux-wrapper issue with Redux-observable]]></title><description><![CDATA[연결된 다음 포스트 : next-redux-wrapper issue with Redux-observable 2 현재 Next.js와 함께 사용하는 skill set은 Redux (observable), Redux toolkit 입니다.
+SSR…]]></description><link>https://jicjjang.github.io/posts/next-redux-wrapper</link><guid isPermaLink="false">https://jicjjang.github.io/posts/next-redux-wrapper</guid><pubDate>Wed, 23 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;연결된 다음 포스트 : &lt;a href=&quot;/posts/next-redux-wrapper2&quot;&gt;next-redux-wrapper issue with Redux-observable 2&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;현재 Next.js와 함께 사용하는 skill set은 Redux (observable), Redux toolkit 입니다.
 SSR을 위해 Next.js를 사용하고 있는데, &lt;a href=&quot;https://nextjs.org/docs/advanced-features/custom-server&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Custom server&lt;/a&gt; 코드가 아닌 Component 코드 만으로 최대한 data pre-fetching을 하기 위해 &lt;code class=&quot;language-text&quot;&gt;getInitialProps&lt;/code&gt;를 사용합니다. (&lt;a href=&quot;https://nextjs.org/docs/api-reference/data-fetching/getInitialProps&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;이젠 getServerSideProps, getStaticProps로 사용됨&lt;/a&gt;)&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; stars &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;Next stars&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;stars&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
@@ -4334,7 +4932,76 @@ switch가 더 효율적입니다.&lt;/p&gt;
 성능이 아주 중요한 함수는 이러한 &lt;code class=&quot;language-text&quot;&gt;메모이제이션&lt;/code&gt; 기능을 &lt;code class=&quot;language-text&quot;&gt;직접&lt;/code&gt; 추가하는 것이 좋습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;4장도 모두 포스팅했습니다. 정규표현식(5장)은 일단 건너뛰고 진행하려합니다.
-남은 장도 열심히 포스팅하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 2]]></title><description><![CDATA[1장에 이어서 2장도 바로 진행하겠습니다~ 2. 데이터 접근 데이터는 총 4개의 형식으로 이루어집니다. 리터럴 값 (Number, boolean, Object, Array, Function, Regex, null, undefined…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-2</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-2</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;1장에 이어서 2장도 바로 진행하겠습니다~&lt;/p&gt;
+남은 장도 열심히 포스팅하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 1]]></title><description><![CDATA[5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
+회사에서 준 yes2…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-1</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-1</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
+회사에서 준 yes24 도서이용권으로 (공짜 책!!!)구매한 자바스크립트 성능 최적화에 대한 간단한 정리를 해보려 합니다.
+요점만 집어서! 써보겠습니다 :D&lt;/p&gt;
+&lt;h2 id=&quot;1-로딩과-실행&quot; style=&quot;position:relative;&quot;&gt;1. 로딩과 실행&lt;a href=&quot;#1-%EB%A1%9C%EB%94%A9%EA%B3%BC-%EC%8B%A4%ED%96%89&quot; aria-label=&quot;1 로딩과 실행 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;사용자의 한 Process에서 UI업데이트와 Script 실행을 하지만, 동시에 진행하지는 못합니다. 브라우저는
+&amp;#x3C;script&gt; 태그를 만나면 처리를 중단하고 해당 Script를 실행한 뒤 페이지 분석과 랜더링을 다시 진행합니다.
+처리하는 중에 페이지 랜더링이나 사용자의 동작은 완전히 차단되게 됩니다.&lt;/p&gt;
+&lt;h3 id=&quot;1-1-스크립트-위치&quot; style=&quot;position:relative;&quot;&gt;1-1. 스크립트 위치&lt;a href=&quot;#1-1-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9C%84%EC%B9%98&quot; aria-label=&quot;1 1 스크립트 위치 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&amp;#x3C;head&gt; 태그 내부에 &amp;#x3C;script&gt; 태그를 사용하면 안된다는 것은 많이 알려져있습니다.
+위에 설명드린 것처럼 &amp;#x3C;script&gt;를 만나면 진행되던 처리를 중단하고 Script 처리를 진행하기 때문입니다.
+그렇기 때문에 &amp;#x3C;haed&gt; 태그에 Script (외부 파일로드, 내부 스크립트 실행 상관 없이)가 들어갈수록, 많아질수록
+사용자는 비어있는 화면을 보는 시간이 늘어나게 됩니다. 그렇기 때문에 &amp;#x3C;script&gt; 태그는 &amp;#x3C;body&gt; 태그의
+최하단에 위치해야 합니다. 그러면 html 랜더가 끝난 후 실행이 되기 때문에 화면이 &lt;code class=&quot;language-text&quot;&gt;일단&lt;/code&gt; 보여지기 때문에 문제가 없어집니다.&lt;/p&gt;
+&lt;h3 id=&quot;1-2-스크립트-묶기&quot; style=&quot;position:relative;&quot;&gt;1-2. 스크립트 묶기&lt;a href=&quot;#1-2-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AC%B6%EA%B8%B0&quot; aria-label=&quot;1 2 스크립트 묶기 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;html 페이지를 분석하는 동안 &amp;#x3C;script&gt; 태그를 만날수록 코드를 실행할 때의 지연시간이 생깁니다. &amp;#x3C;script&gt; 태그를
+만날 때마다 랜더링이 차단되기 때문입니다. 이런 지연시간을 최소화해야 합니다. 단적인 예로 외부 자바스크립트 25kb 파일 4개보다 100kb 파일 1개가
+더 빠르게 로드됩니다.&lt;/p&gt;
+&lt;h3 id=&quot;1-3-비차단-스크립트&quot; style=&quot;position:relative;&quot;&gt;1-3. 비차단 스크립트&lt;a href=&quot;#1-3-%EB%B9%84%EC%B0%A8%EB%8B%A8-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8&quot; aria-label=&quot;1 3 비차단 스크립트 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Script의 HTTP요청이나 UI업데이트 동안의 브라우저 프로세스 차단은 개발자에게 큰 문제입니다. 25kb 파일 4개보다 100kb 파일1개를 로드하는 방식도
+용량이 더 커지게 된다면 &amp;#x3C;body&gt; 태그의 최하단에 위치한다 해도 사용자의 움직임을 오랫동안 차단하게 만듭니다.
+이 문제를 해결하기 위한 방법들이 있습니다.&lt;/p&gt;
+&lt;h4 id=&quot;1-3-1-지연-스크립트&quot; style=&quot;position:relative;&quot;&gt;1-3-1. 지연 스크립트&lt;a href=&quot;#1-3-1-%EC%A7%80%EC%97%B0-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8&quot; aria-label=&quot;1 3 1 지연 스크립트 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cadb2afcecb04fe3618aad2bbaab6dcc/13adc/script.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABuCAP/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFxABAQEBAAAAAAAAAAAAAAAAAAEhMf/aAAgBAQABPyFNXr//2gAMAwEAAgADAAAAEAgv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGRABAQEAAwAAAAAAAAAAAAAAAREAIUFx/9oACAEBAAE/EEhTrN5WeZREu//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;script&quot;
+        title=&quot;script&quot;
+        src=&quot;/static/cadb2afcecb04fe3618aad2bbaab6dcc/7cc5e/script.jpg&quot;
+        srcset=&quot;/static/cadb2afcecb04fe3618aad2bbaab6dcc/e439a/script.jpg 120w,
+/static/cadb2afcecb04fe3618aad2bbaab6dcc/09b79/script.jpg 240w,
+/static/cadb2afcecb04fe3618aad2bbaab6dcc/7cc5e/script.jpg 480w,
+/static/cadb2afcecb04fe3618aad2bbaab6dcc/80e3c/script.jpg 720w,
+/static/cadb2afcecb04fe3618aad2bbaab6dcc/6a068/script.jpg 960w,
+/static/cadb2afcecb04fe3618aad2bbaab6dcc/13adc/script.jpg 3020w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x3C;script&gt; 태그의 async나 defer 속성을 사용한다면 사용됨과는 상관 없이 스크립트를 load하게 됩니다.&lt;/p&gt;
+&lt;h4 id=&quot;1-3-2-동적-script-태그&quot; style=&quot;position:relative;&quot;&gt;1-3-2. 동적 &amp;#x3C;script&gt; 태그&lt;a href=&quot;#1-3-2-%EB%8F%99%EC%A0%81-script-%ED%83%9C%EA%B7%B8&quot; aria-label=&quot;1 3 2 동적 script 태그 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;DOM을 이용해 페이지 로드 이후, 동적으로 &amp;#x3C;script&gt; 태그를 만드는 방법이 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; script &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;script&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+script&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;type &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;text/javascript&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+script&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;file1.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;head&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;script&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드처럼 &amp;#x3C;script&gt; 태그를 생성하고 페이지에 추가하는 순간, &lt;code class=&quot;language-text&quot;&gt;file1.js&lt;/code&gt; 파일을 내려받기 시작합니다.
+위치는 head, body 어디든 상관 없습니다. 또한, onload 이벤트로 파일을 모두 받았는지 알 수 있습니다.&lt;/p&gt;
+&lt;h4 id=&quot;1-3-3-XMLHttpRequest-스크립트-삽입&quot; style=&quot;position:relative;&quot;&gt;1-3-3. XMLHttpRequest 스크립트 삽입&lt;a href=&quot;#1-3-3-XMLHttpRequest-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%82%BD%EC%9E%85&quot; aria-label=&quot;1 3 3 XMLHttpRequest 스크립트 삽입 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;흔히 말하는 Ajax 방식입니다. 비동기로 코드를 불러오기 때문에 원하는 시기에 호출을 할 수 있으며,
+로드가 된 후에도 바로 데이터를 삽입하는 것이 아니라 사용자가 원할 때, 원하는 곳에 넣을 수 있습니다.
+단점은 데이터를 요청하는 페이지와 데이터를 제공하는 페이지가 같은 도메인이어야 한다는 점입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;오늘 2장까지 바로 진행하겠습니다~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 2]]></title><description><![CDATA[1장에 이어서 2장도 바로 진행하겠습니다~ 2. 데이터 접근 데이터는 총 4개의 형식으로 이루어집니다. 리터럴 값 (Number, boolean, Object, Array, Function, Regex, null, undefined…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-2</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-2</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;1장에 이어서 2장도 바로 진행하겠습니다~&lt;/p&gt;
 &lt;h2 id=&quot;2-데이터-접근&quot; style=&quot;position:relative;&quot;&gt;2. 데이터 접근&lt;a href=&quot;#2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%91%EA%B7%BC&quot; aria-label=&quot;2 데이터 접근 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;데이터는 총 4개의 형식으로 이루어집니다.&lt;/p&gt;
 &lt;ol&gt;
@@ -4813,76 +5480,7 @@ createElement를 통해 li 여러개를 생성한 후, &amp;#x3C;ul&gt; 태그 �
 &lt;p&gt;물론 stopPropagation 메서드와 preventDefault 메서드로 위임을 제어할 수 있습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;3장의 내용은 여기까지 입니다. 프론트엔드에서 가장 중요하다고 생각한 Reflow와 Repaint에 대한 내용이
-실려있는 장이었습니다. 앞으로도 많은 내용이 기대되네요!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 1]]></title><description><![CDATA[5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
-회사에서 준 yes2…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-1</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-1</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
-회사에서 준 yes24 도서이용권으로 (공짜 책!!!)구매한 자바스크립트 성능 최적화에 대한 간단한 정리를 해보려 합니다.
-요점만 집어서! 써보겠습니다 :D&lt;/p&gt;
-&lt;h2 id=&quot;1-로딩과-실행&quot; style=&quot;position:relative;&quot;&gt;1. 로딩과 실행&lt;a href=&quot;#1-%EB%A1%9C%EB%94%A9%EA%B3%BC-%EC%8B%A4%ED%96%89&quot; aria-label=&quot;1 로딩과 실행 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;사용자의 한 Process에서 UI업데이트와 Script 실행을 하지만, 동시에 진행하지는 못합니다. 브라우저는
-&amp;#x3C;script&gt; 태그를 만나면 처리를 중단하고 해당 Script를 실행한 뒤 페이지 분석과 랜더링을 다시 진행합니다.
-처리하는 중에 페이지 랜더링이나 사용자의 동작은 완전히 차단되게 됩니다.&lt;/p&gt;
-&lt;h3 id=&quot;1-1-스크립트-위치&quot; style=&quot;position:relative;&quot;&gt;1-1. 스크립트 위치&lt;a href=&quot;#1-1-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9C%84%EC%B9%98&quot; aria-label=&quot;1 1 스크립트 위치 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&amp;#x3C;head&gt; 태그 내부에 &amp;#x3C;script&gt; 태그를 사용하면 안된다는 것은 많이 알려져있습니다.
-위에 설명드린 것처럼 &amp;#x3C;script&gt;를 만나면 진행되던 처리를 중단하고 Script 처리를 진행하기 때문입니다.
-그렇기 때문에 &amp;#x3C;haed&gt; 태그에 Script (외부 파일로드, 내부 스크립트 실행 상관 없이)가 들어갈수록, 많아질수록
-사용자는 비어있는 화면을 보는 시간이 늘어나게 됩니다. 그렇기 때문에 &amp;#x3C;script&gt; 태그는 &amp;#x3C;body&gt; 태그의
-최하단에 위치해야 합니다. 그러면 html 랜더가 끝난 후 실행이 되기 때문에 화면이 &lt;code class=&quot;language-text&quot;&gt;일단&lt;/code&gt; 보여지기 때문에 문제가 없어집니다.&lt;/p&gt;
-&lt;h3 id=&quot;1-2-스크립트-묶기&quot; style=&quot;position:relative;&quot;&gt;1-2. 스크립트 묶기&lt;a href=&quot;#1-2-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AC%B6%EA%B8%B0&quot; aria-label=&quot;1 2 스크립트 묶기 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;html 페이지를 분석하는 동안 &amp;#x3C;script&gt; 태그를 만날수록 코드를 실행할 때의 지연시간이 생깁니다. &amp;#x3C;script&gt; 태그를
-만날 때마다 랜더링이 차단되기 때문입니다. 이런 지연시간을 최소화해야 합니다. 단적인 예로 외부 자바스크립트 25kb 파일 4개보다 100kb 파일 1개가
-더 빠르게 로드됩니다.&lt;/p&gt;
-&lt;h3 id=&quot;1-3-비차단-스크립트&quot; style=&quot;position:relative;&quot;&gt;1-3. 비차단 스크립트&lt;a href=&quot;#1-3-%EB%B9%84%EC%B0%A8%EB%8B%A8-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8&quot; aria-label=&quot;1 3 비차단 스크립트 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Script의 HTTP요청이나 UI업데이트 동안의 브라우저 프로세스 차단은 개발자에게 큰 문제입니다. 25kb 파일 4개보다 100kb 파일1개를 로드하는 방식도
-용량이 더 커지게 된다면 &amp;#x3C;body&gt; 태그의 최하단에 위치한다 해도 사용자의 움직임을 오랫동안 차단하게 만듭니다.
-이 문제를 해결하기 위한 방법들이 있습니다.&lt;/p&gt;
-&lt;h4 id=&quot;1-3-1-지연-스크립트&quot; style=&quot;position:relative;&quot;&gt;1-3-1. 지연 스크립트&lt;a href=&quot;#1-3-1-%EC%A7%80%EC%97%B0-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8&quot; aria-label=&quot;1 3 1 지연 스크립트 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/cadb2afcecb04fe3618aad2bbaab6dcc/13adc/script.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABuCAP/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFxABAQEBAAAAAAAAAAAAAAAAAAEhMf/aAAgBAQABPyFNXr//2gAMAwEAAgADAAAAEAgv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGRABAQEAAwAAAAAAAAAAAAAAAREAIUFx/9oACAEBAAE/EEhTrN5WeZREu//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;script&quot;
-        title=&quot;script&quot;
-        src=&quot;/static/cadb2afcecb04fe3618aad2bbaab6dcc/7cc5e/script.jpg&quot;
-        srcset=&quot;/static/cadb2afcecb04fe3618aad2bbaab6dcc/e439a/script.jpg 120w,
-/static/cadb2afcecb04fe3618aad2bbaab6dcc/09b79/script.jpg 240w,
-/static/cadb2afcecb04fe3618aad2bbaab6dcc/7cc5e/script.jpg 480w,
-/static/cadb2afcecb04fe3618aad2bbaab6dcc/80e3c/script.jpg 720w,
-/static/cadb2afcecb04fe3618aad2bbaab6dcc/6a068/script.jpg 960w,
-/static/cadb2afcecb04fe3618aad2bbaab6dcc/13adc/script.jpg 3020w&quot;
-        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x3C;script&gt; 태그의 async나 defer 속성을 사용한다면 사용됨과는 상관 없이 스크립트를 load하게 됩니다.&lt;/p&gt;
-&lt;h4 id=&quot;1-3-2-동적-script-태그&quot; style=&quot;position:relative;&quot;&gt;1-3-2. 동적 &amp;#x3C;script&gt; 태그&lt;a href=&quot;#1-3-2-%EB%8F%99%EC%A0%81-script-%ED%83%9C%EA%B7%B8&quot; aria-label=&quot;1 3 2 동적 script 태그 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;DOM을 이용해 페이지 로드 이후, 동적으로 &amp;#x3C;script&gt; 태그를 만드는 방법이 있습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; script &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;script&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-script&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;type &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;text/javascript&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-script&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;file1.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;head&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;script&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 코드처럼 &amp;#x3C;script&gt; 태그를 생성하고 페이지에 추가하는 순간, &lt;code class=&quot;language-text&quot;&gt;file1.js&lt;/code&gt; 파일을 내려받기 시작합니다.
-위치는 head, body 어디든 상관 없습니다. 또한, onload 이벤트로 파일을 모두 받았는지 알 수 있습니다.&lt;/p&gt;
-&lt;h4 id=&quot;1-3-3-XMLHttpRequest-스크립트-삽입&quot; style=&quot;position:relative;&quot;&gt;1-3-3. XMLHttpRequest 스크립트 삽입&lt;a href=&quot;#1-3-3-XMLHttpRequest-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%82%BD%EC%9E%85&quot; aria-label=&quot;1 3 3 XMLHttpRequest 스크립트 삽입 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;흔히 말하는 Ajax 방식입니다. 비동기로 코드를 불러오기 때문에 원하는 시기에 호출을 할 수 있으며,
-로드가 된 후에도 바로 데이터를 삽입하는 것이 아니라 사용자가 원할 때, 원하는 곳에 넣을 수 있습니다.
-단점은 데이터를 요청하는 페이지와 데이터를 제공하는 페이지가 같은 도메인이어야 한다는 점입니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;오늘 2장까지 바로 진행하겠습니다~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[웹 front-end 개발 질문]]></title><description><![CDATA[아래 질문은 https://github.com/h5bp/Front-end-Developer-Interview-Questions…]]></description><link>https://jicjjang.github.io/posts/front-end-question</link><guid isPermaLink="false">https://jicjjang.github.io/posts/front-end-question</guid><pubDate>Tue, 25 Apr 2017 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;아래-질문은-httpsgithubcomh5bpFront-end-Developer-Interview-Questions에-공유된-널리-쓰이는-질문들-입니다-추가된-질문이-있을-수-있습니다&quot; style=&quot;position:relative;&quot;&gt;아래 질문은 &lt;a href=&quot;https://github.com/h5bp/Front-end-Developer-Interview-Questions&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/h5bp/Front-end-Developer-Interview-Questions&lt;/a&gt;에 공유된 널리 쓰이는 질문들 입니다. (추가된 질문이 있을 수 있습니다.)&lt;a href=&quot;#%EC%95%84%EB%9E%98-%EC%A7%88%EB%AC%B8%EC%9D%80-httpsgithubcomh5bpFront-end-Developer-Interview-Questions%EC%97%90-%EA%B3%B5%EC%9C%A0%EB%90%9C-%EB%84%90%EB%A6%AC-%EC%93%B0%EC%9D%B4%EB%8A%94-%EC%A7%88%EB%AC%B8%EB%93%A4-%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%B6%94%EA%B0%80%EB%90%9C-%EC%A7%88%EB%AC%B8%EC%9D%B4-%EC%9E%88%EC%9D%84-%EC%88%98-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;아래 질문은 httpsgithubcomh5bpFront end Developer Interview Questions에 공유된 널리 쓰이는 질문들 입니다 추가된 질문이 있을 수 있습니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+실려있는 장이었습니다. 앞으로도 많은 내용이 기대되네요!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[웹 front-end 개발 질문]]></title><description><![CDATA[아래 질문은 https://github.com/h5bp/Front-end-Developer-Interview-Questions…]]></description><link>https://jicjjang.github.io/posts/front-end-question</link><guid isPermaLink="false">https://jicjjang.github.io/posts/front-end-question</guid><pubDate>Tue, 25 Apr 2017 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;아래-질문은-httpsgithubcomh5bpFront-end-Developer-Interview-Questions에-공유된-널리-쓰이는-질문들-입니다-추가된-질문이-있을-수-있습니다&quot; style=&quot;position:relative;&quot;&gt;아래 질문은 &lt;a href=&quot;https://github.com/h5bp/Front-end-Developer-Interview-Questions&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/h5bp/Front-end-Developer-Interview-Questions&lt;/a&gt;에 공유된 널리 쓰이는 질문들 입니다. (추가된 질문이 있을 수 있습니다.)&lt;a href=&quot;#%EC%95%84%EB%9E%98-%EC%A7%88%EB%AC%B8%EC%9D%80-httpsgithubcomh5bpFront-end-Developer-Interview-Questions%EC%97%90-%EA%B3%B5%EC%9C%A0%EB%90%9C-%EB%84%90%EB%A6%AC-%EC%93%B0%EC%9D%B4%EB%8A%94-%EC%A7%88%EB%AC%B8%EB%93%A4-%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%B6%94%EA%B0%80%EB%90%9C-%EC%A7%88%EB%AC%B8%EC%9D%B4-%EC%9E%88%EC%9D%84-%EC%88%98-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;아래 질문은 httpsgithubcomh5bpFront end Developer Interview Questions에 공유된 널리 쓰이는 질문들 입니다 추가된 질문이 있을 수 있습니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;h2 id=&quot;답이-아닌-저의-견해일-뿐입니다&quot; style=&quot;position:relative;&quot;&gt;답이 아닌 저의 견해일 뿐입니다.&lt;a href=&quot;#%EB%8B%B5%EC%9D%B4-%EC%95%84%EB%8B%8C-%EC%A0%80%EC%9D%98-%EA%B2%AC%ED%95%B4%EC%9D%BC-%EB%BF%90%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;답이 아닌 저의 견해일 뿐입니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;

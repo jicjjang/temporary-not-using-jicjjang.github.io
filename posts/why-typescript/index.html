@@ -1,0 +1,543 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><style data-href="/styles.8bc7d8bd447b1029c4d8.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.gatsby-highlight-code-line{background-color:rgba(27,31,35,.05);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #f99}.gatsby-highlight{background-color:#f6f8fa;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%}:not(pre)>code[class*=language-]{background:rgba(27,31,35,.05)}</style><meta name="generator" content="Gatsby 2.29.1"/><style data-styled="" data-styled-version="5.2.1">.cURDtm{margin-top:0;margin-bottom:1.95rem;}/*!sc*/
+data-styled.g1[id="Header__StyledHeader-sc-1tyi3z1-0"]{content:"cURDtm,"}/*!sc*/
+.fEA-DoH{display:inline-block;margin:0;font-size:2.2974rem;line-height:3.25rem;}/*!sc*/
+data-styled.g2[id="Header__StyledH3-sc-1tyi3z1-1"]{content:"fEA-DoH,"}/*!sc*/
+.ifejFH{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:#000;}/*!sc*/
+data-styled.g3[id="Header__StyledLink-sc-1tyi3z1-2"]{content:"ifejFH,"}/*!sc*/
+.joNmkD{float:right;display:inline-block;margin:18px 0;}/*!sc*/
+.joNmkD:after{content:'';display:table;clear:both;}/*!sc*/
+@media (max-width:650px){.joNmkD{display:block;float:none;text-align:center;border-bottom:2px solid #cfcdcd;}}/*!sc*/
+data-styled.g4[id="Header__StyledUl-sc-1tyi3z1-3"]{content:"joNmkD,"}/*!sc*/
+.bDvteE{display:inline-block;padding:0 15px;list-style-type:none;vertical-align:middle;font-size:16px;}/*!sc*/
+@media (max-width:450px){.bDvteE{padding:0 8px;font-size:14px;}}/*!sc*/
+data-styled.g5[id="Header__StyledLi-sc-1tyi3z1-4"]{content:"bDvteE,"}/*!sc*/
+.ddEDAJ{color:#898989;}/*!sc*/
+data-styled.g6[id="Header__StyleLiLink-sc-1tyi3z1-5"]{content:"ddEDAJ,"}/*!sc*/
+.iomvtc{margin:0 auto;max-width:39rem;min-width:320px;padding:2.275rem 1.21875rem;}/*!sc*/
+data-styled.g7[id="Default__StyledDiv-sc-1g8e1t0-0"]{content:"iomvtc,"}/*!sc*/
+.kiCxlO{margin-bottom:6.5rem;}/*!sc*/
+data-styled.g8[id="Default__StyledMain-sc-1g8e1t0-1"]{content:"kiCxlO,"}/*!sc*/
+.jRNtTT{color:#000;margin-bottom:0.325rem;border-bottom:none;font-size:1.41421rem;font-weight:500;line-height:2.4375rem;}/*!sc*/
+data-styled.g9[id="common__StyledCommonH1Title-sc-93z372-0"]{content:"jRNtTT,"}/*!sc*/
+.kRNYYT{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g13[id="PostTags__StyledPTags-sc-1ielp4x-0"]{content:"kRNYYT,"}/*!sc*/
+.jcyDuJ{margin-bottom:1.95rem;}/*!sc*/
+data-styled.g15[id="PostHeader__StyledHeader-sc-77g6iv-0"]{content:"jcyDuJ,"}/*!sc*/
+.hOBBqs{display:inline-block;width:30px;height:30px;background-image:url(/img/post/speaker.png);background-size:22px;background-repeat:no-repeat;background-position:6px 10px;}/*!sc*/
+.hOBBqs:active{background-position:6px 11px;}/*!sc*/
+data-styled.g17[id="PostHeader__StyledSpeechSpan-sc-77g6iv-2"]{content:"hOBBqs,"}/*!sc*/
+.ivMKzM{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g18[id="PostHeader__StyledTime-sc-77g6iv-3"]{content:"ivMKzM,"}/*!sc*/
+</style><style type="text/css">
+    .autolink-headers--.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .autolink-headers--.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .autolink-headers-- svg,
+    h2 .autolink-headers-- svg,
+    h3 .autolink-headers-- svg,
+    h4 .autolink-headers-- svg,
+    h5 .autolink-headers-- svg,
+    h6 .autolink-headers-- svg {
+      visibility: hidden;
+    }
+    h1:hover .autolink-headers-- svg,
+    h2:hover .autolink-headers-- svg,
+    h3:hover .autolink-headers-- svg,
+    h4:hover .autolink-headers-- svg,
+    h5:hover .autolink-headers-- svg,
+    h6:hover .autolink-headers-- svg,
+    h1 .autolink-headers--:focus svg,
+    h2 .autolink-headers--:focus svg,
+    h3 .autolink-headers--:focus svg,
+    h4 .autolink-headers--:focus svg,
+    h5 .autolink-headers--:focus svg,
+    h6 .autolink-headers--:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">June | June</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU2MTI2NzdEQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU2MTI2NzdFQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTYxMjY3N0JDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTYxMjY3N0NDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MsIj9AAAFcUlEQVR42rxXa0wUVxQ+MwiSAgnyMLxLaRNE3lixNRVSAkkJFAilQKCQQHgINRgSY439UYs2xrQVGyg2EA0SSJGXIsFHIVBTKRKELluWXR67PEpdFlYLC8rCzN7pmTUQXdgFDTCbk0lm597vO9+993xnKI7jYDMXwzCmIpEoEO/GV69e/TImJqZ2aGhof39/v29mZuYl/llsbOyvtra2cnd3d4GpqemzTU3MEzAUs7OztleuXPkqODhYSNM0S1EU4Ye9HC8/MzIyYg8dOiQuLi4+MzMz47TR/Ab/rK2tPYrZTOoCbjacnZ1nysvLTxBC6NcioFKprHJycurfFFg3kpOTf0M1HDdFgJctLCysd6vAV+LgwYNDExMT7gYJzM/PW4WGhv611eArERAQMKKrxCsEsrOzb24X+ErExcXdZ1nWeA2B+vr6rO0GX4mysrLTqwRko6MwPTNj4+bmptgpApaWlguTk5OuYxPjQMunFXCjoSFTJpPthR26sLaYVVZWHsfEAUZkUrOgoCCxIcZWVlbEwcGBvGG2Ghyv0X3u6eEhlwwNWoNQKHzfiKb1Tp6YmMhJJBIyOjpKkpKSXgs8Pj6eHRgYWMaSzWBBW4PR1tYWBU1NTanrlVc+7OzsOB44PDycHDt2jBMIBBuqwGeL5ZizsbEhY2NjTGRkJNvX18cgeY1u+e7t7Q2iW1tbw3E3UuutFQ+M6wV37tyhUCkwMzMD9AO9a+vq6sq1tLSw5ubmJCoqikxNTVHd3d1gbW0NeKd0PIgquXz5BJ2WllZMv1iCNRcWJsre3h4wI8DMuOXlZcC6rpfAnj17wNHRkVpcXAQfHx/AO2lsbCR1dXXU8PDwKwRQAYiJjq6BhISEdn1y8lLevn2bw+xJV1cXwVLK4XE1uARFRUUsZrs0Pj7OyuVy5vz584y+d0tLS09DRUVFvr49sBLR0dEcnlt+0xBeiY32ga+vr0ahULDp6emsofdQ/Waoqak5uhEBPqRSKefn58dh88EPZNbZsMTb21u70QIDA/n1Z7A50Tsvj4nKfgi5ubkGbRcn5S5evMip1Wquo6NDg0HQsNZMnJqayiqVSiYvL29ZLBYzFy5cYDdKKiMjowl6enqCkc2aQoEdEHf37l3S3t6O+45wJSUlxNPTU29G/EY+deoU29DQsJyfn89sBI6Y3L179+LhjwcPPlnvBTzzHKpDTp48SbCYEBMTky33hIcPH4aAVCazwB5OqvsntlJayTs7O3kf33JwPE1K0cCAPfQKBFBUXFSwnkT+/v7a+3Y4YkFBwS9CUT/A9fo6GBCLHVxcXGZ3yo4tLCyW+oR97g2NjUAvqtUwv7Dw+Ny5c9/tlB2fPXv2EvYig6p5FdDGu3bB0MgwfHTkSGFKSsrv2w0eGREhwML2rUgiBmNjY9A6C4U/wd9C9pszZ744fPiwbLvAPTw8FN//+ENiv0T8fMVTXhCgKVhYWOCbk3/xEysCSUi3GhxryFR1dfWnjxWKwadPn6666qq38o6nmJ6Gscl/JNcqKkJwOe5vFThK/ggd8WPl7H/d6Cla6XkF8DsTjD77PG71RZ4Vr8ScSjWXkJBY5e3lxWClPIC2vPtNgLEdW8SSXJh3/Hja4MiwHA0KduGe4wgHe233wnvvuAFVdb16zUCNRqNV5IPAQGAZ9t3Gmzdzq6qq4rGzcdoM8L59+6awA7qBLdnPmJXoUU8Pnj9uVXY+8wP+AeC1f/86BPCkmpm/pWX4/NlzWFxSg7OTE5ia7LZRzc15ouE43Lp1Ky4rK+snNKmvQ0JCWtGinzQ3N0fjh00hrq+V89suf7KsZmoalxRLOKiXlkD5RLnazPAE/Hx8wdfbG/4XYACmHwCj2D06CgAAAABJRU5ErkJggg=="/><meta data-react-helmet="true" name="og:title" property="og:title" content="June"/><meta data-react-helmet="true" name="og:site_name" property="og:site_name" content="June"/><meta data-react-helmet="true" name="og:url" property="og:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="og:description" property="og:description" content="SPA Library 3대장을 비교해보자 Angular 뭐... 애초에 Angular에서 사용하면서 유명해진 것은 모두 아는 사실  React React를 만든 facebook팀에선 PropTypes…"/><meta data-react-helmet="true" name="description" property="description" content="SPA Library 3대장을 비교해보자 Angular 뭐... 애초에 Angular에서 사용하면서 유명해진 것은 모두 아는 사실  React React를 만든 facebook팀에선 PropTypes…"/><meta data-react-helmet="true" name="og:type" property="og:type" content="website"/><meta data-react-helmet="true" name="og:image" property="og:image"/><meta data-react-helmet="true" name="twitter:description" property="twitter:description" content="SPA Library 3대장을 비교해보자 Angular 뭐... 애초에 Angular에서 사용하면서 유명해진 것은 모두 아는 사실  React React를 만든 facebook팀에선 PropTypes…"/><meta data-react-helmet="true" name="twitter:title" property="twitter:title" content="June"/><meta data-react-helmet="true" name="twitter:url" property="twitter:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:site" property="twitter:site" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:domain" property="twitter:domain" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:image" property="twitter:image"/><link as="script" rel="preload" href="/webpack-runtime-400346aafe72c04095fd.js"/><link as="script" rel="preload" href="/styles-8db67c5187b7b8ad64da.js"/><link as="script" rel="preload" href="/framework-ee8a4bba4771daaa13e7.js"/><link as="script" rel="preload" href="/app-2bed233af2de965db4b0.js"/><link as="script" rel="preload" href="/77f29e761df5de25d397b39b76c634399f02315e-55b38568922346810659.js"/><link as="script" rel="preload" href="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-78ba7cceab63b36bfc26.js"/><link as="fetch" rel="preload" href="/page-data/posts/why-typescript/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1576648375.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/764694655.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Default__StyledDiv-sc-1g8e1t0-0 iomvtc"><header class="Header__StyledHeader-sc-1tyi3z1-0 cURDtm"><h3 scale="[object Object]" class="Header__StyledH3-sc-1tyi3z1-1 fEA-DoH"><a class="Header__StyledLink-sc-1tyi3z1-2 ifejFH" href="/">June</a></h3><ul class="Header__StyledUl-sc-1tyi3z1-3 joNmkD"><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/">Posts</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/archive">Archive</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/presentation">Presentation</a></li></ul></header><main class="Default__StyledMain-sc-1g8e1t0-1 kiCxlO"><article class="post_article"><header class="PostHeader__StyledHeader-sc-77g6iv-0 jcyDuJ"><h1 scale="[object Object]" class="common__StyledCommonH1Title-sc-93z372-0 jRNtTT">Why typescript?<span class="PostHeader__StyledSpeechSpan-sc-77g6iv-2 hOBBqs"></span></h1><p class="post-meta"><time dateTime="February 04, 2021" scale="[object Object]" class="PostHeader__StyledTime-sc-77g6iv-3 ivMKzM">February 04, 2021</time></p></header><section><h1 id="SPA-Library-3대장을-비교해보자" style="position:relative;">SPA Library 3대장을 비교해보자<a href="#SPA-Library-3%EB%8C%80%EC%9E%A5%EC%9D%84-%EB%B9%84%EA%B5%90%ED%95%B4%EB%B3%B4%EC%9E%90" aria-label="SPA Library 3대장을 비교해보자 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li>
+<p>Angular</p>
+<ul>
+<li>뭐... 애초에 Angular에서 사용하면서 유명해진 것은 모두 아는 사실</li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e029f1210b5cddae1d44d151055b0b85/5c4aa/angular.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 21.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAs0lEQVQY032P2w6CMBBE+f9vM74ZL0CMgoqFgtwKLZVjgfDgg05yMukkO931blGEiK5U5Yu0qZBSOn9iR8s44hh/UjeKRmkmrZkXHA742w3n8IQvE4Ig5JTueGP5J/cXQXxnf4mIZcmjKDC6xotvd46uROY51gwYYzD9QNd1KKUci6/v1tH3y1apSHgkApFllFU1Z15RvMhcIIRwJzTzYLsWzCXfhRO91vOOZjBYa9F68Ukfyms0kD3idsQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="angular"
+        title="angular"
+        src="/static/e029f1210b5cddae1d44d151055b0b85/e85cb/angular.png"
+        srcset="/static/e029f1210b5cddae1d44d151055b0b85/070ae/angular.png 120w,
+/static/e029f1210b5cddae1d44d151055b0b85/8ff5a/angular.png 240w,
+/static/e029f1210b5cddae1d44d151055b0b85/e85cb/angular.png 480w,
+/static/e029f1210b5cddae1d44d151055b0b85/37523/angular.png 720w,
+/static/e029f1210b5cddae1d44d151055b0b85/d9199/angular.png 960w,
+/static/e029f1210b5cddae1d44d151055b0b85/5c4aa/angular.png 2492w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+</li>
+<li>
+<p>React</p>
+<ul>
+<li>React를 만든 facebook팀에선 <a href="https://github.com/facebook/prop-types" target="_blank" rel="noopener">PropTypes</a> 라는 런타임 타입 체킹 라이브러리를 만듬</li>
+<li>자체 타입 체킹 툴을 만든 팀이 타 라이브러리를 쓰기는 조금 애매함</li>
+</ul>
+</li>
+<li>
+<p>Vue</p>
+<ul>
+<li>
+<p>이미 타입스크립트 사용 중!</p>
+<ul>
+<li><a href="https://v3.vuejs.org/guide/typescript-support.html#defining-vue-components" target="_blank" rel="noopener">하지만 완전 갈아엎을 수 없으므로... vue를 한번 감싸는 방식으로 사용ㅠ</a></li>
+</ul>
+</li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1da081ccffb59e0edf85956545e3545f/d1442/vue-next.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 24.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA0UlEQVQY032R3WrDMAyF8/4vs1fYdRnLVgoj0JU0zdLfxYntpnFl55uTi7FC1wNCOgiOjqTkcum5h2EY7kYIYeqvsjmvz09s8zWLl5TPVYF4T1JsSsqyZL74YJZXpPsU3euHoiOcsxTZO66zN0YSpRqOxxNVtePQGrRrkSAPnY7QtqO2DucH+qvgRKZekkfLqmkiCQzRMnEjER9DpvyfYHX65i1bst4eWH7t2NdqHE9SK0WrNcZYGm2mum012hiMtb83uxGNPHihO58Rd8X9+cMPmByDfu/0rf0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="vue-next"
+        title="vue-next"
+        src="/static/1da081ccffb59e0edf85956545e3545f/e85cb/vue-next.png"
+        srcset="/static/1da081ccffb59e0edf85956545e3545f/070ae/vue-next.png 120w,
+/static/1da081ccffb59e0edf85956545e3545f/8ff5a/vue-next.png 240w,
+/static/1da081ccffb59e0edf85956545e3545f/e85cb/vue-next.png 480w,
+/static/1da081ccffb59e0edf85956545e3545f/37523/vue-next.png 720w,
+/static/1da081ccffb59e0edf85956545e3545f/d9199/vue-next.png 960w,
+/static/1da081ccffb59e0edf85956545e3545f/d1442/vue-next.png 2538w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+</li>
+</ul>
+<h1 id="언어의-상승-추이" style="position:relative;">언어의 상승 추이<a href="#%EC%96%B8%EC%96%B4%EC%9D%98-%EC%83%81%EC%8A%B9-%EC%B6%94%EC%9D%B4" aria-label="언어의 상승 추이 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li><a href="https://madnight.github.io/githut/#/pull_requests/2020/2" target="_blank" rel="noopener">GitHut 지표 참고</a></li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4be7e3ecd5546eee35e8186c19cbc411/81501/github-trend.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABWElEQVQoz02RyU4DQQxE+/9/DokLQogDBCFIZu99m6Lc0xNyeCpl7Kq2HTWEHcIYd0yd+YGb9rh8XfB5+cDvavgN99rZL96x56gW6OtDGLAISZSNNuHGIGEwsX07aujhoA8MRQtVN5cx+nIPWGPBlgp0x+RKEokwKUDHwHpuPdK7kLkjA6krX519ojk0xGQ7Lp9k+FKopCnr+eg13bcE30LVOdUac2OLnCjtDZ0q1pCx8MHZxa7EZ0zUidsNPMlAvRp+DxVqZcBkY7vVz2Ka8XuYMBqPgXczIcGSIKt7rh25DXVtpOORrhuHUDLRqB0n4j2s5zoV2nnEwum0Rkxs3jQ24xAYlusOR/VyX3mMW2zUjVvqDCjd17OZjcSXHYEkGisAFyKeX9/x9PLGUAuWWi3Wo1c8lmqynEgmTMePFlj+A8UgE1nnUGpF5p+hjWkTt1rvFY94z8A/1Uy75TTLRZwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="github-trend"
+        title="github-trend"
+        src="/static/4be7e3ecd5546eee35e8186c19cbc411/e85cb/github-trend.png"
+        srcset="/static/4be7e3ecd5546eee35e8186c19cbc411/070ae/github-trend.png 120w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/8ff5a/github-trend.png 240w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/e85cb/github-trend.png 480w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/37523/github-trend.png 720w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/d9199/github-trend.png 960w,
+/static/4be7e3ecd5546eee35e8186c19cbc411/81501/github-trend.png 2886w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h3 id="16년도-js-554-ts-없음" style="position:relative;">16년도 (js 55.4%, ts 없음)<a href="#16%EB%85%84%EB%8F%84-js-554-ts-%EC%97%86%EC%9D%8C" aria-label="16년도 js 554 ts 없음 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2dff3209366d0b3d518f705df61c886a/248b0/stackoverflow-most-tech-16.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 128.33333333333331%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAACXBIWXMAABYlAAAWJQFJUiTwAAADLElEQVRIx51Va08TQRTtT1ETH4lixIggaEQ0+kmjiSICCf/AX+gH4gcgWJ6lD6G2tFh2u2Uf7b4fM8e7s6yksC3KJmfvzO7OmXPnPjb3ZOIpxsenMPV0GqMPx/BobAJPJp8JTE49x8T4M4w9nsC9kQcYuT+K23fu4tr1m7h+Iwu3kHv39h0+zs5jbm4Bn2a/YGFxicaLmFtYwOz7JSy9/4rPX+bx4cMnvJh5jZmXbwivMzE9/Qo5qVZCrbCO8s8qisUiNje3sFso4PhYgizJkOU2JFmGJMWQTu1FyPRNPp9Hjts6DLkJSemg0WjgoFpF/fAQV7larRZyERv0mveDM0RRNBSe5yEXL+3aPhodC23DgaTbwipdF7LhkvXQ0hwY9E26zbBLEOp2gAPZpIU2am1TkEu6g0PFEuPyb4M2cRNCzodCEIaBD9c2yasQYBHZiMzZGDyZe74PfwDid2EYJoSGrqP+q4rAc+A5FsGG79rCpojnQQaS5w5CWuunZ+h4ASpHFOWOCY2OSiXvThz+T1BdDsVmaBoB3CBKCFXLx/KvHpYPDCxXDaweedjqAJsKJyATGzHaHD9khuIJx7bko+dFaVB8rNS79NDDxm8HO+0AJQ0oqrwPpVNUNI59HaioDBstl5Sd5l4alBPTxUrDRpFICiqwewLsdDh2SeUZuMA2jY8ND5brn2Us5RKjG0sJY4Xbso8yEZb+KknG6bM9mje7EdSek5kuaUoJQs3ysN60MgljxO5JvQAWnRFj/QSZhKrpYXlfJZcY9sjdAh1yitjFfY1B0iwEYdRHdObyOULDCbBFUeoPBEgxR81gUKwIrh+KszqvaCBhQQlR0ROSyqnr9S6nOndF4WcpG6hQo1peO3KxrSSRjXMwVqabDiLGL5CdJ81UuFbTUFSoSRh0ZjoXVneofoNwqLpshVQp30ptrNZ7FAiIQGy0qWH2QnLZ+3/COMrrRzbKpOqnltSl4gCmz66mME7s7/sd5JsmOnYk2lHWgoG9vZ+Qo+dGyFMNlxVPuMiEmsubaWZixzdGTTSiJhs32ljdMPcuUyoIxQ/GD4gsoGoIkWzCroQ/vcmIiodQlX0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="stackoverflow-most-tech-16"
+        title="stackoverflow-most-tech-16"
+        src="/static/2dff3209366d0b3d518f705df61c886a/e85cb/stackoverflow-most-tech-16.png"
+        srcset="/static/2dff3209366d0b3d518f705df61c886a/070ae/stackoverflow-most-tech-16.png 120w,
+/static/2dff3209366d0b3d518f705df61c886a/8ff5a/stackoverflow-most-tech-16.png 240w,
+/static/2dff3209366d0b3d518f705df61c886a/e85cb/stackoverflow-most-tech-16.png 480w,
+/static/2dff3209366d0b3d518f705df61c886a/37523/stackoverflow-most-tech-16.png 720w,
+/static/2dff3209366d0b3d518f705df61c886a/d9199/stackoverflow-most-tech-16.png 960w,
+/static/2dff3209366d0b3d518f705df61c886a/248b0/stackoverflow-most-tech-16.png 1316w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h3 id="17년도-js-625-ts-95" style="position:relative;">17년도 (js 62.5%, ts 9.5%)<a href="#17%EB%85%84%EB%8F%84-js-625-ts-95" aria-label="17년도 js 625 ts 95 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b2ccc731b54e6695fb0fe5b548a5de55/b5a09/stackoverflow-most-tech-17.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAC2klEQVQ4y5WUyW8TMRTG85/QInqhiEUgpW3YDiBalooWJBChaYELB/4ujkjcuHFAqCAEIWnahizN2rRZZk1m8Wwfz06arYkQlj49ezz+zXv25wmFwxGEFyJYun4bl69cw8JiBItLN7AUIS3ewkL4Jq5eC2P+wiWcn7+Imdk5nJk5d0ozs6Szcwitr63jRXQTG7FXeLmxhVjsNTY33+B5NIqNJ2+x9ewdorEYHq89xfLKQ6zcX+3p0ZBWcW/5Ae7cXUHIVBpo5hIolqvIZrNI7uyIaBgGTNOEwdXrW5Z1SqZpwXEclCsVxONxhDzbQFs6hqppkKUWmo26iP/bZFlGPp9HKOCjwIPFHGiWhw7zYZB0k0HpMBFViprB4Ps+giCYKD7neR5CnOcyG3XFQPpQRbHRxn5VRaXVwUFdR6amYa+iCHme3188Lv6cNwFkbgBXvHwyEfRfGG7TshuWAEpthkLTQEW2UFNtVBUbmSMdh7IJzvV5VhM+MKkJoGWZqFSqKJVKyB8cCGl6W5wgP91/yejFfoaMMXGysiRBUxXRZ7SvrsPg0JxzEtnomM97JN91RL8P7NgutvMSEjUTeR3IkTIqSenFMWVJeQ34Q/O7MvC9ylDV3EHJSsfG12IbSQmINwKh35PU5HPAT9LnIkNWcuH4EHazHE8cpgDqloPtUgcJWpBsghT0hJHxL+pnCFLXyZe2T+7why0wKLlNwFTDRZpK2JcC7FMZXQ36aerXdJdMT5kE/piVyAn+EJBn+K2gYLfldwFj0F3aioJKN8hifX+e+A5jYwFUDRvbBRUpWpgiWKoVDGKrm92RxmDYzkhWfeg4UKP7+qNqYYcWJwnSFWgcYI/Ax7oDmw1g02IPGJBtPOzR/qW1bonp3t6V9QBaxxopa6TcyUDyId2IRK6MVFUSB8NL5+BW24Yt7DAZNhWo0u34+OE9Pn3ZRk7xodCvijuC/zD8KaBpwL9dK7WevrDybwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="stackoverflow-most-tech-17"
+        title="stackoverflow-most-tech-17"
+        src="/static/b2ccc731b54e6695fb0fe5b548a5de55/e85cb/stackoverflow-most-tech-17.png"
+        srcset="/static/b2ccc731b54e6695fb0fe5b548a5de55/070ae/stackoverflow-most-tech-17.png 120w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/8ff5a/stackoverflow-most-tech-17.png 240w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/e85cb/stackoverflow-most-tech-17.png 480w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/37523/stackoverflow-most-tech-17.png 720w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/d9199/stackoverflow-most-tech-17.png 960w,
+/static/b2ccc731b54e6695fb0fe5b548a5de55/b5a09/stackoverflow-most-tech-17.png 1360w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h3 id="18년도-js-698-ts-174" style="position:relative;">18년도 (js 69.8%, ts 17.4%)<a href="#18%EB%85%84%EB%8F%84-js-698-ts-174" aria-label="18년도 js 698 ts 174 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a0cd0c034d602afaad65ea7ae8f416d0/bb072/stackoverflow-most-tech-18.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 108.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAABYlAAAWJQFJUiTwAAACU0lEQVQ4y52UfW/SUBSH+SZuZks0TuPMUCCbxsTJon9NjXOMl2UfwQ9qYiAyxLkCpcsKbaGl7/T+POUWobzJbPLk0tL79HdODySSeykkn2ewf/Aau8+S2EumkM4cIJXZRzr9EukXr+j7NB4/2cWjnad48HAH9za2sLG5TWzF2Ly/jcSH42OcnBaQL5zjNFdEsXSBs7MS8sUSvnw6x8XHr8jlC/h8ksPh23fIHr1HNrsAuv7m8AgJVfqN9uU3XAlN1Go1lMtl/KhW0e0q0DRthKpyxueL6PV6qFQqSARWH7rcQlfR0Gq1IAgCGs0mgiDAXQ9JkkhIH0zLQbPRGF0QSSrLtzBNE4ZhYDBYE7pX13UkQrNlWZRKREtso9NRoGp9eN4Q7h3xfZ8LXddGu1GHbSjhGcBsYGjeGRZEQsexIDV/Ar4B5un/BcJ16EUlmwbE6wqYq1JAdbSuj8b3eX0wFnChbRmQxUuSKWAOB6twp3A6dH8HoHIZY5OS5RsBzB9Q2dSLCCzFoEQGXykVi8ZmIrRNdMQqPbE7eeIqwp75K4UWhF8V9JV27MVglr8SFhtoFp3HEgr173CMW9rYoyZzMMYLV42XyXfGmBdSD29adZ4qSohFDJ2JcGqdE9qWycsdDkhGQp+DWQI3nnBVybJYi80hYihx2cwxnzB8y9IVH84IjAmFQ2thqUuFLvVQk6+jZFo0/RqXhclmXsI/E7qOjb4q0WZrqn98yMM5W1bqUqFH/zZSswZdbfMfeVh2mC4Urih1qdD3HMjUQ1uXJ8LZZGsm/ANex1+91kdt0AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="stackoverflow-most-tech-18"
+        title="stackoverflow-most-tech-18"
+        src="/static/a0cd0c034d602afaad65ea7ae8f416d0/e85cb/stackoverflow-most-tech-18.png"
+        srcset="/static/a0cd0c034d602afaad65ea7ae8f416d0/070ae/stackoverflow-most-tech-18.png 120w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/8ff5a/stackoverflow-most-tech-18.png 240w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/e85cb/stackoverflow-most-tech-18.png 480w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/37523/stackoverflow-most-tech-18.png 720w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/d9199/stackoverflow-most-tech-18.png 960w,
+/static/a0cd0c034d602afaad65ea7ae8f416d0/bb072/stackoverflow-most-tech-18.png 1318w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h3 id="19년도-js-678-ts-212" style="position:relative;">19년도 (js 67.8%, ts 21.2%)<a href="#19%EB%85%84%EB%8F%84-js-678-ts-212" aria-label="19년도 js 678 ts 212 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8356b072bc5b7dbd053f40f35b196d30/0f79a/stackoverflow-most-tech-19.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 133.33333333333331%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAABYlAAAWJQFJUiTwAAADnklEQVRIx5WV2W7bRhiF9SLZ2+SiF23d1EvTJXWWXrRIASOOlaBXBfpEfYc+RQoUBdKgQVzbsWRLshZLpCRqISlS3GbImdN/SNmVLcluCHzgcEQenH8b5ZY++SxcuruKldUv5adLy1heuYfVta+w+sU9rH38EGufr+Pu8gru3PkIN27extVrt3Dl6s0Zrl3/ANdvfIjcj0+ehBtP83i29UJuPnuOfP6nlI3NTeR/+AX5jZ/xdGsLj7/7Ht+uP8L6g8d0P4vau3//Ib7+5gFyrtEIu7UiGk1dlstl7OzuoXHchDsew3UzHNdNnz3Pm2FM+0EQoFyuYHt7G7nEtwN32IHjjKQ5MGB0dbiOhfe9DMNAtVpFTgLJOALalpCaKaGTVscW0IYcx32O5oCjZjB0TA5ICSHEDJL2kyRBHCfIcc4QMiENm0Mb0IcWR6PHMHBi6CTSJqrdiSBkxhxhJaquHGNMslgiiBIZcaHEwWKBgO5xIqH21O+c8EIBN8ielbASOU8uJoe6KVDuCtT7ArWeRL2XoNBiFG6MUpuhqDHa46h0OPabDEM3Sd2cF0sdch7DGzuo1ypoHddRq1ZgmQMkPEQU+uBRAM4CsChDrcPApwoT/gRah2GYOaSQEUURhn0DY8dG4LmIWQiIOEVOOL+GjE/fUWuRxJOQYw7LDfDnTgMNqmjHBfQRoNnyvfBZltc0hzb1zet9HYeaixb92LLE/0ajFjui3DtUrFQwIYf9UYCX/7RR0DkODYED4vAS1DsHVMh3beoMnrkTYiJoOR4K9T7MAOi5gpAL6Y//w/IzWDLdNjGD6TL8VbIud0WO9juZK7VOhDwdvSlBDtvx8fagdaEzgxh6Mm12JaSY7r9TQRXy0Anx6mBAyZUoGQnKPTFDiRzWh2ddnQjNOLSoym+PTDRt4JgOh4aJ9ONpqgOB9kgunJCp0eMYjUO8KbZQbAypOAOUdYdCpFPHEYREl+iMspCnP57rMG0bO8AfewYKbY53WpTeS5NClHpZEZqWOCNwcchUlH1y1veQOuu6masTnFCmJ8yiUM85VG0T4dWhRW5k2g7TrbKri1RwnruFIZvkcLvUpXzRHNtZ8k+Y9+HFIdMsOz6jc8+nUOmvYJQJqiKovAV8thCXOIxl3/Lw8u8jWdRDmlGZhqomwvQXh7rYYSJgGZr8/bdfUSnsoudTYahd1GRc5m6uoKST0fRivD7ypWqPPWJHy9plUd4uEvwXnl7NTuhRud0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="stackoverflow-most-tech-19"
+        title="stackoverflow-most-tech-19"
+        src="/static/8356b072bc5b7dbd053f40f35b196d30/e85cb/stackoverflow-most-tech-19.png"
+        srcset="/static/8356b072bc5b7dbd053f40f35b196d30/070ae/stackoverflow-most-tech-19.png 120w,
+/static/8356b072bc5b7dbd053f40f35b196d30/8ff5a/stackoverflow-most-tech-19.png 240w,
+/static/8356b072bc5b7dbd053f40f35b196d30/e85cb/stackoverflow-most-tech-19.png 480w,
+/static/8356b072bc5b7dbd053f40f35b196d30/0f79a/stackoverflow-most-tech-19.png 689w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h3 id="js의-성장률--413" style="position:relative;">js의 성장률 = 4.13%<a href="#js%EC%9D%98-%EC%84%B1%EC%9E%A5%EB%A5%A0--413" aria-label="js의 성장률  413 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<h3 id="ts의-성장률--706" style="position:relative;">ts의 성장률 = 7.06%<a href="#ts%EC%9D%98-%EC%84%B1%EC%9E%A5%EB%A5%A0--706" aria-label="ts의 성장률  706 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<h3 id="-여기서-참고할-점-ts를-사용하려면-js자체가-바탕이-되어야-함-ts를-사용한다면-js의-사용-빈도도-늘어난다는-얘기이다-" style="position:relative;">* 여기서 참고할 점. ts를 사용하려면 js자체가 바탕이 되어야 함. ts를 사용한다면 js의 사용 빈도도 늘어난다는 얘기이다 (!!!)<a href="#-%EC%97%AC%EA%B8%B0%EC%84%9C-%EC%B0%B8%EA%B3%A0%ED%95%A0-%EC%A0%90-ts%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%A0%A4%EB%A9%B4-js%EC%9E%90%EC%B2%B4%EA%B0%80-%EB%B0%94%ED%83%95%EC%9D%B4-%EB%90%98%EC%96%B4%EC%95%BC-%ED%95%A8-ts%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C%EB%8B%A4%EB%A9%B4-js%EC%9D%98-%EC%82%AC%EC%9A%A9-%EB%B9%88%EB%8F%84%EB%8F%84-%EB%8A%98%EC%96%B4%EB%82%9C%EB%8B%A4%EB%8A%94-%EC%96%98%EA%B8%B0%EC%9D%B4%EB%8B%A4-" aria-label=" 여기서 참고할 점 ts를 사용하려면 js자체가 바탕이 되어야 함 ts를 사용한다면 js의 사용 빈도도 늘어난다는 얘기이다  permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<h1 id="도입-하고자-하는-이유" style="position:relative;">도입 하고자 하는 이유<a href="#%EB%8F%84%EC%9E%85-%ED%95%98%EA%B3%A0%EC%9E%90-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0" aria-label="도입 하고자 하는 이유 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li>저 또한 typescript를 처음 배우는 시점에선 개인 프로젝트를 할 때 javascript를 사용하였습니다. 익숙하지 않았으니까요. 익숙해진 이후론 typescript가 없는게 오히려 이상하고, mobx와 같이 inject, observer에 대한 변수가 사방팔방 퍼져있어서 변화를 추적하기 특히나 어려운 경우엔 javascript로 짜면 제가 짠 코드도 이해를 할 수 없었습니다.</li>
+<li>
+<p>팀 프로젝트에선 어느정도 정형화 된 타입이 있어야 서로 오해없이, 다른 개발자가 짠 코드를 쉽게 이해할 수 있습니다.</p>
+<ul>
+<li>오해 ⇒ 만든이는 api에서 10이란 숫자가 넘어올 것을 알고 개발함. 하지만 <code class="language-text">&#39;10&#39;</code> 이라는 string값이 오는 것이었음 (혹은 서버 개발자가 타입을 변경해버림!!!). 타 개발자가 이 부분을 수정할 때 코드만 보고 해당 내용을 이해할 수 있는가?</li>
+<li>누군가 대규모 프로젝트에서 prototype를 수정하고 인수인계를 안해줬다고 한다면... 감당할 자신이 있는가?</li>
+</ul>
+</li>
+<li>
+<p>팀원들이라는 모듈이 프로젝트와 팀원 모두 라는 서비스에 강하게 결합되어 있는데, 팀원들 개개인과 프로젝트 사이에 인터페이스를 두자는 얘기로 봐주시면 될 것 같습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/325de5a3304fc00774ac7927445ba26e/1d8ab/interface.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 94.16666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe7pCgsAD//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEAAQUCH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABgQAAMBAQAAAAAAAAAAAAAAAAERIAAx/9oACAEBAAE/IU4PcI//2gAMAwEAAgADAAAAEKMAPP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EAB0QAQACAgIDAAAAAAAAAAAAAAEAERAhMYFBUZH/2gAIAQEAAT8QQrV98yzyl46lNmvkOu8JuBRP/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="interface"
+        title="interface"
+        src="/static/325de5a3304fc00774ac7927445ba26e/7cc5e/interface.jpg"
+        srcset="/static/325de5a3304fc00774ac7927445ba26e/e439a/interface.jpg 120w,
+/static/325de5a3304fc00774ac7927445ba26e/09b79/interface.jpg 240w,
+/static/325de5a3304fc00774ac7927445ba26e/7cc5e/interface.jpg 480w,
+/static/325de5a3304fc00774ac7927445ba26e/80e3c/interface.jpg 720w,
+/static/325de5a3304fc00774ac7927445ba26e/6a068/interface.jpg 960w,
+/static/325de5a3304fc00774ac7927445ba26e/1d8ab/interface.jpg 1627w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+</li>
+</ul>
+<h1 id="비-Typescript-유저의-걱정" style="position:relative;">비 Typescript 유저의 걱정<a href="#%EB%B9%84-Typescript-%EC%9C%A0%EC%A0%80%EC%9D%98-%EA%B1%B1%EC%A0%95" aria-label="비 Typescript 유저의 걱정 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li>
+<p>러닝커브</p>
+<ul>
+<li>배우는데 얼마나 걸리려나...</li>
+</ul>
+</li>
+<li>
+<p>생산성 저하</p>
+<ul>
+<li>타입을 넣는 거라면, 결국 코드량이 증가할거고 생산성이 저하되지 않을까?</li>
+<li>이 변수에 어떤 값이 오는거지? 라는 생각을 팀원마다 1번씩 하고, 10명이 1번씩하면 10번을 생각하고, 이런 변수가 10개있고... 이런 경우보단 타입을 한번 정의해서 어떤 타입인지 명확히 알게 하면, 결국 나중엔 생산성이 오히려 올라갈 수 있습니다.</li>
+</ul>
+</li>
+<li>
+<p>자바를 쓸 때 처럼 강타입의 타입 체킹..?</p>
+<ul>
+<li>타입 체킹 레벨은 팀 협의 하에 조절 가능합니다!</li>
+<li>아무 타입이나 넣을 수 있는 any. any타입을 허용할지 말지에 대한 부분도 tsconfig 설정으로 조절 가능!</li>
+<li>물론 <a href="https://vomvoru.github.io/blog/tsconfig-compiler-options-kr/" target="_blank" rel="noopener">옵션의 종류는 많습니다</a>. 하지만 하면서 나오는 불필요한 타입 체킹에 대해서는 팀 논의 후 조절하면 됩니다.</li>
+</ul>
+</li>
+<li>
+<p>업데이트는 제대로 돼?</p>
+<ul>
+<li>지난달(20년 8월) <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-4-0/" target="_blank" rel="noopener">4 버전대</a>가 나왔습니다.</li>
+<li>
+<p>1달 만에 4.1버전 beta버전이 나온상황입니다.</p>
+<ul>
+<li>자세한 내용은 <a href="https://devblogs.microsoft.com/typescript/" target="_blank" rel="noopener">업데이트 히스토리</a>를 참고해주세요.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>사용자는 괜찮아? 문서는?</p>
+<ul>
+<li>상단의 <code class="language-text">언어의 상승추이</code> 를 보시면, 점차 성장하는 모습을 보실 수 있습니다.</li>
+<li>위에 말씀드린 <a href="https://typescript-kr.github.io/pages/release-notes/typescript-4.0.html" target="_blank" rel="noopener">4 버전대에 대한 핸드북이 한글 번역</a>되어 이미 나왔으며, 검색해보시면 4.0 버전에 대한 내용이 수두룩하니 나옵니다 :)</li>
+<li>지금까지 typescript로 개발하면서 해결하지 못한 이슈는 없습니다. 물론 복잡도 높은 generic (필수는 아니지만요) 문법은 저도 잘 사용하진 못합니다 ^^;</li>
+</ul>
+</li>
+<li>
+<p>자바스크립트로만 작성된 라이브러리, 프레임워크를 typescript로 어떻게 사용하는가?</p>
+<ul>
+<li><a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types" target="_blank" rel="noopener">DefinitelyTypes</a> 라는 repo가 있습니다. 해당 레포는 package.json에서 <code class="language-text">@types/***</code> 경로로 설치가 됩니다.</li>
+<li>
+<p>typescript의 type에 대한 기본 경로이며, <code class="language-text">typescript로 되어있지 않은 코드는 **.d.ts라는 파일을 만듬으로써 타입스크립트가 쓸 수 있는 인터페이스를 만들어준다. (해당 파일 경로는 기본이 @types/~ 이며, tsconfig에서 설정 가능)</code> 라고 생각해주시면 될 것 같습니다.</p>
+<ul>
+<li><a href="https://git.linecorp.com/LINE-FE-Welcome/introduce-junseok-liff" target="_blank" rel="noopener">제가 했던 커리큘럼</a> 을 보시면 아래와 같이 <code class="language-text">/src</code>경로를 추가해 주었고, <code class="language-text">/src</code>안에 <code class="language-text">[global.d.ts](https://git.linecorp.com/LINE-FE-Welcome/introduce-junseok-liff/blob/master/src/global.d.ts)</code>라는 파일을 두었습니다. 해당 파일은 html, image files를 불러오기 위한 file-loader를 통해 이미지를 불러올 때 typescript로 사용하기 위함입니다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token comment">// /tsconfig.json</span>
+<span class="token punctuation">{</span>
+  <span class="token string">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+    <span class="token string">"typeRoots"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"./node_modules/@types"</span><span class="token punctuation">,</span>
+      <span class="token string">"./src"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//---------------------------------------------</span>
+<span class="token comment">//---------------------------------------------</span>
+<span class="token comment">//---------------------------------------------</span>
+
+<span class="token comment">// /src/global.d.ts</span>
+declare module <span class="token string">'*.html'</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> content<span class="token operator">:</span> string<span class="token punctuation">;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> content<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+declare module <span class="token string">"*.jpg"</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> value<span class="token operator">:</span> string<span class="token punctuation">;</span>
+  <span class="token keyword">export</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+declare module <span class="token string">"*.png"</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> value<span class="token operator">:</span> string<span class="token punctuation">;</span>
+  <span class="token keyword">export</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="안정성" style="position:relative;">안정성<a href="#%EC%95%88%EC%A0%95%EC%84%B1" aria-label="안정성 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li>
+<p>type을 사용하는 근본적인 이유는 안정성이라고 생각했었습니다.</p>
+<ul>
+<li>하지만 안정성은 test code로 보충해야 하죠 ㅎㅎ</li>
+</ul>
+</li>
+<li>
+<p>약타입의 타입을 줌으로써, 다른 타입의 값을 넣었을 때 확실한 값을 넣어달라는 푸시를 개발자에게 줄 수 있습니다.</p>
+<ul>
+<li>안타깝게도 특정 라인에 <code class="language-text">[// @ts-ignore</code> 라는 플래그](<a href="https://stackoverflow.com/questions/51145180/how-to-use-ts-ignore-for-a-block" target="_blank" rel="noopener">https://stackoverflow.com/questions/51145180/how-to-use-ts-ignore-for-a-block</a>)를 넣음으로써 바로 아래 1개의 라인만 코드를 무시할 수 있게 하는 기능은 Deprecated 되어가고 있는 듯 합니다.</li>
+</ul>
+</li>
+<li>버그를 줄이고, 코드의 정확성을 높일 수 있습니다.</li>
+</ul>
+<h1 id="생산성" style="position:relative;">생산성<a href="#%EC%83%9D%EC%82%B0%EC%84%B1" aria-label="생산성 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li>새로운 도구를 사용하는데, 처음엔 당연히 생산성이 떨어질 수밖에 없습니다.</li>
+<li>javascript의 슈퍼셋이다. 처음부터 100퍼센트로 프로젝트를 커버하지 않아도 된다. 넣고싶은 부분에만 코드를 넣을 수 있습니다.</li>
+<li>javascript와 혼용 또한 가능! tsconfig에서 물론 설정 가능 ㅎㅎ</li>
+<li>해당 문서를 정리하며 인터넷을 찾아보니 <code class="language-text">타이핑 수가 늘어난다, 코드양이 늘어난다</code> 등의 내용이 있었습니다.</li>
+<li>참고로 vscode, webstorm 모두 타입스크립트 지원 기능이 내장되어 있기 때문에 별도의 설정 없이도 타입스크립트 파일 및 tsconfig.json 파일을 인식할 수 있고 코드 검사, 빠른 수정, 실행 및 디버깅 등의 다양한 기능을 바로 사용할 수 있습니다. (단, 컴파일러는 포함되어 있지 않기 때문에 별도로 설치해야 합니다.)</li>
+</ul>
+<h1 id="논문" style="position:relative;">논문<a href="#%EB%85%BC%EB%AC%B8" aria-label="논문 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li><a href="http://earlbarr.com/publications/typestudy.pdf" target="_blank" rel="noopener">뜬금없이 왠 논문...?</a></li>
+<li>제일 상단의 Abstract만 읽어보셔도 됩니다.</li>
+<li><strong>개발 과정에서 flow, typescript로 중요한 버그를 <code class="language-text">15%</code> 성공적으로 발견할 수 있다고 합니다.</strong></li>
+</ul>
+<h1 id="다른-타입의-도구도-있지-않느냐" style="position:relative;">다른 타입의 도구도 있지 않느냐<a href="#%EB%8B%A4%EB%A5%B8-%ED%83%80%EC%9E%85%EC%9D%98-%EB%8F%84%EA%B5%AC%EB%8F%84-%EC%9E%88%EC%A7%80-%EC%95%8A%EB%8A%90%EB%83%90" aria-label="다른 타입의 도구도 있지 않느냐 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li>
+<p>flow</p>
+<ul>
+<li>로드맵이 없네요... (<a href="https://github.com/facebook/flow/wiki/3rd-party-tools" target="_blank" rel="noopener">위키</a>) (<a href="https://flow.org/blog/" target="_blank" rel="noopener">공식 홈페이지</a>)</li>
+</ul>
+</li>
+<li>커피스크립트, elm 등... 사실 들어본적이 거의 없습니다.</li>
+</ul>
+<h1 id="타입스크립트의-목표" style="position:relative;">타입스크립트의 목표<a href="#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98-%EB%AA%A9%ED%91%9C" aria-label="타입스크립트의 목표 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<ul>
+<li><a href="https://github.com/Microsoft/TypeScript/wiki/TypeScript-Design-Goals" target="_blank" rel="noopener">한번 읽어보면 좋습니다.</a></li>
+</ul>
+<h3 id="레퍼런스" style="position:relative;">레퍼런스<a href="#%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4" aria-label="레퍼런스 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<ul>
+<li><a href="https://medium.com/@constell99/%EC%9A%B0%EB%A6%AC%EA%B0%80-typescript%EB%A5%BC-%EC%84%A0%ED%83%9D%ED%95%9C-%EC%9D%B4%EC%9C%A0-b0a423654f1e" target="_blank" rel="noopener">레딧에서 typescript를 도입하게 된 이유 (번역)</a></li>
+<li><a href="https://hyunseob.github.io/2018/08/12/do-you-need-to-use-ts/" target="_blank" rel="noopener">저와 비슷한 내용의 글</a></li>
+</ul>
+<h3 id="인용--참고" style="position:relative;">인용 &#x26; 참고<a href="#%EC%9D%B8%EC%9A%A9--%EC%B0%B8%EA%B3%A0" aria-label="인용  참고 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<ul>
+<li><a href="https://github.com/h2oche/typescript-summary" target="_blank" rel="noopener">https://github.com/h2oche/typescript-summary</a></li>
+<li><a href="https://heropy.blog/2020/01/27/typescript/" target="_blank" rel="noopener">https://heropy.blog/2020/01/27/typescript/</a></li>
+</ul></section><hr style="margin-bottom:1.625rem"/><footer style="color:#898989"><p scale="[object Object]" class="PostTags__StyledPTags-sc-1ielp4x-0 kRNYYT">#typescript </p></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"></ul></nav></main><footer style="text-align:center"><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://github.com/jicjjang" target="_blank"><img src="/static/b33838e421fcf2eaeb2da472c1e32060/github.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.instagram.com/jicjjang" target="_blank"><img src="/static/64b2774f0c50daac23fd881877dae854/instagram.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.linkedin.com/in/jicjjang" target="_blank"><img src="/static/3e51027afe6b45fb6d7b38b1e194dcbb/linkedin.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="mailto:jicjjang12@gmail.com" target="_blank"><img src="/static/ababfdf6167a3ee6c8f91dd6d29c765d/mail.png" style="display:block;width:100%"/></a></span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-59806888-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/why-typescript";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-f8cb09a0c2fa50816452.js"],"app":["/app-2bed233af2de965db4b0.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-9023e69c8b9c141f86eb.js"],"component---src-pages-archive-tsx":["/component---src-pages-archive-tsx-ba6595d573a79b6a7435.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-b0a7cdcc72541b66bef9.js"],"component---src-pages-presentation-1-tsx":["/component---src-pages-presentation-1-tsx-e08260dfe8c642888896.js"],"component---src-pages-presentation-10-tsx":["/component---src-pages-presentation-10-tsx-aad815f65e9e76a93f86.js"],"component---src-pages-presentation-2-tsx":["/component---src-pages-presentation-2-tsx-8bf9cbd2ca57b2e8b56e.js"],"component---src-pages-presentation-3-tsx":["/component---src-pages-presentation-3-tsx-d3f30047faffc5402891.js"],"component---src-pages-presentation-4-tsx":["/component---src-pages-presentation-4-tsx-ecb12aa44aa6126facae.js"],"component---src-pages-presentation-5-tsx":["/component---src-pages-presentation-5-tsx-9e698e03679328cf7809.js"],"component---src-pages-presentation-6-tsx":["/component---src-pages-presentation-6-tsx-e54b22325ae57e3d66b1.js"],"component---src-pages-presentation-7-tsx":["/component---src-pages-presentation-7-tsx-d1462aa5514e2e46e152.js"],"component---src-pages-presentation-8-tsx":["/component---src-pages-presentation-8-tsx-da1a624be3bcfcb7c522.js"],"component---src-pages-presentation-9-tsx":["/component---src-pages-presentation-9-tsx-7e8c25999909a33a83bc.js"],"component---src-pages-presentation-index-tsx":["/component---src-pages-presentation-index-tsx-d92b82df8f77be256599.js"],"component---src-pages-resume-tsx":["/component---src-pages-resume-tsx-5d1bc84d71209e8068fb.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-78ba7cceab63b36bfc26.js"]};/*]]>*/</script><script src="/polyfill-f8cb09a0c2fa50816452.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-78ba7cceab63b36bfc26.js" async=""></script><script src="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js" async=""></script><script src="/77f29e761df5de25d397b39b76c634399f02315e-55b38568922346810659.js" async=""></script><script src="/app-2bed233af2de965db4b0.js" async=""></script><script src="/framework-ee8a4bba4771daaa13e7.js" async=""></script><script src="/styles-8db67c5187b7b8ad64da.js" async=""></script><script src="/webpack-runtime-400346aafe72c04095fd.js" async=""></script></body></html>
