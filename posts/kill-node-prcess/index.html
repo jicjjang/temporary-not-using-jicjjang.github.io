@@ -119,7 +119,7 @@ osx를 사용하면서 linux와 명령어가 살짝 달라서 port를 찾는 명
 <p>보통 위와 같은 메세지로 에러가 많이 발생하죠.</p>
 <p>port가 열려있다면 아래와 같은 명령어로 메세지가 출력되게 됩니다.</p>
 <p>리눅스에서는 아래 명령어로 한번에 port번호를 확인 가능합니다.
-(-a 옵션이 port를 노출시켜주는 옵션이지만, unix 환경에선 사용이 불가능 하네요.)</p>
+(-p 옵션이 port를 노출시켜주는 옵션이지만, unix 환경에선 사용이 불가능 하네요.)</p>
 <div class="gatsby-highlight" data-language="sh"><pre class="language-sh"><code class="language-sh">$ netstat -naep | grep {port_number}
 # 결과 &gt; tcp    0   0.0.0.0:{port_number}   0.0.0.0:*   LISTEN  500 561124  {pid}/sso_engined</code></pre></div>
 <p>unix(보통 mac 환경)에서는</p>
