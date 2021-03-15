@@ -4,22 +4,7 @@ date: "2021-03-13"
 tags: [next.js, react, library]
 ---
 
-어느 정도 규모가 있는 프로젝트를 하다보면 범용적인 모듈이 생기게 되고, 그 부분은 따로 library화 하게 됩니다.
-
-React.js, Next.js에서 React 라이브러리를 넣는다면 어떻게 될까요? 사실 큰 문제는 없습니다.
-React.js 라이브러리는 `Material-UI`나 `Ant Design`, `React bootstrap` 등 이미 알려진게 많습니다.
-이러한 라이브러리, 프레임워크를 사용할 때 큰 문제가 생기는 경우는 거의 없었구요.
-
-하지만 직접 라이브러리를 프로젝트와 함께 만들다 보면 라이브러리를 만들다, 프로젝트를 하다, 하는 스위칭이 생기게 됩니다. 라이브러리가 수정되게 되면
-
-- 라이브러리를 수정한다.
-- package.json 버전을 올린다.
-- publish
-- 프로젝트에서 버전을 올려 다시 설치한다.
-
-이와 같이 번거로운 과정을 지속적으로 거쳐야만 합니다.
-
-# 중간에 잠깐!!! 참고!!!
+# 시작하기 전 잠깐!!! 참고!!!
 
 라이브러리를 만들 때, webpack으로 제작 시 아래와 같이 `libraryTarget`설정과 `externals` 설정을 하였습니다.
 
@@ -29,6 +14,19 @@ React.js 라이브러리는 `Material-UI`나 `Ant Design`, `React bootstrap` 등
 포함하지 않는 옵션입니다.
 
 ---
+
+어느 정도 규모가 있는 프로젝트를 하다보면 범용적인 모듈이 생기게 되고, 그 부분은 따로 library화 하게 됩니다.
+
+React.js, Next.js에서 React 라이브러리를 넣는다면 어떻게 될까요? 사실 큰 문제는 없습니다.
+React.js 라이브러리는 `Material-UI`나 `Ant Design`, `React bootstrap` 등 이미 알려진게 많습니다.
+이러한 라이브러리, 프레임워크를 사용할 때 큰 문제가 생기는 경우는 거의 없었구요.
+
+라이브러리를 프로젝트와 함께 만들다 보면 라이브러리를 만들다, 프로젝트를 하다, 하는 스위칭이 생기게 됩니다. 라이브러리가 수정되게 되면 아래와 같이 번거로운 과정을 지속적으로 거쳐야만 합니다.
+
+- 라이브러리를 수정한다.
+- package.json 버전을 올린다.
+- publish
+- 프로젝트에서 버전을 올려 다시 설치한다.
 
 이 과정을 줄이기 위해 npm package를 file path로 관리할 수 있습니다.
 
@@ -58,7 +56,7 @@ vscode에서 에러가 발생하지 않습니다. 바로 `npm start` 실행 후 
 
 ![npm-ls-react](npm-ls-react.png)
 
-라이브러리 내부에서도 react가 있는데 중복되는 라이브러리가 1개만 설치되어야 하는데 잘 되네요!
+라이브러리 내부에서도 react가 있는 중복되는 라이브러리가 1개만 설치되어야 하는데 잘 되네요!
 
 물론 이는 `awesome-library`에서 `peerDependencies` 설정 해놨기 때문입니다. 이는 내가 만든 모듈이 사용하는 특정 library가 다른 모듈과 함께 사용할 수 있다는 뜻입니다. 또한, `peerDependencies`에 들어가는 라이브러리는 `devDependencies`에 들어가면 `npm ls ***`에서 warning이 날 수 있으므로 `dependencies`에 넣어줘야 합니다.
 
@@ -84,7 +82,9 @@ console.log(window.React1 === window.React2);
 문서에 추가로 있는 [링크](https://github.com/facebook/react/issues/13991#issuecomment-435587809)도 확인해봅니다.
 
 문서에 있는 해결방법 중 alias를 추가해보겠습니다.
-alias는 node_modules를 가리키는 일반적인 방식에서 특정 name의 path를 직접 넣어주는 방식입니다.
+
+alias는 node_modules를 가리키는 일반적인 방식 대신, 특정 name의 path를 직접 넣어주는 방식입니다.
+alias로 해결하라는 것은 우선순위가 node_modules보다 alias가 높다는걸 뜻합니다.
 
 ```sh
 # webpack config.resolve.alias
