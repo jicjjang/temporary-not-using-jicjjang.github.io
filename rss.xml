@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 15 Mar 2021 02:13:48 GMT</lastBuildDate><item><title><![CDATA[React library local file path 이슈 해결]]></title><description><![CDATA[어느 정도 규모가 있는 프로젝트를 하다보면 범용적인 모듈이 생기게 되고, 그 부분은 따로 library화 하게 됩니다. React.js, Next.js에서 React 라이브러리를 넣는다면 어떻게 될까요? 사실 큰 문제는 없습니다.
-React.js…]]></description><link>https://jicjjang.github.io/posts/fixed-local-file-path-issue-in-react-library</link><guid isPermaLink="false">https://jicjjang.github.io/posts/fixed-local-file-path-issue-in-react-library</guid><pubDate>Sat, 13 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;어느 정도 규모가 있는 프로젝트를 하다보면 범용적인 모듈이 생기게 되고, 그 부분은 따로 library화 하게 됩니다.&lt;/p&gt;
-&lt;p&gt;React.js, Next.js에서 React 라이브러리를 넣는다면 어떻게 될까요? 사실 큰 문제는 없습니다.
-React.js 라이브러리는 &lt;code class=&quot;language-text&quot;&gt;Material-UI&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;Ant Design&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;React bootstrap&lt;/code&gt; 등 이미 알려진게 많습니다.
-이러한 라이브러리, 프레임워크를 사용할 때 큰 문제가 생기는 경우는 거의 없었구요.&lt;/p&gt;
-&lt;p&gt;하지만 직접 라이브러리를 프로젝트와 함께 만들다 보면 라이브러리를 만들다, 프로젝트를 하다, 하는 스위칭이 생기게 됩니다. 라이브러리가 수정되게 되면&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;라이브러리를 수정한다.&lt;/li&gt;
-&lt;li&gt;package.json 버전을 올린다.&lt;/li&gt;
-&lt;li&gt;publish&lt;/li&gt;
-&lt;li&gt;프로젝트에서 버전을 올려 다시 설치한다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;이와 같이 번거로운 과정을 지속적으로 거쳐야만 합니다.&lt;/p&gt;
-&lt;h1 id=&quot;중간에-잠깐-참고&quot; style=&quot;position:relative;&quot;&gt;중간에 잠깐!!! 참고!!!&lt;a href=&quot;#%EC%A4%91%EA%B0%84%EC%97%90-%EC%9E%A0%EA%B9%90-%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;중간에 잠깐 참고 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 15 Mar 2021 02:25:24 GMT</lastBuildDate><item><title><![CDATA[React library local file path 이슈 해결]]></title><description><![CDATA[시작하기 전 잠깐!!! 참고!!! 라이브러리를 만들 때, webpack으로 제작 시 아래와 같이 설정과  설정을 하였습니다.  은 library를 , ,  등으로 사용할 수 있고, 는 해당 library를 build…]]></description><link>https://jicjjang.github.io/posts/fixed-local-file-path-issue-in-react-library</link><guid isPermaLink="false">https://jicjjang.github.io/posts/fixed-local-file-path-issue-in-react-library</guid><pubDate>Sat, 13 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;시작하기-전-잠깐-참고&quot; style=&quot;position:relative;&quot;&gt;시작하기 전 잠깐!!! 참고!!!&lt;a href=&quot;#%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-%EC%A0%84-%EC%9E%A0%EA%B9%90-%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;시작하기 전 잠깐 참고 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;라이브러리를 만들 때, webpack으로 제작 시 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;libraryTarget&lt;/code&gt;설정과 &lt;code class=&quot;language-text&quot;&gt;externals&lt;/code&gt; 설정을 하였습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -46,6 +33,17 @@ React.js 라이브러리는 &lt;code class=&quot;language-text&quot;&gt;Material
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;libraryTarget&lt;/code&gt;은 library를 &lt;code class=&quot;language-text&quot;&gt;umd&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;commonjs&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;esm&lt;/code&gt; 등으로 사용할 수 있고, &lt;code class=&quot;language-text&quot;&gt;externals&lt;/code&gt;는 해당 library를 build할 때
 포함하지 않는 옵션입니다.&lt;/p&gt;
 &lt;hr&gt;
+&lt;p&gt;어느 정도 규모가 있는 프로젝트를 하다보면 범용적인 모듈이 생기게 되고, 그 부분은 따로 library화 하게 됩니다.&lt;/p&gt;
+&lt;p&gt;React.js, Next.js에서 React 라이브러리를 넣는다면 어떻게 될까요? 사실 큰 문제는 없습니다.
+React.js 라이브러리는 &lt;code class=&quot;language-text&quot;&gt;Material-UI&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;Ant Design&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;React bootstrap&lt;/code&gt; 등 이미 알려진게 많습니다.
+이러한 라이브러리, 프레임워크를 사용할 때 큰 문제가 생기는 경우는 거의 없었구요.&lt;/p&gt;
+&lt;p&gt;라이브러리를 프로젝트와 함께 만들다 보면 라이브러리를 만들다, 프로젝트를 하다, 하는 스위칭이 생기게 됩니다. 라이브러리가 수정되게 되면 아래와 같이 번거로운 과정을 지속적으로 거쳐야만 합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;라이브러리를 수정한다.&lt;/li&gt;
+&lt;li&gt;package.json 버전을 올린다.&lt;/li&gt;
+&lt;li&gt;publish&lt;/li&gt;
+&lt;li&gt;프로젝트에서 버전을 올려 다시 설치한다.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;이 과정을 줄이기 위해 npm package를 file path로 관리할 수 있습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -202,7 +200,7 @@ create react app으로 설치한 프로젝트에서 바로 실행해볼까요?&l
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;라이브러리 내부에서도 react가 있는데 중복되는 라이브러리가 1개만 설치되어야 하는데 잘 되네요!&lt;/p&gt;
+&lt;p&gt;라이브러리 내부에서도 react가 있는 중복되는 라이브러리가 1개만 설치되어야 하는데 잘 되네요!&lt;/p&gt;
 &lt;p&gt;물론 이는 &lt;code class=&quot;language-text&quot;&gt;awesome-library&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;peerDependencies&lt;/code&gt; 설정 해놨기 때문입니다. 이는 내가 만든 모듈이 사용하는 특정 library가 다른 모듈과 함께 사용할 수 있다는 뜻입니다. 또한, &lt;code class=&quot;language-text&quot;&gt;peerDependencies&lt;/code&gt;에 들어가는 라이브러리는 &lt;code class=&quot;language-text&quot;&gt;devDependencies&lt;/code&gt;에 들어가면 &lt;code class=&quot;language-text&quot;&gt;npm ls ***&lt;/code&gt;에서 warning이 날 수 있으므로 &lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt;에 넣어줘야 합니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -308,8 +306,9 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;문서에 추가로 있는 &lt;a href=&quot;https://github.com/facebook/react/issues/13991#issuecomment-435587809&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;링크&lt;/a&gt;도 확인해봅니다.&lt;/p&gt;
-&lt;p&gt;문서에 있는 해결방법 중 alias를 추가해보겠습니다.
-alias는 node_modules를 가리키는 일반적인 방식에서 특정 name의 path를 직접 넣어주는 방식입니다.&lt;/p&gt;
+&lt;p&gt;문서에 있는 해결방법 중 alias를 추가해보겠습니다.&lt;/p&gt;
+&lt;p&gt;alias는 node&lt;em&gt;modules를 가리키는 일반적인 방식 대신, 특정 name의 path를 직접 넣어주는 방식입니다.
+alias로 해결하라는 것은 우선순위가 node&lt;/em&gt;modules보다 alias가 높다는걸 뜻합니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# webpack config.resolve.alias
 alias: {
   react: path.resolve(&amp;#39;./node_modules/react&amp;#39;)
