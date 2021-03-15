@@ -113,15 +113,15 @@ module.exports = {
 }
 ```
 
-역시나 동일하게 webpack 설정을 하면 됩니다.
+동일하게 webpack 설정해 보겠습니다.
 
-설정한 뒤에도 간헐적으로 처음에 보여드렸던 `invalid hooks` 관련 에러가 발생하기도 합니다.
+설정한 뒤에도 처음에 보여드렸던 `invalid hooks` 관련 에러가 발생하기도 합니다.
 이럴 땐 [next-transpile-modules](https://github.com/martpie/next-transpile-modules) 라이브러리를 사용하시면 됩니다.
 
-종종 이러한 이슈가 발생되는지, 이럴때의 [해결책](https://github.com/martpie/next-transpile-modules#i-have-trouble-with-duplicated-dependencies-or-the-invalid-hook-call-error-in-react)에 대해 나와있고, 이 방법으로 해결도 해봤습니다.
+next.js에서 이런 이슈가 지속되는 경우가 다수 존재하는지, [해결책](https://github.com/martpie/next-transpile-modules#i-have-trouble-with-duplicated-dependencies-or-the-invalid-hook-call-error-in-react)에 대해 나와있고, 이 방법으로 해결했습니다.
 
 ```js
-const withTM = require('next-transpile-modules')(['react']);
+const withTM = require('next-transpile-modules')(['aweesome-library']);
 
 module.exports = withTM({
   ...
@@ -136,10 +136,11 @@ module.exports = withTM({
 })
 ```
 
+위에서 "`externals`는 해당 library를 build할 때 포함하지 않는 옵션입니다." 라고 설명을 적어놨는데,
+SSR 시점에는 react 라이브러리가 중복으로 참조되어 발생하는 이슈가 아닐까 추측해봅니다.
+
 ---
 
 Next.js, React.js 프로젝트 내에서 React.js 라이브러리를 file path로 사용하기 위한 삽질 내용을 정리해 보았습니다.
 
-조금 당황스럽게도 Next.js 프로젝트에서 `withTM`과 `config.externals` 옵션 없이는 동작하지 않던 프로젝트가 블로그 글을 정리하면서 지우고 해봤을 땐, 잘 되더라구요;;; (이걸로 3일정도 삽질을 했는데 ㅠㅠ...)
-
-당장은 이슈가 해결되었지만 누군가는 삽질을 할 수 있으니!! 도움이 되었으면 합니다.
+위 이슈는 file path로 library를 개발할 때 발생하는 이슈이기 떄문에 npm version 으로 표기를 한다면 `withTM`과 `config.externals` 옵션 없이도 잘 동작하게 됩니다.
