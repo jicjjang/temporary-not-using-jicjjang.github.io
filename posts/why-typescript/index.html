@@ -433,9 +433,6 @@ data-styled.g18[id="PostHeader__StyledTime-sc-77g6iv-3"]{content:"ivMKzM,"}/*!sc
 <li><a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types" target="_blank" rel="noopener">DefinitelyTypes</a> 라는 repo가 있습니다. 해당 레포는 package.json에서 <code class="language-text">@types/***</code> 경로로 설치가 됩니다.</li>
 <li>
 <p>typescript의 type에 대한 기본 경로이며, <code class="language-text">typescript로 되어있지 않은 코드는 **.d.ts라는 파일을 만듬으로써 타입스크립트가 쓸 수 있는 인터페이스를 만들어준다. (해당 파일 경로는 기본이 @types/~ 이며, tsconfig에서 설정 가능)</code> 라고 생각해주시면 될 것 같습니다.</p>
-<ul>
-<li><a href="https://git.linecorp.com/LINE-FE-Welcome/introduce-junseok-liff" target="_blank" rel="noopener">제가 했던 커리큘럼</a> 을 보시면 아래와 같이 <code class="language-text">/src</code>경로를 추가해 주었고, <code class="language-text">/src</code>안에 <code class="language-text">[global.d.ts](https://git.linecorp.com/LINE-FE-Welcome/introduce-junseok-liff/blob/master/src/global.d.ts)</code>라는 파일을 두었습니다. 해당 파일은 html, image files를 불러오기 위한 file-loader를 통해 이미지를 불러올 때 typescript로 사용하기 위함입니다.</li>
-</ul>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token comment">// /tsconfig.json</span>
 <span class="token punctuation">{</span>
   <span class="token string">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
