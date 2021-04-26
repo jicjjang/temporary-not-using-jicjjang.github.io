@@ -19,7 +19,7 @@ class Speech {
       }
 
       const message = new SpeechSynthesisUtterance(text);
-      message.rate = 0.3;
+      message.rate = 1;
       const voices = speechSynthesis.getVoices();
 
       message.voice = voices[voiceIndex];
