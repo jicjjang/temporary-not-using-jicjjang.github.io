@@ -677,9 +677,8 @@ export default function developerLife({ location: pLocation, data }: PageProps) 
               <br />
             </div>
             <div className="fragment" style={{ fontSize: '30px' }}>
-              => 구글링을 해보세요. (코드카데미, 오픈튜토리얼 등등...)
-              <br />
-              => 문서를 보세요. (안나올때 물어봐도 안늦음)
+              ={'>'} 구글링을 해보세요. (코드카데미, 오픈튜토리얼 등등...)
+              <br />={'>'} 문서를 보세요. (안나올때 물어봐도 안늦음)
             </div>
             <div className="fragment" style={{ width: '100%', margin: '0 auto' }}>
               <img
@@ -697,7 +696,7 @@ export default function developerLife({ location: pLocation, data }: PageProps) 
                 <br />
                 로드맵이 있을까요?&gt;
               </h4>
-              <a className="fragment" href="/post/front-end-question/" target="_blank">
+              <a className="fragment" href="https://roadmap.sh/frontend" target="_blank">
                 여기를 확인해주세요.
               </a>
             </div>
