@@ -1,4 +1,134 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 31 Jul 2021 14:50:28 GMT</lastBuildDate><item><title><![CDATA[잘못된 hoisting의 이해 바로잡기]]></title><description><![CDATA[hoisting자바스크립트의 기초를 공부하다 보면 알게되는 그 호이스팅입니다.  기초중의 기초라 할 수 있지만 잘못 알려진 부분이 있어서 (나 또한 잘못 알고 있어서) 그 부분에 대해 아주 짧고 간단하게 알아볼까 합니다.    javascript…]]></description><link>https://jicjjang.github.io/posts/hoisting</link><guid isPermaLink="false">https://jicjjang.github.io/posts/hoisting</guid><pubDate>Thu, 29 Jul 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;hoisting자바스크립트의 기초를 공부하다 보면 알게되는 그 호이스팅입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Aug 2021 15:44:48 GMT</lastBuildDate><item><title><![CDATA[error: failed to push some refs to '*.git']]></title><description><![CDATA[오늘도 바쁘게 업무 태스크를 처리하고 있었습니다. git branch에서 작업하는 순서는 git-flow 전략에 맞게 브랜치를 하나 생성하고 ()
+하나의 업무를 처리하고 Git으로 회사 서버에 add/commit/push…]]></description><link>https://jicjjang.github.io/posts/git-error</link><guid isPermaLink="false">https://jicjjang.github.io/posts/git-error</guid><pubDate>Thu, 19 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;오늘도 바쁘게 업무 태스크를 처리하고 있었습니다.&lt;/p&gt;
+&lt;p&gt;git branch에서 작업하는 순서는 git-flow 전략에 맞게 브랜치를 하나 생성하고 (&lt;code class=&quot;language-text&quot;&gt;git flow feature start feature/improve&lt;/code&gt;)
+하나의 업무를 처리하고 Git으로 회사 서버에 add/commit/push하는데 (&lt;code class=&quot;language-text&quot;&gt;git add . / git commit -m &amp;#39;...&amp;#39; / git push origin feature/improve&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;어랏...&lt;/p&gt;
+&lt;p&gt;갑자기 push를 하는데 아래와 같은 에러가 발생했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/715dd75453e3f150d51a51f6f5e4aabd/61583/error.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 7.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAg0lEQVQI1yWKMRKCMBREuYZCkMIBCYIERSAEMtBpYWHh/W/y/AzFm923s8GnbvjWhldZ8TN33pVhGD12cizrinUO53f34vOyMEwTz76naVuiJOGoFGG8E/QXTXct6dKMUdLlGr+lLjCy+bxgPKdY6WumcdtPvDqE3AQbxbTqRK1iHsIfQdA+jWAjoLkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;error&quot;
+        title=&quot;error&quot;
+        src=&quot;/static/715dd75453e3f150d51a51f6f5e4aabd/e85cb/error.png&quot;
+        srcset=&quot;/static/715dd75453e3f150d51a51f6f5e4aabd/070ae/error.png 120w,
+/static/715dd75453e3f150d51a51f6f5e4aabd/8ff5a/error.png 240w,
+/static/715dd75453e3f150d51a51f6f5e4aabd/e85cb/error.png 480w,
+/static/715dd75453e3f150d51a51f6f5e4aabd/37523/error.png 720w,
+/static/715dd75453e3f150d51a51f6f5e4aabd/d9199/error.png 960w,
+/static/715dd75453e3f150d51a51f6f5e4aabd/61583/error.png 1616w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Commit까지 모두 잘 마쳤고, 로그를 확인했을 때 모두 들어갔음을 확인할 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4d84f2c9fd343b37d645e65232939369/874d1/git-log.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABuklEQVQoz4VS6XKjMBjjKdIFjA3mvo+EKzTdpn3/Z9IKN+kws9PdHxp94LGQPmFdtxldV2PbJlRVSmRo2wJlmeB8rpHlIXzfgQp8eIEmFDztQ4SBmaX04HnSsJQSVll2yPMGfb8izzoKndE0E9915l0c13Bdikof0nUIAenscM38FPtiCua5i3nOsKwxhrPCuka4XiPMS4xx1BgnzfMYSRJCPC55B/zl8H6fMAw53t7OjB5x3oVStJynqeAKfMSJDaWObrwvsScfYAmhUBQVLzbkmlFLzq2Zy7Jl5IyR5XekJ/8Ea2G0PdK2JWTPYF0lloXzouhW0LUNrQWE8L4d/ig4jnvUhiILy6jYcE2BzjQ/TQNd5gjYptYB2/b/KWYEpbRR1ynFEu4tY9yYz/ucM35E4YxnKVeQs5jk/4L3j9Y0+vFZ0JHA5aIYV3HeY0cmctu90J1rIqvDZfXAsXkrifdCBkadyRc66ckjQl0iiiqKxDidJFwh4XB/Nh06D9gPmN3u/yXZ6vpfdCExzS5uN8lyXLzeXKxXmwWduFuezzb6VOLVD/E7CDFzn3MQ4F3z2dcoshAvCz9O/gPghD0ZfyW9CgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;git-log&quot;
+        title=&quot;git-log&quot;
+        src=&quot;/static/4d84f2c9fd343b37d645e65232939369/e85cb/git-log.png&quot;
+        srcset=&quot;/static/4d84f2c9fd343b37d645e65232939369/070ae/git-log.png 120w,
+/static/4d84f2c9fd343b37d645e65232939369/8ff5a/git-log.png 240w,
+/static/4d84f2c9fd343b37d645e65232939369/e85cb/git-log.png 480w,
+/static/4d84f2c9fd343b37d645e65232939369/37523/git-log.png 720w,
+/static/4d84f2c9fd343b37d645e65232939369/d9199/git-log.png 960w,
+/static/4d84f2c9fd343b37d645e65232939369/874d1/git-log.png 1310w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;구글링 할 키워드가 &lt;code class=&quot;language-text&quot;&gt;error: failed to push some refs to &amp;#39;*.git&amp;#39;&lt;/code&gt; 였지만, 이를 바탕으로 검색했을 때에는 배부분 &lt;code class=&quot;language-text&quot;&gt;git pull&lt;/code&gt;을 먼저 하라는 기본적인 포스트가 많았습니다.&lt;/p&gt;
+&lt;p&gt;결국 &lt;a href=&quot;https://rrecoder.tistory.com/88&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;참고&lt;/a&gt; 할만한 포스트를 찾았으나, 근본적인 해결책을 제시해주진 못했습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;확인해본, 생각했던 방법으로는&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;remote repo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c52a5c39d17531f92bf6f49d25c70e11/82e86/remote-repo.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 12.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAgUlEQVQI11WOSwrFIAxFXYjRFsRhKxSkdqCigvtf0X01rwU7OCTkcxJxnidyzogxwnuPUgrWdQURQSl1Qw+Ka3Tnb09KCWMMruvifeccxL5vqLUyIQT03j9CltAreeLUG7MpJWbsC2st20dhfNhaw7Is04d/tNafI3NMKeI4Dvb8AEDKWRqeQYBFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;remote-repo&quot;
+        title=&quot;remote-repo&quot;
+        src=&quot;/static/c52a5c39d17531f92bf6f49d25c70e11/e85cb/remote-repo.png&quot;
+        srcset=&quot;/static/c52a5c39d17531f92bf6f49d25c70e11/070ae/remote-repo.png 120w,
+/static/c52a5c39d17531f92bf6f49d25c70e11/8ff5a/remote-repo.png 240w,
+/static/c52a5c39d17531f92bf6f49d25c70e11/e85cb/remote-repo.png 480w,
+/static/c52a5c39d17531f92bf6f49d25c70e11/37523/remote-repo.png 720w,
+/static/c52a5c39d17531f92bf6f49d25c70e11/d9199/remote-repo.png 960w,
+/static/c52a5c39d17531f92bf6f49d25c70e11/82e86/remote-repo.png 1978w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;remote repo에 문제가 없나 기본적으로 살폈으나, remote 쪽 설정은 보통 프로젝트 초반 이후엔 잘 안건들기 때문에 문제가 없을 것으로 예상했고, 예상대로였습니다.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;다른 브랜치도 동일하게 비정상적 동작을 하는지&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;바로 develop브랜치로 전환 후, &lt;code class=&quot;language-text&quot;&gt;git pull / git push&lt;/code&gt;를 해봤더니 아주 잘 되고 있었기 때문에 원인은 더 오리무중...&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;git fetch&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git fetch&lt;/code&gt; 명령어는 로컬 브랜치를 리모트와 싱크해주는 기능입니다. 혹시나 하는 마음에 해봤으나, 아무 반응이 없었습니다.&lt;/p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;git reset&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;사실 해결 가능할 것 같은 부분이었으나, 확실한 방법으로 해결하기 위해 스킵한 부분입니다.
+아마 &lt;code class=&quot;language-text&quot;&gt;develop&lt;/code&gt; 브랜치가 가리키고 있던 &lt;code class=&quot;language-text&quot;&gt;234ac2&lt;/code&gt; 커밋으로 reset을 하면 커밋되었던 파일들이 staging 될 것이고, 전체 &lt;code class=&quot;language-text&quot;&gt;stash&lt;/code&gt; 및 다른 브랜치로 옮긴 후 &lt;code class=&quot;language-text&quot;&gt;stash pop&lt;/code&gt;, 이후 Commit, push하면 끝.&lt;/p&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;git cherry-pick&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;참고 포스트에서도 동일한 방법으로 해결했더군요. 저도 이 방법으로 해결하였습니다.
+적지않은 시간의 작업 및 커밋을 쌓아놓은 상황에서 Commit한 브랜치가 깨졌다는 것에 꽤 불안한 상황이었기 때문에 &lt;code class=&quot;language-text&quot;&gt;50b237&lt;/code&gt; Commit부터 &lt;code class=&quot;language-text&quot;&gt;c1949e&lt;/code&gt; Commit까지 하나하나 cherry-pick을 진행했습니다. 자주 사용하는 기능이 아니었던 만큼 바로 &lt;code class=&quot;language-text&quot;&gt;c1949e&lt;/code&gt; Commit까지 갈 용기는 없었습니다 ㅎㅎ;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;근본적인 해결책은 발견하진 못했지만, 처음 겪어보는 상황에 블로그 업데이트 생각부터 바로...! 어려운 이슈는 아니었지만, 처음 겪는 상황에 당황할만한 이슈였습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[잘못된 hoisting의 이해 바로잡기]]></title><description><![CDATA[hoisting자바스크립트의 기초를 공부하다 보면 알게되는 그 호이스팅입니다.  기초중의 기초라 할 수 있지만 잘못 알려진 부분이 있어서 (나 또한 잘못 알고 있어서) 그 부분에 대해 아주 짧고 간단하게 알아볼까 합니다.    javascript…]]></description><link>https://jicjjang.github.io/posts/hoisting</link><guid isPermaLink="false">https://jicjjang.github.io/posts/hoisting</guid><pubDate>Thu, 29 Jul 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;hoisting자바스크립트의 기초를 공부하다 보면 알게되는 그 호이스팅입니다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;아니, 다 알고있는 사실을 왜 올려?&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;기초중의 기초라 할 수 있지만 잘못 알려진 부분이 있어서 (나 또한 잘못 알고 있어서) 그 부분에 대해 아주 짧고 간단하게 알아볼까 합니다.&lt;/p&gt;
 &lt;hr&gt;
