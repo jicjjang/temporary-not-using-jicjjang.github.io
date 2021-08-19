@@ -1,6 +1,6 @@
 ---
 title: "error: failed to push some refs to '*.git'"
-date: "2021-08-19"
+date: "2021-08-18"
 tags: [git]
 ---
 
