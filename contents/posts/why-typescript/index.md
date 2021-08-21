@@ -80,6 +80,7 @@ tags: [typescript]
 - 자바스크립트로만 작성된 라이브러리, 프레임워크를 typescript로 어떻게 사용하는가?
     - [DefinitelyTypes](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types) 라는 repo가 있습니다. 해당 레포는 package.json에서 `@types/***` 경로로 설치가 됩니다.
     - typescript의 type에 대한 기본 경로이며, `typescript로 되어있지 않은 코드는 **.d.ts라는 파일을 만듬으로써 타입스크립트가 쓸 수 있는 인터페이스를 만들어준다. (해당 파일 경로는 기본이 @types/~ 이며, tsconfig에서 설정 가능)` 라고 생각해주시면 될 것 같습니다.
+        - [제가 했던 커리큘럼](https://git.linecorp.com/LINE-FE-Welcome/introduce-junseok-liff) 을 보시면 아래와 같이 `/src`경로를 추가해 주었고, `/src`안에 `[global.d.ts](https://git.linecorp.com/LINE-FE-Welcome/introduce-junseok-liff/blob/master/src/global.d.ts)`라는 파일을 두었습니다. 해당 파일은 html, image files를 불러오기 위한 file-loader를 통해 이미지를 불러올 때 typescript로 사용하기 위함입니다.
 
         ```jsx
         // /tsconfig.json
