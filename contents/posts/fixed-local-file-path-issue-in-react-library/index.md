@@ -143,4 +143,4 @@ SSR 시점에는 react 라이브러리가 중복으로 참조되어 발생하는
 
 Next.js, React.js 프로젝트 내에서 React.js 라이브러리를 file path로 사용하기 위한 삽질 내용을 정리해 보았습니다.
 
-위 이슈는 file path로 library를 개발할 때 발생하는 이슈이기 떄문에 npm version 으로 표기를 한다면 `withTM`과 `config.externals` 옵션 없이도 잘 동작하게 됩니다.
+위 이슈는 file path로 library를 개발할 때 발생하는 이슈이기 때문에 npm version 으로 표기를 한다면 `withTM`과 `config.externals` 옵션 없이도 잘 동작하게 됩니다.
