@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Aug 2021 15:49:49 GMT</lastBuildDate><item><title><![CDATA[error: failed to push some refs to '*.git']]></title><description><![CDATA[오늘도 바쁘게 업무 태스크를 처리하고 있었습니다. git branch에서 작업하는 순서는 git-flow 전략에 맞게 브랜치를 하나 생성하고 ()
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 21 Aug 2021 05:30:16 GMT</lastBuildDate><item><title><![CDATA[Next.js dynamic issue]]></title><description><![CDATA[현재 회사의 리뉴얼 중인 서비스의 성능 개선, 그 중 dynamic import를 진행하면서 겪게된 이슈들에 대해 공유해보고자 합니다. 1. Error: cannot update a component ('...') while rendering a…]]></description><link>https://jicjjang.github.io/posts/next-dynamic-issue</link><guid isPermaLink="false">https://jicjjang.github.io/posts/next-dynamic-issue</guid><pubDate>Sat, 21 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;현재 회사의 리뉴얼 중인 서비스의 성능 개선, 그 중 dynamic import를 진행하면서 겪게된 이슈들에 대해 공유해보고자 합니다.&lt;/p&gt;
+&lt;h3 id=&quot;1-Error-cannot-update-a-component--while-rendering-a-different-component-&quot; style=&quot;position:relative;&quot;&gt;1. Error: cannot update a component (&apos;...&apos;) while rendering a different component (&apos;...&apos;)&lt;a href=&quot;#1-Error-cannot-update-a-component--while-rendering-a-different-component-&quot; aria-label=&quot;1 Error cannot update a component  while rendering a different component  permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;서비스를 개발하면서 사내에서 범용적으로 사용할 React 라이브러리를 동시에 제작하면서 해당 라이브러리를 npm package file path로 import하여 테스트, production에서는 build하여 publish한 뒤, 해당 버전을 넣는 방식으로 개발중 입니다.&lt;/p&gt;
+&lt;p&gt;해당 라이브러리의 Code splitting을 진행하고 splited code에 대해 프로젝트에서 dynamic import
+(&lt;a href=&quot;https://nextjs.org/docs/advanced-features/dynamic-import&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;next.js의 dynamic 기능&lt;/a&gt;)을 활용하여 해당 모듈을 import하였는데&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Error: cannot update a component (&amp;#39;...&amp;#39;) while rendering a different component (&amp;#39;...&amp;#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;이러한 에러가 발생하였습니다.&lt;/p&gt;
+&lt;p&gt;기존에 SSR을 위해 해당 모듈 내에서 아래와 같이 코드를 사용하고 있었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;AComponent&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;editor_blahblah&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;SSR 시점에 들어오자마자 데이터를 바로 fetch하기 위함이었습니다. (물론 지속적인 re-render를 피하기 위한 리팩토링은 필요합니다 ^^;) 하지만 dynamic import를 하게 되면서 컴포넌트의 property가 최초 렌더링 이전에 업데이트 되는 것으로 생기는 이슈인가...? 생각했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://reactjs.org/blog/2020/02/26/react-v16.13.0.html#warnings-for-some-updates-during-render&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;해당 이슈&lt;/a&gt;에 대해 확인해보니, &lt;code class=&quot;language-text&quot;&gt;render되는 동안의 상태를 업데이트시키는 동작은 같은 component 내의 state에 대해서만 허용한다.&lt;/code&gt; 라는 내용이 있었습니다.&lt;/p&gt;
+&lt;p&gt;해결책은 간단했습니다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;AComponent&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;editor_blahblah&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;dynamic import를 useEffect로 감싸주기만 하면 됐습니다. render가 일어난 뒤, mount 시점에 dispatch 할테니까요.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/62336340/cannot-update-a-component-while-rendering-a-different-component-warning&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;참고&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;2-ReferenceError-self-is-undefined&quot; style=&quot;position:relative;&quot;&gt;2. ReferenceError: self is undefined&lt;a href=&quot;#2-ReferenceError-self-is-undefined&quot; aria-label=&quot;2 ReferenceError self is undefined permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;라이브러리의 Code splitting을 마치고 기존과 동일하게 빌드 후, 프로젝트에서 dynamic import를 하니 &lt;code class=&quot;language-text&quot;&gt;ReferenceError: self is undefined&lt;/code&gt; 에러가 발생하였습니다.&lt;/p&gt;
+&lt;p&gt;Code splitting과 영향이 있을까 조금 의심이 되긴했지만, dynamic import로 생기는 이슈일거란 의심이 훨씬 컸습니다.&lt;/p&gt;
+&lt;p&gt;구글링으로 발견한 &lt;a href=&quot;https://stackoverflow.com/questions/66096260/webpack-why-am-i-getting-referenceerror-self-is-not-defined-in-next-js-when-i&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;포스트&lt;/a&gt;에서 도움이 된다는 내용을 발견하였습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d7f000d4812810d21245b3711b6ecaff/6c68b/stackoverflow.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACNUlEQVQ4y5WT646bMBCFef9Xa3c325Vy2ySQcL9jDDYGwumMSapU6p9aGo2xmfF8PmPn+3TGbn/A9+kE1/NwcT2cLy62u71d94MQSZoiz3OUZUW+QFGUiOIEWZaTZUjJMtqv6xpOXhRIkhRxHKOihYQ8BydphjCKMI4j/mc4xowYhgFKKWitIfUERV4/TEr5Z87/sX/+uywLjK6hZArVZbibCk5LAVyu67qrBYlFDoLAIjASo9Z1g7ppUFUVfZfgOB6qOaMIf6KKN+jKL07Y2R/CMLTYfSdtBWx936Mn3z6qXNfWvWmabELTRQjcDwTeBtfzOxy+o14PaKSCkRU0JRSdguxre3/TOFHwuM4pyTSuc2MM7vc7lLgi9H4gvr2jjD/pDmlTdmuVBQkUk0CVxRNgwaqqXlEJv2B0mrdti0YIm1iJC+pkgzb/gq63cOZ5JiRBiSJCTuD7PlrR2DU+iAVSr7gv4nCslgEhv8G/vFGlH3CW5Q4zDhQs0FHAqHtSjRM2FKgtGidg/7TnNyMblSEJtsiiA4rkCGeiU7j8iFRNSZQooj4kNG4XRhO0x2o3hCpEa9E7qvw5+EpYvHUscO51AXk6wP38hfSwR7XbQLpHGDpoeOANg3n4v42R+Qqy1iAWozVnyWOo8wHp9YaGWqe/naC8IxQ1vKKTny30L5vniYSZcCk09qlC0BhCHg36skDrexDBlYwS87sklRmXFVfUTlhmehmwr+PVuEsiSpR3Ezoz4zfpBuBQZduQ9AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;stackoverflow&quot;
+        title=&quot;stackoverflow&quot;
+        src=&quot;/static/d7f000d4812810d21245b3711b6ecaff/e85cb/stackoverflow.png&quot;
+        srcset=&quot;/static/d7f000d4812810d21245b3711b6ecaff/070ae/stackoverflow.png 120w,
+/static/d7f000d4812810d21245b3711b6ecaff/8ff5a/stackoverflow.png 240w,
+/static/d7f000d4812810d21245b3711b6ecaff/e85cb/stackoverflow.png 480w,
+/static/d7f000d4812810d21245b3711b6ecaff/37523/stackoverflow.png 720w,
+/static/d7f000d4812810d21245b3711b6ecaff/d9199/stackoverflow.png 960w,
+/static/d7f000d4812810d21245b3711b6ecaff/6c68b/stackoverflow.png 1888w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;webpack에서 &lt;a href=&quot;https://webpack.js.org/configuration/output/#outputglobalobject&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;globalObject&lt;/a&gt; 라는 옵션을 알게 되었고 이를 확인했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2ce13c5b7bdf429bb97e1fdf7ff1a8ef/5bd27/webpack.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACIUlEQVQ4y6WRTWsTcRDG9yMIHrxUa6uHIm1MjFKjTQs2xvp2EupBRMWDtqhYKWojVarSVqofQUQUaRHP4k08CCUmTdM0TZqm3d00weZ1N2l2t9ndPM7uguCpKQ78mFmYef6zzzC5QgHhaAyJNRZrfMqsF+PLWFiKIRKLQxDLMKJer2+LEYwsyygJIiRJRrEkoCpJ0HUdqqZBVdW/jY2E0cuI5QqyubwptpHNoVypQJYVSPSQoiiQiepWDZvEFg3IqgZF01GtqZColigbdY2WMDfk0xkkOd78ZTa1Dm49jSTLY4XlsEoW8KkUuMUFLAf8YMPzRAiroTkkgr+QnAuYrFCd51hLsBAJIReYRTEcQD7kRy44iyx9G7kUDiLr/4nKj28Qv39FMRrGxlIEpUQMRSIfj5r8jsxjM5OyBEVRRDqTgSAIqOsaNPLtH8hLjRobwfDe9NDwTxCtw/xvMG8/TuPh2DhGJ9/A9/IVRl5M4vHziR3ho5mhJ2N492kGzJVbd7Hf6Uab6xRaHC40H+7EPlunmRvFmNt9sAPXBu+DuXHnAWw9fXBf7IfTex52Tx9s3afR0eVpGHu3F61HTmBgeMQSbHd70dt/Ha4Ll+A4ew6OXhKlRpvbY+VtsPecwQHnSQwO+8BcvjmAPW0OtDq7aP3jaLIdw16iqf1owzSTRbtaDuHq7Xtg3k9/Ng/xdGIKo+NTlF/vmGd00Ed02A8zX/AHk2MBcySpKCMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;webpack&quot;
+        title=&quot;webpack&quot;
+        src=&quot;/static/2ce13c5b7bdf429bb97e1fdf7ff1a8ef/e85cb/webpack.png&quot;
+        srcset=&quot;/static/2ce13c5b7bdf429bb97e1fdf7ff1a8ef/070ae/webpack.png 120w,
+/static/2ce13c5b7bdf429bb97e1fdf7ff1a8ef/8ff5a/webpack.png 240w,
+/static/2ce13c5b7bdf429bb97e1fdf7ff1a8ef/e85cb/webpack.png 480w,
+/static/2ce13c5b7bdf429bb97e1fdf7ff1a8ef/37523/webpack.png 720w,
+/static/2ce13c5b7bdf429bb97e1fdf7ff1a8ef/d9199/webpack.png 960w,
+/static/2ce13c5b7bdf429bb97e1fdf7ff1a8ef/5bd27/webpack.png 1432w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;universal한 환경에서 라이브러리를 동일한 libraryTarget 옵션으로 사용하려면 &lt;code class=&quot;language-text&quot;&gt;globalObject: &amp;#39;this&amp;#39;&lt;/code&gt; 옵션을 넣으라는 것이었습니다.&lt;/p&gt;
+&lt;p&gt;음... static import에선 발생하지 안다가 dynamic import에서만...? static import에서는 사용하는 library 자체가 같은 chunk 내에 포함되어버리기 때문에 해당 설정이 없어도 상관이 없었을 것입니다. 하지만 별도의 chunk가 되면서 같은 설정을 들고가지 못하게 되었기 때문에 this가 의미없는 global한 값을 들고있지 않았을까 합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;위 이슈들 말고도 static import시엔 타입이 강하게 엮이지 않아(아직 원인은 찾지 못함...) required하도록 설정해놓은 property값을 넣어주지 않아도 사용이 가능했었는데, dynamic import를 하게 되면서 아래와 같이 타입을 주입해주니 연결이 아주 잘 되어(...) 기존에 발생하지 않던 에러가 줄줄줄 나오는 이슈도 있었고,&lt;/p&gt;
+&lt;p&gt;라이브러리 내에서 위에 기재한 1번처럼 dispatch를 ssr시점에 할 때 render 이전부터 있던 데이터가 mount 시점 이후로 넘어가니 undefined 에러가 활활활...&lt;/p&gt;
+&lt;p&gt;성능 개선은 참 어려운 일인 것 같습니다만, 끝났을 때 향상된 TTFB, FCP를 보면 뿌듯합니다. ssr 이었기 때문에 Code splitting만으로 엄청난 성능 향상을 보이진 않았지만 light house에서 보여주는 &lt;code class=&quot;language-text&quot;&gt;Redux unused javascript&lt;/code&gt; 요소의 퍼센티지를 줄이는덴 큰 역할을 한 것 같습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[error: failed to push some refs to '*.git']]></title><description><![CDATA[오늘도 바쁘게 업무 태스크를 처리하고 있었습니다. git branch에서 작업하는 순서는 git-flow 전략에 맞게 브랜치를 하나 생성하고 ()
 하나의 업무를 처리하고 Git으로 회사 서버에 add/commit/push…]]></description><link>https://jicjjang.github.io/posts/git-error</link><guid isPermaLink="false">https://jicjjang.github.io/posts/git-error</guid><pubDate>Wed, 18 Aug 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;오늘도 바쁘게 업무 태스크를 처리하고 있었습니다.&lt;/p&gt;
 &lt;p&gt;git branch에서 작업하는 순서는 git-flow 전략에 맞게 브랜치를 하나 생성하고 (&lt;code class=&quot;language-text&quot;&gt;git flow feature start feature/improve&lt;/code&gt;)
 하나의 업무를 처리하고 Git으로 회사 서버에 add/commit/push하는데 (&lt;code class=&quot;language-text&quot;&gt;git add . / git commit -m &amp;#39;...&amp;#39; / git push origin feature/improve&lt;/code&gt;)&lt;/p&gt;
@@ -1506,7 +1618,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 SSR 시점에는 react 라이브러리가 중복으로 참조되어 발생하는 이슈가 아닐까 추측해봅니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Next.js, React.js 프로젝트 내에서 React.js 라이브러리를 file path로 사용하기 위한 삽질 내용을 정리해 보았습니다.&lt;/p&gt;
-&lt;p&gt;위 이슈는 file path로 library를 개발할 때 발생하는 이슈이기 떄문에 npm version 으로 표기를 한다면 &lt;code class=&quot;language-text&quot;&gt;withTM&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;config.externals&lt;/code&gt; 옵션 없이도 잘 동작하게 됩니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Kill node process]]></title><description><![CDATA[가끔 vscode코드로 개발을 하다 보면 vscode 프로세스를 죽였는데도 vscode 내의 터미널에서 돌리던 node server가 죽지 않은 것인지, 특정 port가 계속 연결되어 있을 때가 있습니다.
+&lt;p&gt;위 이슈는 file path로 library를 개발할 때 발생하는 이슈이기 때문에 npm version 으로 표기를 한다면 &lt;code class=&quot;language-text&quot;&gt;withTM&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;config.externals&lt;/code&gt; 옵션 없이도 잘 동작하게 됩니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Kill node process]]></title><description><![CDATA[가끔 vscode코드로 개발을 하다 보면 vscode 프로세스를 죽였는데도 vscode 내의 터미널에서 돌리던 node server가 죽지 않은 것인지, 특정 port가 계속 연결되어 있을 때가 있습니다.
 osx를 사용하면서 linux…]]></description><link>https://jicjjang.github.io/posts/kill-node-prcess</link><guid isPermaLink="false">https://jicjjang.github.io/posts/kill-node-prcess</guid><pubDate>Fri, 12 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;가끔 vscode코드로 개발을 하다 보면 vscode 프로세스를 죽였는데도 vscode 내의 터미널에서 돌리던 node server가 죽지 않은 것인지, 특정 port가 계속 연결되어 있을 때가 있습니다.
 osx를 사용하면서 linux와 명령어가 살짝 달라서 port를 찾는 명령어가 간단치 않습니다. 자주 발생하는 것도 아니고... 이를 위해 기록용으로 남겨둡니다.&lt;/p&gt;
 &lt;hr&gt;
