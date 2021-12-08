@@ -1,75 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 08 Dec 2021 06:59:31 GMT</lastBuildDate><item><title><![CDATA[Sequal pro, mysql 설정]]></title><description><![CDATA[다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다. 우선 mysql 설치는 brew를 통해 진행했습니다. 기왕 설치하는거 최신버전을 위해 mysql로 결정! 설치된 버전은…]]></description><link>https://jicjjang.github.io/posts/sequalpro</link><guid isPermaLink="false">https://jicjjang.github.io/posts/sequalpro</guid><pubDate>Wed, 08 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 08 Dec 2021 07:07:18 GMT</lastBuildDate><item><title><![CDATA[Sequal pro, mysql 설정]]></title><description><![CDATA[다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다. 우선 mysql 설치는 brew를 통해 진행했습니다. 기왕 설치하는거 최신버전을 위해 mysql로 결정! 설치된 버전은…]]></description><link>https://jicjjang.github.io/posts/sequalpro</link><guid isPermaLink="false">https://jicjjang.github.io/posts/sequalpro</guid><pubDate>Wed, 08 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;우선 mysql 설치는 brew를 통해 진행했습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;~ $ brew update
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;~ $ brew update
 ~ $ brew search mysql
-==&amp;gt; Formulae
-automysqlbackup          mysql ✔                  mysql++                  mysql-client             mysql-client@5.7         mysql-connector-c++      mysql-sandbox            mysql-search-replace     mysql@5.6                mysql@5.7                mysqltuner               qt-mysql
+&lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; Formulae
+&lt;span class=&quot;token function&quot;&gt;automysqlbackup&lt;/span&gt;          mysql ✔                  mysql++                  mysql-client             mysql-client@5.7         mysql-connector-c++      mysql-sandbox            mysql-search-replace     mysql@5.6                mysql@5.7                mysqltuner               qt-mysql
 
-==&amp;gt; Casks
+&lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; Casks
 mysql-connector-python                             mysql-shell                                        mysql-utilities                                    mysqlworkbench                                     navicat-for-mysql                                  sqlpro-for-mysql&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;기왕 설치하는거 최신버전을 위해 mysql로 결정!&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;$ brew install mysql&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ brew &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; mysql&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;설치된 버전은 8버전대. 어느새 많이 올라왔네요...&lt;/p&gt;
 &lt;p&gt;많이 사용하던 sequal pro를 설치했으나, 16년도에 마지막 릴리즈...? 불안한 마음이 스멀스멀... 합니다.&lt;/p&gt;
 &lt;p&gt;우선 mysql password 설정을 위해 &lt;code class=&quot;language-text&quot;&gt;mysql_secure_installation&lt;/code&gt; 커멘드를 입력합시다.
 인터렉티브하게 설정이 가능해집니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;~ $ mysql_secure_installation
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;~ $ mysql_secure_installation
 Securing the MySQL server deployment.
 
-# root user 비밀번호를 요구하네요
-Enter password for user root: 
-The &amp;#39;validate_password&amp;#39; component is installed on the server.
+&lt;span class=&quot;token comment&quot;&gt;# root user 비밀번호를 요구하네요&lt;/span&gt;
+Enter password &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; user root: 
+The &lt;span class=&quot;token string&quot;&gt;&apos;validate_password&apos;&lt;/span&gt; component is installed on the server.
 The subsequent steps will run with the existing configuration
 of the component.
-Using existing password for root.
+Using existing password &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; root.
 
-Estimated strength of the password: 100 
-# 저는 기존에 설정이 되어있어서 비밀번호를 바꿀지 물어봅니다.
-Change the password for root ? ((Press y|Y for Yes, any other key for No) : N
+Estimated strength of the password: &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt; 
+&lt;span class=&quot;token comment&quot;&gt;# 저는 기존에 설정이 되어있어서 비밀번호를 바꿀지 물어봅니다.&lt;/span&gt;
+Change the password &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; root ? &lt;span class=&quot;token punctuation&quot;&gt;((&lt;/span&gt;Press y&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;Y &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; Yes, any other key &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; No&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; N
 
- ... skipping.
+ &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;. skipping.
 By default, a MySQL installation has an anonymous user,
 allowing anyone to log into MySQL without having to have
-a user account created for them. This is intended only for
-testing, and to make the installation go a bit smoother.
+a user account created &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; them. This is intended only &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt;
+testing, and to &lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt; the installation go a bit smoother.
 You should remove them before moving into a production
 environment.
 
-# 제일 처음에 있던 익명 유저정보를 지울 것인지
-Remove anonymous users? (Press y|Y for Yes, any other key for No) : Y
+&lt;span class=&quot;token comment&quot;&gt;# 제일 처음에 있던 익명 유저정보를 지울 것인지&lt;/span&gt;
+Remove anonymous users? &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Press y&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;Y &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; Yes, any other key &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; No&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; Y
 Success.
 
 
 Normally, root should only be allowed to connect from
-&amp;#39;localhost&amp;#39;. This ensures that someone cannot guess at
+&lt;span class=&quot;token string&quot;&gt;&apos;localhost&apos;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; This ensures that someone cannot guess at
 the root password from the network.
 
-# root 계정으로 원격 접근을 막을 것인지 입니다.
-Disallow root login remotely? (Press y|Y for Yes, any other key for No) : Y
+&lt;span class=&quot;token comment&quot;&gt;# root 계정으로 원격 접근을 막을 것인지 입니다.&lt;/span&gt;
+Disallow root login remotely? &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Press y&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;Y &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; Yes, any other key &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; No&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; Y
 Success.
 
-By default, MySQL comes with a database named &amp;#39;test&amp;#39; that
-anyone can access. This is also intended only for testing,
+By default, MySQL comes with a database named &lt;span class=&quot;token string&quot;&gt;&apos;test&apos;&lt;/span&gt; that
+anyone can access. This is also intended only &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; testing,
 and should be removed before moving into a production
 environment.
 
-# 존재하던 test db를 지울지 물어보네요.
-Remove test database and access to it? (Press y|Y for Yes, any other key for No) : Y
- - Dropping test database...
+&lt;span class=&quot;token comment&quot;&gt;# 존재하던 test db를 지울지 물어보네요.&lt;/span&gt;
+Remove &lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt; database and access to it? &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Press y&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;Y &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; Yes, any other key &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; No&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; Y
+ - Dropping &lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt; database&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
 Success.
 
- - Removing privileges on test database...
+ - Removing privileges on &lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt; database&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
 Success.
 
 Reloading the privilege tables will ensure that all changes
 made so far will take effect immediately.
 
-# 권한 정보를 갱신할 것인지 물어보네요
-Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y
+&lt;span class=&quot;token comment&quot;&gt;# 권한 정보를 갱신할 것인지 물어보네요&lt;/span&gt;
+Reload privilege tables now? &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Press y&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;Y &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; Yes, any other key &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; No&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; Y
 Success.
 
-All done! &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+All done&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;자 이렇게 설정 해줬으니 sequal pro에서 root 계정으로 password 입력하면 잘 되겠지~?&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -105,12 +105,12 @@ All done! &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;ㅠㅠ 안되니까 글을 쓰고 있겠죠...&lt;/p&gt;
 &lt;p&gt;mysql 8 버전에서 암호화 방식이 바뀌어서 암호화 방식을 다시 세팅해줘야 한다고 합니다. root뿐만 아니라 추가 user들 모두요!&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;~ $ mysql -uroot -p
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;~ $ mysql -uroot -p
 password:
 
-...
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
 
-mysql &amp;gt; ALTER USER &amp;#39;yourusername&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;youpassword&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+mysql &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ALTER &lt;span class=&quot;token environment constant&quot;&gt;USER&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;yourusername&apos;&lt;/span&gt;@&lt;span class=&quot;token string&quot;&gt;&apos;localhost&apos;&lt;/span&gt; IDENTIFIED WITH mysql_native_password BY &lt;span class=&quot;token string&quot;&gt;&apos;youpassword&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
