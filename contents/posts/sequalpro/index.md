@@ -10,7 +10,7 @@ tags: [mysql, sequalpro]
 
 우선 mysql 설치는 brew를 통해 진행했습니다.
 
-```sh
+```shell
 ~ $ brew update
 ~ $ brew search mysql
 ==> Formulae
@@ -22,7 +22,7 @@ mysql-connector-python                             mysql-shell                  
 
 기왕 설치하는거 최신버전을 위해 mysql로 결정!
 
-```sh
+```shell
 $ brew install mysql
 ```
 
@@ -33,7 +33,7 @@ $ brew install mysql
 우선 mysql password 설정을 위해 `mysql_secure_installation` 커멘드를 입력합시다.
 인터렉티브하게 설정이 가능해집니다.
 
-```sh
+```shell
 ~ $ mysql_secure_installation
 Securing the MySQL server deployment.
 
@@ -100,7 +100,7 @@ All done!
 
 mysql 8 버전에서 암호화 방식이 바뀌어서 암호화 방식을 다시 세팅해줘야 한다고 합니다. root뿐만 아니라 추가 user들 모두요!
 
-```sh
+```shell
 ~ $ mysql -uroot -p
 password:
 
