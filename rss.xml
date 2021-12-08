@@ -1,4 +1,149 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Nov 2021 16:09:47 GMT</lastBuildDate><item><title><![CDATA[iframe 50개(!!)의 각기 다른 contents height에 맞게 iframe height를 조절하기]]></title><description><![CDATA[서두 평소와 다름없이 맡은 업무... timeline post를 내부 서비스에서 embed하여 사용하고 싶어하는데 (+ 이미 하고있는데) 최대 50개까지 post를 embed할 예정이라고 전달을 받았습니다. 그런데 embed한 post…]]></description><link>https://jicjjang.github.io/posts/iframe-contents</link><guid isPermaLink="false">https://jicjjang.github.io/posts/iframe-contents</guid><pubDate>Sat, 20 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;서두&quot; style=&quot;position:relative;&quot;&gt;서두&lt;a href=&quot;#%EC%84%9C%EB%91%90&quot; aria-label=&quot;서두 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 08 Dec 2021 06:59:31 GMT</lastBuildDate><item><title><![CDATA[Sequal pro, mysql 설정]]></title><description><![CDATA[다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다. 우선 mysql 설치는 brew를 통해 진행했습니다. 기왕 설치하는거 최신버전을 위해 mysql로 결정! 설치된 버전은…]]></description><link>https://jicjjang.github.io/posts/sequalpro</link><guid isPermaLink="false">https://jicjjang.github.io/posts/sequalpro</guid><pubDate>Wed, 08 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;우선 mysql 설치는 brew를 통해 진행했습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;~ $ brew update
+~ $ brew search mysql
+==&amp;gt; Formulae
+automysqlbackup          mysql ✔                  mysql++                  mysql-client             mysql-client@5.7         mysql-connector-c++      mysql-sandbox            mysql-search-replace     mysql@5.6                mysql@5.7                mysqltuner               qt-mysql
+
+==&amp;gt; Casks
+mysql-connector-python                             mysql-shell                                        mysql-utilities                                    mysqlworkbench                                     navicat-for-mysql                                  sqlpro-for-mysql&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;기왕 설치하는거 최신버전을 위해 mysql로 결정!&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;$ brew install mysql&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설치된 버전은 8버전대. 어느새 많이 올라왔네요...&lt;/p&gt;
+&lt;p&gt;많이 사용하던 sequal pro를 설치했으나, 16년도에 마지막 릴리즈...? 불안한 마음이 스멀스멀... 합니다.&lt;/p&gt;
+&lt;p&gt;우선 mysql password 설정을 위해 &lt;code class=&quot;language-text&quot;&gt;mysql_secure_installation&lt;/code&gt; 커멘드를 입력합시다.
+인터렉티브하게 설정이 가능해집니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;~ $ mysql_secure_installation
+Securing the MySQL server deployment.
+
+# root user 비밀번호를 요구하네요
+Enter password for user root: 
+The &amp;#39;validate_password&amp;#39; component is installed on the server.
+The subsequent steps will run with the existing configuration
+of the component.
+Using existing password for root.
+
+Estimated strength of the password: 100 
+# 저는 기존에 설정이 되어있어서 비밀번호를 바꿀지 물어봅니다.
+Change the password for root ? ((Press y|Y for Yes, any other key for No) : N
+
+ ... skipping.
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them. This is intended only for
+testing, and to make the installation go a bit smoother.
+You should remove them before moving into a production
+environment.
+
+# 제일 처음에 있던 익명 유저정보를 지울 것인지
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : Y
+Success.
+
+
+Normally, root should only be allowed to connect from
+&amp;#39;localhost&amp;#39;. This ensures that someone cannot guess at
+the root password from the network.
+
+# root 계정으로 원격 접근을 막을 것인지 입니다.
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : Y
+Success.
+
+By default, MySQL comes with a database named &amp;#39;test&amp;#39; that
+anyone can access. This is also intended only for testing,
+and should be removed before moving into a production
+environment.
+
+# 존재하던 test db를 지울지 물어보네요.
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : Y
+ - Dropping test database...
+Success.
+
+ - Removing privileges on test database...
+Success.
+
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+
+# 권한 정보를 갱신할 것인지 물어보네요
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y
+Success.
+
+All done! &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;자 이렇게 설정 해줬으니 sequal pro에서 root 계정으로 password 입력하면 잘 되겠지~?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5acb02a6c17a0cb21a484d514535effb/7da7d/error.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACXUlEQVQ4y6WSy07bQBSGjdh1USGh5IXoAokVQgRoimi760NQqVIlnqStVIJoSCKaeGzHM77FTuxcRFFF0hsVKFSCDTtsn/5jBRXabmgtfTpn5hz/5/eMla0XlelG4+18hb1b0pi+qKrqImPsFtd7Mt7kuq5p2hLW85ubz6eVp0+ezdbrtfMGqxOKhCJQiSEypmVrHWtVbZBuGGTcQNf1DIhRrVY7f7yxMasUlpfyar0+NuSLjMWmoSem2UxMzhF5YmDNtGbCmJHgxUTT9AQiiBrqpiTmnEsz40JhOa8UH67l1Pf7Y4OpZMomXUuDIEh9MIjC9PunL+mob6TDnpEejz6nUTtIbcfOeiTtdjvpdDrkuu64WHyUU1YLhZyuNs5E0yAONzIGvk+u51E/7ND5ySkN+4KOepwukHfbAQlhkY+eVqtFEE0gSo7jnBWLxZyyAkG4O7O5SZZpJJbZzAQ9rwXBkI6PPtJh1KUPUUQnoyFFcGNZ9h+CcHhbUArB3S9BNPfg8GjQp8hzqNtyaTgYUK8DN67zD4ITh4dwFlj4RCGyXA5xHDfrubMgLoW+HnTpwLczviGXZ2jZ9t0E5ecEvkemG9HW/gW9rP7IkLlhh+S5NgQ8DPX+Jrgsb/l0IngFYkyO0Rib3IpL+yLemSBzLmzU/KwHg2Xf1eSWTzPBtdWVPP69S9cS5AhOMnZw8BHOK8R5dcPgFnIvRC2aEOKcZcSAy/X19bzyYG5u5s3rV7ul7W13p1TiQOzt7YlqtTqh9htVUalUbsKx55bL5d2FhYUZBc8UuAfu/ydSY+onZhEO60N5uVwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;error&quot;
+        title=&quot;error&quot;
+        src=&quot;/static/5acb02a6c17a0cb21a484d514535effb/e85cb/error.png&quot;
+        srcset=&quot;/static/5acb02a6c17a0cb21a484d514535effb/070ae/error.png 120w,
+/static/5acb02a6c17a0cb21a484d514535effb/8ff5a/error.png 240w,
+/static/5acb02a6c17a0cb21a484d514535effb/e85cb/error.png 480w,
+/static/5acb02a6c17a0cb21a484d514535effb/37523/error.png 720w,
+/static/5acb02a6c17a0cb21a484d514535effb/d9199/error.png 960w,
+/static/5acb02a6c17a0cb21a484d514535effb/7da7d/error.png 2120w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;ㅠㅠ 안되니까 글을 쓰고 있겠죠...&lt;/p&gt;
+&lt;p&gt;mysql 8 버전에서 암호화 방식이 바뀌어서 암호화 방식을 다시 세팅해줘야 한다고 합니다. root뿐만 아니라 추가 user들 모두요!&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;~ $ mysql -uroot -p
+password:
+
+...
+
+mysql &amp;gt; ALTER USER &amp;#39;yourusername&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED WITH mysql_native_password BY &amp;#39;youpassword&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d402be70b9ae318266267e7c7cda42ec/7da7d/resolved.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACS0lEQVQ4y6WSy07bQBSGjdh1USGh5JnYRmzIglUTCKEkEHXT56BSH4NNpYpNF6SBRmpLIscu2E5S27EdTy6ExCTxZXx6ZpKqFFXQqpY+/Wc8R7/OZYR3mePV5uWHjSvz26Zjd1O6rqdMU08ZhrHE5GpbNld2f19N00w5jrOp68bG8Zu3q8Lrg1frsng5rIk1aDQaoGkaiBjLVwpcKxooigqaKkPl/CMoqgrtdhtarRan2Wzy/Gq1Cqen74eFg711YSebSSqS5GqyBEpDjHRVoWbHpq5LKCE9ats2tawORSOKldBut8vp9/u01+tRrDJCoKlp7v5+Pinks9mE1VTdgWVCv2PQnmnE/nweR5TGYRTFYRhy+Bk1WJ45i3saxzHMZjP36OgoIeSymURHUwkxdHD179RFnd7dgR8EMPd98J8Ac2iAuePJhBSLxV+GWBk3ZMbT6cLQ/wtDnxmGIUweNcQKg3819DxSPDz8s+F8NgOWxKoMnobiHHnLBVbhHi7FVBWCZosZ6jpYlg0uIYBbhJubG85wqQ9jhI5GI8D3SLa3txNCfncnoSvXxG63wGm3+FIGgwGbCYzHYw6Lb+/Ht7esop/31PM8pqRQKCSE3cwL1rLTW2w5RKLZdBphyxHOJ8K2f+fhP98Pg0XLDl/Ky1wuiZV5Q9uCgdUBpgEOGx8XUEoX+hiYEwOwd+iVSqWkkN7aWjsvn518qlQuPlerZ/WvX8r1er1cq9XKDUkqy7Jclh5Dks4w50IUxZN0Or0m4LeCPEOe/yfMY+UH2IZ/4OXBUyIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;resolved&quot;
+        title=&quot;resolved&quot;
+        src=&quot;/static/d402be70b9ae318266267e7c7cda42ec/e85cb/resolved.png&quot;
+        srcset=&quot;/static/d402be70b9ae318266267e7c7cda42ec/070ae/resolved.png 120w,
+/static/d402be70b9ae318266267e7c7cda42ec/8ff5a/resolved.png 240w,
+/static/d402be70b9ae318266267e7c7cda42ec/e85cb/resolved.png 480w,
+/static/d402be70b9ae318266267e7c7cda42ec/37523/resolved.png 720w,
+/static/d402be70b9ae318266267e7c7cda42ec/d9199/resolved.png 960w,
+/static/d402be70b9ae318266267e7c7cda42ec/7da7d/resolved.png 2120w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;끝.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[iframe 50개(!!)의 각기 다른 contents height에 맞게 iframe height를 조절하기]]></title><description><![CDATA[서두 평소와 다름없이 맡은 업무... timeline post를 내부 서비스에서 embed하여 사용하고 싶어하는데 (+ 이미 하고있는데) 최대 50개까지 post를 embed할 예정이라고 전달을 받았습니다. 그런데 embed한 post…]]></description><link>https://jicjjang.github.io/posts/iframe-contents</link><guid isPermaLink="false">https://jicjjang.github.io/posts/iframe-contents</guid><pubDate>Sat, 20 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;서두&quot; style=&quot;position:relative;&quot;&gt;서두&lt;a href=&quot;#%EC%84%9C%EB%91%90&quot; aria-label=&quot;서두 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;평소와 다름없이 맡은 업무... timeline post를 내부 서비스에서 embed하여 사용하고 싶어하는데 (+ 이미 하고있는데) 최대 50개까지 post를 embed할 예정이라고 전달을 받았습니다. 그런데 embed한 post가 접혀서 펼쳐지지 않는다는 이슈가 있다고 하더군요.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
