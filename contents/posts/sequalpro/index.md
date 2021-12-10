@@ -34,6 +34,10 @@ $ brew install mysql
 인터렉티브하게 설정이 가능해집니다.
 
 ```shell
+~ $ mysql.service start # mysql 스타트!
+Starting MySQL
+SUCCESS!
+
 ~ $ mysql_secure_installation
 Securing the MySQL server deployment.
 
