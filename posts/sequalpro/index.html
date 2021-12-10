@@ -94,7 +94,11 @@ mysql-connector-python                             mysql-shell                  
 <p>많이 사용하던 sequal pro를 설치했으나, 16년도에 마지막 릴리즈...? 불안한 마음이 스멀스멀... 합니다.</p>
 <p>우선 mysql password 설정을 위해 <code class="language-text">mysql_secure_installation</code> 커멘드를 입력합시다.
 인터렉티브하게 설정이 가능해집니다.</p>
-<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">~ $ mysql_secure_installation
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">~ $ mysql.service start <span class="token comment"># mysql 스타트!</span>
+Starting MySQL
+SUCCESS<span class="token operator">!</span>
+
+~ $ mysql_secure_installation
 Securing the MySQL server deployment.
 
 <span class="token comment"># root user 비밀번호를 요구하네요</span>
