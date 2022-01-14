@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 10 Dec 2021 14:32:26 GMT</lastBuildDate><item><title><![CDATA[Sequal pro, mysql 설정]]></title><description><![CDATA[다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다. 우선 mysql 설치는 brew를 통해 진행했습니다. 기왕 설치하는거 최신버전을 위해 mysql로 결정! 설치된 버전은…]]></description><link>https://jicjjang.github.io/posts/sequalpro</link><guid isPermaLink="false">https://jicjjang.github.io/posts/sequalpro</guid><pubDate>Wed, 08 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 14 Jan 2022 08:41:38 GMT</lastBuildDate><item><title><![CDATA[colors.js 라이브러리의 의도적 문제 유발]]></title><description><![CDATA[LINEVOOM web을 개발하면서 별도의 모듈로 되어있는 editor 라이브러리의 버전을 올리며, LINEVOOM의 package version을 올리고 PR을 등록했습니다. 여느 때와 다름없는 작업 이었지만 github에 등록된 drone…]]></description><link>https://jicjjang.github.io/posts/colorsjs-invoked-Intentional-problems</link><guid isPermaLink="false">https://jicjjang.github.io/posts/colorsjs-invoked-Intentional-problems</guid><pubDate>Fri, 14 Jan 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://linevoom.me/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;LINEVOOM web&lt;/a&gt;을 개발하면서 별도의 모듈로 되어있는 editor 라이브러리의 버전을 올리며, LINEVOOM의 package version을 올리고 PR을 등록했습니다.&lt;/p&gt;
+&lt;p&gt;여느 때와 다름없는 작업 이었지만 github에 등록된 drone에서 문제가 생겼습니다.&lt;/p&gt;
+&lt;h2 id=&quot;문제&quot; style=&quot;position:relative;&quot;&gt;문제&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;문제 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8763938b0ec021a7121f1ddc94db884b/86a1e/drone.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA8klEQVQY01WQy07CYBCF+wBq3BDjAhbWiq1QLoq0v7S2BdOAhmqMQiloCyoXLxs3vv1h5l80cfHlnMkkM2dGKYsYneEG4m6NRjdDK3yDZo+hWYQd4+jyCaXa4B9Fk+mjSF6lvtoe5Si6k8B7+Ebw+AM3+kS7/4Fmb44zd4aL8B3G1Qh7Bxp2Cip2C8dSuWb2D09R92do3ixwThjOFIrhThGOfxG9/lHKFU7EBLUghU5NvZPAoMEVL0XVT2H6GcwggyYSShNDtfiC55w8oUPJru+/YA2WEpe8fbuSXpDyG3iZE23kBfwaXsra6DFzVL0XOXQLwz+MKma14TEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;drone.png&quot;
+        title=&quot;drone.png&quot;
+        src=&quot;/static/8763938b0ec021a7121f1ddc94db884b/e85cb/drone.png&quot;
+        srcset=&quot;/static/8763938b0ec021a7121f1ddc94db884b/070ae/drone.png 120w,
+/static/8763938b0ec021a7121f1ddc94db884b/8ff5a/drone.png 240w,
+/static/8763938b0ec021a7121f1ddc94db884b/e85cb/drone.png 480w,
+/static/8763938b0ec021a7121f1ddc94db884b/37523/drone.png 720w,
+/static/8763938b0ec021a7121f1ddc94db884b/d9199/drone.png 960w,
+/static/8763938b0ec021a7121f1ddc94db884b/86a1e/drone.png 1296w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;왜 private npm에 패키지가 없지...?&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;.npmrc&lt;/code&gt; 에 등록된 registry 설정은 private npm slack 채널에서 권고받은대로 설정했기 때문에 의심이 되지 않았습니다.
+우선 이미지에 나오는 nexus쪽을 확인해봅니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7425e181df09c89710059a9606068735/1a867/colors_js.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 90.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAACQ0lEQVQ4y62UT4/SQBjG+VacyQLX9SOwgXhYZQ9KdEX+GMX4AZZsDNeNN7154mayWRNNlmhczAKhlUKUP6WllM600/ZxOg1kNRG6iZM8edtm8uvzzrzvG6vVXqH67DkKhUc4PLyHfP4I9/N5riMUiyU84Xp8XMRxRMXA12QyAXMZ/scSwPF4jPb3NmbaBEvLwIquYJIllynebYfC8zy4riviNgmgYRhoX7WhGXMsiQ7HpfyrD98PN/m+H1kCyBiDruuYzmbcEeWOfBAb3FGYBt8X4KOnzJiLxUKHquqYzSk0jXG4A9NkwmEI9YXrSEBN0zAcDkFXDMZ8hYVqQp8tofO40CzYNttAQ/AOoGVZkBUJcw4mlg1qOTw6oMQRzza9JdCmNobjAeaGunXzGrYNKoCUUigDBaqugjqEi4pIuIKSsZktbnwX7I+UJUmCZqq8Bk0hm4XQIAZA7wZwp0NCCWRJhm5qMMgChqULEHEsWPZKKPgJc51oKZumidFoJLrC4l3iez48N+yMdXf8fY47gZ1uB6NfvHQY+eeFRO6U4FKCOjx7c4bayxpO6ic4fX2KRqOBer2OZrMpoDedbnUYtN1l6xIfP13g4vO5cNvv94W63S6m0+ntpk3gsNfrQZJlPCg8RDqdxt5eEslkEqlUColEAvF4HPv7d5DN3cXBQRbZbBa5XG6jTCaDVquF2PqQO51rfPn6DR/O23jBh26p9BSVSgXlchnVapUP2yLevnuP6+5PXLVl9KUfUBRlo8FgIMrvN8skMuluiKZrAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;colors_js.png&quot;
+        title=&quot;colors_js.png&quot;
+        src=&quot;/static/7425e181df09c89710059a9606068735/e85cb/colors_js.png&quot;
+        srcset=&quot;/static/7425e181df09c89710059a9606068735/070ae/colors_js.png 120w,
+/static/7425e181df09c89710059a9606068735/8ff5a/colors_js.png 240w,
+/static/7425e181df09c89710059a9606068735/e85cb/colors_js.png 480w,
+/static/7425e181df09c89710059a9606068735/37523/colors_js.png 720w,
+/static/7425e181df09c89710059a9606068735/d9199/colors_js.png 960w,
+/static/7425e181df09c89710059a9606068735/1a867/colors_js.png 1998w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Colors package의 1.4.1, 1.4.2 버전이 싣어져 있습니다. 하지만 압축되어 있는 링크를 클릭하면 404 페이지로 이동하게 됩니다.&lt;/p&gt;
+&lt;p&gt;그냥 문제라고 치부하기엔 private npm에서 몇번 마주했던 문제와는 사뭇 달랐기에 검색부터 해봅니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;colors.js, faker.js 라이브러리가 수천개의 앱의 의존성을 끊었다&lt;/code&gt;는 문구가 나옵니다. 문제가 가볍진 않아보이네요...&lt;/p&gt;
+&lt;p&gt;LINEVOOM에서 사용하는 라이브러리에서만 Colors에 의존성을 가지는 라이브러리는 &lt;code class=&quot;language-text&quot;&gt;winston (express logger)&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;@storybook/* (5개)&lt;/code&gt;가 semver룰에 따라 업데이트 되면서 문제가 생겼습니다. 다행히 문제를 만난 1월 13일에는 이미 해당 라이브러리들이 모두 문제를 해결 해놓은 상황이었습니다. 😅 &lt;/p&gt;
+&lt;p&gt;이밖에도 &lt;a href=&quot;https://github.com/aws/aws-cdk/issues/18323&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;aws-cdk&lt;/a&gt;와 같은 사용자가 엄청난 라이브러리들에도 영향이 발생했습니다. 이런 일이 왜 발생한걸까요? 우리가 생각하는 개발자의 실수가 아닌, &lt;a href=&quot;https://github.com/Marak/colors.js/blob/master/lib/custom/american.js&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;개발자의 의도&lt;/a&gt;였던 것으로 아티클에도 나와있으며, 커밋에도 그 의도를 숨길 수 없었습니다. 또한 &lt;a href=&quot;https://github.com/Marak/faker.js/blob/master/package.json#L4&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;faker.js &gt; package.json&lt;/a&gt;를 본다면 &lt;code class=&quot;language-text&quot;&gt;6.6.6&lt;/code&gt;버전에 &lt;code class=&quot;language-text&quot;&gt;endgame&lt;/code&gt; 이라는 메세지와 함께 커밋이 되어있는 것을 볼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7fbc227e66a6d6cb5b2474090d1860e8/33d1d/faker_js.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABJ0lEQVQoz5WSS2+DMBCEubcJIRg/MBhsXqWhSaNWinJo//+/mu66KOqxHIa1Bmm18+0my+UT148bmu6VNKP2E0zdodAOhWk2K7ndv3G7f6F/uSCMC7rpLTaVZQtl/WYlaa4haBpTeVjXIRMl9pnEgXxWulFJLi3KOqBqBzg/UkOD51RgdygedYsSoWrK7sBV6BqKokpiweObKvz6G5SUrid+ZwzzBW1/iizZY5bj6QpFTfU/FRkyJ46Zqwq5LiPDwnhkhcXT7rhGWaOvCPbZn5gPLALpUdFS6LPPFDJpEN4nVEOHsJxhadPWz1B1D+NGmrSDaaZYC74A8jX/Wz3jhrjE2JDFDd3cR5k2oBnPcP0SL0BSFEFcpQ2x5syL7455s6f57amPxg8KCOo2uiWNmQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;faker_js.png&quot;
+        title=&quot;faker_js.png&quot;
+        src=&quot;/static/7fbc227e66a6d6cb5b2474090d1860e8/e85cb/faker_js.png&quot;
+        srcset=&quot;/static/7fbc227e66a6d6cb5b2474090d1860e8/070ae/faker_js.png 120w,
+/static/7fbc227e66a6d6cb5b2474090d1860e8/8ff5a/faker_js.png 240w,
+/static/7fbc227e66a6d6cb5b2474090d1860e8/e85cb/faker_js.png 480w,
+/static/7fbc227e66a6d6cb5b2474090d1860e8/37523/faker_js.png 720w,
+/static/7fbc227e66a6d6cb5b2474090d1860e8/d9199/faker_js.png 960w,
+/static/7fbc227e66a6d6cb5b2474090d1860e8/33d1d/faker_js.png 1150w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;해당 개발자 &lt;a href=&quot;https://github.com/Marak&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Marak&lt;/a&gt; 는 &lt;a href=&quot;https://twitter.com/marak/status/1479200803948830724?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1479200803948830724%7Ctwgr%5E%7Ctwcon%5Es1_&amp;#x26;ref_url=https%3A%2F%2Fwww.siliconrepublic.com%2Fenterprise%2Fgithub-marak-squires-colors-faker-npm-corrupt-open-source&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;트위터&lt;/a&gt;를 통해 npm이 문제가 있는 버전을 revert했고, github은 이 user의 접근을 막았다고 하였습니다. Faker.js의 commit은 1개만 있고, 코드가 없는것은 아마 유저의 access가 끊키기 전에 유저가 프로젝트를 제거했기 때문이겠죠.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://web.archive.org/web/20210719213152/https://github.com/marak/Faker.js/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;원래 faker.js&lt;/a&gt;는 거대한 양의 fake data를 만들어주는 라이브러리였다고 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;추측&quot; style=&quot;position:relative;&quot;&gt;추측&lt;a href=&quot;#%EC%B6%94%EC%B8%A1&quot; aria-label=&quot;추측 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;이 유저는 20년 11월에 &lt;a href=&quot;http://web.archive.org/web/20210704022108/https:/github.com/Marak/faker.js/issues/1046&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;OSS를 통한 무료 작업을 거부한다는 내용의 글&lt;/a&gt;을 올린적이 있어서 이러한 내용의 연장선이라고 사람들은 추측하고 있습니다.(포춘 500대 기업에 연간 6자리 -&gt; 100,000불 = 1.2억원 정도의 돈을 지불하라고 했습니다.)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/49082c492847175ce520f80b1767d3c2/31df8/faker_js_guess.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACZElEQVQ4y4VUTWtTQRTNtm0+3nt5H5l5876S1zQhRIRCXdSEUKlGBLFC0KZoXUSycNGIEBe1G+mqCkUQLSgqCC6k4A+Qgrpx468Q/8fxzjR5JiXg4nCH+2bOnHPn3peyvQp4VIfpeMgZjoKWLyTrWcjqtooZzUogcxIpi4UIogp8vwTdZAqGxZEjUm0Ck5fJg3LfQjaPdM5USAizuoW8WYBBMB0BP1qCX1yCCBYRjGJYqsCLyrSOEcZViFB+oxxFJiLYLEhUpuQiLZE1oVkF+FUiiCvqQDAiCktVRVpwQ3CvqOIYVsFD3nYT66mxVCmfexHCxTLZ4bRJkHUXOtk/tc1O6zban2BUBoNI5feEcC5tIC7XUD+3rGxJddK6VMj8GJysc7LMSCH3ShRLas1EES7lbR4oYkU49j+fMTBPSm0Rw+GRqqdNr69RXqO8TvukRZv5CnItIWuf1HBSfkazkbcYrjaX0bx0EaIUo1ivYaV7Byu3t3D++gZdFCiy6Rgkrz9FuJCz4Fg2jg8H+PT5EDdutXGl08bGi2cY/vmN3skJctQNql3kQ45aRmKmwrm0jrBcwddvX7D/4QB7R6+wN+xjMOhh99dP9H58h25zZCb67p+7GYSyhrLHho930LjfxubOPTzqt/D63Us8P/6IztHbqcP/JcxoJoy8i0b3Gpq9NbTbF/Dw7ioGu09x8P4NWjf7qk0mCc+O3xRhWr4wD7G+3UFrcw2Ny6voNmvYfjBE78k+WusdGkmHamYpzFKaOivbMB1wIWgKOIJAgLkCDvPgCoawwGFRo1uOq4ZATsj4RzHGX0qDiMxvLk50AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;faker_js_guess.png&quot;
+        title=&quot;faker_js_guess.png&quot;
+        src=&quot;/static/49082c492847175ce520f80b1767d3c2/e85cb/faker_js_guess.png&quot;
+        srcset=&quot;/static/49082c492847175ce520f80b1767d3c2/070ae/faker_js_guess.png 120w,
+/static/49082c492847175ce520f80b1767d3c2/8ff5a/faker_js_guess.png 240w,
+/static/49082c492847175ce520f80b1767d3c2/e85cb/faker_js_guess.png 480w,
+/static/49082c492847175ce520f80b1767d3c2/37523/faker_js_guess.png 720w,
+/static/49082c492847175ce520f80b1767d3c2/d9199/faker_js_guess.png 960w,
+/static/49082c492847175ce520f80b1767d3c2/31df8/faker_js_guess.png 2366w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;faker.js의 README를 보면 &lt;code class=&quot;language-text&quot;&gt;What really happened with Aaron Swartz?&lt;/code&gt; 라는 문구가 있습니다. 프로젝트를 지우는 와중에도 남겨놓은 문구가 궁금해 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%97%90%EB%9F%B0_%EC%8A%A4%EC%9B%8C%EC%B8%A0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Aaron Swartz&lt;/a&gt;에 대해서도 찾아봤고, 안타깝게 훌륭한 개발자를 잃게된 &lt;a href=&quot;http://blog.creation.net/538&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;내용&lt;/a&gt;을 찾을 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;또한 개발자들도 이러한 Marak의 행동에 대해 기업들이 기여(개발, sponsor...)하지 않고 개발을 요청하는 것에 대한 도덕적 책임감을 가져야 한다는 얘기를 하고 있습니다.&lt;/p&gt;
+&lt;h2 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;결론&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;물론 많은 의존성을 가진 OSS 프로젝트를 다루는 개발자가 책임감을 버린다는 것에 대해 안타깝고, 그러한 반응을 보인 유저들의 github issue와 PR 댓글로 많이 보이지만 한편으로는 얼마나 자신의 목소리를 내고 싶었으면 저런 결정까지 하게 되었을까 생각하게 되었으며, 프로젝트를 만들며 무분별하게 dependency를 늘리는 스스로에 행동에 대해 돌아보는 계기가 되기도 하였습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Sequal pro, mysql 설정]]></title><description><![CDATA[다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다. 우선 mysql 설치는 brew를 통해 진행했습니다. 기왕 설치하는거 최신버전을 위해 mysql로 결정! 설치된 버전은…]]></description><link>https://jicjjang.github.io/posts/sequalpro</link><guid isPermaLink="false">https://jicjjang.github.io/posts/sequalpro</guid><pubDate>Wed, 08 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;다른 블로그들에도 많은 내용이지만 오랜만에 mysql을 사용하려다 보니 생긴 문제와 해결책을 기록 해놓으려 합니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;우선 mysql 설치는 brew를 통해 진행했습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;~ $ brew update
