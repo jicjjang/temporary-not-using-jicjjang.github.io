@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 31 Jan 2022 15:59:48 GMT</lastBuildDate><item><title><![CDATA[useCallback은 언제 사용해야 할까?]]></title><description><![CDATA[LINEVOOM Renewal을 할 때의 UI Library는 React를 사용하였습니다. React를 LINEVOOM Renewal 이전에도 계속 사용했었지만 React hooks, 그중에서도 useCallback…]]></description><link>https://jicjjang.github.io/posts/when-use-usecallback</link><guid isPermaLink="false">https://jicjjang.github.io/posts/when-use-usecallback</guid><pubDate>Tue, 01 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;LINEVOOM Renewal을 할 때의 UI Library는 React를 사용하였습니다. React를 LINEVOOM Renewal 이전에도 계속 사용했었지만 React hooks, 그중에서도 useCallback은 함수를 재사용할 수 있게 해준다는 것만 알고 정확히 언제 사용해야 하는지 모른채 무분별하게 사용하고 있었습니다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 01 Feb 2022 15:30:51 GMT</lastBuildDate><item><title><![CDATA[useCallback은 언제 사용해야 할까?]]></title><description><![CDATA[LINEVOOM Renewal을 할 때의 UI Library는 React를 사용하였습니다. React를 LINEVOOM Renewal 이전에도 계속 사용했었지만 React hooks, 그중에서도 useCallback…]]></description><link>https://jicjjang.github.io/posts/when-use-usecallback</link><guid isPermaLink="false">https://jicjjang.github.io/posts/when-use-usecallback</guid><pubDate>Tue, 01 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;LINEVOOM Renewal을 할 때의 UI Library는 React를 사용하였습니다. React를 LINEVOOM Renewal 이전에도 계속 사용했었지만 React hooks, 그중에서도 useCallback은 함수를 재사용할 수 있게 해준다는 것만 알고 정확히 언제 사용해야 하는지 모른채 무분별하게 사용하고 있었습니다.
 언제 사용해야 하는지 정확히 알고 사용하기 위해 기본적인 내용 이더라도 다시 알아보려 합니다.&lt;/p&gt;
 &lt;p&gt;자바스크립트에서 함수란 객체입니다. 그렇기에 (완벽하게)동일한 역할을 하는 함수를 비교하더라도 그 값이 같을 수 없습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -187,12 +187,74 @@
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;첫번째 요소를 그릴때의 Commited at은 1.3s, 300번째 요소를 그릴때의 Commited at은 3.4s 입니다. user로만 약 2.1s가 소요되었네요. (3 ~ 4번의 실측 결과 2.1s ~ 2.5s의 결과가 나옴)&lt;/p&gt;
 &lt;p&gt;이번에는 useCallback을 제거한 뒤 테스트를 진행해보겠습니다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;./none-usecallback-test-3.jpg&quot; alt=&quot;none-usecallback-test-3&quot;&gt;
-&lt;img src=&quot;./none-usecallback-test-4.jpg&quot; alt=&quot;none-usecallback-test-4&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bc022be020a907c3e15b80f67491e5af/84b0d/none-usecallback-test-1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAgADBf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAefkwglD/8QAFhAAAwAAAAAAAAAAAAAAAAAAARAx/9oACAEBAAEFAjEYv//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABgQAQADAQAAAAAAAAAAAAAAAAEAEDFB/9oACAEBAAE/ITrpFaVHZ//aAAwDAQACAAMAAAAQ9A//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPxAn/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8QZ//EABsQAQACAgMAAAAAAAAAAAAAAAEAERAhMWGR/9oACAEBAAE/EDptQA9RBtWoRHZfYc4v/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;none-usecallback-test-1&quot;
+        title=&quot;none-usecallback-test-1&quot;
+        src=&quot;/static/bc022be020a907c3e15b80f67491e5af/7cc5e/none-usecallback-test-1.jpg&quot;
+        srcset=&quot;/static/bc022be020a907c3e15b80f67491e5af/e439a/none-usecallback-test-1.jpg 120w,
+/static/bc022be020a907c3e15b80f67491e5af/09b79/none-usecallback-test-1.jpg 240w,
+/static/bc022be020a907c3e15b80f67491e5af/7cc5e/none-usecallback-test-1.jpg 480w,
+/static/bc022be020a907c3e15b80f67491e5af/80e3c/none-usecallback-test-1.jpg 720w,
+/static/bc022be020a907c3e15b80f67491e5af/6a068/none-usecallback-test-1.jpg 960w,
+/static/bc022be020a907c3e15b80f67491e5af/84b0d/none-usecallback-test-1.jpg 5116w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/09b956f8bffc7151ab1c4d84a143421f/c7abb/none-usecallback-test-2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAgADBf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAefkwglD/8QAFhAAAwAAAAAAAAAAAAAAAAAAARAx/9oACAEBAAEFAjEYv//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAQADAQEAAAAAAAAAAAAAAAEAEDEhQf/aAAgBAQABPyE69Iq72k0dn//aAAwDAQACAAMAAAAQ9A//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPxBn/8QAGhABAAIDAQAAAAAAAAAAAAAAAQAQESFRkf/aAAgBAQABPxDECuAB4TfJVI2X2FX/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;none-usecallback-test-2&quot;
+        title=&quot;none-usecallback-test-2&quot;
+        src=&quot;/static/09b956f8bffc7151ab1c4d84a143421f/7cc5e/none-usecallback-test-2.jpg&quot;
+        srcset=&quot;/static/09b956f8bffc7151ab1c4d84a143421f/e439a/none-usecallback-test-2.jpg 120w,
+/static/09b956f8bffc7151ab1c4d84a143421f/09b79/none-usecallback-test-2.jpg 240w,
+/static/09b956f8bffc7151ab1c4d84a143421f/7cc5e/none-usecallback-test-2.jpg 480w,
+/static/09b956f8bffc7151ab1c4d84a143421f/80e3c/none-usecallback-test-2.jpg 720w,
+/static/09b956f8bffc7151ab1c4d84a143421f/6a068/none-usecallback-test-2.jpg 960w,
+/static/09b956f8bffc7151ab1c4d84a143421f/c7abb/none-usecallback-test-2.jpg 5114w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;몇번의 실측을 거쳤지만, 역시 2.1s가 나왔네요 (이 또한 2.1s~2.5s 정도의 결과가 나왔음)&lt;/p&gt;
 &lt;p&gt;300번의 반복적인 re-render를 일으키지만 useCallback으로 복잡한 의존성을 가지지 않는 함수에 대해서는 큰 성능 차이가 발생하지 않음을 알 수 있었습니다.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;서비스를 진행함에 있어서 useCallback 뿐만 아니라 성능을 위해 memoization을 해주는 React.memo, useMemo와 같은 기능들도 어느정도 무분별하게 사용하는 감이 있습니다 (깊은 반성...😭) 실제로 무분별하게 성능을 위해 reselect를 하다 오히려 GC가 제대로 동작하지 않는 문제를 겪기도 했었구요... (#201)&lt;/p&gt;
+&lt;p&gt;서비스를 진행함에 있어서 useCallback 뿐만 아니라 성능을 위해 memoization을 해주는 React.memo, useMemo와 같은 기능들도 어느정도 무분별하게 사용하는 감이 있습니다 (깊은 반성...😭) 실제로 무분별하게 성능을 위해 reselect를 하다 오히려 GC가 제대로 동작하지 않는 문제를 겪기도 했었구요...&lt;/p&gt;
 &lt;p&gt;앞으로는 더 기능들에 대해 명확히 파악하고 개발을 진행 해야겠습니다. (항상 마무리가 어렵네요. 끝!)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[colors.js 라이브러리의 의도적 문제 유발]]></title><description><![CDATA[LINEVOOM web을 개발하면서 별도의 모듈로 되어있는 editor 라이브러리의 버전을 올리며, LINEVOOM의 package version을 올리고 PR을 등록했습니다. 여느 때와 다름없는 작업 이었지만 github에 등록된 drone…]]></description><link>https://jicjjang.github.io/posts/asdfasdf</link><guid isPermaLink="false">https://jicjjang.github.io/posts/asdfasdf</guid><pubDate>Fri, 14 Jan 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://linevoom.me/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;LINEVOOM web&lt;/a&gt;을 개발하면서 별도의 모듈로 되어있는 editor 라이브러리의 버전을 올리며, LINEVOOM의 package version을 올리고 PR을 등록했습니다.&lt;/p&gt;
 &lt;p&gt;여느 때와 다름없는 작업 이었지만 github에 등록된 drone에서 문제가 생겼습니다.&lt;/p&gt;
 &lt;h2 id=&quot;문제&quot; style=&quot;position:relative;&quot;&gt;문제&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;문제 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
