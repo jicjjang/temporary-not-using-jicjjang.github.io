@@ -175,8 +175,8 @@ export default React.memo(User);
 
 이번에는 useCallback을 제거한 뒤 테스트를 진행해보겠습니다.
 
-![none-usecallback-test-3](./none-usecallback-test-3.jpg)
-![none-usecallback-test-4](./none-usecallback-test-4.jpg)
+![none-usecallback-test-1](./none-usecallback-test-1.jpg)
+![none-usecallback-test-2](./none-usecallback-test-2.jpg)
 
 몇번의 실측을 거쳤지만, 역시 2.1s가 나왔네요 (이 또한 2.1s~2.5s 정도의 결과가 나왔음)
 
@@ -184,6 +184,6 @@ export default React.memo(User);
 
 ---
 
-서비스를 진행함에 있어서 useCallback 뿐만 아니라 성능을 위해 memoization을 해주는 React.memo, useMemo와 같은 기능들도 어느정도 무분별하게 사용하는 감이 있습니다 (깊은 반성...😭) 실제로 무분별하게 성능을 위해 reselect를 하다 오히려 GC가 제대로 동작하지 않는 문제를 겪기도 했었구요... (#201)
+서비스를 진행함에 있어서 useCallback 뿐만 아니라 성능을 위해 memoization을 해주는 React.memo, useMemo와 같은 기능들도 어느정도 무분별하게 사용하는 감이 있습니다 (깊은 반성...😭) 실제로 무분별하게 성능을 위해 reselect를 하다 오히려 GC가 제대로 동작하지 않는 문제를 겪기도 했었구요...
 
 앞으로는 더 기능들에 대해 명확히 파악하고 개발을 진행 해야겠습니다. (항상 마무리가 어렵네요. 끝!)
