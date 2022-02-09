@@ -6,13 +6,13 @@ tags: [javascript, tailcall, tailrecursion]
 
 꼬리 물기 최적화라고 합니다. 여러 블로그를 구경하다가 알게된 개념이었고, 알고리즘 문제 해결을 좋아하셔서 runtime 시간 최소화를 신경써야 하는 경우에 필수적으로 알아두어야 합니다.
 
-## 지연 평가 (lazy evalutation)
+## 지연 평가 (lazy evaluation)
 
 느긋한 계산법(Lazy evaluation)은 계산의 결과값이 필요할 때까지 계산을 늦추는 기법이다 ... 느긋하게 계산하면 필요없는 계산을 하지 않으므로 실행을 더 빠르게 할 수 있고, 복합 수식을 계산할 때 오류 상태를 피할 수 있고, 무한 자료 구조를 쓸 수 있고, 미리 정의된 것을 이용하지 않고 보통 함수로 제어 구조를 정의할 수 있다. - [wiki](https://ko.wikipedia.org/wiki/%EB%8A%90%EA%B8%8B%ED%95%9C_%EA%B3%84%EC%82%B0%EB%B2%95)
 
 여러 이점이 있지만 `불필요한 계산 안함` 이라는 이점이 제일 가시적입니다.
 
-### 엄격한 평가(strict evalutation)
+### 엄격한 평가(strict evaluation)
 지연 평가의 반대인 엄격한 평가는 우리가 일반적으로 사용하는 use case 입니다.
 
 ```js
@@ -159,7 +159,7 @@ const fibo = (n, prevFibo = 1, pprevFibo = 0) {
 
 ![tail_fibo](./tail_fibo.jpg)
 
-`fibo(100)`의 결과가 0.005s 소요됩니다. maximum call stack size까지 사용하는 `fibo(6593)`은 0.006s 소요됩니다.
+`fibo(100)`의 결과가 0.005s 소요됩니다. maximum call stack size 직전까지 사용하는 `fibo(6593)`은 0.006s 소요됩니다.
 
 
 ## 마무리
