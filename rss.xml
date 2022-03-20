@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 09 Feb 2022 01:27:57 GMT</lastBuildDate><item><title><![CDATA[Tail call과 Tail recursion]]></title><description><![CDATA[꼬리 물기 최적화라고 합니다. 여러 블로그를 구경하다가 알게된 개념이었고, 알고리즘 문제 해결을 좋아하셔서 runtime 시간 최소화를 신경써야 하는 경우에 필수적으로 알아두어야 합니다. 지연 평가 (lazy evaluation…]]></description><link>https://jicjjang.github.io/posts/tail-call-tail-recursion</link><guid isPermaLink="false">https://jicjjang.github.io/posts/tail-call-tail-recursion</guid><pubDate>Tue, 08 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;꼬리 물기 최적화라고 합니다. 여러 블로그를 구경하다가 알게된 개념이었고, 알고리즘 문제 해결을 좋아하셔서 runtime 시간 최소화를 신경써야 하는 경우에 필수적으로 알아두어야 합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 20 Mar 2022 06:39:12 GMT</lastBuildDate><item><title><![CDATA[나이키 인스타 tracking 사이드 프로젝트]]></title><description><![CDATA[전 개인적으로 신발에 관심이 많습니다. 이미 많이 알려진 Kream 서비스에서는 발매된 신발들의 가격이
+희소성으로 인해 몇배씩 뛰곤 하는데요. 선물을 위해 에어포스 화이트를 사려고 하다가 인스타에 발매 정보를 공지하는 것을 보고 알림을 주는 bot…]]></description><link>https://jicjjang.github.io/posts/raffle</link><guid isPermaLink="false">https://jicjjang.github.io/posts/raffle</guid><pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;전 개인적으로 신발에 관심이 많습니다. 이미 많이 알려진 &lt;a href=&quot;https://kream.co.kr/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Kream&lt;/a&gt; 서비스에서는 발매된 신발들의 가격이
+희소성으로 인해 몇배씩 뛰곤 하는데요. 선물을 위해 에어포스 화이트를 사려고 하다가 인스타에 발매 정보를 공지하는 것을 보고 알림을 주는 bot을 만들어보았습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a09911e83778d3fd84670cf0a2a574e1/66fdb/airforce.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd6ECKD/xAAXEAEBAQEAAAAAAAAAAAAAAAAAEgER/9oACAEBAAEFAuu6tCUY/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEQITH/2gAIAQEABj8CnDGa5//EAB0QAAIBBAMAAAAAAAAAAAAAAAABERAhQVFxgcH/2gAIAQEAAT8hfYtUpJ4tMm/A5z//2gAMAwEAAgADAAAAEBAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAMAAgMAAAAAAAAAAAAAAQARITFBUYGR/9oACAEBAAE/EBDPiOwQObqDV6XlMbepc2MS1h4EAO3uf//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;airforce&quot;
+        title=&quot;airforce&quot;
+        src=&quot;/static/a09911e83778d3fd84670cf0a2a574e1/7cc5e/airforce.jpg&quot;
+        srcset=&quot;/static/a09911e83778d3fd84670cf0a2a574e1/e439a/airforce.jpg 120w,
+/static/a09911e83778d3fd84670cf0a2a574e1/09b79/airforce.jpg 240w,
+/static/a09911e83778d3fd84670cf0a2a574e1/7cc5e/airforce.jpg 480w,
+/static/a09911e83778d3fd84670cf0a2a574e1/80e3c/airforce.jpg 720w,
+/static/a09911e83778d3fd84670cf0a2a574e1/6a068/airforce.jpg 960w,
+/static/a09911e83778d3fd84670cf0a2a574e1/66fdb/airforce.jpg 1250w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;서현, 강남 등등의 nike store별로 있는 인스타그램 계정에서 &lt;code class=&quot;language-text&quot;&gt;raffle을 하는 경우, feed&lt;/code&gt;가 올라옵니다. 그리고 &lt;code class=&quot;language-text&quot;&gt;선착순 구매를 하는 경우, story&lt;/code&gt; 가 올라옵니다.
+그래서 feed가 올라올 때, story가 올라올 때 telegram으로 알림을 주는 봇을 생각하게 되었습니다.&lt;/p&gt;
+&lt;p&gt;처음엔 crowling을 통해 특정 html 태그 내부의 정보를 긁어가려고 했으나, crowling을 하면 데이터가 렌더링 되지 않은 html 정보들만 긁어져 왔습니다.
+ssr을 하는게 아닌 것 같네요. 따라서 api를 사용할 수 밖에 없었습니다.&lt;/p&gt;
+&lt;p&gt;instagram에서는 공식적으로 api를 제공하지 않습니다. 이 api를 찾는 과정이 오래걸렸습니다. (방법이 있는건 아니고 삽질을 통해...)
+또한 feed와 story에 대한 api는 성격이 완전히 달라보였습니다. story는 session정보가 필요했고, feed는 session정보가 필요하지 않았습니다.
+story는 권한이 없으면 아무것도 노출되지 않고, feed는 공개유저에 대해선 권한이 없어도 노출되기 때문이 아닐까 생각했습니다.&lt;/p&gt;
+&lt;p&gt;raffle은 짧으면 30분 정도 진행했기 때문에 15분마다 돌아가는 cronjob을 통해 실행되게 해놨고,
+선착순 구매는 시간이 생명이기 때문에...! 5분마다 cronjob을 돌게 해놨습니다.&lt;/p&gt;
+&lt;p&gt;조회해온 feed, story 정보는 object에 저장해놓고 cron을 통해 다음 실행으로 받아온 정보와 비교합니다. (isFirst 플래그를 통해 처음 조회 시에는 무조건 저장만 하게 합니다.)
+비교 시, 데이터가 달라진다면 세팅된 텔레그램으로 알림을 보내게 됩니다. 이렇게 이전 객체와 비교만 하면 되니 DB에 데이터를 저장할 필요도 없습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d3afabbbd82343edf500a5d196e72ca3/bc4e4/bot.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 92.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAeMlMoLoMg//xAAZEAACAwEAAAAAAAAAAAAAAAABMQACECH/2gAIAQEAAQUCHScq7OB5/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAFBABAAAAAAAAAAAAAAAAAAAAMP/aAAgBAQAGPwIf/8QAGhAAAwADAQAAAAAAAAAAAAAAAAEhESAxUf/aAAgBAQABPyFnV5JcMv046A70Z//aAAwDAQACAAMAAAAQYA88/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPxAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPxAf/8QAGxABAAICAwAAAAAAAAAAAAAAAQARUWEgITH/2gAIAQEAAT8QMDWyzypJscBOgkW6EHrE/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;bot&quot;
+        title=&quot;bot&quot;
+        src=&quot;/static/d3afabbbd82343edf500a5d196e72ca3/7cc5e/bot.jpg&quot;
+        srcset=&quot;/static/d3afabbbd82343edf500a5d196e72ca3/e439a/bot.jpg 120w,
+/static/d3afabbbd82343edf500a5d196e72ca3/09b79/bot.jpg 240w,
+/static/d3afabbbd82343edf500a5d196e72ca3/7cc5e/bot.jpg 480w,
+/static/d3afabbbd82343edf500a5d196e72ca3/80e3c/bot.jpg 720w,
+/static/d3afabbbd82343edf500a5d196e72ca3/6a068/bot.jpg 960w,
+/static/d3afabbbd82343edf500a5d196e72ca3/bc4e4/bot.jpg 2118w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Github: &lt;a href=&quot;https://github.com/jicjjang/nike-raffle-notifier&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;nike-raffle-notifier&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Tail call과 Tail recursion]]></title><description><![CDATA[꼬리 물기 최적화라고 합니다. 여러 블로그를 구경하다가 알게된 개념이었고, 알고리즘 문제 해결을 좋아하셔서 runtime 시간 최소화를 신경써야 하는 경우에 필수적으로 알아두어야 합니다. 지연 평가 (lazy evaluation…]]></description><link>https://jicjjang.github.io/posts/tail-call-tail-recursion</link><guid isPermaLink="false">https://jicjjang.github.io/posts/tail-call-tail-recursion</guid><pubDate>Tue, 08 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;꼬리 물기 최적화라고 합니다. 여러 블로그를 구경하다가 알게된 개념이었고, 알고리즘 문제 해결을 좋아하셔서 runtime 시간 최소화를 신경써야 하는 경우에 필수적으로 알아두어야 합니다.&lt;/p&gt;
 &lt;h2 id=&quot;지연-평가-lazy-evaluation&quot; style=&quot;position:relative;&quot;&gt;지연 평가 (lazy evaluation)&lt;a href=&quot;#%EC%A7%80%EC%97%B0-%ED%8F%89%EA%B0%80-lazy-evaluation&quot; aria-label=&quot;지연 평가 lazy evaluation permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;느긋한 계산법(Lazy evaluation)은 계산의 결과값이 필요할 때까지 계산을 늦추는 기법이다 ... 느긋하게 계산하면 필요없는 계산을 하지 않으므로 실행을 더 빠르게 할 수 있고, 복합 수식을 계산할 때 오류 상태를 피할 수 있고, 무한 자료 구조를 쓸 수 있고, 미리 정의된 것을 이용하지 않고 보통 함수로 제어 구조를 정의할 수 있다. - &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%8A%90%EA%B8%8B%ED%95%9C_%EA%B3%84%EC%82%B0%EB%B2%95&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;wiki&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;여러 이점이 있지만 &lt;code class=&quot;language-text&quot;&gt;불필요한 계산 안함&lt;/code&gt; 이라는 이점이 제일 가시적입니다.&lt;/p&gt;
@@ -424,7 +503,7 @@
 &lt;p&gt;300번의 반복적인 re-render를 일으키지만 useCallback으로 복잡한 의존성을 가지지 않는 함수에 대해서는 큰 성능 차이가 발생하지 않음을 알 수 있었습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;서비스를 진행함에 있어서 useCallback 뿐만 아니라 성능을 위해 memoization을 해주는 React.memo, useMemo와 같은 기능들도 어느정도 무분별하게 사용하는 감이 있습니다 (깊은 반성...😭) 실제로 무분별하게 성능을 위해 reselect를 하다 오히려 GC가 제대로 동작하지 않는 문제를 겪기도 했었구요...&lt;/p&gt;
-&lt;p&gt;앞으로는 더 기능들에 대해 명확히 파악하고 개발을 진행 해야겠습니다. (항상 마무리가 어렵네요. 끝!)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[colors.js 라이브러리의 의도적 문제 유발]]></title><description><![CDATA[LINEVOOM web을 개발하면서 별도의 모듈로 되어있는 editor 라이브러리의 버전을 올리며, LINEVOOM의 package version을 올리고 PR을 등록했습니다. 여느 때와 다름없는 작업 이었지만 github에 등록된 drone…]]></description><link>https://jicjjang.github.io/posts/asdfasdf</link><guid isPermaLink="false">https://jicjjang.github.io/posts/asdfasdf</guid><pubDate>Fri, 14 Jan 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://linevoom.me/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;LINEVOOM web&lt;/a&gt;을 개발하면서 별도의 모듈로 되어있는 editor 라이브러리의 버전을 올리며, LINEVOOM의 package version을 올리고 PR을 등록했습니다.&lt;/p&gt;
+&lt;p&gt;앞으로는 더 기능들에 대해 명확히 파악하고 개발을 진행 해야겠습니다. (항상 마무리가 어렵네요. 끝!)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[colors.js 라이브러리의 의도적 문제 유발]]></title><description><![CDATA[LINEVOOM web을 개발하면서 별도의 모듈로 되어있는 editor 라이브러리의 버전을 올리며, LINEVOOM의 package version을 올리고 PR을 등록했습니다. 여느 때와 다름없는 작업 이었지만 github에 등록된 drone…]]></description><link>https://jicjjang.github.io/posts/colorsjs-invoked-Intentional-problems</link><guid isPermaLink="false">https://jicjjang.github.io/posts/colorsjs-invoked-Intentional-problems</guid><pubDate>Fri, 14 Jan 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://linevoom.me/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;LINEVOOM web&lt;/a&gt;을 개발하면서 별도의 모듈로 되어있는 editor 라이브러리의 버전을 올리며, LINEVOOM의 package version을 올리고 PR을 등록했습니다.&lt;/p&gt;
 &lt;p&gt;여느 때와 다름없는 작업 이었지만 github에 등록된 drone에서 문제가 생겼습니다.&lt;/p&gt;
 &lt;h2 id=&quot;문제&quot; style=&quot;position:relative;&quot;&gt;문제&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;문제 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;span
