@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><style data-href="/styles.8bc7d8bd447b1029c4d8.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.gatsby-highlight-code-line{background-color:rgba(27,31,35,.05);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #f99}.gatsby-highlight{background-color:#f6f8fa;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%}:not(pre)>code[class*=language-]{background:rgba(27,31,35,.05)}</style><meta name="generator" content="Gatsby 2.29.1"/><style data-styled="" data-styled-version="5.2.1">.cURDtm{margin-top:0;margin-bottom:1.95rem;}/*!sc*/
+data-styled.g1[id="Header__StyledHeader-sc-1tyi3z1-0"]{content:"cURDtm,"}/*!sc*/
+.fEA-DoH{display:inline-block;margin:0;font-size:2.2974rem;line-height:3.25rem;}/*!sc*/
+data-styled.g2[id="Header__StyledH3-sc-1tyi3z1-1"]{content:"fEA-DoH,"}/*!sc*/
+.ifejFH{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:#000;}/*!sc*/
+data-styled.g3[id="Header__StyledLink-sc-1tyi3z1-2"]{content:"ifejFH,"}/*!sc*/
+.joNmkD{float:right;display:inline-block;margin:18px 0;}/*!sc*/
+.joNmkD:after{content:'';display:table;clear:both;}/*!sc*/
+@media (max-width:650px){.joNmkD{display:block;float:none;text-align:center;border-bottom:2px solid #cfcdcd;}}/*!sc*/
+data-styled.g4[id="Header__StyledUl-sc-1tyi3z1-3"]{content:"joNmkD,"}/*!sc*/
+.bDvteE{display:inline-block;padding:0 15px;list-style-type:none;vertical-align:middle;font-size:16px;}/*!sc*/
+@media (max-width:450px){.bDvteE{padding:0 8px;font-size:14px;}}/*!sc*/
+data-styled.g5[id="Header__StyledLi-sc-1tyi3z1-4"]{content:"bDvteE,"}/*!sc*/
+.ddEDAJ{color:#898989;}/*!sc*/
+data-styled.g6[id="Header__StyleLiLink-sc-1tyi3z1-5"]{content:"ddEDAJ,"}/*!sc*/
+.iomvtc{margin:0 auto;max-width:39rem;min-width:320px;padding:2.275rem 1.21875rem;}/*!sc*/
+data-styled.g7[id="Default__StyledDiv-sc-1g8e1t0-0"]{content:"iomvtc,"}/*!sc*/
+.kiCxlO{margin-bottom:6.5rem;}/*!sc*/
+data-styled.g8[id="Default__StyledMain-sc-1g8e1t0-1"]{content:"kiCxlO,"}/*!sc*/
+.jRNtTT{color:#000;margin-bottom:0.325rem;border-bottom:none;font-size:1.41421rem;font-weight:500;line-height:2.4375rem;}/*!sc*/
+data-styled.g9[id="common__StyledCommonH1Title-sc-93z372-0"]{content:"jRNtTT,"}/*!sc*/
+.kRNYYT{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g13[id="PostTags__StyledPTags-sc-1ielp4x-0"]{content:"kRNYYT,"}/*!sc*/
+.jcyDuJ{margin-bottom:1.95rem;}/*!sc*/
+data-styled.g15[id="PostHeader__StyledHeader-sc-77g6iv-0"]{content:"jcyDuJ,"}/*!sc*/
+.hOBBqs{display:inline-block;width:30px;height:30px;background-image:url(/img/post/speaker.png);background-size:22px;background-repeat:no-repeat;background-position:6px 10px;}/*!sc*/
+.hOBBqs:active{background-position:6px 11px;}/*!sc*/
+data-styled.g17[id="PostHeader__StyledSpeechSpan-sc-77g6iv-2"]{content:"hOBBqs,"}/*!sc*/
+.ivMKzM{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g18[id="PostHeader__StyledTime-sc-77g6iv-3"]{content:"ivMKzM,"}/*!sc*/
+</style><style type="text/css">
+    .autolink-headers--.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .autolink-headers--.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .autolink-headers-- svg,
+    h2 .autolink-headers-- svg,
+    h3 .autolink-headers-- svg,
+    h4 .autolink-headers-- svg,
+    h5 .autolink-headers-- svg,
+    h6 .autolink-headers-- svg {
+      visibility: hidden;
+    }
+    h1:hover .autolink-headers-- svg,
+    h2:hover .autolink-headers-- svg,
+    h3:hover .autolink-headers-- svg,
+    h4:hover .autolink-headers-- svg,
+    h5:hover .autolink-headers-- svg,
+    h6:hover .autolink-headers-- svg,
+    h1 .autolink-headers--:focus svg,
+    h2 .autolink-headers--:focus svg,
+    h3 .autolink-headers--:focus svg,
+    h4 .autolink-headers--:focus svg,
+    h5 .autolink-headers--:focus svg,
+    h6 .autolink-headers--:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">June | June</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU2MTI2NzdEQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU2MTI2NzdFQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTYxMjY3N0JDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTYxMjY3N0NDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MsIj9AAAFcUlEQVR42rxXa0wUVxQ+MwiSAgnyMLxLaRNE3lixNRVSAkkJFAilQKCQQHgINRgSY439UYs2xrQVGyg2EA0SSJGXIsFHIVBTKRKELluWXR67PEpdFlYLC8rCzN7pmTUQXdgFDTCbk0lm597vO9+993xnKI7jYDMXwzCmIpEoEO/GV69e/TImJqZ2aGhof39/v29mZuYl/llsbOyvtra2cnd3d4GpqemzTU3MEzAUs7OztleuXPkqODhYSNM0S1EU4Ye9HC8/MzIyYg8dOiQuLi4+MzMz47TR/Ab/rK2tPYrZTOoCbjacnZ1nysvLTxBC6NcioFKprHJycurfFFg3kpOTf0M1HDdFgJctLCysd6vAV+LgwYNDExMT7gYJzM/PW4WGhv611eArERAQMKKrxCsEsrOzb24X+ErExcXdZ1nWeA2B+vr6rO0GX4mysrLTqwRko6MwPTNj4+bmptgpApaWlguTk5OuYxPjQMunFXCjoSFTJpPthR26sLaYVVZWHsfEAUZkUrOgoCCxIcZWVlbEwcGBvGG2Ghyv0X3u6eEhlwwNWoNQKHzfiKb1Tp6YmMhJJBIyOjpKkpKSXgs8Pj6eHRgYWMaSzWBBW4PR1tYWBU1NTanrlVc+7OzsOB44PDycHDt2jBMIBBuqwGeL5ZizsbEhY2NjTGRkJNvX18cgeY1u+e7t7Q2iW1tbw3E3UuutFQ+M6wV37tyhUCkwMzMD9AO9a+vq6sq1tLSw5ubmJCoqikxNTVHd3d1gbW0NeKd0PIgquXz5BJ2WllZMv1iCNRcWJsre3h4wI8DMuOXlZcC6rpfAnj17wNHRkVpcXAQfHx/AO2lsbCR1dXXU8PDwKwRQAYiJjq6BhISEdn1y8lLevn2bw+xJV1cXwVLK4XE1uARFRUUsZrs0Pj7OyuVy5vz584y+d0tLS09DRUVFvr49sBLR0dEcnlt+0xBeiY32ga+vr0ahULDp6emsofdQ/Waoqak5uhEBPqRSKefn58dh88EPZNbZsMTb21u70QIDA/n1Z7A50Tsvj4nKfgi5ubkGbRcn5S5evMip1Wquo6NDg0HQsNZMnJqayiqVSiYvL29ZLBYzFy5cYDdKKiMjowl6enqCkc2aQoEdEHf37l3S3t6O+45wJSUlxNPTU29G/EY+deoU29DQsJyfn89sBI6Y3L179+LhjwcPPlnvBTzzHKpDTp48SbCYEBMTky33hIcPH4aAVCazwB5OqvsntlJayTs7O3kf33JwPE1K0cCAPfQKBFBUXFSwnkT+/v7a+3Y4YkFBwS9CUT/A9fo6GBCLHVxcXGZ3yo4tLCyW+oR97g2NjUAvqtUwv7Dw+Ny5c9/tlB2fPXv2EvYig6p5FdDGu3bB0MgwfHTkSGFKSsrv2w0eGREhwML2rUgiBmNjY9A6C4U/wd9C9pszZ744fPiwbLvAPTw8FN//+ENiv0T8fMVTXhCgKVhYWOCbk3/xEysCSUi3GhxryFR1dfWnjxWKwadPn6666qq38o6nmJ6Gscl/JNcqKkJwOe5vFThK/ggd8WPl7H/d6Cla6XkF8DsTjD77PG71RZ4Vr8ScSjWXkJBY5e3lxWClPIC2vPtNgLEdW8SSXJh3/Hja4MiwHA0KduGe4wgHe233wnvvuAFVdb16zUCNRqNV5IPAQGAZ9t3Gmzdzq6qq4rGzcdoM8L59+6awA7qBLdnPmJXoUU8Pnj9uVXY+8wP+AeC1f/86BPCkmpm/pWX4/NlzWFxSg7OTE5ia7LZRzc15ouE43Lp1Ky4rK+snNKmvQ0JCWtGinzQ3N0fjh00hrq+V89suf7KsZmoalxRLOKiXlkD5RLnazPAE/Hx8wdfbG/4XYACmHwCj2D06CgAAAABJRU5ErkJggg=="/><meta data-react-helmet="true" name="og:title" property="og:title" content="June"/><meta data-react-helmet="true" name="og:site_name" property="og:site_name" content="June"/><meta data-react-helmet="true" name="og:url" property="og:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="og:description" property="og:description" content="이미 발표는 애진작에(?) 되었지만 아직 발표는 더디기만 한 react-server-component(이하 rsc)에 대해 알아보겠습니다. 설명 첫 발표는 20년 12월에 되었습니다. 그 당시 next.js를 막 사용하기 시작하던 때라 rsc에는 큰 관심이 없었습니다.
+하지만 next…"/><meta data-react-helmet="true" name="description" property="description" content="이미 발표는 애진작에(?) 되었지만 아직 발표는 더디기만 한 react-server-component(이하 rsc)에 대해 알아보겠습니다. 설명 첫 발표는 20년 12월에 되었습니다. 그 당시 next.js를 막 사용하기 시작하던 때라 rsc에는 큰 관심이 없었습니다.
+하지만 next…"/><meta data-react-helmet="true" name="og:type" property="og:type" content="website"/><meta data-react-helmet="true" name="og:image" property="og:image"/><meta data-react-helmet="true" name="twitter:description" property="twitter:description" content="이미 발표는 애진작에(?) 되었지만 아직 발표는 더디기만 한 react-server-component(이하 rsc)에 대해 알아보겠습니다. 설명 첫 발표는 20년 12월에 되었습니다. 그 당시 next.js를 막 사용하기 시작하던 때라 rsc에는 큰 관심이 없었습니다.
+하지만 next…"/><meta data-react-helmet="true" name="twitter:title" property="twitter:title" content="June"/><meta data-react-helmet="true" name="twitter:url" property="twitter:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:site" property="twitter:site" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:domain" property="twitter:domain" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:image" property="twitter:image"/><link as="script" rel="preload" href="/webpack-runtime-338541f0ff3cc62c78cf.js"/><link as="script" rel="preload" href="/styles-8db67c5187b7b8ad64da.js"/><link as="script" rel="preload" href="/framework-ee8a4bba4771daaa13e7.js"/><link as="script" rel="preload" href="/app-2bed233af2de965db4b0.js"/><link as="script" rel="preload" href="/77f29e761df5de25d397b39b76c634399f02315e-55b38568922346810659.js"/><link as="script" rel="preload" href="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"/><link as="fetch" rel="preload" href="/page-data/posts/react-server-component/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1576648375.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/764694655.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Default__StyledDiv-sc-1g8e1t0-0 iomvtc"><header class="Header__StyledHeader-sc-1tyi3z1-0 cURDtm"><h3 scale="[object Object]" class="Header__StyledH3-sc-1tyi3z1-1 fEA-DoH"><a class="Header__StyledLink-sc-1tyi3z1-2 ifejFH" href="/">June</a></h3><ul class="Header__StyledUl-sc-1tyi3z1-3 joNmkD"><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/">Posts</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/archive">Archive</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/presentation">Presentation</a></li></ul></header><main class="Default__StyledMain-sc-1g8e1t0-1 kiCxlO"><article class="post_article"><header class="PostHeader__StyledHeader-sc-77g6iv-0 jcyDuJ"><h1 scale="[object Object]" class="common__StyledCommonH1Title-sc-93z372-0 jRNtTT">React-server-component<span class="PostHeader__StyledSpeechSpan-sc-77g6iv-2 hOBBqs"></span></h1><p class="post-meta"><time dateTime="March 27, 2022" scale="[object Object]" class="PostHeader__StyledTime-sc-77g6iv-3 ivMKzM">March 27, 2022</time></p></header><section><p>이미 발표는 애진작에(?) 되었지만 아직 발표는 더디기만 한 react-server-component(이하 rsc)에 대해 알아보겠습니다.</p>
+<hr>
+<h1 id="설명" style="position:relative;">설명<a href="#%EC%84%A4%EB%AA%85" aria-label="설명 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<p>첫 발표는 20년 12월에 되었습니다. 그 당시 next.js를 막 사용하기 시작하던 때라 rsc에는 큰 관심이 없었습니다.
+하지만 next.js 프로젝트가 끝나고 유지보수를 하면서 프레임워크 자체 무게로 인해 생각했던 것보다
+(성능적인 부분까지 체크하진 않았으나) 노출되는 속도라던지 반응속도가 느리게 느껴졌습니다. 이런 생각을 저만 했다면 server-side-rendering(이하 ssr)에서
+더 큰 발전 방향을 생각하지 못했을지 모릅니다.</p>
+<p>rsc란 뭘까요? 말 그대로 component를 서버에서 불러온다는 의미의 server component입니다.
+그 구조는 아래와 같습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f21df9935c8ffb4ac5a91c2d65742594/d4e6b/csr.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAGaZ2UUBP8A/8QAGhAAAgIDAAAAAAAAAAAAAAAAAQIDQxEhM//aAAgBAQABBQJ42EAGmY5qrm6f/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAwABBQAAAAAAAAAAAAAAAAECIQMQETFB/9oACAEBAAY/Ap1HeK84G03g7IK2/8QAHhAAAgEDBQAAAAAAAAAAAAAAAAERITGBQWGhscH/2gAIAQEAAT8hmNYQXWiGgnQ7W6g9B8C7LmD/2gAMAwEAAgADAAAAEB8P/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8QZ//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/ECf/xAAdEAEAAwABBQAAAAAAAAAAAAABABEhQRCBkaGx/9oACAEBAAE/EHcsLA4Kb2gBjNVzWteJW6ZiS8R6bL1/if/Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="csr"
+        title="csr"
+        src="/static/f21df9935c8ffb4ac5a91c2d65742594/7cc5e/csr.jpg"
+        srcset="/static/f21df9935c8ffb4ac5a91c2d65742594/e439a/csr.jpg 120w,
+/static/f21df9935c8ffb4ac5a91c2d65742594/09b79/csr.jpg 240w,
+/static/f21df9935c8ffb4ac5a91c2d65742594/7cc5e/csr.jpg 480w,
+/static/f21df9935c8ffb4ac5a91c2d65742594/80e3c/csr.jpg 720w,
+/static/f21df9935c8ffb4ac5a91c2d65742594/6a068/csr.jpg 960w,
+/static/f21df9935c8ffb4ac5a91c2d65742594/d4e6b/csr.jpg 1278w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>기존의 client-side-rendering(이하 csr)은 위와 같이 서버와 통신했습니다. 처음 client에서 호출이 들어오면 서버에서 static 파일들을 보내주고, client에서 데이터를 fetch하면 데이터를 보내주고.</p>
+<p>ssr은 어떨까요? 구조는 위 csr과 동일합니다. 그 대신 처음에 client에서 호출이 들어올 때, 초기 구성 데이터를 호출해 static 파일들과 같이 내려주는 방식인 것이죠.</p>
+<p>rsc는 왜 데이터만 내려보내줘? 라는 것에 의문을 둔 것이죠</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1b3fe250eb30a2e980f1f0d71970a58c/2dc07/rsc.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABxRaSLkFf/8QAHBAAAQMFAAAAAAAAAAAAAAAAAQACAxETMTIz/9oACAEBAAEFArJMOC5xrEnbS9P/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAdEAACAgEFAAAAAAAAAAAAAAAAAQIDIRARMUFx/9oACAEBAAY/AoSdmJdbGGcsr9Hp/8QAHBAAAwABBQAAAAAAAAAAAAAAAAERIRAxQWGh/9oACAEBAAE/IW86qwuEXOoTwl2tJ6DeP//aAAwDAQACAAMAAAAQJ8//xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAwEBPxCH/8QAFREBAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQIBAT8Qp//EABwQAAIDAAMBAAAAAAAAAAAAAAERACExcaGx8P/aAAgBAQABPxAiyELDSzclwklFAF8G4tFJSgZj62dr7OqPJ//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="rsc"
+        title="rsc"
+        src="/static/1b3fe250eb30a2e980f1f0d71970a58c/7cc5e/rsc.jpg"
+        srcset="/static/1b3fe250eb30a2e980f1f0d71970a58c/e439a/rsc.jpg 120w,
+/static/1b3fe250eb30a2e980f1f0d71970a58c/09b79/rsc.jpg 240w,
+/static/1b3fe250eb30a2e980f1f0d71970a58c/7cc5e/rsc.jpg 480w,
+/static/1b3fe250eb30a2e980f1f0d71970a58c/80e3c/rsc.jpg 720w,
+/static/1b3fe250eb30a2e980f1f0d71970a58c/6a068/rsc.jpg 960w,
+/static/1b3fe250eb30a2e980f1f0d71970a58c/2dc07/rsc.jpg 1286w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>데이터와 react component를 합쳐 클라이언트로 내려주는 것입니다. 브라우저에서 static 파일을 불러오고 dom을 구성하기 위한 react 관련 파일, library를 불러오는 것 대신 서버에서 react에서 compile된 직렬화 데이터를 내려주기 때문에 리소스 측면에서, 속도 측면에서 모두 이점을 가지게 됩니다.</p>
+<h1 id="동작" style="position:relative;">동작<a href="#%EB%8F%99%EC%9E%91" aria-label="동작 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h1>
+<p>파일명을 <code class="language-text">*.server.jsx</code>, <code class="language-text">*.client.jsx</code> 로 잡으면 react가 런타임 시 잡아주게 됩니다. (bundler의 설정이 필요할 수 있음) 따라서 파일명에 따라 간단하게 특정 페이지는 rsc, 특정 페이지는 csr을 하는 등의 구성을 가질 수 있게 됩니다.</p>
+<p>눈치 채신 분들도 있으시겠지만, client파일 내에 server 파일을 import할 수 없습니다. 반대의 경우는 물론 가능합니다.
+또한 server파일은 직렬화 해서 client로 내려가기 때문에 함수나 이벤트와 같은 내용은 client로 전달할 수 없습니다.</p>
+<p>현재 설정이 쉽지 않아 React 측에서도 shofify와 next.js에서 해당 기능을 만들면 해당 기능을 사용하라고 권장하고 있습니다. 해당 post에서는 기본적인 동작만 알아보겠습니다.</p>
+<p>React에 올라왔던 rsc 문서 <a href="https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html" target="_blank" rel="noopener">https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html</a>와 해당 문서의 영상에서 설명해주는 <a href="http://github.com/reactjs/server-components-demo" target="_blank" rel="noopener">demo link</a> 의 코드를 바탕으로 확인해보겠습니다.</p>
+<p>처음 프로젝트를 시키는 명령어인 <code class="language-text">npm start</code> 명령어부터 따라가 봅시다.
+server 실행을 위해 <code class="language-text">nodemon -- --conditions=react-server server</code>, client 번들링을 위해 위해 <code class="language-text">nodemon -- scripts/build.js</code>을 하고 있습니다.</p>
+<h2 id="동작---client" style="position:relative;">동작 - client<a href="#%EB%8F%99%EC%9E%91---client" aria-label="동작   client permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>client부터 보자면</p>
+<ol>
+<li><code class="language-text">build/index.html</code>에서 main.js를 호출합니다.</li>
+<li>
+<p>최하단에 아래와 같은 코드로 entry point가 index.client.js 라는 것을 알 수 있습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">/************************************************************************/</span>
+<span class="token comment">/******/</span> 	
+<span class="token comment">/******/</span> 	<span class="token comment">// startup</span>
+<span class="token comment">/******/</span> 	<span class="token comment">// Load entry module and return exports</span>
+<span class="token comment">/******/</span> 	<span class="token comment">// This entry module is referenced by other modules so it can't be inlined</span>
+<span class="token comment">/******/</span> 	<span class="token keyword">var</span> __webpack_exports__ <span class="token operator">=</span> <span class="token function">__webpack_require__</span><span class="token punctuation">(</span><span class="token string">"./src/index.client.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/******/</span> 	
+<span class="token comment">/******/</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">;</span>
+<span class="token comment">//# sourceMappingURL=main.js.map</span></code></pre></div>
+</li>
+<li>Root.client.js가 실행합니다. (여기서 해당 bootstrap의 페이지 자체 렌더링은 csr로 돌리고 있음을 알 수 있음)</li>
+<li>
+<p>Root.client.js 안에서 Content 함수를 호출합니다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Content</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>location<span class="token punctuation">,</span> setLocation<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+selectedId<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+isEditing<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+searchText<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token function">useServerResponse</span><span class="token punctuation">(</span>location<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// server와 관련된 일을 함을 알 수 있음</span>
+<span class="token keyword">return</span> <span class="token punctuation">(</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LocationContext.Provider</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>location<span class="token punctuation">,</span> setLocation<span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token punctuation">{</span>response<span class="token punctuation">.</span><span class="token function">readRoot</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LocationContext.Provider</span></span><span class="token punctuation">></span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+</li>
+<li>
+<p>cache는 말 그대로 호출된 rsc 데이터를 저장하는 역할인데, location이란 param을 받아 서버에서 데이터를 받고 cache에 저장합니다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">useServerResponse</span><span class="token punctuation">(</span><span class="token parameter">location</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> key <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>location<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> cache <span class="token operator">=</span> <span class="token function">unstable_getCacheForType</span><span class="token punctuation">(</span>createResponseCache<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> response <span class="token operator">=</span> cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> response<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+response <span class="token operator">=</span> <span class="token function">createFromFetch</span><span class="token punctuation">(</span>
+<span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/react?location='</span> <span class="token operator">+</span> <span class="token function">encodeURIComponent</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+cache<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> response<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>server 코드를 확인하기 전에 브라우저에서 <code class="language-text">/react?location=</code> 이 어떻게 실행되는지 확인해봅시다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6af39b1065cb7f754de829692fc3918d/40f13/react-location.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 51.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAF4ioJ1FpgX/8QAGRAAAgMBAAAAAAAAAAAAAAAAADMBBAUQ/9oACAEBAAEFAoL7+aDz/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGBAAAgMAAAAAAAAAAAAAAAAAARAAcXL/2gAIAQEABj8CgpjK/8QAGhAAAgMBAQAAAAAAAAAAAAAAAAERIWEQ8P/aAAgBAQABPyFZsakytFR6t5//2gAMAwEAAgADAAAAEE/v/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHhABAAIBBAMAAAAAAAAAAAAAAQARITFBUWFxobH/2gAIAQEAAT8QzGtrnuVUmq5PLEnT1gMAA6iSh2fUt5Z//9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="react-location"
+        title="react-location"
+        src="/static/6af39b1065cb7f754de829692fc3918d/7cc5e/react-location.jpg"
+        srcset="/static/6af39b1065cb7f754de829692fc3918d/e439a/react-location.jpg 120w,
+/static/6af39b1065cb7f754de829692fc3918d/09b79/react-location.jpg 240w,
+/static/6af39b1065cb7f754de829692fc3918d/7cc5e/react-location.jpg 480w,
+/static/6af39b1065cb7f754de829692fc3918d/80e3c/react-location.jpg 720w,
+/static/6af39b1065cb7f754de829692fc3918d/6a068/react-location.jpg 960w,
+/static/6af39b1065cb7f754de829692fc3918d/40f13/react-location.jpg 2640w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+</li>
+</ol>
+<p>키워드 하나를 클릭했더니 param은 <code class="language-text">location: {&quot;selectedId&quot;:5,&quot;isEditing&quot;:false,&quot;searchText&quot;:&quot;&quot;}</code> 이와 같이 들어왔습니다.</p>
+<p>결과는 아래와 같습니다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">M1:{&quot;id&quot;:&quot;./src/SearchField.client.js&quot;,&quot;chunks&quot;:[&quot;client5&quot;],&quot;name&quot;:&quot;&quot;}
+M2:{&quot;id&quot;:&quot;./src/EditButton.client.js&quot;,&quot;chunks&quot;:[&quot;client1&quot;],&quot;name&quot;:&quot;&quot;}
+S3:&quot;react.suspense&quot;
+J0:[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;main&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;section&quot;,null,{&quot;className&quot;:&quot;col sidebar&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;section&quot;,null,{&quot;className&quot;:&quot;sidebar-header&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;img&quot;,null,{&quot;className&quot;:&quot;logo&quot;,&quot;src&quot;:&quot;logo.svg&quot;,&quot;width&quot;:&quot;22px&quot;,&quot;height&quot;:&quot;20px&quot;,&quot;alt&quot;:&quot;&quot;,&quot;role&quot;:&quot;presentation&quot;}],[&quot;$&quot;,&quot;strong&quot;,null,{&quot;children&quot;:&quot;React Notes&quot;}]]}],[&quot;$&quot;,&quot;section&quot;,null,{&quot;className&quot;:&quot;sidebar-menu&quot;,&quot;role&quot;:&quot;menubar&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;@1&quot;,null,{}],[&quot;$&quot;,&quot;@2&quot;,null,{&quot;noteId&quot;:null,&quot;children&quot;:&quot;New&quot;}]]}],[&quot;$&quot;,&quot;nav&quot;,null,{&quot;children&quot;:[&quot;$&quot;,&quot;$3&quot;,null,{&quot;fallback&quot;:[&quot;$&quot;,&quot;div&quot;,null,{&quot;children&quot;:[&quot;$&quot;,&quot;ul&quot;,null,{&quot;className&quot;:&quot;notes-list skeleton-container&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;li&quot;,null,{&quot;className&quot;:&quot;v-stack&quot;,&quot;children&quot;:[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;sidebar-note-list-item skeleton&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;5em&quot;}}]}],[&quot;$&quot;,&quot;li&quot;,null,{&quot;className&quot;:&quot;v-stack&quot;,&quot;children&quot;:[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;sidebar-note-list-item skeleton&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;5em&quot;}}]}],[&quot;$&quot;,&quot;li&quot;,null,{&quot;className&quot;:&quot;v-stack&quot;,&quot;children&quot;:[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;sidebar-note-list-item skeleton&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;5em&quot;}}]}]]}]}],&quot;children&quot;:&quot;@4&quot;}]}]]}],[&quot;$&quot;,&quot;section&quot;,&quot;5&quot;,{&quot;className&quot;:&quot;col note-viewer&quot;,&quot;children&quot;:[&quot;$&quot;,&quot;$3&quot;,null,{&quot;fallback&quot;:[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;note skeleton-container&quot;,&quot;role&quot;:&quot;progressbar&quot;,&quot;aria-busy&quot;:&quot;true&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;note-header&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;note-title skeleton&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;3rem&quot;,&quot;width&quot;:&quot;65%&quot;,&quot;marginInline&quot;:&quot;12px 1em&quot;}}],[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;skeleton skeleton--button&quot;,&quot;style&quot;:{&quot;width&quot;:&quot;8em&quot;,&quot;height&quot;:&quot;2.5em&quot;}}]]}],[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;note-preview&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;skeleton v-stack&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;1.5em&quot;}}],[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;skeleton v-stack&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;1.5em&quot;}}],[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;skeleton v-stack&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;1.5em&quot;}}],[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;skeleton v-stack&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;1.5em&quot;}}],[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;skeleton v-stack&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;1.5em&quot;}}]]}]]}],&quot;children&quot;:&quot;@5&quot;}]}]]}]
+M6:{&quot;id&quot;:&quot;./src/SidebarNote.client.js&quot;,&quot;chunks&quot;:[&quot;client6&quot;],&quot;name&quot;:&quot;&quot;}
+J4:[&quot;$&quot;,&quot;ul&quot;,null,{&quot;className&quot;:&quot;notes-list&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;li&quot;,&quot;5&quot;,{&quot;children&quot;:[&quot;$&quot;,&quot;@6&quot;,null,{&quot;id&quot;:5,&quot;title&quot;:&quot;test&quot;,&quot;expandedChildren&quot;:[&quot;$&quot;,&quot;p&quot;,null,{&quot;className&quot;:&quot;sidebar-note-excerpt&quot;,&quot;children&quot;:&quot;test1&quot;}],&quot;children&quot;:[&quot;$&quot;,&quot;header&quot;,null,{&quot;className&quot;:&quot;sidebar-note-header&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;strong&quot;,null,{&quot;children&quot;:&quot;test&quot;}],[&quot;$&quot;,&quot;small&quot;,null,{&quot;children&quot;:&quot;3/9/22&quot;}]]}]}]}],[&quot;$&quot;,&quot;li&quot;,&quot;4&quot;,{&quot;children&quot;:[&quot;$&quot;,&quot;@6&quot;,null,{&quot;id&quot;:4,&quot;title&quot;:&quot;I wrote this note today&quot;,&quot;expandedChildren&quot;:[&quot;$&quot;,&quot;p&quot;,null,{&quot;className&quot;:&quot;sidebar-note-excerpt&quot;,&quot;children&quot;:&quot;It was an excellent note.&quot;}],&quot;children&quot;:[&quot;$&quot;,&quot;header&quot;,null,{&quot;className&quot;:&quot;sidebar-note-header&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;strong&quot;,null,{&quot;children&quot;:&quot;I wrote this note today&quot;}],[&quot;$&quot;,&quot;small&quot;,null,{&quot;children&quot;:&quot;3/9/22&quot;}]]}]}]}],[&quot;$&quot;,&quot;li&quot;,&quot;3&quot;,{&quot;children&quot;:[&quot;$&quot;,&quot;@6&quot;,null,{&quot;id&quot;:3,&quot;title&quot;:&quot;Make a thing&quot;,&quot;expandedChildren&quot;:[&quot;$&quot;,&quot;p&quot;,null,{&quot;className&quot;:&quot;sidebar-note-excerpt&quot;,&quot;children&quot;:&quot;It&#39;s very easy to make some words bold and other words italic with Markdown. You can even link to React&#39;s...&quot;}],&quot;children&quot;:[&quot;$&quot;,&quot;header&quot;,null,{&quot;className&quot;:&quot;sidebar-note-header&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;strong&quot;,null,{&quot;children&quot;:&quot;Make a thing&quot;}],[&quot;$&quot;,&quot;small&quot;,null,{&quot;children&quot;:&quot;3/5/22&quot;}]]}]}]}],[&quot;$&quot;,&quot;li&quot;,&quot;2&quot;,{&quot;children&quot;:[&quot;$&quot;,&quot;@6&quot;,null,{&quot;id&quot;:2,&quot;title&quot;:&quot;A note with a very long title because sometimes you need more words&quot;,&quot;expandedChildren&quot;:[&quot;$&quot;,&quot;p&quot;,null,{&quot;className&quot;:&quot;sidebar-note-excerpt&quot;,&quot;children&quot;:&quot;You can write all kinds of amazing notes in this app! These note live on the server in the notes...&quot;}],&quot;children&quot;:[&quot;$&quot;,&quot;header&quot;,null,{&quot;className&quot;:&quot;sidebar-note-header&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;strong&quot;,null,{&quot;children&quot;:&quot;A note with a very long title because sometimes you need more words&quot;}],[&quot;$&quot;,&quot;small&quot;,null,{&quot;children&quot;:&quot;1/31/22&quot;}]]}]}]}],[&quot;$&quot;,&quot;li&quot;,&quot;1&quot;,{&quot;children&quot;:[&quot;$&quot;,&quot;@6&quot;,null,{&quot;id&quot;:1,&quot;title&quot;:&quot;Meeting Notes&quot;,&quot;expandedChildren&quot;:[&quot;$&quot;,&quot;p&quot;,null,{&quot;className&quot;:&quot;sidebar-note-excerpt&quot;,&quot;children&quot;:&quot;This is an example note. It contains Markdown!&quot;}],&quot;children&quot;:[&quot;$&quot;,&quot;header&quot;,null,{&quot;className&quot;:&quot;sidebar-note-header&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;strong&quot;,null,{&quot;children&quot;:&quot;Meeting Notes&quot;}],[&quot;$&quot;,&quot;small&quot;,null,{&quot;children&quot;:&quot;2/13/22&quot;}]]}]}]}]]}]
+J5:[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;note&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;note-header&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;h1&quot;,null,{&quot;className&quot;:&quot;note-title&quot;,&quot;children&quot;:&quot;test&quot;}],[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;note-menu&quot;,&quot;role&quot;:&quot;menubar&quot;,&quot;children&quot;:[[&quot;$&quot;,&quot;small&quot;,null,{&quot;className&quot;:&quot;note-updated-at&quot;,&quot;role&quot;:&quot;status&quot;,&quot;children&quot;:[&quot;Last updated on &quot;,&quot;9 Mar 2022 at 5:05 PM&quot;]}],[&quot;$&quot;,&quot;@2&quot;,null,{&quot;noteId&quot;:5,&quot;children&quot;:&quot;Edit&quot;}]]}]]}],[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;note-preview&quot;,&quot;children&quot;:[&quot;$&quot;,&quot;div&quot;,null,{&quot;className&quot;:&quot;text-with-markdown&quot;,&quot;dangerouslySetInnerHTML&quot;:{&quot;__html&quot;:&quot;&lt;p&gt;test1&lt;/p&gt;\n&quot;}}]}]]}]</code></pre></div>
+<p>(추가적으로 여러 시도를 해봤더니 아래와 같은 param이 들어옴을 알 수 있었습니다)</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">location<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">"selectedId"</span><span class="token operator">:</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token string">"isEditing"</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token string">"searchText"</span><span class="token operator">:</span><span class="token string">""</span><span class="token punctuation">}</span> <span class="token comment">// new</span>
+location<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">"selectedId"</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">"isEditing"</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token string">"searchText"</span><span class="token operator">:</span><span class="token string">""</span><span class="token punctuation">}</span> <span class="token comment">// edit</span>
+location<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">"selectedId"</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">"isEditing"</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token string">"searchText"</span><span class="token operator">:</span><span class="token string">"as"</span><span class="token punctuation">}</span> <span class="token comment">// edit + search</span>
+location<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">"selectedId"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"isEditing"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token string">"searchText"</span><span class="token operator">:</span><span class="token string">""</span><span class="token punctuation">}</span> <span class="token comment">// choose other note</span></code></pre></div>
+<p>잠깐 둘러보더라도 서버에서 react를 compile한 결과의 정보들을 나열해놓은 것이라 여겨집니다.
+그렇다면 이제 해당 코드가 어떻게 나오게 되는지 server쪽을 확인해보겠습니다.</p>
+<h2 id="동작---server" style="position:relative;">동작 - server<a href="#%EB%8F%99%EC%9E%91---server" aria-label="동작   server permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>server 디렉토리의 package.json의 main property는 <code class="language-text">./api.server.js</code> 로 가지고 있으니 해당 파일로 실행이 됩니다.</p>
+<ol>
+<li>
+<p>client 1번에서 <code class="language-text">build/index.html</code>이 실행된다고 했는데 78L에 해당 내용이 있습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>
+<span class="token string">'/'</span><span class="token punctuation">,</span>
+<span class="token function">handleErrors</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">_req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">await</span> <span class="token function">waitForWebpack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> html <span class="token operator">=</span> <span class="token function">readFileSync</span><span class="token punctuation">(</span>
+  path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../build/index.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token string">'utf8'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+</li>
+<li>그 다음 우리가 궁금한 <code class="language-text">/react?locaiton=</code> 이 어떻게 나오는지 확인해보겠습니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">renderReactTree</span><span class="token punctuation">(</span><span class="token parameter">res<span class="token punctuation">,</span> props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">waitForWebpack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> manifest <span class="token operator">=</span> <span class="token function">readFileSync</span><span class="token punctuation">(</span>
+    path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../build/react-client-manifest.json'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'utf8'</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> moduleMap <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>manifest<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>pipe<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">renderToPipeableStream</span><span class="token punctuation">(</span>
+    React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>ReactApp<span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    moduleMap
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pipe</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">sendResponse</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> redirectToId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> location <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>location<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>redirectToId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    location<span class="token punctuation">.</span>selectedId <span class="token operator">=</span> redirectToId<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  res<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'X-Location'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>location<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">renderReactTree</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    selectedId<span class="token operator">:</span> location<span class="token punctuation">.</span>selectedId<span class="token punctuation">,</span>
+    isEditing<span class="token operator">:</span> location<span class="token punctuation">.</span>isEditing<span class="token punctuation">,</span>
+    searchText<span class="token operator">:</span> location<span class="token punctuation">.</span>searchText<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/react'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">sendResponse</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>sendResponse에서 location에 대해 spread하여 <code class="language-text">renderReactTree로</code> 넘기는 것을 보니, 실제 서비스에 rsc를 적용한다면 기능별 rsc endpoint가 나뉠수도 있을 것으로 예상해볼 수 있습니다.</p>
+<p>아마 return을 하지 않아도 제일 마지막 stack인 <code class="language-text">renderReactTree</code>의 <code class="language-text">pipe(res)</code>까지 response를 넘기는 것을 보니, res에 값을 싣는 과정이 pipe에 들어가 있을 것 같습니다.</p>
+<p>결국 모든 기능은 <code class="language-text">renderReactTree</code> 함수 내부의 <code class="language-text">renderToPipeableStream</code> 기능이 하는 것입니다. <code class="language-text">React.createElement(ReactApp, props)</code> </p>
+<p><code class="language-text">ReactApp</code>와 <code class="language-text">props</code>를 서버에서 compile하고 pipe를 통해 res에 싣는 것이죠.</p>
+<p>bootstrap 코드를 따라가보니 그나마 쉽게 이해할 수 있었습니다.
+마지막으로 하나 더 볼 부분은 webpack입니다.</p>
+<p>처음에 <code class="language-text">npm run bundler:dev</code> 가 실행됨을 말씀드렸는데 webpack plugin에 아래와 같은 코드가 있습니다. isServer는 아직 의미가 없네요^^;</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">ReactServerWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>isServer<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// node_modules/react-server-dom-webpack/cjs/react-server-dom-webpack-plugin.js#L55</span>
+<span class="token comment">// if (options.isServer) {</span>
+<span class="token comment">//   throw new Error('TODO: Implement the server compiler.');</span>
+<span class="token comment">// }</span></code></pre></div>
+<hr>
+<p>이렇게 간단하게 주요한 rsc 로직에 대해서만 demo 코드 기준으로 알아보았습니다. (node crud 코드는 생략) 컨셉은 좋지만, SSR을 프레임워크 없이 사용했던 경험과 유사한 복잡도지 않나 생각이 드네요. shofify에서는 이미 <a href="https://shopify.dev/custom-storefronts/hydrogen/framework/react-server-components/work-with-rsc" target="_blank" rel="noopener">해당 기능을 추가</a>해놨고, next.js에서도 <a href="https://github.com/vercel/next-react-server-components" target="_blank" rel="noopener">demo를 열심히 작업</a>하는 것을 보니 한창 작업 중인 것으로 예상됩니다.</p>
+<p>FE개발자는 트렌트가 바뀔때마다 바빠지는데 앞으로 또 어떻게 바빠지고 재밌어질 지 궁금하네요.</p></section><hr style="margin-bottom:1.625rem"/><footer style="color:#898989"><p scale="[object Object]" class="PostTags__StyledPTags-sc-1ielp4x-0 kRNYYT">#React <!-- -->#18 <!-- -->#rsc <!-- -->#react-server-component </p></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"></ul></nav></main><footer style="text-align:center"><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://github.com/jicjjang" target="_blank"><img src="/static/b33838e421fcf2eaeb2da472c1e32060/github.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.instagram.com/jicjjang" target="_blank"><img src="/static/64b2774f0c50daac23fd881877dae854/instagram.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.linkedin.com/in/jicjjang" target="_blank"><img src="/static/3e51027afe6b45fb6d7b38b1e194dcbb/linkedin.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="mailto:jicjjang12@gmail.com" target="_blank"><img src="/static/ababfdf6167a3ee6c8f91dd6d29c765d/mail.png" style="display:block;width:100%"/></a></span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-59806888-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/react-server-component";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-f8cb09a0c2fa50816452.js"],"app":["/app-2bed233af2de965db4b0.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-9023e69c8b9c141f86eb.js"],"component---src-pages-archive-tsx":["/component---src-pages-archive-tsx-ba6595d573a79b6a7435.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-0d707984196c022fbb95.js"],"component---src-pages-presentation-1-tsx":["/component---src-pages-presentation-1-tsx-e08260dfe8c642888896.js"],"component---src-pages-presentation-10-tsx":["/component---src-pages-presentation-10-tsx-aad815f65e9e76a93f86.js"],"component---src-pages-presentation-2-tsx":["/component---src-pages-presentation-2-tsx-8bf9cbd2ca57b2e8b56e.js"],"component---src-pages-presentation-3-tsx":["/component---src-pages-presentation-3-tsx-258267ecfb0e9f06b980.js"],"component---src-pages-presentation-4-tsx":["/component---src-pages-presentation-4-tsx-ecb12aa44aa6126facae.js"],"component---src-pages-presentation-5-tsx":["/component---src-pages-presentation-5-tsx-9e698e03679328cf7809.js"],"component---src-pages-presentation-6-tsx":["/component---src-pages-presentation-6-tsx-e54b22325ae57e3d66b1.js"],"component---src-pages-presentation-7-tsx":["/component---src-pages-presentation-7-tsx-d1462aa5514e2e46e152.js"],"component---src-pages-presentation-8-tsx":["/component---src-pages-presentation-8-tsx-da1a624be3bcfcb7c522.js"],"component---src-pages-presentation-9-tsx":["/component---src-pages-presentation-9-tsx-7e8c25999909a33a83bc.js"],"component---src-pages-presentation-index-tsx":["/component---src-pages-presentation-index-tsx-c82568fe721c1d1e3aba.js"],"component---src-pages-resume-tsx":["/component---src-pages-resume-tsx-4fe2f3b4bfb8b66687b3.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"]};/*]]>*/</script><script src="/polyfill-f8cb09a0c2fa50816452.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js" async=""></script><script src="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js" async=""></script><script src="/77f29e761df5de25d397b39b76c634399f02315e-55b38568922346810659.js" async=""></script><script src="/app-2bed233af2de965db4b0.js" async=""></script><script src="/framework-ee8a4bba4771daaa13e7.js" async=""></script><script src="/styles-8db67c5187b7b8ad64da.js" async=""></script><script src="/webpack-runtime-338541f0ff3cc62c78cf.js" async=""></script></body></html>
