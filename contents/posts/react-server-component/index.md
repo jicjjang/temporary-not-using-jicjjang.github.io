@@ -49,7 +49,9 @@ server 실행을 위해 `nodemon -- --conditions=react-server server`, client �
 client부터 보자면
 
 1. `build/index.html`에서 main.js를 호출합니다.
+
 2. 최하단에 아래와 같은 코드로 entry point가 index.client.js 라는 것을 알 수 있습니다.
+
 ```js
 /************************************************************************/
 /******/ 	
@@ -62,8 +64,11 @@ client부터 보자면
 ;
 //# sourceMappingURL=main.js.map
 ```
+
 3. Root.client.js가 실행합니다. (여기서 해당 bootstrap의 페이지 자체 렌더링은 csr로 돌리고 있음을 알 수 있음)
+
 4. Root.client.js 안에서 Content 함수를 호출합니다.
+
 ```jsx
 function Content() {
   const [location, setLocation] = useState({
@@ -79,7 +84,9 @@ function Content() {
   );
 }
 ```
+
 5. cache는 말 그대로 호출된 rsc 데이터를 저장하는 역할인데, location이란 param을 받아 서버에서 데이터를 받고 cache에 저장합니다.
+
 ```js
 export function useServerResponse(location) {
   const key = JSON.stringify(location);
@@ -95,12 +102,14 @@ export function useServerResponse(location) {
   return response;
 }
 ```
+
 server 코드를 확인하기 전에 브라우저에서 `/react?location=` 이 어떻게 실행되는지 확인해봅시다.
 ![react-location](./react-location.jpg)
 
 키워드 하나를 클릭했더니 param은 `location: {"selectedId":5,"isEditing":false,"searchText":""}` 이와 같이 들어왔습니다.
 
 결과는 아래와 같습니다.
+
 ```
 M1:{"id":"./src/SearchField.client.js","chunks":["client5"],"name":""}
 M2:{"id":"./src/EditButton.client.js","chunks":["client1"],"name":""}
@@ -112,6 +121,7 @@ J5:["$","div",null,{"className":"note","children":[["$","div",null,{"className":
 ```
 
 (추가적으로 여러 시도를 해봤더니 아래와 같은 param이 들어옴을 알 수 있었습니다)
+
 ```js
 location: {"selectedId":null,"isEditing":true,"searchText":""} // new
 location: {"selectedId":5,"isEditing":true,"searchText":""} // edit
@@ -127,18 +137,16 @@ location: {"selectedId":1,"isEditing":false,"searchText":""} // choose other not
 server 디렉토리의 package.json의 main property는 `./api.server.js` 로 가지고 있으니 해당 파일로 실행이 됩니다.
 
 1. client 1번에서 `build/index.html`이 실행된다고 했는데 78L에 해당 내용이 있습니다.
+
 ```js
-app.get(
-  '/',
-  handleErrors(async function(_req, res) {
-    await waitForWebpack();
-    const html = readFileSync(
-      path.resolve(__dirname, '../build/index.html'),
-      'utf8'
-    );
-    res.send(html);
-  })
-);
+app.get('/', handleErrors(async function(_req, res) {
+  await waitForWebpack();
+  const html = readFileSync(
+    path.resolve(__dirname, '../build/index.html'),
+    'utf8'
+  );
+  res.send(html);
+}));
 ```
 
 2. 그 다음 우리가 궁금한 `/react?locaiton=` 이 어떻게 나오는지 확인해보겠습니다.
