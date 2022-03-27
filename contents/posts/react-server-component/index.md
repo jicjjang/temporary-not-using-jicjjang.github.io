@@ -80,7 +80,7 @@ function Content() {
 }
 ```
 5. cache는 말 그대로 호출된 rsc 데이터를 저장하는 역할인데, location이란 param을 받아 서버에서 데이터를 받고 cache에 저장합니다.
-```jsx
+```js
 export function useServerResponse(location) {
   const key = JSON.stringify(location);
   const cache = unstable_getCacheForType(createResponseCache);
@@ -89,7 +89,7 @@ export function useServerResponse(location) {
     return response;
   }
   response = createFromFetch(
-    fetch('/react?location=' + encodeURIComponent(key))
+    fetch('/react?location=' + encodeURIComponent(key));
   );
   cache.set(key, response);
   return response;
@@ -169,6 +169,7 @@ function sendResponse(req, res, redirectToId) {
     isEditing: location.isEditing,
     searchText: location.searchText,
   })
+}
 
 app.get('/react', function(req, res) {
   sendResponse(req, res, null);
