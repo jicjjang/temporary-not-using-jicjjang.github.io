@@ -1,7 +1,7 @@
 ---
 title: "React-server-component"
 date: "2022-03-27"
-tags: [React, 18, rsc, react-server-component]
+tags: [React, '18', rsc, react-server-component]
 ---
 
 이미 발표는 애진작에(?) 되었지만 아직 발표는 더디기만 한 react-server-component(이하 rsc)에 대해 알아보겠습니다.
