@@ -1,7 +1,7 @@
 ---
 title: "커피챗"
 date: "2021-11-14"
-tags: [life]
+tags: [life, coffee, coffeechat]
 ---
 
 어떻게 알게 되었더라... 항상 스타트업, 창업에 관심이 많은 저는 자주 스타트업 정보에 대해 찾아보고, [thevc](https://thevc.kr/)같은 사이트를 뒤적이곤 합니다.
