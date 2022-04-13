@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Apr 2022 12:26:42 GMT</lastBuildDate><item><title><![CDATA[Lambda@edge로 crop된 이미지 캐싱하기]]></title><description><![CDATA[참고 ref1 - AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기
-참고 ref2 - AWS Lambda@Edge에서 실시간 이미지 리사이즈 & WebP…]]></description><link>https://jicjjang.github.io/posts/lambda-edge</link><guid isPermaLink="false">https://jicjjang.github.io/posts/lambda-edge</guid><pubDate>Wed, 13 Apr 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;참고 ref1 - &lt;a href=&quot;https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기&lt;/a&gt;
-참고 ref2 - &lt;a href=&quot;https://medium.com/daangn/lambda-edge%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-on-the-fly-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-f4e5052d49f3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda@Edge에서 실시간 이미지 리사이즈 &amp;#x26; WebP 형식으로 변환&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Apr 2022 12:30:18 GMT</lastBuildDate><item><title><![CDATA[Lambda@edge로 crop된 이미지 캐싱하기]]></title><description><![CDATA[참고 ref1 - AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기 참고 ref2 - AWS Lambda@Edge에서 실시간 이미지 리사이즈 & WebP…]]></description><link>https://jicjjang.github.io/posts/lambda-edge</link><guid isPermaLink="false">https://jicjjang.github.io/posts/lambda-edge</guid><pubDate>Wed, 13 Apr 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;참고 ref1 - &lt;a href=&quot;https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;참고 ref2 - &lt;a href=&quot;https://medium.com/daangn/lambda-edge%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-on-the-fly-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-f4e5052d49f3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda@Edge에서 실시간 이미지 리사이즈 &amp;#x26; WebP 형식으로 변환&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;사이드 프로젝트 팀에 합류하여 퇴근 후 프로젝트를 진행하고 있습니다.
 flutter를 써보고자 들어간 팀인데 앱개발자 분들이 flutter를 이미 잘 만들고 계셔서 ㅠㅠ... 어쩔수 없이 프론트... 가 아닌 서버개발자(??)로 개발을 하고 있습니다.&lt;/p&gt;
@@ -371,7 +370,9 @@ exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&amp;#x3C;이미지 원본&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#x3C; 이미지 원본 &gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
@@ -404,7 +405,9 @@ exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&amp;#x3C;t(type) query param을 통해 crop된 이미지&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#x3C; t(type) query param을 통해 crop된 이미지 &gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;이렇게 간단하게(3일정도 걸렸지만) 완성했습니다!
 FE개발자도 간단한(것 같지 않지만) aws를 다루지 않나 라는 생각을 한지 2~3년은 된 것 같은데 이제야 사용을 해보네요...&lt;/p&gt;
 &lt;p&gt;백엔드 뿐만 아니라 인프라도 자유자재로 써볼 수 있는 기회가 있으면 좋겠습니다 :)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[커피챗 굿즈]]></title><description><![CDATA[작년 1…]]></description><link>https://jicjjang.github.io/posts/coffeechat-goods</link><guid isPermaLink="false">https://jicjjang.github.io/posts/coffeechat-goods</guid><pubDate>Tue, 29 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;작년 11월에 &lt;a href=&quot;https://jicjjang.github.io/posts/coffeechat&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;커피챗 이용 후기&lt;/a&gt;에 대해 간략히 정리해 봤었다.
