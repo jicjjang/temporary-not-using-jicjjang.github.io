@@ -5,6 +5,7 @@ tags: [aws, lambda, lambda@edge, sharp]
 ---
 
 참고 ref1 - [AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기](https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980)
+
 참고 ref2 - [AWS Lambda@Edge에서 실시간 이미지 리사이즈 & WebP 형식으로 변환](https://medium.com/daangn/lambda-edge%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-on-the-fly-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-f4e5052d49f3)
 
 ---
@@ -141,11 +142,11 @@ origin response가 아니라면 제대로 동작하지 않습니다.
 
 ![before-result](./before-result.png)
 
-*<이미지 원본>*
+> < 이미지 원본 >
 
 ![after-result](./after-result.png)
 
-*<t(type) query param을 통해 crop된 이미지>*
+> < t(type) query param을 통해 crop된 이미지 >
 
 이렇게 간단하게(3일정도 걸렸지만) 완성했습니다!
 FE개발자도 간단한(것 같지 않지만) aws를 다루지 않나 라는 생각을 한지 2~3년은 된 것 같은데 이제야 사용을 해보네요...
