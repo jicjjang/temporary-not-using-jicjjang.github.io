@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><style data-href="/styles.8bc7d8bd447b1029c4d8.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.gatsby-highlight-code-line{background-color:rgba(27,31,35,.05);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #f99}.gatsby-highlight{background-color:#f6f8fa;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%}:not(pre)>code[class*=language-]{background:rgba(27,31,35,.05)}</style><meta name="generator" content="Gatsby 2.29.1"/><style data-styled="" data-styled-version="5.2.1">.cURDtm{margin-top:0;margin-bottom:1.95rem;}/*!sc*/
+data-styled.g1[id="Header__StyledHeader-sc-1tyi3z1-0"]{content:"cURDtm,"}/*!sc*/
+.fEA-DoH{display:inline-block;margin:0;font-size:2.2974rem;line-height:3.25rem;}/*!sc*/
+data-styled.g2[id="Header__StyledH3-sc-1tyi3z1-1"]{content:"fEA-DoH,"}/*!sc*/
+.ifejFH{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:#000;}/*!sc*/
+data-styled.g3[id="Header__StyledLink-sc-1tyi3z1-2"]{content:"ifejFH,"}/*!sc*/
+.joNmkD{float:right;display:inline-block;margin:18px 0;}/*!sc*/
+.joNmkD:after{content:'';display:table;clear:both;}/*!sc*/
+@media (max-width:650px){.joNmkD{display:block;float:none;text-align:center;border-bottom:2px solid #cfcdcd;}}/*!sc*/
+data-styled.g4[id="Header__StyledUl-sc-1tyi3z1-3"]{content:"joNmkD,"}/*!sc*/
+.bDvteE{display:inline-block;padding:0 15px;list-style-type:none;vertical-align:middle;font-size:16px;}/*!sc*/
+@media (max-width:450px){.bDvteE{padding:0 8px;font-size:14px;}}/*!sc*/
+data-styled.g5[id="Header__StyledLi-sc-1tyi3z1-4"]{content:"bDvteE,"}/*!sc*/
+.ddEDAJ{color:#898989;}/*!sc*/
+data-styled.g6[id="Header__StyleLiLink-sc-1tyi3z1-5"]{content:"ddEDAJ,"}/*!sc*/
+.iomvtc{margin:0 auto;max-width:39rem;min-width:320px;padding:2.275rem 1.21875rem;}/*!sc*/
+data-styled.g7[id="Default__StyledDiv-sc-1g8e1t0-0"]{content:"iomvtc,"}/*!sc*/
+.kiCxlO{margin-bottom:6.5rem;}/*!sc*/
+data-styled.g8[id="Default__StyledMain-sc-1g8e1t0-1"]{content:"kiCxlO,"}/*!sc*/
+.jRNtTT{color:#000;margin-bottom:0.325rem;border-bottom:none;font-size:1.41421rem;font-weight:500;line-height:2.4375rem;}/*!sc*/
+data-styled.g9[id="common__StyledCommonH1Title-sc-93z372-0"]{content:"jRNtTT,"}/*!sc*/
+.kRNYYT{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g13[id="PostTags__StyledPTags-sc-1ielp4x-0"]{content:"kRNYYT,"}/*!sc*/
+.jcyDuJ{margin-bottom:1.95rem;}/*!sc*/
+data-styled.g15[id="PostHeader__StyledHeader-sc-77g6iv-0"]{content:"jcyDuJ,"}/*!sc*/
+.hOBBqs{display:inline-block;width:30px;height:30px;background-image:url(/img/post/speaker.png);background-size:22px;background-repeat:no-repeat;background-position:6px 10px;}/*!sc*/
+.hOBBqs:active{background-position:6px 11px;}/*!sc*/
+data-styled.g17[id="PostHeader__StyledSpeechSpan-sc-77g6iv-2"]{content:"hOBBqs,"}/*!sc*/
+.ivMKzM{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g18[id="PostHeader__StyledTime-sc-77g6iv-3"]{content:"ivMKzM,"}/*!sc*/
+</style><style type="text/css">
+    .autolink-headers--.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .autolink-headers--.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .autolink-headers-- svg,
+    h2 .autolink-headers-- svg,
+    h3 .autolink-headers-- svg,
+    h4 .autolink-headers-- svg,
+    h5 .autolink-headers-- svg,
+    h6 .autolink-headers-- svg {
+      visibility: hidden;
+    }
+    h1:hover .autolink-headers-- svg,
+    h2:hover .autolink-headers-- svg,
+    h3:hover .autolink-headers-- svg,
+    h4:hover .autolink-headers-- svg,
+    h5:hover .autolink-headers-- svg,
+    h6:hover .autolink-headers-- svg,
+    h1 .autolink-headers--:focus svg,
+    h2 .autolink-headers--:focus svg,
+    h3 .autolink-headers--:focus svg,
+    h4 .autolink-headers--:focus svg,
+    h5 .autolink-headers--:focus svg,
+    h6 .autolink-headers--:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">June | June</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU2MTI2NzdEQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU2MTI2NzdFQzM3MzExRTY5QzE3RDdGRDgyNjE4NkVBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTYxMjY3N0JDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTYxMjY3N0NDMzczMTFFNjlDMTdEN0ZEODI2MTg2RUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5MsIj9AAAFcUlEQVR42rxXa0wUVxQ+MwiSAgnyMLxLaRNE3lixNRVSAkkJFAilQKCQQHgINRgSY439UYs2xrQVGyg2EA0SSJGXIsFHIVBTKRKELluWXR67PEpdFlYLC8rCzN7pmTUQXdgFDTCbk0lm597vO9+993xnKI7jYDMXwzCmIpEoEO/GV69e/TImJqZ2aGhof39/v29mZuYl/llsbOyvtra2cnd3d4GpqemzTU3MEzAUs7OztleuXPkqODhYSNM0S1EU4Ye9HC8/MzIyYg8dOiQuLi4+MzMz47TR/Ab/rK2tPYrZTOoCbjacnZ1nysvLTxBC6NcioFKprHJycurfFFg3kpOTf0M1HDdFgJctLCysd6vAV+LgwYNDExMT7gYJzM/PW4WGhv611eArERAQMKKrxCsEsrOzb24X+ErExcXdZ1nWeA2B+vr6rO0GX4mysrLTqwRko6MwPTNj4+bmptgpApaWlguTk5OuYxPjQMunFXCjoSFTJpPthR26sLaYVVZWHsfEAUZkUrOgoCCxIcZWVlbEwcGBvGG2Ghyv0X3u6eEhlwwNWoNQKHzfiKb1Tp6YmMhJJBIyOjpKkpKSXgs8Pj6eHRgYWMaSzWBBW4PR1tYWBU1NTanrlVc+7OzsOB44PDycHDt2jBMIBBuqwGeL5ZizsbEhY2NjTGRkJNvX18cgeY1u+e7t7Q2iW1tbw3E3UuutFQ+M6wV37tyhUCkwMzMD9AO9a+vq6sq1tLSw5ubmJCoqikxNTVHd3d1gbW0NeKd0PIgquXz5BJ2WllZMv1iCNRcWJsre3h4wI8DMuOXlZcC6rpfAnj17wNHRkVpcXAQfHx/AO2lsbCR1dXXU8PDwKwRQAYiJjq6BhISEdn1y8lLevn2bw+xJV1cXwVLK4XE1uARFRUUsZrs0Pj7OyuVy5vz584y+d0tLS09DRUVFvr49sBLR0dEcnlt+0xBeiY32ga+vr0ahULDp6emsofdQ/Waoqak5uhEBPqRSKefn58dh88EPZNbZsMTb21u70QIDA/n1Z7A50Tsvj4nKfgi5ubkGbRcn5S5evMip1Wquo6NDg0HQsNZMnJqayiqVSiYvL29ZLBYzFy5cYDdKKiMjowl6enqCkc2aQoEdEHf37l3S3t6O+45wJSUlxNPTU29G/EY+deoU29DQsJyfn89sBI6Y3L179+LhjwcPPlnvBTzzHKpDTp48SbCYEBMTky33hIcPH4aAVCazwB5OqvsntlJayTs7O3kf33JwPE1K0cCAPfQKBFBUXFSwnkT+/v7a+3Y4YkFBwS9CUT/A9fo6GBCLHVxcXGZ3yo4tLCyW+oR97g2NjUAvqtUwv7Dw+Ny5c9/tlB2fPXv2EvYig6p5FdDGu3bB0MgwfHTkSGFKSsrv2w0eGREhwML2rUgiBmNjY9A6C4U/wd9C9pszZ744fPiwbLvAPTw8FN//+ENiv0T8fMVTXhCgKVhYWOCbk3/xEysCSUi3GhxryFR1dfWnjxWKwadPn6666qq38o6nmJ6Gscl/JNcqKkJwOe5vFThK/ggd8WPl7H/d6Cla6XkF8DsTjD77PG71RZ4Vr8ScSjWXkJBY5e3lxWClPIC2vPtNgLEdW8SSXJh3/Hja4MiwHA0KduGe4wgHe233wnvvuAFVdb16zUCNRqNV5IPAQGAZ9t3Gmzdzq6qq4rGzcdoM8L59+6awA7qBLdnPmJXoUU8Pnj9uVXY+8wP+AeC1f/86BPCkmpm/pWX4/NlzWFxSg7OTE5ia7LZRzc15ouE43Lp1Ky4rK+snNKmvQ0JCWtGinzQ3N0fjh00hrq+V89suf7KsZmoalxRLOKiXlkD5RLnazPAE/Hx8wdfbG/4XYACmHwCj2D06CgAAAABJRU5ErkJggg=="/><meta data-react-helmet="true" name="og:title" property="og:title" content="June"/><meta data-react-helmet="true" name="og:site_name" property="og:site_name" content="June"/><meta data-react-helmet="true" name="og:url" property="og:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="og:description" property="og:description" content="참고 ref1 - AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기
+참고 ref2 - AWS Lambda@Edge에서 실시간 이미지 리사이즈 &amp; WebP 형식으로 변환 사이드 프로젝트 팀에 합류하여 퇴근 후 프로젝트를 진행하고 있습니다.
+flutter…"/><meta data-react-helmet="true" name="description" property="description" content="참고 ref1 - AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기
+참고 ref2 - AWS Lambda@Edge에서 실시간 이미지 리사이즈 &amp; WebP 형식으로 변환 사이드 프로젝트 팀에 합류하여 퇴근 후 프로젝트를 진행하고 있습니다.
+flutter…"/><meta data-react-helmet="true" name="og:type" property="og:type" content="website"/><meta data-react-helmet="true" name="og:image" property="og:image"/><meta data-react-helmet="true" name="twitter:description" property="twitter:description" content="참고 ref1 - AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기
+참고 ref2 - AWS Lambda@Edge에서 실시간 이미지 리사이즈 &amp; WebP 형식으로 변환 사이드 프로젝트 팀에 합류하여 퇴근 후 프로젝트를 진행하고 있습니다.
+flutter…"/><meta data-react-helmet="true" name="twitter:title" property="twitter:title" content="June"/><meta data-react-helmet="true" name="twitter:url" property="twitter:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:site" property="twitter:site" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:domain" property="twitter:domain" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:image" property="twitter:image"/><link as="script" rel="preload" href="/webpack-runtime-338541f0ff3cc62c78cf.js"/><link as="script" rel="preload" href="/styles-8db67c5187b7b8ad64da.js"/><link as="script" rel="preload" href="/framework-ee8a4bba4771daaa13e7.js"/><link as="script" rel="preload" href="/app-2bed233af2de965db4b0.js"/><link as="script" rel="preload" href="/77f29e761df5de25d397b39b76c634399f02315e-55b38568922346810659.js"/><link as="script" rel="preload" href="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"/><link as="fetch" rel="preload" href="/page-data/posts/lambda-edge/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1576648375.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/764694655.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Default__StyledDiv-sc-1g8e1t0-0 iomvtc"><header class="Header__StyledHeader-sc-1tyi3z1-0 cURDtm"><h3 scale="[object Object]" class="Header__StyledH3-sc-1tyi3z1-1 fEA-DoH"><a class="Header__StyledLink-sc-1tyi3z1-2 ifejFH" href="/">June</a></h3><ul class="Header__StyledUl-sc-1tyi3z1-3 joNmkD"><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/">Posts</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/archive">Archive</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/presentation">Presentation</a></li></ul></header><main class="Default__StyledMain-sc-1g8e1t0-1 kiCxlO"><article class="post_article"><header class="PostHeader__StyledHeader-sc-77g6iv-0 jcyDuJ"><h1 scale="[object Object]" class="common__StyledCommonH1Title-sc-93z372-0 jRNtTT">Lambda@edge로 crop된 이미지 캐싱하기<span class="PostHeader__StyledSpeechSpan-sc-77g6iv-2 hOBBqs"></span></h1><p class="post-meta"><time dateTime="April 13, 2022" scale="[object Object]" class="PostHeader__StyledTime-sc-77g6iv-3 ivMKzM">April 13, 2022</time></p></header><section><p>참고 ref1 - <a href="https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980" target="_blank" rel="noopener">AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기</a>
+참고 ref2 - <a href="https://medium.com/daangn/lambda-edge%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-on-the-fly-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-f4e5052d49f3" target="_blank" rel="noopener">AWS Lambda@Edge에서 실시간 이미지 리사이즈 &#x26; WebP 형식으로 변환</a></p>
+<hr>
+<p>사이드 프로젝트 팀에 합류하여 퇴근 후 프로젝트를 진행하고 있습니다.
+flutter를 써보고자 들어간 팀인데 앱개발자 분들이 flutter를 이미 잘 만들고 계셔서 ㅠㅠ... 어쩔수 없이 프론트... 가 아닌 서버개발자(??)로 개발을 하고 있습니다.</p>
+<p>회사 서비스를 만들면서 api서버는 건드리고 있으나, 실제 배포 프로세스나 microservice화 된 서비스들을 연결한다거나 api gateway, 권한 관리 등등에 대해 제대로 해본 경험이 없습니다. 그렇기에 걱정반 기대반으로 시작한 제 업무는 <code class="language-text">이미지 업로드 시, thumbnail을 만들어야 하는데 당근의 lambda@edge아티클을 보고 thumbnail 생성을 구현해달라</code> 였습니다.</p>
+<p>aws는 프리티어로 ec2에 서버를 돌려본 경험이 전부이지만 하나하나 다 물어보며 진행하기는 어려웠습니다.</p>
+<hr>
+<h2 id="업무-파악" style="position:relative;">업무 파악<a href="#%EC%97%85%EB%AC%B4-%ED%8C%8C%EC%95%85" aria-label="업무 파악 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>당근의 아티클에는 기존 프로세스에 대한 아티클이 추가로 있었고, 어떤 방식에서 어떤 방식으로 수정하려고 한다~ 라는 히스토리를 알 수 있었습니다.</p>
+<p>당근의 lambda를 이용한 thumbnail 생성은 아래와 같이 저장되고 있습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/47c9272ed8eead6d76bec3b9d6c98dce/2cefc/before-lambda.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABOUlEQVQoz4VSy0rDQBTNB/sBLvwTP8KVGwlYxYWoi1KElIJFXNSG5jF5zePO3IlnUikRkhoml3mdc8+5d6L+7OeYnXNzp9F44ZlPc/aerNXaYJAlLP8B/1IEmDNExhAiKLCz36dxHB9PJ8DW2qfFbS1Kh4RKK6mMNl0n86JqFe0OZZKswTS48GNwWGjVXV1erN9XXJYmz3xdcNNkhXh+fctKoTQxszEghItAAQnRoISRFhq5zdvvHR3Sz4+vu5dN1epcVCLbkq6AgPlgxJBUkKUDGD82VSgLmYG+dzbZbK9v7hWqhV2LC/boP8CkQqY/nqEEx03TLh4e2zR1teg9akXg1SEjIQCG2XTBmD0uLZerpq7JudAkE3QiIiGk8aiRs62CPBVynOypuXcy1We0zTngOymh3M+/vx9b34AG5//xdAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="before-lambda"
+        title="before-lambda"
+        src="/static/47c9272ed8eead6d76bec3b9d6c98dce/e85cb/before-lambda.png"
+        srcset="/static/47c9272ed8eead6d76bec3b9d6c98dce/070ae/before-lambda.png 120w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/8ff5a/before-lambda.png 240w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/e85cb/before-lambda.png 480w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/37523/before-lambda.png 720w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/d9199/before-lambda.png 960w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/2cefc/before-lambda.png 1400w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>client, server에서 s3 bucket에 이미지가 올라갈 때, 해당 lifecycle에 연결해둔 lambda를 이용해 이미지 resize를 하여 저장하는 방식입니다. 가장 쉽게 생각할 수 있는 방법이지만, 이를 이용하면 이미지 1장를 올릴 때, 이미지 n장이 저장되게 됩니다. cdn을 통해 캐시되긴 하지만, 트래픽이 많아지게 되는 상태에서 s3의 리소스를 과하게 많이 잡아먹게 되겠죠.</p>
+<p>이후 lambda@edge에 대한 아티클을 읽어보았습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/808280e4edc104692024f4c1fa03ed1b/2cefc/after-lambda.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABJElEQVQoz41SS0/DMAzu7+bAnQNn/gInxGPwO2BIqCA6kGCsq7qOQmrHecHndgcmrUCkSEns72HH2devK8QYQhiLZmOBmJJz3oqzIjiklP4FRp733jlJ0UsPZhFrBaFZUTDzKBgmh7w8zw8P9okYLwNXZ/355Kpp1jvAMUb4E4iIeEfz5+npyfFiZV7eqsWyrlsqm0/voxbhPBhhMOt9RnAPMF3OmY7q93ZlpP6Qm7uH6+ktK2ZDTczEVsHYWpXVvmxkA3qcILV3dPZatca0YkrvkOEURgylLdu4MwisNrZcVl277urqvngiJngUFxAkIlD/bPtWzQBD82JyOZ89RrGp7wIeO7VpkfDHVwEMCyqhnzyUx2NzsntIUDakOiIdj/H5+waURYBMKzl8ZAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="after-lambda"
+        title="after-lambda"
+        src="/static/808280e4edc104692024f4c1fa03ed1b/e85cb/after-lambda.png"
+        srcset="/static/808280e4edc104692024f4c1fa03ed1b/070ae/after-lambda.png 120w,
+/static/808280e4edc104692024f4c1fa03ed1b/8ff5a/after-lambda.png 240w,
+/static/808280e4edc104692024f4c1fa03ed1b/e85cb/after-lambda.png 480w,
+/static/808280e4edc104692024f4c1fa03ed1b/37523/after-lambda.png 720w,
+/static/808280e4edc104692024f4c1fa03ed1b/d9199/after-lambda.png 960w,
+/static/808280e4edc104692024f4c1fa03ed1b/2cefc/after-lambda.png 1400w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>이미지가 s3 bucket에 올라올 때가 아닌, 유저가 특정 이미지에 접근 할 때, cloudfront를 통해 s3에 접근하게 됩니다. 물론 hit를 한다면 s3에 들어오지 않겠죠. 그 순서는 아래와 같습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/dcbb99652b52fbc9c77eec9a7b245132/3ddad/origin-response.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 35.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAABhUlEQVQY0zVQy07CUBDt17j0b1wZN8YdxoWJcaEL+QN0YVwYxQd2YaJuUKT4QovUQni02BePWou0AlKRqr3tvdcL6slkMnNOZnJyKIQQHgGBb/jhDLcR8ct3hBw7P9Nmr8gMv75Gwp9KQJHJD3yIcd+qPl5si1q5JGbZfOLTaWG70oxH72cnX46jdvm0mD6U69Idd6bqhdETRH0O4ZKl0RSTub0Ut81kN9foaS1HY7MAapm3JA0qF/eZjfPs5jW/F4sv0+fhcrnE8zwlK4ogCIqqDgYD7HYRDIgvMGhD/cHKJ+wC09My3cpNUGUDpzm0CX3SY7HYaiRCCaKoKkrf9RzpUgyP6/Tc89GicRBy0hvvcqZTZLpFpifdmdFpZWHMXJ96Xp2w90PsVYJJXVIf/b5ltQDEoNcy4mt6VTJqUkOtuPU8fspigx9Wg3O3loydFZNLGyzTOtm1uFvztUPhfyASmw+I6QAiEiAKALQ1X+d9PQc7ddRu+nLR0yRPFj2jgYBHTn4AzZpmiJIU0WUAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="origin-response"
+        title="origin-response"
+        src="/static/dcbb99652b52fbc9c77eec9a7b245132/e85cb/origin-response.png"
+        srcset="/static/dcbb99652b52fbc9c77eec9a7b245132/070ae/origin-response.png 120w,
+/static/dcbb99652b52fbc9c77eec9a7b245132/8ff5a/origin-response.png 240w,
+/static/dcbb99652b52fbc9c77eec9a7b245132/e85cb/origin-response.png 480w,
+/static/dcbb99652b52fbc9c77eec9a7b245132/3ddad/origin-response.png 545w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>cloudfront에 캐시가 되지 않아서 s3로 접근 후 response를 던져줄 때, origin에 대한 정보를 그대로 넘겨주는 것이 아니라, origin을 crop한 이미지의 정보를 넘겨주면 되는 것입니다. 그렇게 되면 crop된 이미지의 정보가 캐시될 것이고, 따로 s3의 저장공간을 사용하지 않더라도 cloudfront가 알아서 캐시해주게 되는 것입니다.</p>
+<h2 id="작업" style="position:relative;">작업<a href="#%EC%9E%91%EC%97%85" aria-label="작업 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<h3 id="cloudfront" style="position:relative;">cloudfront<a href="#cloudfront" aria-label="cloudfront permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c790bc8bd9fb4bb424c862582f5c85c2/fd84e/cloudfront-querystring.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 106.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAABYlAAAWJQFJUiTwAAACfklEQVQ4y41U2XKbQBDk/38syYMrcaLDCCRZiUHiEPe5HJ2elbBUtmxrq5pZFmh6TsM0V5jN5pjPF/j2/Qd+/XpEURQYhgFd36PrevTadnovVu7HcYSsyU7LOEYR/CCE5/nw/QD7g4c4TpBmOYqyRJKk+j6KYiRphiOt3MsPbxKO44C6rlFVlbZ13WiFeZ5rZFlGnPZpmupn10TvCJ0ghWVZWK/X2Gw2MFcr7HY7hGFI5QECQvYCz/OoOHklekumCZOi0SpEoUCUKKXw2bpW9xZGQzcPjJtSHZqmRdO2qJtG21sf3FJ1fWa0VPPiuAjCIyIGOzxGOvBFUaJn4CWjX4LviZiWIgw5kExPbk4qXsvmK3QnwkoSSs+MhhcJuOu6jGGtSYVswj3rncuuu8fu7z84tJ7vsxZ9HYKUydLEZ8XDMN7AoAkn9w2R6wUnhY7j4Pl5h/3+cO6M+yBEJV0u6aHRkbAw58h+P2B4ttFvVxrdxoRam2jtJ9qP0QrMGdRmBXHcGPiHfPkHLjOdM7MZ61BaLCXaVuG+NaKjCEgd9p1CRSUlW6rSsivdw2VZ6Vr8qFTEVUVIiYWcAWprXQhrEkqB9+dSefvRTTCZAqnbgIlUk0JxubSWWqGQSceo7nN0V4Qe1R32+wthz8NGgs96vMy9L9BPpB1ijreIJXYh5IOKmZTBIHXV3dNq5w4R0oQjLT4eLzEcGMNouUCQcgaqAWnDl2r1KVIiKFsUjdLDWeq2pZcnQiYimT3i5ecDDvMZgqcFYnuFdG0T1gewEdkWyi3fMRdI5o9Q1uLUejqzjJ+z3cBeLhEf2CVlDqYdY1PRvsfpXJ6z99uG4J5hkPUfr1dZTwzr6eYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="cloudfront-querystring"
+        title="cloudfront-querystring"
+        src="/static/c790bc8bd9fb4bb424c862582f5c85c2/e85cb/cloudfront-querystring.png"
+        srcset="/static/c790bc8bd9fb4bb424c862582f5c85c2/070ae/cloudfront-querystring.png 120w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/8ff5a/cloudfront-querystring.png 240w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/e85cb/cloudfront-querystring.png 480w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/37523/cloudfront-querystring.png 720w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/d9199/cloudfront-querystring.png 960w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/fd84e/cloudfront-querystring.png 1056w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>cloudfront를 통해 cdn을 하나 만들고, 쿼리문자열을 허용하게 해줍니다. format, quality, width, height 정보를 받아서 lambda 함수 동작 시, origin인지 crop이 필요한 요청인지를 구분할 수 있습니다.</p>
+<h3 id="lambda" style="position:relative;">lambda<a href="#lambda" aria-label="lambda permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p>기본적으로 lambda@edge 구성을 하려면 region을 <code class="language-text">us-east-1</code> 으로 설정해주어야 합니다. 다른 곳은 동작을 안하네요...</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cde9d16c7cebc1cbb2ad68662f039556/e996b/lambda-config.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABXklEQVQoz31SCZKCMBDM//+nVumWrrpCMJyBQBKO3pmsWKxXqppcQ8/0pEUUS6RZhjTPsf8+oijLsP/aHxDJBHVTQ8sj6rrG6eeCmM6yosDxdIams0cIeVWBICPCM/2QUzDveZ3QXRTHOGzXYb5Q8jj5I4ykRFlVTxAVfXTdUCUNTNuGeV43xoQEKi/C2nmPzlo0t5hK6yeI3WZF1UQY+h48pmm6g4d1LpBvtzusVmscqC2qNLDWwVOCR4hUqZDN98+XPSXhyvheksSYZCuVItcmJPLewbn/ENwvw3JoY0kOB9rbms+YrO06tG2HcRwxj6WSJcSVKnzMMoOrDIQk2ZgWwzDcyd4NkVPDl5W9I2SSmfBjhWma3fvFs31FSJLZQuxBfqCPhElyDcHsQ/ZRT4+zJGSLcI9rtkVVoiQbEd17yezu+SeW5uZHYdJbhVxVR65q3AjjJ2g7QNPBK/wCcztSx9u1N0kAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="lambda-config"
+        title="lambda-config"
+        src="/static/cde9d16c7cebc1cbb2ad68662f039556/e85cb/lambda-config.png"
+        srcset="/static/cde9d16c7cebc1cbb2ad68662f039556/070ae/lambda-config.png 120w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/8ff5a/lambda-config.png 240w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/e85cb/lambda-config.png 480w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/37523/lambda-config.png 720w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/d9199/lambda-config.png 960w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/e996b/lambda-config.png 1050w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>lambda 구성 시, 기본 timeout은 3초입니다. 하지만 첫 유저(다른 유저들은 캐시된 이미지를 보기 때문에 빠름)가 이미지에 접근하게 되면 croped image를 생성해야하는데, 3초안에는 이미지를 불러오고, crop하고, response를 다시 보내는데까지 시간이 부족합니다. 추후 lambda의 동작시간이 줄어든다면 테스트를 토해 보정할 수 있습니다.</p>
+<h3 id="lambda-코드-작성" style="position:relative;">lambda 코드 작성<a href="#lambda-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1" aria-label="lambda 코드 작성 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 슈도코드 입니다.</span>
+<span class="token keyword">const</span> <span class="token constant">AWS</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'aws-sdk'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 로컬에서는 sam을 사용하기 때문에 설치 필요 없음. remote에서는 자동으로 들어감</span>
+<span class="token keyword">const</span> Sharp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'sharp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// image crop을 위해 사용</span>
+
+<span class="token keyword">const</span> <span class="token constant">S3</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AWS<span class="token punctuation">.</span>S3</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  region<span class="token operator">:</span> <span class="token string">'us-east-1'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">BUCKET</span> <span class="token operator">=</span> <span class="token string">'YOUR_BUCKET_NAME'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> allowedExtension <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'jpg'</span><span class="token punctuation">,</span> <span class="token string">'jpeg'</span><span class="token punctuation">,</span> <span class="token string">'png'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+exports<span class="token punctuation">.</span><span class="token function-variable function">lambdaHandler</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> _context<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> <span class="token punctuation">{</span> request<span class="token punctuation">,</span> response <span class="token punctuation">}</span> <span class="token operator">=</span> event<span class="token punctuation">.</span>Records<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cf<span class="token punctuation">;</span>
+
+  <span class="token comment">// 기본적으로 200이 아니면 s3에 이미지가 없는것임...</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> extension <span class="token operator">=</span> request<span class="token punctuation">.</span>uri를 이용해 확장자를 얻어냄
+
+    <span class="token keyword">const</span> params <span class="token operator">=</span> request<span class="token punctuation">.</span>querystring를 이용해 query param을 얻어냄
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>params<span class="token punctuation">.</span>t <span class="token operator">||</span> params<span class="token punctuation">.</span>t <span class="token operator">!==</span> <span class="token string">'A'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// cloudfront에서 설정한 t 값이 A가 아니라면 일반 요청이므로 바로 return</span>
+      <span class="token keyword">return</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>allowedExtension<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>extension<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 확장자가 지원을 하지 않는다면 그대로 return</span>
+      <span class="token keyword">return</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token constant">S3</span><span class="token punctuation">.</span><span class="token function">getObject</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      Bucket<span class="token operator">:</span> <span class="token constant">BUCKET</span><span class="token punctuation">,</span>
+      Key<span class="token operator">:</span> image path <span class="token comment">// image path에서 제일 앞글자의 '/'는 제외시켜야 한다.</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>ContentLength <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// s3의 content가 없다면 그대로 return</span>
+      <span class="token keyword">return</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> resizedImageBuffer <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">Sharp</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>Body<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>width 크기<span class="token punctuation">,</span> height 크기<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    response<span class="token punctuation">.</span>status <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    response<span class="token punctuation">.</span>body <span class="token operator">=</span> resizedImageBuffer<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">'base64'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    response<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'content-type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> key<span class="token operator">:</span> <span class="token string">'Content-Type'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">image/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>extension<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    response<span class="token punctuation">.</span>bodyEncoding <span class="token operator">=</span> <span class="token string">'base64'</span><span class="token punctuation">;</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<h3 id="다시-lambda" style="position:relative;">다시 lambda<a href="#%EB%8B%A4%EC%8B%9C-lambda" aria-label="다시 lambda permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p>lambda의 코드 작성이 완료되었다면 배포를 해야 합니다. 해당 code를 s3를 통해 업로드 하거나, .zip으로 압축해 배포를 진행합니다.
+전 개발 테스트를 겸하면서 진행했기 때문에 zip으로 압축하여 많이 업로드 하였는데요, package.json을 포함해 같이 배포하면 자동으로 build를 통해 package들을 install을 하지만, <a href="https://sharp.pixelplumbing.com/install#aws-lambda" target="_blank" rel="noopener">Sharp 모듈 설치 시, linux환경에 맞게 설치</a>해줘야 하는 문제가 있었습니다. 따라서 .zip압축 시, package.json을 넣지 않고, 이미 linux환경에 맞게 설치한 node_modules를 다이렉트로 넣어줬습니다. (이렇게 해도 문제 없음)</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f8b21226f0cae3354f746a1b691e806f/82be8/lambda-code.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 16.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAdElEQVQI123N2w7CIBBF0f7/h6pAgbkBtTU5UjQ1JD6s7Ml5mSV4hxgjiBncnRURmNlFTa+KykS/jSkhE2FxieGSgK3OSgNpGaTfWWy07gfqc9b2F273B1LOWFbb4LUhcEGQ+tM337fT2m9Hn1I7/uKyjYdvLbbmZxoJfqwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="lambda-code"
+        title="lambda-code"
+        src="/static/f8b21226f0cae3354f746a1b691e806f/e85cb/lambda-code.png"
+        srcset="/static/f8b21226f0cae3354f746a1b691e806f/070ae/lambda-code.png 120w,
+/static/f8b21226f0cae3354f746a1b691e806f/8ff5a/lambda-code.png 240w,
+/static/f8b21226f0cae3354f746a1b691e806f/e85cb/lambda-code.png 480w,
+/static/f8b21226f0cae3354f746a1b691e806f/37523/lambda-code.png 720w,
+/static/f8b21226f0cae3354f746a1b691e806f/d9199/lambda-code.png 960w,
+/static/f8b21226f0cae3354f746a1b691e806f/82be8/lambda-code.png 3272w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>코드 편집을 눌러 배포를 하고, 배포가 끝나면 트리거를 추가해줍니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/352448a9c10ad00bb1d91a6f891813e5/e7c5b/cloudfront-trigger.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 70.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB10lEQVQ4y6VTf2+bQAzli5Y1aT7pNml/NF2rZs3ULU3gKA3HbwhJIAHebAci2mlS1Z30ZJ/vzjw/G0M5FmxlIYpiNE2DqqpwOBw+DMN3S2i3QJxEKIot6rp+hWOHoT+MDe9VnPDuW4jZtUa2iZGmOUpiyEz5Etumbc/7lvy22/cxSX48it3t9zCC0IdyFF5e1vA8Dcuy8ey6sG0lWC5XcqaUg9WK5aG48wzb1Vg5awRhhCAISKoDeBmPj78wm/3AfP4T7GutiWmGPM+RpKloy/uUfM/z6HGILN8gLUrku0qY9cwlIbMqy0q+wOV28Q8tTmpwCaPxGBcXJi4vRzDNT+KbpokxxQVXVxiNxphMJiSJJY831MCm+/orhg7p8fnLV3y/vcX1dIrpzY3Y+/sZyTDHA0Hsw8ludzt5zI1oBwn7ZXBnmqZFTV17b1mcbF+WIF5/J3SpgxZ1UxHThMQvtlsRnQe87kdigLofl38xDKMIi6clkiSVrmZZLl/nqX+brAefcWW9dkMYyvXwe/Ekc8bQ2sf/LCPKy06c0/QzAy6Xx+hkKxqr8ozh/u05+4btuJgvXSzUGmEYyuBGJEOSJGJ5sH0/gPb98xlXwbEojuUex/lv4bt/AOP3JNcSO62AAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="cloudfront-trigger"
+        title="cloudfront-trigger"
+        src="/static/352448a9c10ad00bb1d91a6f891813e5/e85cb/cloudfront-trigger.png"
+        srcset="/static/352448a9c10ad00bb1d91a6f891813e5/070ae/cloudfront-trigger.png 120w,
+/static/352448a9c10ad00bb1d91a6f891813e5/8ff5a/cloudfront-trigger.png 240w,
+/static/352448a9c10ad00bb1d91a6f891813e5/e85cb/cloudfront-trigger.png 480w,
+/static/352448a9c10ad00bb1d91a6f891813e5/37523/cloudfront-trigger.png 720w,
+/static/352448a9c10ad00bb1d91a6f891813e5/d9199/cloudfront-trigger.png 960w,
+/static/352448a9c10ad00bb1d91a6f891813e5/e7c5b/cloudfront-trigger.png 2642w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>origin response가 아니라면 제대로 동작하지 않습니다.</p>
+<h3 id="다시-cloudfront" style="position:relative;">다시 cloudfront<a href="#%EB%8B%A4%EC%8B%9C-cloudfront" aria-label="다시 cloudfront permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3>
+<p>트리거를 추가할 때 cloudfront를 입력했기 때문에, <code class="language-text">cloudfront &gt; 배포 &gt; id &gt; 동작 편집</code> 을 보면 배포된 lambda의 arn 정보가 <code class="language-text">함수 연결</code> 부분에 제대로 들어가 있음을 볼 수 있습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/968bf4e7787df929362621b798d7c5e0/7f7f8/cloudfront-function.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 40.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABLElEQVQoz3VSXU/DMAzM7+SJgdCAFyR+I09IPA4x1G1F2sqWds2qdWmyfhy2pYzAwNLpnNS+XOOo6fQdb4RkNsdk8ookXcLsKhizQ1VV2BG2ZYnSGDjncDwe4b0/Q9hXnHChbRrZsIcD9nWNOmIB5aGR0bbtD4RvClFYa6HzXAp+B+9pnWOVZdLMMQyDcN/3KIqtGFCeVNP0Q8S4abnKxBEX8brrOnHPp8cizDFCKG7gk8NvbLQW8VjQkSPOhz+EYkEmxcVJMjs5ZLdsPRY80Lfg8L8IojIUdiWXTQKf6w32+1pyLwNo0dDQGudR0OTzbYm8NMRGWNPauu87VY4WM3oyDd1TK4JrzBcLejZGClpyyG7TZYbxwyMub8a4ur3HaHwnfDG6xtPzy2k4X4fFYxrAJoMIAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="cloudfront-function"
+        title="cloudfront-function"
+        src="/static/968bf4e7787df929362621b798d7c5e0/e85cb/cloudfront-function.png"
+        srcset="/static/968bf4e7787df929362621b798d7c5e0/070ae/cloudfront-function.png 120w,
+/static/968bf4e7787df929362621b798d7c5e0/8ff5a/cloudfront-function.png 240w,
+/static/968bf4e7787df929362621b798d7c5e0/e85cb/cloudfront-function.png 480w,
+/static/968bf4e7787df929362621b798d7c5e0/37523/cloudfront-function.png 720w,
+/static/968bf4e7787df929362621b798d7c5e0/d9199/cloudfront-function.png 960w,
+/static/968bf4e7787df929362621b798d7c5e0/7f7f8/cloudfront-function.png 2396w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<hr>
+<h2 id="마무리" style="position:relative;">마무리<a href="#%EB%A7%88%EB%AC%B4%EB%A6%AC" aria-label="마무리 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>설정과 코딩이 완료되었습니다. 결과물을 볼까요?
+(사전에 s3에 images/test1.jpg 파일을 올려뒀습니다.)</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/345d32c6947dede9dbce2bae90d90e82/1628f/before-result.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 140%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEqklEQVRIx42Va1BUZRzG+VIKIU7aQLEfuoA3LsudhusWy94vLKAMIyg4BqQoFOAut+UmCA6CyUWIQHQXUK4LCysRC2malwpsappMZ5r6kDX2IT/U56f/e84qYw27fHjmfc85c37v83+f/3uOW2hYJAKDhNgTEITdewIhDAnj5n5+foiPiUF4WBiio6LwNikyIgLCoGAEBQQiPDQUwaERiI2Ng0QshlalgFyhhltMnAjiZBkSRUlISEyCVKaE6B0xomPiaa4Cey56VwKJVMldJ4rEiKV7SUlSRCZIkSzXIFkih1KphUSigJu3tze8vX2eycfnVbyyfRsSsvTQVZuhLOmBsvg8FMe6IS/s4iQ70gn50U7ImI7wenN3OLZvexlunp6eeE5btsB90wuIz6lFWvNVqKuvQFV5GcoTI1CWDUNRaoa8xEzjEDfnxyG89lYwPDa/CDcvLy88p61b8ZLHZsQfNCL15DRU5WaoDEMEJJWayLEJipJL/5EJAn8hPOm9/wO9COjuADYQ0EDA8mEoDcMOqJkD8CMPZHNfPyH33rrAuANG6AiodABVDKgnlfHQp0BuTvd8/V0Cq6GrZ0ATAYfWoMxlmfkZlFtgY0ByWG8hCAErCFgxzJeuXyudB5LTDQEPGjmHzJ2m6jK0lDYb1ZWUtt4R0tORJOCAm1yE0jhDLTOM9LpxZDZNQUYOZQa+fHXFMA90yNclMMeItEYr1FUjSK0bw/GueRw+Y0XuadpXcq3Qm/kOYAswoKuU43NqCDgLrfEKFFRm1cASbHcfwnbnAYbs3yGzYRzyEyaoy1koJgIGc/3rHNg0xwOpvNLeBfTPr6J98jYsN3/EwNVV2lO2n+Y1oPNQamgPrRTGCAfMa5/FxYVvMUjqsX6NmS/vo/CcDZKyS1AbNtiH7KRoCMiCyWqaxMjy97j38Hes/PQIKw8eofbC5xBTc2vouWtgNjV2g4VCoTTJYfapSfTZVvDV/d/wwy+P8esfT/A+uZZSuSxxgStgbHYVD6TVmUtd7Sh6Z7/B47/+xp9P/sHg/D0ql4exNhLscNE2sVmVSKnngSwYbc0o2iZuw776Mzosd7kmV1WMcI3OWkuwI8QJkOKP2V9BwCnOnYaAKeTQ0L+Ews55SMkRu6dxnB62oGBniHOHcVQy+x5qjCMcTEMO88/aUD6wTNfjpDEOxqBaOkmCXaGujl419SG1TQ25o5OiNo7hUNscSvvsHFBjHOW3guYZzTN4IyCCvtgujl56i41g49DVTZCLCexrmkZxzyIyGi0EHKPQJrG32YoPeq9hlzCafh3r/QLIesLhOuxrW6B9nIDupAWpBNPSnh7r/gyZzdNIaZiCjpy917GIko+vO3HoAIryG5FxdhG6ximk0oup5IS1Ue6ZORxosyH99CwOnVtAMbnL/ehTvO4M6EFAcUET9ncsE2gaafRy2ikr5zDrjA155+3kzI6y/hso6LJzLv2Cotb/67GV1Mdbkdd7AxmtBGshMYdUdja5Keq7hpK+LzgVdC2hmEr2D46CuzNg2oftOPrJLQLO8cAWK/a22pDfvQT9hZswDN5CEZVb1HsdlRfvYCcLhYD/AgJ/THVozlQIAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="before-result"
+        title="before-result"
+        src="/static/345d32c6947dede9dbce2bae90d90e82/e85cb/before-result.png"
+        srcset="/static/345d32c6947dede9dbce2bae90d90e82/070ae/before-result.png 120w,
+/static/345d32c6947dede9dbce2bae90d90e82/8ff5a/before-result.png 240w,
+/static/345d32c6947dede9dbce2bae90d90e82/e85cb/before-result.png 480w,
+/static/345d32c6947dede9dbce2bae90d90e82/37523/before-result.png 720w,
+/static/345d32c6947dede9dbce2bae90d90e82/d9199/before-result.png 960w,
+/static/345d32c6947dede9dbce2bae90d90e82/1628f/before-result.png 1232w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><em>&#x3C;이미지 원본></em></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/27fe694bc1de09a4a1d710e9caf284d0/53639/after-result.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 69.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACFUlEQVQ4y62TS0xTQRRAu5Cg0M/apcYgrbH4+u97r6+vRSLSAG0pJH4xakJw4ZZi5GNpFYGYGF2SGIrRAlW0alWMxsRfXPhJZGHigr0bFy5cHqcNWlnRJi5OZubO3JN7ZzIGp8uLvUXCZtuL3S4hSU6adltRAjqyEkRWg+ih/WU8XgWfT8Hp0/DIIQLiTFBvxS9r7HP4UMXa4Pb4UUWSR4yyoqFpISSHW4g0SnseIQiIWAmX24ffvy5UwuKsTijcVs5rcXjRgiEMFosFs9nMn3HjvBKrxC1Y1temEqbKXmluMJlM/E8M/1awKSLBXKpIYPkb23hmc6FopXFbPbtcrYTPXEE/fZHwwCTyiTSqQBPop6aQIgOiQmN1wob6LewJJUhMPqF7PM/gtadlEqm7dCRvE7tQINCfwmSsWliHTYsRTxdoT84zPLvC4stVsiufOZpZomM4h3r4fI3CYJx45oEQ3uTs9SKzxY/cev6Fq3feETm3iHpktJaW67CWKpy4x8FklpNTyxTff2N17TsP33ylaySPemysRmEgSiy1LNqb51B6iRef1vjx8xczC685kMyh9Y/XINxaR7PaRfdYXjxClt7UAjcef2A694r2oTk6R0TLx0drfGU9Qe/0M2KZAn2XiwzNvaXn0iOiE/fpE/Hw4EyVQoGxsYHtO6ziHqM0K51l3G092PUoTXKkfB07Ja38U34DuHO7xZ/u2qgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="after-result"
+        title="after-result"
+        src="/static/27fe694bc1de09a4a1d710e9caf284d0/e85cb/after-result.png"
+        srcset="/static/27fe694bc1de09a4a1d710e9caf284d0/070ae/after-result.png 120w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/8ff5a/after-result.png 240w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/e85cb/after-result.png 480w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/37523/after-result.png 720w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/d9199/after-result.png 960w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/53639/after-result.png 1358w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><em>&#x3C;t(type) query param을 통해 crop된 이미지></em></p>
+<p>이렇게 간단하게(3일정도 걸렸지만) 완성했습니다!
+FE개발자도 간단한(것 같지 않지만) aws를 다루지 않나 라는 생각을 한지 2~3년은 된 것 같은데 이제야 사용을 해보네요...</p>
+<p>백엔드 뿐만 아니라 인프라도 자유자재로 써볼 수 있는 기회가 있으면 좋겠습니다 :)</p></section><hr style="margin-bottom:1.625rem"/><footer style="color:#898989"><p scale="[object Object]" class="PostTags__StyledPTags-sc-1ielp4x-0 kRNYYT">#aws <!-- -->#lambda <!-- -->#lambda@edge <!-- -->#sharp </p></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"></ul></nav></main><footer style="text-align:center"><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://github.com/jicjjang" target="_blank"><img src="/static/b33838e421fcf2eaeb2da472c1e32060/github.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.instagram.com/jicjjang" target="_blank"><img src="/static/64b2774f0c50daac23fd881877dae854/instagram.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.linkedin.com/in/jicjjang" target="_blank"><img src="/static/3e51027afe6b45fb6d7b38b1e194dcbb/linkedin.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="mailto:jicjjang12@gmail.com" target="_blank"><img src="/static/ababfdf6167a3ee6c8f91dd6d29c765d/mail.png" style="display:block;width:100%"/></a></span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-59806888-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/lambda-edge";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-f8cb09a0c2fa50816452.js"],"app":["/app-2bed233af2de965db4b0.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-9023e69c8b9c141f86eb.js"],"component---src-pages-archive-tsx":["/component---src-pages-archive-tsx-ba6595d573a79b6a7435.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-0d707984196c022fbb95.js"],"component---src-pages-presentation-1-tsx":["/component---src-pages-presentation-1-tsx-e08260dfe8c642888896.js"],"component---src-pages-presentation-10-tsx":["/component---src-pages-presentation-10-tsx-aad815f65e9e76a93f86.js"],"component---src-pages-presentation-2-tsx":["/component---src-pages-presentation-2-tsx-8bf9cbd2ca57b2e8b56e.js"],"component---src-pages-presentation-3-tsx":["/component---src-pages-presentation-3-tsx-258267ecfb0e9f06b980.js"],"component---src-pages-presentation-4-tsx":["/component---src-pages-presentation-4-tsx-ecb12aa44aa6126facae.js"],"component---src-pages-presentation-5-tsx":["/component---src-pages-presentation-5-tsx-9e698e03679328cf7809.js"],"component---src-pages-presentation-6-tsx":["/component---src-pages-presentation-6-tsx-e54b22325ae57e3d66b1.js"],"component---src-pages-presentation-7-tsx":["/component---src-pages-presentation-7-tsx-d1462aa5514e2e46e152.js"],"component---src-pages-presentation-8-tsx":["/component---src-pages-presentation-8-tsx-da1a624be3bcfcb7c522.js"],"component---src-pages-presentation-9-tsx":["/component---src-pages-presentation-9-tsx-7e8c25999909a33a83bc.js"],"component---src-pages-presentation-index-tsx":["/component---src-pages-presentation-index-tsx-c82568fe721c1d1e3aba.js"],"component---src-pages-resume-tsx":["/component---src-pages-resume-tsx-4fe2f3b4bfb8b66687b3.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"]};/*]]>*/</script><script src="/polyfill-f8cb09a0c2fa50816452.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js" async=""></script><script src="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js" async=""></script><script src="/77f29e761df5de25d397b39b76c634399f02315e-55b38568922346810659.js" async=""></script><script src="/app-2bed233af2de965db4b0.js" async=""></script><script src="/framework-ee8a4bba4771daaa13e7.js" async=""></script><script src="/styles-8db67c5187b7b8ad64da.js" async=""></script><script src="/webpack-runtime-338541f0ff3cc62c78cf.js" async=""></script></body></html>

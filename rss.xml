@@ -1,4 +1,413 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 28 Mar 2022 16:10:23 GMT</lastBuildDate><item><title><![CDATA[커피챗 굿즈]]></title><description><![CDATA[작년 1…]]></description><link>https://jicjjang.github.io/posts/coffeechat-goods</link><guid isPermaLink="false">https://jicjjang.github.io/posts/coffeechat-goods</guid><pubDate>Tue, 29 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;작년 11월에 &lt;a href=&quot;https://jicjjang.github.io/posts/coffeechat&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;커피챗 이용 후기&lt;/a&gt;에 대해 간략히 정리해 봤었다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Apr 2022 12:26:42 GMT</lastBuildDate><item><title><![CDATA[Lambda@edge로 crop된 이미지 캐싱하기]]></title><description><![CDATA[참고 ref1 - AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기
+참고 ref2 - AWS Lambda@Edge에서 실시간 이미지 리사이즈 & WebP…]]></description><link>https://jicjjang.github.io/posts/lambda-edge</link><guid isPermaLink="false">https://jicjjang.github.io/posts/lambda-edge</guid><pubDate>Wed, 13 Apr 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;참고 ref1 - &lt;a href=&quot;https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기&lt;/a&gt;
+참고 ref2 - &lt;a href=&quot;https://medium.com/daangn/lambda-edge%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-on-the-fly-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-f4e5052d49f3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda@Edge에서 실시간 이미지 리사이즈 &amp;#x26; WebP 형식으로 변환&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;사이드 프로젝트 팀에 합류하여 퇴근 후 프로젝트를 진행하고 있습니다.
+flutter를 써보고자 들어간 팀인데 앱개발자 분들이 flutter를 이미 잘 만들고 계셔서 ㅠㅠ... 어쩔수 없이 프론트... 가 아닌 서버개발자(??)로 개발을 하고 있습니다.&lt;/p&gt;
+&lt;p&gt;회사 서비스를 만들면서 api서버는 건드리고 있으나, 실제 배포 프로세스나 microservice화 된 서비스들을 연결한다거나 api gateway, 권한 관리 등등에 대해 제대로 해본 경험이 없습니다. 그렇기에 걱정반 기대반으로 시작한 제 업무는 &lt;code class=&quot;language-text&quot;&gt;이미지 업로드 시, thumbnail을 만들어야 하는데 당근의 lambda@edge아티클을 보고 thumbnail 생성을 구현해달라&lt;/code&gt; 였습니다.&lt;/p&gt;
+&lt;p&gt;aws는 프리티어로 ec2에 서버를 돌려본 경험이 전부이지만 하나하나 다 물어보며 진행하기는 어려웠습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;업무-파악&quot; style=&quot;position:relative;&quot;&gt;업무 파악&lt;a href=&quot;#%EC%97%85%EB%AC%B4-%ED%8C%8C%EC%95%85&quot; aria-label=&quot;업무 파악 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;당근의 아티클에는 기존 프로세스에 대한 아티클이 추가로 있었고, 어떤 방식에서 어떤 방식으로 수정하려고 한다~ 라는 히스토리를 알 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;당근의 lambda를 이용한 thumbnail 생성은 아래와 같이 저장되고 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/47c9272ed8eead6d76bec3b9d6c98dce/2cefc/before-lambda.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABOUlEQVQoz4VSy0rDQBTNB/sBLvwTP8KVGwlYxYWoi1KElIJFXNSG5jF5zePO3IlnUikRkhoml3mdc8+5d6L+7OeYnXNzp9F44ZlPc/aerNXaYJAlLP8B/1IEmDNExhAiKLCz36dxHB9PJ8DW2qfFbS1Kh4RKK6mMNl0n86JqFe0OZZKswTS48GNwWGjVXV1erN9XXJYmz3xdcNNkhXh+fctKoTQxszEghItAAQnRoISRFhq5zdvvHR3Sz4+vu5dN1epcVCLbkq6AgPlgxJBUkKUDGD82VSgLmYG+dzbZbK9v7hWqhV2LC/boP8CkQqY/nqEEx03TLh4e2zR1teg9akXg1SEjIQCG2XTBmD0uLZerpq7JudAkE3QiIiGk8aiRs62CPBVynOypuXcy1We0zTngOymh3M+/vx9b34AG5//xdAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;before-lambda&quot;
+        title=&quot;before-lambda&quot;
+        src=&quot;/static/47c9272ed8eead6d76bec3b9d6c98dce/e85cb/before-lambda.png&quot;
+        srcset=&quot;/static/47c9272ed8eead6d76bec3b9d6c98dce/070ae/before-lambda.png 120w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/8ff5a/before-lambda.png 240w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/e85cb/before-lambda.png 480w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/37523/before-lambda.png 720w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/d9199/before-lambda.png 960w,
+/static/47c9272ed8eead6d76bec3b9d6c98dce/2cefc/before-lambda.png 1400w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;client, server에서 s3 bucket에 이미지가 올라갈 때, 해당 lifecycle에 연결해둔 lambda를 이용해 이미지 resize를 하여 저장하는 방식입니다. 가장 쉽게 생각할 수 있는 방법이지만, 이를 이용하면 이미지 1장를 올릴 때, 이미지 n장이 저장되게 됩니다. cdn을 통해 캐시되긴 하지만, 트래픽이 많아지게 되는 상태에서 s3의 리소스를 과하게 많이 잡아먹게 되겠죠.&lt;/p&gt;
+&lt;p&gt;이후 lambda@edge에 대한 아티클을 읽어보았습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/808280e4edc104692024f4c1fa03ed1b/2cefc/after-lambda.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABJElEQVQoz41SS0/DMAzu7+bAnQNn/gInxGPwO2BIqCA6kGCsq7qOQmrHecHndgcmrUCkSEns72HH2devK8QYQhiLZmOBmJJz3oqzIjiklP4FRp733jlJ0UsPZhFrBaFZUTDzKBgmh7w8zw8P9okYLwNXZ/355Kpp1jvAMUb4E4iIeEfz5+npyfFiZV7eqsWyrlsqm0/voxbhPBhhMOt9RnAPMF3OmY7q93ZlpP6Qm7uH6+ktK2ZDTczEVsHYWpXVvmxkA3qcILV3dPZatca0YkrvkOEURgylLdu4MwisNrZcVl277urqvngiJngUFxAkIlD/bPtWzQBD82JyOZ89RrGp7wIeO7VpkfDHVwEMCyqhnzyUx2NzsntIUDakOiIdj/H5+waURYBMKzl8ZAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;after-lambda&quot;
+        title=&quot;after-lambda&quot;
+        src=&quot;/static/808280e4edc104692024f4c1fa03ed1b/e85cb/after-lambda.png&quot;
+        srcset=&quot;/static/808280e4edc104692024f4c1fa03ed1b/070ae/after-lambda.png 120w,
+/static/808280e4edc104692024f4c1fa03ed1b/8ff5a/after-lambda.png 240w,
+/static/808280e4edc104692024f4c1fa03ed1b/e85cb/after-lambda.png 480w,
+/static/808280e4edc104692024f4c1fa03ed1b/37523/after-lambda.png 720w,
+/static/808280e4edc104692024f4c1fa03ed1b/d9199/after-lambda.png 960w,
+/static/808280e4edc104692024f4c1fa03ed1b/2cefc/after-lambda.png 1400w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이미지가 s3 bucket에 올라올 때가 아닌, 유저가 특정 이미지에 접근 할 때, cloudfront를 통해 s3에 접근하게 됩니다. 물론 hit를 한다면 s3에 들어오지 않겠죠. 그 순서는 아래와 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dcbb99652b52fbc9c77eec9a7b245132/3ddad/origin-response.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAABhUlEQVQY0zVQy07CUBDt17j0b1wZN8YdxoWJcaEL+QN0YVwYxQd2YaJuUKT4QovUQni02BePWou0AlKRqr3tvdcL6slkMnNOZnJyKIQQHgGBb/jhDLcR8ct3hBw7P9Nmr8gMv75Gwp9KQJHJD3yIcd+qPl5si1q5JGbZfOLTaWG70oxH72cnX46jdvm0mD6U69Idd6bqhdETRH0O4ZKl0RSTub0Ut81kN9foaS1HY7MAapm3JA0qF/eZjfPs5jW/F4sv0+fhcrnE8zwlK4ogCIqqDgYD7HYRDIgvMGhD/cHKJ+wC09My3cpNUGUDpzm0CX3SY7HYaiRCCaKoKkrf9RzpUgyP6/Tc89GicRBy0hvvcqZTZLpFpifdmdFpZWHMXJ96Xp2w90PsVYJJXVIf/b5ltQDEoNcy4mt6VTJqUkOtuPU8fspigx9Wg3O3loydFZNLGyzTOtm1uFvztUPhfyASmw+I6QAiEiAKALQ1X+d9PQc7ddRu+nLR0yRPFj2jgYBHTn4AzZpmiJIU0WUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;origin-response&quot;
+        title=&quot;origin-response&quot;
+        src=&quot;/static/dcbb99652b52fbc9c77eec9a7b245132/e85cb/origin-response.png&quot;
+        srcset=&quot;/static/dcbb99652b52fbc9c77eec9a7b245132/070ae/origin-response.png 120w,
+/static/dcbb99652b52fbc9c77eec9a7b245132/8ff5a/origin-response.png 240w,
+/static/dcbb99652b52fbc9c77eec9a7b245132/e85cb/origin-response.png 480w,
+/static/dcbb99652b52fbc9c77eec9a7b245132/3ddad/origin-response.png 545w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;cloudfront에 캐시가 되지 않아서 s3로 접근 후 response를 던져줄 때, origin에 대한 정보를 그대로 넘겨주는 것이 아니라, origin을 crop한 이미지의 정보를 넘겨주면 되는 것입니다. 그렇게 되면 crop된 이미지의 정보가 캐시될 것이고, 따로 s3의 저장공간을 사용하지 않더라도 cloudfront가 알아서 캐시해주게 되는 것입니다.&lt;/p&gt;
+&lt;h2 id=&quot;작업&quot; style=&quot;position:relative;&quot;&gt;작업&lt;a href=&quot;#%EC%9E%91%EC%97%85&quot; aria-label=&quot;작업 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;cloudfront&quot; style=&quot;position:relative;&quot;&gt;cloudfront&lt;a href=&quot;#cloudfront&quot; aria-label=&quot;cloudfront permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c790bc8bd9fb4bb424c862582f5c85c2/fd84e/cloudfront-querystring.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 106.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAABYlAAAWJQFJUiTwAAACfklEQVQ4y41U2XKbQBDk/38syYMrcaLDCCRZiUHiEPe5HJ2elbBUtmxrq5pZFmh6TsM0V5jN5pjPF/j2/Qd+/XpEURQYhgFd36PrevTadnovVu7HcYSsyU7LOEYR/CCE5/nw/QD7g4c4TpBmOYqyRJKk+j6KYiRphiOt3MsPbxKO44C6rlFVlbZ13WiFeZ5rZFlGnPZpmupn10TvCJ0ghWVZWK/X2Gw2MFcr7HY7hGFI5QECQvYCz/OoOHklekumCZOi0SpEoUCUKKXw2bpW9xZGQzcPjJtSHZqmRdO2qJtG21sf3FJ1fWa0VPPiuAjCIyIGOzxGOvBFUaJn4CWjX4LviZiWIgw5kExPbk4qXsvmK3QnwkoSSs+MhhcJuOu6jGGtSYVswj3rncuuu8fu7z84tJ7vsxZ9HYKUydLEZ8XDMN7AoAkn9w2R6wUnhY7j4Pl5h/3+cO6M+yBEJV0u6aHRkbAw58h+P2B4ttFvVxrdxoRam2jtJ9qP0QrMGdRmBXHcGPiHfPkHLjOdM7MZ61BaLCXaVuG+NaKjCEgd9p1CRSUlW6rSsivdw2VZ6Vr8qFTEVUVIiYWcAWprXQhrEkqB9+dSefvRTTCZAqnbgIlUk0JxubSWWqGQSceo7nN0V4Qe1R32+wthz8NGgs96vMy9L9BPpB1ijreIJXYh5IOKmZTBIHXV3dNq5w4R0oQjLT4eLzEcGMNouUCQcgaqAWnDl2r1KVIiKFsUjdLDWeq2pZcnQiYimT3i5ecDDvMZgqcFYnuFdG0T1gewEdkWyi3fMRdI5o9Q1uLUejqzjJ+z3cBeLhEf2CVlDqYdY1PRvsfpXJ6z99uG4J5hkPUfr1dZTwzr6eYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cloudfront-querystring&quot;
+        title=&quot;cloudfront-querystring&quot;
+        src=&quot;/static/c790bc8bd9fb4bb424c862582f5c85c2/e85cb/cloudfront-querystring.png&quot;
+        srcset=&quot;/static/c790bc8bd9fb4bb424c862582f5c85c2/070ae/cloudfront-querystring.png 120w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/8ff5a/cloudfront-querystring.png 240w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/e85cb/cloudfront-querystring.png 480w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/37523/cloudfront-querystring.png 720w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/d9199/cloudfront-querystring.png 960w,
+/static/c790bc8bd9fb4bb424c862582f5c85c2/fd84e/cloudfront-querystring.png 1056w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;cloudfront를 통해 cdn을 하나 만들고, 쿼리문자열을 허용하게 해줍니다. format, quality, width, height 정보를 받아서 lambda 함수 동작 시, origin인지 crop이 필요한 요청인지를 구분할 수 있습니다.&lt;/p&gt;
+&lt;h3 id=&quot;lambda&quot; style=&quot;position:relative;&quot;&gt;lambda&lt;a href=&quot;#lambda&quot; aria-label=&quot;lambda permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;기본적으로 lambda@edge 구성을 하려면 region을 &lt;code class=&quot;language-text&quot;&gt;us-east-1&lt;/code&gt; 으로 설정해주어야 합니다. 다른 곳은 동작을 안하네요...&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cde9d16c7cebc1cbb2ad68662f039556/e996b/lambda-config.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABXklEQVQoz31SCZKCMBDM//+nVumWrrpCMJyBQBKO3pmsWKxXqppcQ8/0pEUUS6RZhjTPsf8+oijLsP/aHxDJBHVTQ8sj6rrG6eeCmM6yosDxdIams0cIeVWBICPCM/2QUzDveZ3QXRTHOGzXYb5Q8jj5I4ykRFlVTxAVfXTdUCUNTNuGeV43xoQEKi/C2nmPzlo0t5hK6yeI3WZF1UQY+h48pmm6g4d1LpBvtzusVmscqC2qNLDWwVOCR4hUqZDN98+XPSXhyvheksSYZCuVItcmJPLewbn/ENwvw3JoY0kOB9rbms+YrO06tG2HcRwxj6WSJcSVKnzMMoOrDIQk2ZgWwzDcyd4NkVPDl5W9I2SSmfBjhWma3fvFs31FSJLZQuxBfqCPhElyDcHsQ/ZRT4+zJGSLcI9rtkVVoiQbEd17yezu+SeW5uZHYdJbhVxVR65q3AjjJ2g7QNPBK/wCcztSx9u1N0kAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;lambda-config&quot;
+        title=&quot;lambda-config&quot;
+        src=&quot;/static/cde9d16c7cebc1cbb2ad68662f039556/e85cb/lambda-config.png&quot;
+        srcset=&quot;/static/cde9d16c7cebc1cbb2ad68662f039556/070ae/lambda-config.png 120w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/8ff5a/lambda-config.png 240w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/e85cb/lambda-config.png 480w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/37523/lambda-config.png 720w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/d9199/lambda-config.png 960w,
+/static/cde9d16c7cebc1cbb2ad68662f039556/e996b/lambda-config.png 1050w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;lambda 구성 시, 기본 timeout은 3초입니다. 하지만 첫 유저(다른 유저들은 캐시된 이미지를 보기 때문에 빠름)가 이미지에 접근하게 되면 croped image를 생성해야하는데, 3초안에는 이미지를 불러오고, crop하고, response를 다시 보내는데까지 시간이 부족합니다. 추후 lambda의 동작시간이 줄어든다면 테스트를 토해 보정할 수 있습니다.&lt;/p&gt;
+&lt;h3 id=&quot;lambda-코드-작성&quot; style=&quot;position:relative;&quot;&gt;lambda 코드 작성&lt;a href=&quot;#lambda-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1&quot; aria-label=&quot;lambda 코드 작성 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 슈도코드 입니다.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;AWS&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;aws-sdk&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 로컬에서는 sam을 사용하기 때문에 설치 필요 없음. remote에서는 자동으로 들어감&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; Sharp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;sharp&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// image crop을 위해 사용&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;S3&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AWS&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;S3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  region&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;us-east-1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;BUCKET&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;YOUR_BUCKET_NAME&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; allowedExtension &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;jpg&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;jpeg&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;png&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;lambdaHandler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; _context&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Records&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cf&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 기본적으로 200이 아니면 s3에 이미지가 없는것임...&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;status&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; extension &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uri를 이용해 확장자를 얻어냄
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; params &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;querystring를 이용해 query param을 얻어냄
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;t &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;t &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;A&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// cloudfront에서 설정한 t 값이 A가 아니라면 일반 요청이므로 바로 return&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;allowedExtension&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;extension&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 확장자가 지원을 하지 않는다면 그대로 return&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;S3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getObject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      Bucket&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;BUCKET&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      Key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; image path &lt;span class=&quot;token comment&quot;&gt;// image path에서 제일 앞글자의 &apos;/&apos;는 제외시켜야 한다.&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ContentLength &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// s3의 content가 없다면 그대로 return&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; resizedImageBuffer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Sharp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;width 크기&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; height 크기&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBuffer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; resizedImageBuffer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;base64&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;headers&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;content-type&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Content-Type&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;image/&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;extension&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bodyEncoding &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;base64&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;다시-lambda&quot; style=&quot;position:relative;&quot;&gt;다시 lambda&lt;a href=&quot;#%EB%8B%A4%EC%8B%9C-lambda&quot; aria-label=&quot;다시 lambda permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;lambda의 코드 작성이 완료되었다면 배포를 해야 합니다. 해당 code를 s3를 통해 업로드 하거나, .zip으로 압축해 배포를 진행합니다.
+전 개발 테스트를 겸하면서 진행했기 때문에 zip으로 압축하여 많이 업로드 하였는데요, package.json을 포함해 같이 배포하면 자동으로 build를 통해 package들을 install을 하지만, &lt;a href=&quot;https://sharp.pixelplumbing.com/install#aws-lambda&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Sharp 모듈 설치 시, linux환경에 맞게 설치&lt;/a&gt;해줘야 하는 문제가 있었습니다. 따라서 .zip압축 시, package.json을 넣지 않고, 이미 linux환경에 맞게 설치한 node_modules를 다이렉트로 넣어줬습니다. (이렇게 해도 문제 없음)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f8b21226f0cae3354f746a1b691e806f/82be8/lambda-code.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAdElEQVQI123N2w7CIBBF0f7/h6pAgbkBtTU5UjQ1JD6s7Ml5mSV4hxgjiBncnRURmNlFTa+KykS/jSkhE2FxieGSgK3OSgNpGaTfWWy07gfqc9b2F273B1LOWFbb4LUhcEGQ+tM337fT2m9Hn1I7/uKyjYdvLbbmZxoJfqwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;lambda-code&quot;
+        title=&quot;lambda-code&quot;
+        src=&quot;/static/f8b21226f0cae3354f746a1b691e806f/e85cb/lambda-code.png&quot;
+        srcset=&quot;/static/f8b21226f0cae3354f746a1b691e806f/070ae/lambda-code.png 120w,
+/static/f8b21226f0cae3354f746a1b691e806f/8ff5a/lambda-code.png 240w,
+/static/f8b21226f0cae3354f746a1b691e806f/e85cb/lambda-code.png 480w,
+/static/f8b21226f0cae3354f746a1b691e806f/37523/lambda-code.png 720w,
+/static/f8b21226f0cae3354f746a1b691e806f/d9199/lambda-code.png 960w,
+/static/f8b21226f0cae3354f746a1b691e806f/82be8/lambda-code.png 3272w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;코드 편집을 눌러 배포를 하고, 배포가 끝나면 트리거를 추가해줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/352448a9c10ad00bb1d91a6f891813e5/e7c5b/cloudfront-trigger.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB10lEQVQ4y6VTf2+bQAzli5Y1aT7pNml/NF2rZs3ULU3gKA3HbwhJIAHebAci2mlS1Z30ZJ/vzjw/G0M5FmxlIYpiNE2DqqpwOBw+DMN3S2i3QJxEKIot6rp+hWOHoT+MDe9VnPDuW4jZtUa2iZGmOUpiyEz5Etumbc/7lvy22/cxSX48it3t9zCC0IdyFF5e1vA8Dcuy8ey6sG0lWC5XcqaUg9WK5aG48wzb1Vg5awRhhCAISKoDeBmPj78wm/3AfP4T7GutiWmGPM+RpKloy/uUfM/z6HGILN8gLUrku0qY9cwlIbMqy0q+wOV28Q8tTmpwCaPxGBcXJi4vRzDNT+KbpokxxQVXVxiNxphMJiSJJY831MCm+/orhg7p8fnLV3y/vcX1dIrpzY3Y+/sZyTDHA0Hsw8ludzt5zI1oBwn7ZXBnmqZFTV17b1mcbF+WIF5/J3SpgxZ1UxHThMQvtlsRnQe87kdigLofl38xDKMIi6clkiSVrmZZLl/nqX+brAefcWW9dkMYyvXwe/Ekc8bQ2sf/LCPKy06c0/QzAy6Xx+hkKxqr8ozh/u05+4btuJgvXSzUGmEYyuBGJEOSJGJ5sH0/gPb98xlXwbEojuUex/lv4bt/AOP3JNcSO62AAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cloudfront-trigger&quot;
+        title=&quot;cloudfront-trigger&quot;
+        src=&quot;/static/352448a9c10ad00bb1d91a6f891813e5/e85cb/cloudfront-trigger.png&quot;
+        srcset=&quot;/static/352448a9c10ad00bb1d91a6f891813e5/070ae/cloudfront-trigger.png 120w,
+/static/352448a9c10ad00bb1d91a6f891813e5/8ff5a/cloudfront-trigger.png 240w,
+/static/352448a9c10ad00bb1d91a6f891813e5/e85cb/cloudfront-trigger.png 480w,
+/static/352448a9c10ad00bb1d91a6f891813e5/37523/cloudfront-trigger.png 720w,
+/static/352448a9c10ad00bb1d91a6f891813e5/d9199/cloudfront-trigger.png 960w,
+/static/352448a9c10ad00bb1d91a6f891813e5/e7c5b/cloudfront-trigger.png 2642w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;origin response가 아니라면 제대로 동작하지 않습니다.&lt;/p&gt;
+&lt;h3 id=&quot;다시-cloudfront&quot; style=&quot;position:relative;&quot;&gt;다시 cloudfront&lt;a href=&quot;#%EB%8B%A4%EC%8B%9C-cloudfront&quot; aria-label=&quot;다시 cloudfront permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;트리거를 추가할 때 cloudfront를 입력했기 때문에, &lt;code class=&quot;language-text&quot;&gt;cloudfront &amp;gt; 배포 &amp;gt; id &amp;gt; 동작 편집&lt;/code&gt; 을 보면 배포된 lambda의 arn 정보가 &lt;code class=&quot;language-text&quot;&gt;함수 연결&lt;/code&gt; 부분에 제대로 들어가 있음을 볼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/968bf4e7787df929362621b798d7c5e0/7f7f8/cloudfront-function.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABLElEQVQoz3VSXU/DMAzM7+SJgdCAFyR+I09IPA4x1G1F2sqWds2qdWmyfhy2pYzAwNLpnNS+XOOo6fQdb4RkNsdk8ookXcLsKhizQ1VV2BG2ZYnSGDjncDwe4b0/Q9hXnHChbRrZsIcD9nWNOmIB5aGR0bbtD4RvClFYa6HzXAp+B+9pnWOVZdLMMQyDcN/3KIqtGFCeVNP0Q8S4abnKxBEX8brrOnHPp8cizDFCKG7gk8NvbLQW8VjQkSPOhz+EYkEmxcVJMjs5ZLdsPRY80Lfg8L8IojIUdiWXTQKf6w32+1pyLwNo0dDQGudR0OTzbYm8NMRGWNPauu87VY4WM3oyDd1TK4JrzBcLejZGClpyyG7TZYbxwyMub8a4ur3HaHwnfDG6xtPzy2k4X4fFYxrAJoMIAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cloudfront-function&quot;
+        title=&quot;cloudfront-function&quot;
+        src=&quot;/static/968bf4e7787df929362621b798d7c5e0/e85cb/cloudfront-function.png&quot;
+        srcset=&quot;/static/968bf4e7787df929362621b798d7c5e0/070ae/cloudfront-function.png 120w,
+/static/968bf4e7787df929362621b798d7c5e0/8ff5a/cloudfront-function.png 240w,
+/static/968bf4e7787df929362621b798d7c5e0/e85cb/cloudfront-function.png 480w,
+/static/968bf4e7787df929362621b798d7c5e0/37523/cloudfront-function.png 720w,
+/static/968bf4e7787df929362621b798d7c5e0/d9199/cloudfront-function.png 960w,
+/static/968bf4e7787df929362621b798d7c5e0/7f7f8/cloudfront-function.png 2396w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;마무리&quot; style=&quot;position:relative;&quot;&gt;마무리&lt;a href=&quot;#%EB%A7%88%EB%AC%B4%EB%A6%AC&quot; aria-label=&quot;마무리 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;설정과 코딩이 완료되었습니다. 결과물을 볼까요?
+(사전에 s3에 images/test1.jpg 파일을 올려뒀습니다.)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/345d32c6947dede9dbce2bae90d90e82/1628f/before-result.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 140%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEqklEQVRIx42Va1BUZRzG+VIKIU7aQLEfuoA3LsudhusWy94vLKAMIyg4BqQoFOAut+UmCA6CyUWIQHQXUK4LCysRC2malwpsappMZ5r6kDX2IT/U56f/e84qYw27fHjmfc85c37v83+f/3uOW2hYJAKDhNgTEITdewIhDAnj5n5+foiPiUF4WBiio6LwNikyIgLCoGAEBQQiPDQUwaERiI2Ng0QshlalgFyhhltMnAjiZBkSRUlISEyCVKaE6B0xomPiaa4Cey56VwKJVMldJ4rEiKV7SUlSRCZIkSzXIFkih1KphUSigJu3tze8vX2eycfnVbyyfRsSsvTQVZuhLOmBsvg8FMe6IS/s4iQ70gn50U7ImI7wenN3OLZvexlunp6eeE5btsB90wuIz6lFWvNVqKuvQFV5GcoTI1CWDUNRaoa8xEzjEDfnxyG89lYwPDa/CDcvLy88p61b8ZLHZsQfNCL15DRU5WaoDEMEJJWayLEJipJL/5EJAn8hPOm9/wO9COjuADYQ0EDA8mEoDcMOqJkD8CMPZHNfPyH33rrAuANG6AiodABVDKgnlfHQp0BuTvd8/V0Cq6GrZ0ATAYfWoMxlmfkZlFtgY0ByWG8hCAErCFgxzJeuXyudB5LTDQEPGjmHzJ2m6jK0lDYb1ZWUtt4R0tORJOCAm1yE0jhDLTOM9LpxZDZNQUYOZQa+fHXFMA90yNclMMeItEYr1FUjSK0bw/GueRw+Y0XuadpXcq3Qm/kOYAswoKuU43NqCDgLrfEKFFRm1cASbHcfwnbnAYbs3yGzYRzyEyaoy1koJgIGc/3rHNg0xwOpvNLeBfTPr6J98jYsN3/EwNVV2lO2n+Y1oPNQamgPrRTGCAfMa5/FxYVvMUjqsX6NmS/vo/CcDZKyS1AbNtiH7KRoCMiCyWqaxMjy97j38Hes/PQIKw8eofbC5xBTc2vouWtgNjV2g4VCoTTJYfapSfTZVvDV/d/wwy+P8esfT/A+uZZSuSxxgStgbHYVD6TVmUtd7Sh6Z7/B47/+xp9P/sHg/D0ql4exNhLscNE2sVmVSKnngSwYbc0o2iZuw776Mzosd7kmV1WMcI3OWkuwI8QJkOKP2V9BwCnOnYaAKeTQ0L+Ews55SMkRu6dxnB62oGBniHOHcVQy+x5qjCMcTEMO88/aUD6wTNfjpDEOxqBaOkmCXaGujl419SG1TQ25o5OiNo7hUNscSvvsHFBjHOW3guYZzTN4IyCCvtgujl56i41g49DVTZCLCexrmkZxzyIyGi0EHKPQJrG32YoPeq9hlzCafh3r/QLIesLhOuxrW6B9nIDupAWpBNPSnh7r/gyZzdNIaZiCjpy917GIko+vO3HoAIryG5FxdhG6ximk0oup5IS1Ue6ZORxosyH99CwOnVtAMbnL/ehTvO4M6EFAcUET9ncsE2gaafRy2ikr5zDrjA155+3kzI6y/hso6LJzLv2Cotb/67GV1Mdbkdd7AxmtBGshMYdUdja5Keq7hpK+LzgVdC2hmEr2D46CuzNg2oftOPrJLQLO8cAWK/a22pDfvQT9hZswDN5CEZVb1HsdlRfvYCcLhYD/AgJ/THVozlQIAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;before-result&quot;
+        title=&quot;before-result&quot;
+        src=&quot;/static/345d32c6947dede9dbce2bae90d90e82/e85cb/before-result.png&quot;
+        srcset=&quot;/static/345d32c6947dede9dbce2bae90d90e82/070ae/before-result.png 120w,
+/static/345d32c6947dede9dbce2bae90d90e82/8ff5a/before-result.png 240w,
+/static/345d32c6947dede9dbce2bae90d90e82/e85cb/before-result.png 480w,
+/static/345d32c6947dede9dbce2bae90d90e82/37523/before-result.png 720w,
+/static/345d32c6947dede9dbce2bae90d90e82/d9199/before-result.png 960w,
+/static/345d32c6947dede9dbce2bae90d90e82/1628f/before-result.png 1232w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&amp;#x3C;이미지 원본&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/27fe694bc1de09a4a1d710e9caf284d0/53639/after-result.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACFUlEQVQ4y62TS0xTQRRAu5Cg0M/apcYgrbH4+u97r6+vRSLSAG0pJH4xakJw4ZZi5GNpFYGYGF2SGIrRAlW0alWMxsRfXPhJZGHigr0bFy5cHqcNWlnRJi5OZubO3JN7ZzIGp8uLvUXCZtuL3S4hSU6adltRAjqyEkRWg+ih/WU8XgWfT8Hp0/DIIQLiTFBvxS9r7HP4UMXa4Pb4UUWSR4yyoqFpISSHW4g0SnseIQiIWAmX24ffvy5UwuKsTijcVs5rcXjRgiEMFosFs9nMn3HjvBKrxC1Y1temEqbKXmluMJlM/E8M/1awKSLBXKpIYPkb23hmc6FopXFbPbtcrYTPXEE/fZHwwCTyiTSqQBPop6aQIgOiQmN1wob6LewJJUhMPqF7PM/gtadlEqm7dCRvE7tQINCfwmSsWliHTYsRTxdoT84zPLvC4stVsiufOZpZomM4h3r4fI3CYJx45oEQ3uTs9SKzxY/cev6Fq3feETm3iHpktJaW67CWKpy4x8FklpNTyxTff2N17TsP33ylaySPemysRmEgSiy1LNqb51B6iRef1vjx8xczC685kMyh9Y/XINxaR7PaRfdYXjxClt7UAjcef2A694r2oTk6R0TLx0drfGU9Qe/0M2KZAn2XiwzNvaXn0iOiE/fpE/Hw4EyVQoGxsYHtO6ziHqM0K51l3G092PUoTXKkfB07Ja38U34DuHO7xZ/u2qgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;after-result&quot;
+        title=&quot;after-result&quot;
+        src=&quot;/static/27fe694bc1de09a4a1d710e9caf284d0/e85cb/after-result.png&quot;
+        srcset=&quot;/static/27fe694bc1de09a4a1d710e9caf284d0/070ae/after-result.png 120w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/8ff5a/after-result.png 240w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/e85cb/after-result.png 480w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/37523/after-result.png 720w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/d9199/after-result.png 960w,
+/static/27fe694bc1de09a4a1d710e9caf284d0/53639/after-result.png 1358w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&amp;#x3C;t(type) query param을 통해 crop된 이미지&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 간단하게(3일정도 걸렸지만) 완성했습니다!
+FE개발자도 간단한(것 같지 않지만) aws를 다루지 않나 라는 생각을 한지 2~3년은 된 것 같은데 이제야 사용을 해보네요...&lt;/p&gt;
+&lt;p&gt;백엔드 뿐만 아니라 인프라도 자유자재로 써볼 수 있는 기회가 있으면 좋겠습니다 :)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[커피챗 굿즈]]></title><description><![CDATA[작년 1…]]></description><link>https://jicjjang.github.io/posts/coffeechat-goods</link><guid isPermaLink="false">https://jicjjang.github.io/posts/coffeechat-goods</guid><pubDate>Tue, 29 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;작년 11월에 &lt;a href=&quot;https://jicjjang.github.io/posts/coffeechat&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;커피챗 이용 후기&lt;/a&gt;에 대해 간략히 정리해 봤었다.
 세분과 스몰톡을 한 이후 연락이 없어서 시무룩...😞&lt;/p&gt;
 &lt;p&gt;서비스가 나온 직후 이력을 정리 해놓고 몇몇 유저분들과 커피챗을 진행하고 이후 조용한 알림에 커피챗을 잊고있었다...
 (신규 유저들의 프로필이 위에 있어서 고인물들은 스크롤을 마구 해야 프로필이 나오는 폐해... &lt;code class=&quot;language-text&quot;&gt;프론트엔드&lt;/code&gt; 개발 후 내 계정을 찾으려면 스크롤로 페이징을 수차례 해야 한다... 이러니 연락이 안오지???)&lt;/p&gt;
