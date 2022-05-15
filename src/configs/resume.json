@@ -2,10 +2,17 @@
   "experience": [
     {
       "title": "FE Developer",
-      "when": "2020.09 - ",
+      "when": "2022.05 -",
+      "company": "Dunamu, Gangnam (Works at home)",
+      "usecase": "React, node, React-query, Emotion, React Context, React Hook...",
+      "details": "현재 두나무에 재직중입니다. 두나무에서 Levvels 업무를 진행하고 있습니다."
+    },
+    {
+      "title": "FE Developer",
+      "when": "2020.09 - 2022.05 (1년 9개월)",
       "company": "Line Plus, Bundang (Works at home)",
       "usecase": "React, node, redux, redux-saga, redux-toolkit, React Context, React Hook...",
-      "details": "현재 라인 플러스에 재직중이며 <a href='http://timeline.line.me/' target='_blank'>Timeline 서비스, was</a>에 대한 개발을 진행중이며, on-premise 환경의 sentry에 대한 유지 보수 업무를 진행 중입니다."
+      "details": "라인 플러스에서 <a href='http://timeline.line.me/' target='_blank'>Timeline 서비스, was (BFF)</a>에 대한 개발을 진행했습니다. on-premise 환경의 sentry에 대한 유지 보수 업무에 대한 경험이 있습니다."
     },
     {
       "title": "FE Developer",
@@ -30,6 +37,16 @@
     }
   ],
   "project": [
+    {
+      "company": "Dunamu",
+      "contents": [
+        {
+          "link": "",
+          "title": "(noname)",
+          "content": "신규 프로젝트 FE 개발 진행중입니다."
+        }
+      ]
+    },
     {
       "company": "Line Plus",
       "contents": [
