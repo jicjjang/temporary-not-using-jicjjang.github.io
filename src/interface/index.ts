@@ -3,3 +3,11 @@ export interface IQuerySiteData<T> {
     siteMetadata: T;
   };
 }
+
+export interface IQueryFileData {
+  file: {
+    childImageSharp: {
+      fixed: any;
+    };
+  };
+}

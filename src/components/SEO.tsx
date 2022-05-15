@@ -2,8 +2,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { IQuerySiteData } from '~/interface';
-import favicon from '@/contents/assets/favicon.png';
+import { IQueryFileData, IQuerySiteData } from '~/interface';
 
 interface IQuerySeoData {
   title: string;
@@ -24,11 +23,20 @@ interface IProps {
   image?: string;
 }
 
-const SEO: React.FunctionComponent<IProps> = ({ description, lang = 'ko', url, meta = [], link = [], script = [], title, image }) => {
+const SEO: React.FunctionComponent<IProps> = ({
+  description,
+  lang = 'ko',
+  url,
+  meta = [],
+  link = [],
+  script = [],
+  title,
+  image
+}) => {
   const {
-    site: { siteMetadata }
-  } = useStaticQuery<IQuerySiteData<IQuerySeoData>>(query);
-
+    site: { siteMetadata },
+    file
+  } = useStaticQuery<IQuerySiteData<IQuerySeoData> & IQueryFileData>(query);
   const metaDescription = description || siteMetadata.description;
   const metaImage = image || siteMetadata.image;
 
@@ -106,7 +114,7 @@ const SEO: React.FunctionComponent<IProps> = ({ description, lang = 'ko', url, m
           content: metaImage
         }
       ])}
-      link={link.concat([{ rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }])}
+      link={link.concat([{ rel: 'shortcut icon', type: 'image/png', href: file.childImageSharp.fixed.src }])}
       script={script}
     />
   );
@@ -116,6 +124,13 @@ export default SEO;
 
 const query = graphql`
   query {
+    file(relativePath: { eq: "favicon.png" }) {
+      childImageSharp {
+        fixed {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     site {
       siteMetadata {
         title
