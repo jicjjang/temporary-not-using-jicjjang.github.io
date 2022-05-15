@@ -84,7 +84,7 @@ export default function reactBasic({ location: pLocation, data }: PageProps) {
               <img src="/img/presentation/react-basic/tree.png" />
             </p>
             <aside className="notes">
-              앞서 보여드린 코드와 같이 CardList, CardItem, CardDetail 과 같이 상위 -> 하위 로 진행되는 구조를
+              앞서 보여드린 코드와 같이 CardList, CardItem, CardDetail 과 같이 상위 -&gt; 하위 로 진행되는 구조를
               나타냅니다. 이러한 컴포넌트 구조를 따라가며 데이터 또한 단방향으로 진행되게 됩니다.
             </aside>
           </section>

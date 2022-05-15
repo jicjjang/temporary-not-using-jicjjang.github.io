@@ -6,16 +6,13 @@ import ResumeLayout from '~/components/layout/Resume';
 import { Query } from '~/gatsby-graphql-types';
 import SideBar from '~/components/resume/SideBar';
 import Introduce from '~/components/resume/Introduce';
-import Experiences from '~/components/resume/Experiences';
-import Projects from '~/components/resume/Projects';
-import Skills from '~/components/resume/Skills';
+import Experiences, { IResumeExperience } from '~/components/resume/Experiences';
+import Projects, { IResumeProject } from '~/components/resume/Projects';
+import Skills, { IResumeSkill } from '~/components/resume/Skills';
 import Others from '~/components/resume/Others';
 import Footer from '~/components/resume/Footer';
 
 import resumeData from '~/configs/resume.json';
-import { IResumeExperience } from '~/components/resume/Experiences';
-import { IResumeProject } from '~/components/resume/Projects';
-import { IResumeSkill } from '~/components/resume/Skills';
 
 interface IResumeData {
   experience: IResumeExperience[];
