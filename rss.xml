@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 15 May 2022 12:55:52 GMT</lastBuildDate><item><title><![CDATA[Lambda@edge로 crop된 이미지 캐싱하기]]></title><description><![CDATA[참고 ref1 - AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기 참고 ref2 - AWS Lambda@Edge에서 실시간 이미지 리사이즈 & WebP…]]></description><link>https://jicjjang.github.io/posts/lambda-edge</link><guid isPermaLink="false">https://jicjjang.github.io/posts/lambda-edge</guid><pubDate>Wed, 13 Apr 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;참고 ref1 - &lt;a href=&quot;https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 15 May 2022 13:19:08 GMT</lastBuildDate><item><title><![CDATA[Lambda@edge로 crop된 이미지 캐싱하기]]></title><description><![CDATA[참고 ref1 - AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기 참고 ref2 - AWS Lambda@Edge에서 실시간 이미지 리사이즈 & WebP…]]></description><link>https://jicjjang.github.io/posts/lambda-edge</link><guid isPermaLink="false">https://jicjjang.github.io/posts/lambda-edge</guid><pubDate>Wed, 13 Apr 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;참고 ref1 - &lt;a href=&quot;https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda를 이용한 이미지 썸네일 생성 개발 후기&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;참고 ref2 - &lt;a href=&quot;https://medium.com/daangn/lambda-edge%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-on-the-fly-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%A6%AC%EC%82%AC%EC%9D%B4%EC%A7%95-f4e5052d49f3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Lambda@Edge에서 실시간 이미지 리사이즈 &amp;#x26; WebP 형식으로 변환&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;사이드 프로젝트 팀에 합류하여 퇴근 후 프로젝트를 진행하고 있습니다.
@@ -7815,142 +7815,7 @@ jwt 해시가 되지 않을 줄 알았으나, 개개인이 아닌 App 마다의 
 기존 Session, Cookie를 사용할 때와 동일하게 토큰이 중요 이슈로 남아있게 되었습니다.&lt;/p&gt;
 &lt;p&gt;하지만 서버에 있는 secert값을 유추하기 힘들기 때문에 (거의 불가능) 보안적인 측면에서
 안전할 것이라 여겨지며 기존 Session, Cookie 구조보다는 훨씬 가볍게 사용할 수 있을 것 같아
-SPA 프로젝트에서 유용할 것으로 보여집니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Dooray bot scheduler (Server)]]></title><description><![CDATA[!!! 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로, 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다. !!! Front…]]></description><link>https://jicjjang.github.io/posts/dooray-bot-server</link><guid isPermaLink="false">https://jicjjang.github.io/posts/dooray-bot-server</guid><pubDate>Tue, 27 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;h3 id=&quot;-이-글은-사내-메신저인-Dooray에서-활용할-bot-scheduler에-대한-소개로-비정상적인-경로로의-접근은-하지-말아주시기-바랍니다-&quot; style=&quot;position:relative;&quot;&gt;!!! 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로, 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다. !!!&lt;a href=&quot;#-%EC%9D%B4-%EA%B8%80%EC%9D%80-%EC%82%AC%EB%82%B4-%EB%A9%94%EC%8B%A0%EC%A0%80%EC%9D%B8-Dooray%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%A0-bot-scheduler%EC%97%90-%EB%8C%80%ED%95%9C-%EC%86%8C%EA%B0%9C%EB%A1%9C-%EB%B9%84%EC%A0%95%EC%83%81%EC%A0%81%EC%9D%B8-%EA%B2%BD%EB%A1%9C%EB%A1%9C%EC%9D%98-%EC%A0%91%EA%B7%BC%EC%9D%80-%ED%95%98%EC%A7%80-%EB%A7%90%EC%95%84%EC%A3%BC%EC%8B%9C%EA%B8%B0-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4-&quot; aria-label=&quot; 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다  permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;hr&gt;
-&lt;p&gt;Front 게시물에 이어서 바로 서버 사용법을 설명드리겠습니다. 일단 서버는 노드로 구현이되어있고,
-타이머를 돌면서 1분마다 firebase를 찔러보며 hook time이 현재 시간과 일치하는 스케쥴의
-내용을 Dooray로 쏴줍니다.&lt;/p&gt;
-&lt;h1 id=&quot;1-Dooray-Hooker&quot; style=&quot;position:relative;&quot;&gt;1. &lt;a href=&quot;https://github.com/jicjjang/DoorayHooker&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Dooray Hooker&lt;/a&gt;&lt;a href=&quot;#1-Dooray-Hooker&quot; aria-label=&quot;1 Dooray Hooker permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;서버에서 사용하는 &lt;a href=&quot;https://github.com/jicjjang/menubot&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;menubot&lt;/a&gt; 에서의 동작은 크게 3가지로 나뉩니다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;이미지 자르기&lt;/li&gt;
-&lt;li&gt;이미지 위치 구하기&lt;/li&gt;
-&lt;li&gt;글자 인식&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;이러한 동작을 위해 기본 세팅이 조금 필요합니다.&lt;/p&gt;
-&lt;h2 id=&quot;1-1-기본-세팅&quot; style=&quot;position:relative;&quot;&gt;1-1. 기본 세팅&lt;a href=&quot;#1-1-%EA%B8%B0%EB%B3%B8-%EC%84%B8%ED%8C%85&quot; aria-label=&quot;1 1 기본 세팅 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;우선 이미지를 자를 때 필요한 &lt;a href=&quot;https://www.imagemagick.org/script/index.php&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;imagemagick&lt;/a&gt; 라이브러리 입니다.
-brew로 간단하게 설치할 수 있습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ brew &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; imagemagick&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;그리고 이미지 인식에 사용할 &lt;a href=&quot;https://cloud.google.com/sdk/docs/quickstart-mac-os-x&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;google-vision&lt;/a&gt;이 필요합니다.
-(구글 비전은 링크를 보시고 순서대로 실행해주세요)&lt;/p&gt;
-&lt;h2 id=&quot;1-2-설정-파일&quot; style=&quot;position:relative;&quot;&gt;1-2. 설정 파일&lt;a href=&quot;#1-2-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC&quot; aria-label=&quot;1 2 설정 파일 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://github.com/jicjjang/DoorayHooker
-$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; DoorayHooker
-$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; forever -g
-$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt;
-$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;우선 npm을 설치하고 서버를 띄웁니다.
-이번에도 바로 에러가 뜹니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/4bce599aa1f8e408468302fcd19db0f2/8efc2/error.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 45.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABbklEQVQoz0WSWVfCQAyFKx6QTfZd8fjiekB2SssuIBz///+J+TItPqSZpJmbm5vx7scrSX8t5K6/kOJ0bT47DM0KExcnPmdCXU5zNx9T8V5H//Y21tzE5d8n4sXF9eBbHtY/Ul84/7z/laq/k8p8J63lyXKd1Unay6OUZhuLm+Hh2rg03VhDz3sZSWYQGBAFZS3GYzTC06w820pbARvROTdcOgBYRUzN88mPllJTwMfNWSpa7FgdDQwPG/7X/H103sutTpbszSXV902WVM9X6QIHCEMuA1iYrIwtZy4yNv84Y7AkhkRRx2RcJsGIvYSKSTLWjjEAYUzyMKwqM1gDiCfOKwBaApJWQsUI2MsMQhMUQACSSh2hoc/2YZ8dhNeXADP3MgJrjpauJrD/Hp1g1N1eIjY7GyseDd+JNOxE+ViKFlIoW5ZEzhiyHQ6N4CBPu4s9C/SzZejl7vZsIzbDo3RZ2nzr3hxbZcOxEav9ARWqDYI5UEasAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;error&quot;
-        title=&quot;error&quot;
-        src=&quot;/static/4bce599aa1f8e408468302fcd19db0f2/e85cb/error.png&quot;
-        srcset=&quot;/static/4bce599aa1f8e408468302fcd19db0f2/070ae/error.png 120w,
-/static/4bce599aa1f8e408468302fcd19db0f2/8ff5a/error.png 240w,
-/static/4bce599aa1f8e408468302fcd19db0f2/e85cb/error.png 480w,
-/static/4bce599aa1f8e408468302fcd19db0f2/37523/error.png 720w,
-/static/4bce599aa1f8e408468302fcd19db0f2/8efc2/error.png 828w&quot;
-        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;다시 &lt;code class=&quot;language-text&quot;&gt;&amp;quot;ex.config.js&amp;quot;&lt;/code&gt; 파일을 참고하여 &lt;code class=&quot;language-text&quot;&gt;&amp;quot;config.js&amp;quot;&lt;/code&gt; 파일을 만듭니다.&lt;/p&gt;
-&lt;h4 id=&quot;그리고-메뉴-이미지를-넣어줍니다-메뉴봇을-이용할-때-기본적으로-imgall_menumenupng-경로로-저장된-이미지를-사용하도록-해놨습니다-해당-경로로-식사메뉴-이미지를-다운받아서-해당-경로로-넣어줍니다&quot; style=&quot;position:relative;&quot;&gt;그리고 메뉴 이미지를 넣어줍니다. 메뉴봇을 이용할 때, 기본적으로 &quot;img/all_menu/menu.png&quot; 경로로 저장된 이미지를 사용하도록 해놨습니다. 해당 경로로 식사메뉴 이미지를 다운받아서 해당 경로로 넣어줍니다.&lt;a href=&quot;#%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%A9%94%EB%89%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EB%84%A3%EC%96%B4%EC%A4%8D%EB%8B%88%EB%8B%A4-%EB%A9%94%EB%89%B4%EB%B4%87%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%A0-%EB%95%8C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9C%BC%EB%A1%9C-imgall_menumenupng-%EA%B2%BD%EB%A1%9C%EB%A1%9C-%EC%A0%80%EC%9E%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8F%84%EB%A1%9D-%ED%95%B4%EB%86%A8%EC%8A%B5%EB%8B%88%EB%8B%A4-%ED%95%B4%EB%8B%B9-%EA%B2%BD%EB%A1%9C%EB%A1%9C-%EC%8B%9D%EC%82%AC%EB%A9%94%EB%89%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EB%8B%A4%EC%9A%B4%EB%B0%9B%EC%95%84%EC%84%9C-%ED%95%B4%EB%8B%B9-%EA%B2%BD%EB%A1%9C%EB%A1%9C-%EB%84%A3%EC%96%B4%EC%A4%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;그리고 메뉴 이미지를 넣어줍니다 메뉴봇을 이용할 때 기본적으로 imgall_menumenupng 경로로 저장된 이미지를 사용하도록 해놨습니다 해당 경로로 식사메뉴 이미지를 다운받아서 해당 경로로 넣어줍니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;h2 id=&quot;1-3-사용&quot; style=&quot;position:relative;&quot;&gt;1-3. 사용&lt;a href=&quot;#1-3-%EC%82%AC%EC%9A%A9&quot; aria-label=&quot;1 3 사용 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;서버에서는 기본 세팅이 복잡하고, 사용에 대해선 큰 어려움이 없습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;서버를 시작해주시면 됩니다. &lt;a href=&quot;https://www.npmjs.com/package/forever&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;forever&lt;/a&gt;를 사용하였기 때문에
-서버가 시작되면&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ forever list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;명령어로 현재 서버에 대한 로그파일을 확인하실 수 있습니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/2d3021ea8cca0929d2ea9862407556de/afa26/log1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 11.666666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAfUlEQVQI11WOQQ6CMAAEqygoIBLjH0RssUVKS0H//6ux0YPxMNnL7mTFXg2IdmCnA0f7IlGORI6UxpH3C+IWWMkfazWRKhPRnN2TU9wUJlB0E1XjEGXjKVpP1c3U94XsYskaS601h34kjcU/ofRs5VdYPeaYnjye2VztR/gGzLU45qW1dYwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;log1&quot;
-        title=&quot;log1&quot;
-        src=&quot;/static/2d3021ea8cca0929d2ea9862407556de/e85cb/log1.png&quot;
-        srcset=&quot;/static/2d3021ea8cca0929d2ea9862407556de/070ae/log1.png 120w,
-/static/2d3021ea8cca0929d2ea9862407556de/8ff5a/log1.png 240w,
-/static/2d3021ea8cca0929d2ea9862407556de/e85cb/log1.png 480w,
-/static/2d3021ea8cca0929d2ea9862407556de/37523/log1.png 720w,
-/static/2d3021ea8cca0929d2ea9862407556de/d9199/log1.png 960w,
-/static/2d3021ea8cca0929d2ea9862407556de/afa26/log1.png 1258w&quot;
-        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/5b0b96748be1776463d48db36f8f77d4/9cea8/log2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 25.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA7ElEQVQY04WQ3W6CQBCFUVOrpBUUbGLSKxMr0Ap2+VkQUWtslfgIXinv/wynM2CN9caLLyczyflms8pLssFrtsNgvsUg/QHPmr+EJr/Qy4/o5gU62wJP30eomxP03QGj3IG9H8KIPdRsieZHhJYb43EioZgxFeWKRGuo0xme/ayce9EKmkjRETPofoq69Qll5BIe4RMBlDfKsbhQs2g26SVGdCUUGfgIo4dL6MGizMZ7RCUqcMkSV5x3LLQp+/Eahvwv5AMm7bssDBdlNpywesk9YdtLwKgE/0PLTfBAf1J3ggq7yr/SRXDLWfgLIqeRAPbiUggAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;log2&quot;
-        title=&quot;log2&quot;
-        src=&quot;/static/5b0b96748be1776463d48db36f8f77d4/e85cb/log2.png&quot;
-        srcset=&quot;/static/5b0b96748be1776463d48db36f8f77d4/070ae/log2.png 120w,
-/static/5b0b96748be1776463d48db36f8f77d4/8ff5a/log2.png 240w,
-/static/5b0b96748be1776463d48db36f8f77d4/e85cb/log2.png 480w,
-/static/5b0b96748be1776463d48db36f8f77d4/37523/log2.png 720w,
-/static/5b0b96748be1776463d48db36f8f77d4/d9199/log2.png 960w,
-/static/5b0b96748be1776463d48db36f8f77d4/9cea8/log2.png 1278w&quot;
-        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;등록되어있는 스케쥴들이 정상적으로 봇으로 동작하는 모습을 보실 수 있습니다!&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;봇을 만든것에 대한 경험 공유는 여기까지 입니다.
-사용하시면서 어려우실 만한 부분은 google vision의 설치일 것 같네요... (저도 꽤나 오래 걸렸습니다...)&lt;/p&gt;
-&lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Dooray bot scheduler (Front)]]></title><description><![CDATA[!!! 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로, 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다. !!! 사내 메신저인 Dooray의 메뉴봇과 스케쥴러를 만들어서 공유드립니다.
+SPA 프로젝트에서 유용할 것으로 보여집니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Dooray bot scheduler (Front)]]></title><description><![CDATA[!!! 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로, 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다. !!! 사내 메신저인 Dooray의 메뉴봇과 스케쥴러를 만들어서 공유드립니다.
 (매주 메뉴 이미지…]]></description><link>https://jicjjang.github.io/posts/dooray-bot-front</link><guid isPermaLink="false">https://jicjjang.github.io/posts/dooray-bot-front</guid><pubDate>Tue, 27 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;h3 id=&quot;-이-글은-사내-메신저인-Dooray에서-활용할-bot-scheduler에-대한-소개로-비정상적인-경로로의-접근은-하지-말아주시기-바랍니다-&quot; style=&quot;position:relative;&quot;&gt;!!! 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로, 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다. !!!&lt;a href=&quot;#-%EC%9D%B4-%EA%B8%80%EC%9D%80-%EC%82%AC%EB%82%B4-%EB%A9%94%EC%8B%A0%EC%A0%80%EC%9D%B8-Dooray%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%A0-bot-scheduler%EC%97%90-%EB%8C%80%ED%95%9C-%EC%86%8C%EA%B0%9C%EB%A1%9C-%EB%B9%84%EC%A0%95%EC%83%81%EC%A0%81%EC%9D%B8-%EA%B2%BD%EB%A1%9C%EB%A1%9C%EC%9D%98-%EC%A0%91%EA%B7%BC%EC%9D%80-%ED%95%98%EC%A7%80-%EB%A7%90%EC%95%84%EC%A3%BC%EC%8B%9C%EA%B8%B0-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4-&quot; aria-label=&quot; 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다  permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;사내 메신저인 Dooray의 메뉴봇과 스케쥴러를 만들어서 공유드립니다.
@@ -8282,6 +8147,141 @@ $ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run dev&lt;/code
 &lt;hr&gt;
 &lt;p&gt;쓰다보니 내용이 길어졌네요... 이제 봇을 만들고 관리하는 Front 페이지에 대한 설명이 끝났습니다.
 서버에 대한 내용은 다른 게시물에 따로 게시하겠습니다.&lt;/p&gt;
+&lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Dooray bot scheduler (Server)]]></title><description><![CDATA[!!! 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로, 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다. !!! Front…]]></description><link>https://jicjjang.github.io/posts/dooray-bot-server</link><guid isPermaLink="false">https://jicjjang.github.io/posts/dooray-bot-server</guid><pubDate>Tue, 27 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;h3 id=&quot;-이-글은-사내-메신저인-Dooray에서-활용할-bot-scheduler에-대한-소개로-비정상적인-경로로의-접근은-하지-말아주시기-바랍니다-&quot; style=&quot;position:relative;&quot;&gt;!!! 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로, 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다. !!!&lt;a href=&quot;#-%EC%9D%B4-%EA%B8%80%EC%9D%80-%EC%82%AC%EB%82%B4-%EB%A9%94%EC%8B%A0%EC%A0%80%EC%9D%B8-Dooray%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%A0-bot-scheduler%EC%97%90-%EB%8C%80%ED%95%9C-%EC%86%8C%EA%B0%9C%EB%A1%9C-%EB%B9%84%EC%A0%95%EC%83%81%EC%A0%81%EC%9D%B8-%EA%B2%BD%EB%A1%9C%EB%A1%9C%EC%9D%98-%EC%A0%91%EA%B7%BC%EC%9D%80-%ED%95%98%EC%A7%80-%EB%A7%90%EC%95%84%EC%A3%BC%EC%8B%9C%EA%B8%B0-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4-&quot; aria-label=&quot; 이 글은 사내 메신저인 Dooray에서 활용할 bot scheduler에 대한 소개로 비정상적인 경로로의 접근은 하지 말아주시기 바랍니다  permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;Front 게시물에 이어서 바로 서버 사용법을 설명드리겠습니다. 일단 서버는 노드로 구현이되어있고,
+타이머를 돌면서 1분마다 firebase를 찔러보며 hook time이 현재 시간과 일치하는 스케쥴의
+내용을 Dooray로 쏴줍니다.&lt;/p&gt;
+&lt;h1 id=&quot;1-Dooray-Hooker&quot; style=&quot;position:relative;&quot;&gt;1. &lt;a href=&quot;https://github.com/jicjjang/DoorayHooker&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Dooray Hooker&lt;/a&gt;&lt;a href=&quot;#1-Dooray-Hooker&quot; aria-label=&quot;1 Dooray Hooker permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;서버에서 사용하는 &lt;a href=&quot;https://github.com/jicjjang/menubot&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;menubot&lt;/a&gt; 에서의 동작은 크게 3가지로 나뉩니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;이미지 자르기&lt;/li&gt;
+&lt;li&gt;이미지 위치 구하기&lt;/li&gt;
+&lt;li&gt;글자 인식&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이러한 동작을 위해 기본 세팅이 조금 필요합니다.&lt;/p&gt;
+&lt;h2 id=&quot;1-1-기본-세팅&quot; style=&quot;position:relative;&quot;&gt;1-1. 기본 세팅&lt;a href=&quot;#1-1-%EA%B8%B0%EB%B3%B8-%EC%84%B8%ED%8C%85&quot; aria-label=&quot;1 1 기본 세팅 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;우선 이미지를 자를 때 필요한 &lt;a href=&quot;https://www.imagemagick.org/script/index.php&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;imagemagick&lt;/a&gt; 라이브러리 입니다.
+brew로 간단하게 설치할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ brew &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; imagemagick&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 이미지 인식에 사용할 &lt;a href=&quot;https://cloud.google.com/sdk/docs/quickstart-mac-os-x&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;google-vision&lt;/a&gt;이 필요합니다.
+(구글 비전은 링크를 보시고 순서대로 실행해주세요)&lt;/p&gt;
+&lt;h2 id=&quot;1-2-설정-파일&quot; style=&quot;position:relative;&quot;&gt;1-2. 설정 파일&lt;a href=&quot;#1-2-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC&quot; aria-label=&quot;1 2 설정 파일 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://github.com/jicjjang/DoorayHooker
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; DoorayHooker
+$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; forever -g
+$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;우선 npm을 설치하고 서버를 띄웁니다.
+이번에도 바로 에러가 뜹니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4bce599aa1f8e408468302fcd19db0f2/8efc2/error.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABbklEQVQoz0WSWVfCQAyFKx6QTfZd8fjiekB2SssuIBz///+J+TItPqSZpJmbm5vx7scrSX8t5K6/kOJ0bT47DM0KExcnPmdCXU5zNx9T8V5H//Y21tzE5d8n4sXF9eBbHtY/Ul84/7z/laq/k8p8J63lyXKd1Unay6OUZhuLm+Hh2rg03VhDz3sZSWYQGBAFZS3GYzTC06w820pbARvROTdcOgBYRUzN88mPllJTwMfNWSpa7FgdDQwPG/7X/H103sutTpbszSXV902WVM9X6QIHCEMuA1iYrIwtZy4yNv84Y7AkhkRRx2RcJsGIvYSKSTLWjjEAYUzyMKwqM1gDiCfOKwBaApJWQsUI2MsMQhMUQACSSh2hoc/2YZ8dhNeXADP3MgJrjpauJrD/Hp1g1N1eIjY7GyseDd+JNOxE+ViKFlIoW5ZEzhiyHQ6N4CBPu4s9C/SzZejl7vZsIzbDo3RZ2nzr3hxbZcOxEav9ARWqDYI5UEasAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;error&quot;
+        title=&quot;error&quot;
+        src=&quot;/static/4bce599aa1f8e408468302fcd19db0f2/e85cb/error.png&quot;
+        srcset=&quot;/static/4bce599aa1f8e408468302fcd19db0f2/070ae/error.png 120w,
+/static/4bce599aa1f8e408468302fcd19db0f2/8ff5a/error.png 240w,
+/static/4bce599aa1f8e408468302fcd19db0f2/e85cb/error.png 480w,
+/static/4bce599aa1f8e408468302fcd19db0f2/37523/error.png 720w,
+/static/4bce599aa1f8e408468302fcd19db0f2/8efc2/error.png 828w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;다시 &lt;code class=&quot;language-text&quot;&gt;&amp;quot;ex.config.js&amp;quot;&lt;/code&gt; 파일을 참고하여 &lt;code class=&quot;language-text&quot;&gt;&amp;quot;config.js&amp;quot;&lt;/code&gt; 파일을 만듭니다.&lt;/p&gt;
+&lt;h4 id=&quot;그리고-메뉴-이미지를-넣어줍니다-메뉴봇을-이용할-때-기본적으로-imgall_menumenupng-경로로-저장된-이미지를-사용하도록-해놨습니다-해당-경로로-식사메뉴-이미지를-다운받아서-해당-경로로-넣어줍니다&quot; style=&quot;position:relative;&quot;&gt;그리고 메뉴 이미지를 넣어줍니다. 메뉴봇을 이용할 때, 기본적으로 &quot;img/all_menu/menu.png&quot; 경로로 저장된 이미지를 사용하도록 해놨습니다. 해당 경로로 식사메뉴 이미지를 다운받아서 해당 경로로 넣어줍니다.&lt;a href=&quot;#%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%A9%94%EB%89%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EB%84%A3%EC%96%B4%EC%A4%8D%EB%8B%88%EB%8B%A4-%EB%A9%94%EB%89%B4%EB%B4%87%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%A0-%EB%95%8C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9C%BC%EB%A1%9C-imgall_menumenupng-%EA%B2%BD%EB%A1%9C%EB%A1%9C-%EC%A0%80%EC%9E%A5%EB%90%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8F%84%EB%A1%9D-%ED%95%B4%EB%86%A8%EC%8A%B5%EB%8B%88%EB%8B%A4-%ED%95%B4%EB%8B%B9-%EA%B2%BD%EB%A1%9C%EB%A1%9C-%EC%8B%9D%EC%82%AC%EB%A9%94%EB%89%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EB%8B%A4%EC%9A%B4%EB%B0%9B%EC%95%84%EC%84%9C-%ED%95%B4%EB%8B%B9-%EA%B2%BD%EB%A1%9C%EB%A1%9C-%EB%84%A3%EC%96%B4%EC%A4%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;그리고 메뉴 이미지를 넣어줍니다 메뉴봇을 이용할 때 기본적으로 imgall_menumenupng 경로로 저장된 이미지를 사용하도록 해놨습니다 해당 경로로 식사메뉴 이미지를 다운받아서 해당 경로로 넣어줍니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;h2 id=&quot;1-3-사용&quot; style=&quot;position:relative;&quot;&gt;1-3. 사용&lt;a href=&quot;#1-3-%EC%82%AC%EC%9A%A9&quot; aria-label=&quot;1 3 사용 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;서버에서는 기본 세팅이 복잡하고, 사용에 대해선 큰 어려움이 없습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;서버를 시작해주시면 됩니다. &lt;a href=&quot;https://www.npmjs.com/package/forever&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;forever&lt;/a&gt;를 사용하였기 때문에
+서버가 시작되면&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ forever list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;명령어로 현재 서버에 대한 로그파일을 확인하실 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2d3021ea8cca0929d2ea9862407556de/afa26/log1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 11.666666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAfUlEQVQI11WOQQ6CMAAEqygoIBLjH0RssUVKS0H//6ux0YPxMNnL7mTFXg2IdmCnA0f7IlGORI6UxpH3C+IWWMkfazWRKhPRnN2TU9wUJlB0E1XjEGXjKVpP1c3U94XsYskaS601h34kjcU/ofRs5VdYPeaYnjye2VztR/gGzLU45qW1dYwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;log1&quot;
+        title=&quot;log1&quot;
+        src=&quot;/static/2d3021ea8cca0929d2ea9862407556de/e85cb/log1.png&quot;
+        srcset=&quot;/static/2d3021ea8cca0929d2ea9862407556de/070ae/log1.png 120w,
+/static/2d3021ea8cca0929d2ea9862407556de/8ff5a/log1.png 240w,
+/static/2d3021ea8cca0929d2ea9862407556de/e85cb/log1.png 480w,
+/static/2d3021ea8cca0929d2ea9862407556de/37523/log1.png 720w,
+/static/2d3021ea8cca0929d2ea9862407556de/d9199/log1.png 960w,
+/static/2d3021ea8cca0929d2ea9862407556de/afa26/log1.png 1258w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5b0b96748be1776463d48db36f8f77d4/9cea8/log2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA7ElEQVQY04WQ3W6CQBCFUVOrpBUUbGLSKxMr0Ap2+VkQUWtslfgIXinv/wynM2CN9caLLyczyflms8pLssFrtsNgvsUg/QHPmr+EJr/Qy4/o5gU62wJP30eomxP03QGj3IG9H8KIPdRsieZHhJYb43EioZgxFeWKRGuo0xme/ayce9EKmkjRETPofoq69Qll5BIe4RMBlDfKsbhQs2g26SVGdCUUGfgIo4dL6MGizMZ7RCUqcMkSV5x3LLQp+/Eahvwv5AMm7bssDBdlNpywesk9YdtLwKgE/0PLTfBAf1J3ggq7yr/SRXDLWfgLIqeRAPbiUggAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;log2&quot;
+        title=&quot;log2&quot;
+        src=&quot;/static/5b0b96748be1776463d48db36f8f77d4/e85cb/log2.png&quot;
+        srcset=&quot;/static/5b0b96748be1776463d48db36f8f77d4/070ae/log2.png 120w,
+/static/5b0b96748be1776463d48db36f8f77d4/8ff5a/log2.png 240w,
+/static/5b0b96748be1776463d48db36f8f77d4/e85cb/log2.png 480w,
+/static/5b0b96748be1776463d48db36f8f77d4/37523/log2.png 720w,
+/static/5b0b96748be1776463d48db36f8f77d4/d9199/log2.png 960w,
+/static/5b0b96748be1776463d48db36f8f77d4/9cea8/log2.png 1278w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;등록되어있는 스케쥴들이 정상적으로 봇으로 동작하는 모습을 보실 수 있습니다!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;봇을 만든것에 대한 경험 공유는 여기까지 입니다.
+사용하시면서 어려우실 만한 부분은 google vision의 설치일 것 같네요... (저도 꽤나 오래 걸렸습니다...)&lt;/p&gt;
 &lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Airbnb 이용 후기]]></title><description><![CDATA[어제까지 약 11일 정도 미국 여행을 다녀왔습니다. 시카고와 뉴욕을 다녀왔는데
 시카고 숙소에서 에어비앤비 숙소에 머물며 생긴 이슈와 해결, 에어비앤비의 대응에 대해 말하고자 합니다.
 개발 블로그지만 운영이나 서비스도 다루면 좋을 것 같아서요 ㅎㅎ…]]></description><link>https://jicjjang.github.io/posts/airbnb-review</link><guid isPermaLink="false">https://jicjjang.github.io/posts/airbnb-review</guid><pubDate>Tue, 13 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;어제까지 약 11일 정도 미국 여행을 다녀왔습니다. 시카고와 뉴욕을 다녀왔는데
@@ -8567,263 +8567,7 @@ obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email &lt;span 
 &lt;p&gt;마지막 장을 이렇게 마무리하게 되었습니다.
 7개의 포스팅을 봐주셔서 감사합니다.&lt;/p&gt;
 &lt;p&gt;새로운 책이나 프로젝트로 추후에 포스팅을 올리겠습니다.
-수고하셨습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 6]]></title><description><![CDATA[오늘 새벽까지 javascript optimize 4 게시글을 작성했었는데요, 이전 파트에서 말씀드린대로
-정규표현식에 대한 5장은 스킵하고 6장으로 시작해보겠습니다. 6. 응답성 좋은 인터페이스 1장에서 브라우저 UI…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-6</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-6</guid><pubDate>Fri, 19 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;오늘 새벽까지 javascript optimize 4 게시글을 작성했었는데요, 이전 파트에서 말씀드린대로
-정규표현식에 대한 5장은 스킵하고 6장으로 시작해보겠습니다.&lt;/p&gt;
-&lt;h2 id=&quot;6-응답성-좋은-인터페이스&quot; style=&quot;position:relative;&quot;&gt;6. 응답성 좋은 인터페이스&lt;a href=&quot;#6-%EC%9D%91%EB%8B%B5%EC%84%B1-%EC%A2%8B%EC%9D%80-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4&quot; aria-label=&quot;6 응답성 좋은 인터페이스 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;1장에서 브라우저 UI 스레드에 대해 아주 간단히 알아보았습니다. 즉, UI 업데이트 후 자바스크립트를 실행해야하는데
-동시에 실행할 순 없으므로 적절한 배치가 필요합니다.&lt;/p&gt;
-&lt;h3 id=&quot;6-1-브라우저-UI-스레드&quot; style=&quot;position:relative;&quot;&gt;6-1. 브라우저 UI 스레드&lt;a href=&quot;#6-1-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-UI-%EC%8A%A4%EB%A0%88%EB%93%9C&quot; aria-label=&quot;6 1 브라우저 UI 스레드 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;브라우저에서 보통 &lt;code class=&quot;language-text&quot;&gt;스레드&lt;/code&gt;라는 단어를 사용하진 않지만, UI 업데이트 및 javascript가 공유하는 프로세스를
-UI 스레드라고 합니다. 보통 유휴상태가 될 때까지 할 일을 대기시키는 큐 역할을 합니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; div &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  div&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Clicked!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;코드의 마지막 줄에서 appendChild 메서드가 실행되면 UI를 수정하도록 UI 업데이트를 큐에 추가합니다.
-정확히 말하자면&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/0cd201d03ee20c52e3081130771f243d/ebd80/ui.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEA//EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAG5KljMcX//xAAZEAABBQAAAAAAAAAAAAAAAAACABASITH/2gAIAQEAAQUCIrkhx//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAIDAAAAAAAAAAAAAAAAAAABICEx/9oACAEBAAY/AmrNcf/EABoQAQADAAMAAAAAAAAAAAAAAAEAESExQdH/2gAIAQEAAT8hYBxeiWPEmtNsvJexn//aAAwDAQACAAMAAAAQzw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8QjH//xAAaEAEBAQEBAQEAAAAAAAAAAAABEQAhMUFh/9oACAEBAAE/EIg30FJ+ZVLF+cjNulOqBlx3CYd63//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;ui&quot;
-        title=&quot;ui&quot;
-        src=&quot;/static/0cd201d03ee20c52e3081130771f243d/7cc5e/ui.jpg&quot;
-        srcset=&quot;/static/0cd201d03ee20c52e3081130771f243d/e439a/ui.jpg 120w,
-/static/0cd201d03ee20c52e3081130771f243d/09b79/ui.jpg 240w,
-/static/0cd201d03ee20c52e3081130771f243d/7cc5e/ui.jpg 480w,
-/static/0cd201d03ee20c52e3081130771f243d/80e3c/ui.jpg 720w,
-/static/0cd201d03ee20c52e3081130771f243d/6a068/ui.jpg 960w,
-/static/0cd201d03ee20c52e3081130771f243d/ebd80/ui.jpg 3530w&quot;
-        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;이미지와 같이&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;눌리는 모양으로 ui가 업데이트&lt;/li&gt;
-&lt;li&gt;handleClick 실행&lt;/li&gt;
-&lt;li&gt;ui 업데이트&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;순서대로 UI 스레드가 진행됩니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;브라우저는 javascript를 일정 시간 이상 허용하지 않습니다. 그렇기 때문에 너무 많거나, 많이 반복되거나, 무한 루프에 빠진다면
-에러를 보게 되는데요, 이 에러는 브라우저마다 상이하고, 시간 또한 다릅니다.&lt;/p&gt;
-&lt;p&gt;javascript를 만든 Brendan Eich가 한 말로 &lt;code class=&quot;language-text&quot;&gt;&amp;quot;자바스크립트가 1초 이상 실행된다면 아마도 그 코드는 잘못된 것이다.&amp;quot;&lt;/code&gt; 라는 말이 있다고 합니다...&lt;/p&gt;
-&lt;h3 id=&quot;6-2-타이머-다루기&quot; style=&quot;position:relative;&quot;&gt;6-2. 타이머 다루기&lt;a href=&quot;#6-2-%ED%83%80%EC%9D%B4%EB%A8%B8-%EB%8B%A4%EB%A3%A8%EA%B8%B0&quot; aria-label=&quot;6 2 타이머 다루기 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;보통 타이머는 setTimeout이나 setInterval을 이용합니다. 그러면 javascript 엔진은 일정 시간동안 대기했다가 UI 큐에 작업을 추가합니다.
-그 말은 즉&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;hahahahaha&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;greeting&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;250&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이라는 코드가 있으면 greeting 메서드를 250ms 뒤에 실행하는 것이 아니라, 250ms 뒤에 UI 큐에 추가한다는 것입니다.
-정확히 언제 실행이 될 지는 알 수 없습니다.
-(setInterval은 UI큐에 있는 작업이 아직 실행되지 않았다면 다시 UI 큐에 동일한 작업을 추가하지 않습니다.)&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; button &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-button&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;oneMethod&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// blahblah...&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;token function&quot;&gt;twoMethod&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이 코드에서 만약 twoMethod 실행이 500ms 이상 걸린다면, twoMethod가 끝나기 전에 타이머 코드가 UI 큐에 등록됩니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;타이머 정확도에 대한 얘기를 해보자면, 윈도우 OS는 타이머를 15ms 단위로 갱신합니다.
-그리고 브라우저 대부분이 타이머 지연시간이 10ms 입니다.&lt;/p&gt;
-&lt;p&gt;그래서 둘을 합친 25ms를 타이머 지연 최소시간으로 해놓으면 브라우저 및 타 OS에서 타이머에 관한 문제를 예방할 수 있습니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;코드를 한 타이밍에 한번만 처리하는 것은 비효율적일 때가 있습니다. 만약 1000개의 배열 항목에 지연시간 25ms, 처리시간 1ms라면
-(25ms + 1ms) * 1000 = 26000ms = 25s 입니다. 항목을 50개씩 묶어서 처리(너무 많이 묶는것도 비효율적일 수 있습니다.)
-할 수도 있습니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;타이머의 성능 문제는 타이머를 동시에 여러 개를 사용하면서 발생합니다. 모든 타이머가 실행 시간을 얻기 위해 경쟁하기 때문에
-너무 짧은 타이머 지연시간을 여러개 선언해 놓는 것은 병목현상이 발생하기 쉽습니다. 차라리 위에 말씀드린 것처럼 느린 주기에
-한꺼번에 여러 일을 실행하는 것이 훨씬 효율적입니다.&lt;/p&gt;
-&lt;h3 id=&quot;6-3-웹-워커&quot; style=&quot;position:relative;&quot;&gt;6-3. 웹 워커&lt;a href=&quot;#6-3-%EC%9B%B9-%EC%9B%8C%EC%BB%A4&quot; aria-label=&quot;6 3 웹 워커 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;브라우저 UI 스레드 밖에서 동작할 인터페이스의 필요성으로 만들어 진 것이 웹 워커입니다. 그래서 워커가 생성될 때마다 javascript를
-실행할 고유 스레드(브라우저 UI 스레드에 영향을 끼치지 않음)를 생성하기 때문에 성능 향상에 도움일 될 수 있습니다.&lt;/p&gt;
-&lt;p&gt;단점은 UI 스레드에 묶이지 않기 때문에 브라우저의 자원 대부분에 접근하지 못하고,
-스레드 바깥에서 DOM을 변경하기 때문에 문제가 발생하기 쉽다는 점입니다.&lt;/p&gt;
-&lt;p&gt;웹 워커는&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;navigator 객체&lt;/li&gt;
-&lt;li&gt;location 객체&lt;/li&gt;
-&lt;li&gt;self 객체&lt;/li&gt;
-&lt;li&gt;모든 ECMA 객체 (Object, Array, Date...)&lt;/li&gt;
-&lt;li&gt;XMLHttpRequest&lt;/li&gt;
-&lt;li&gt;setTimeout, setInterval&lt;/li&gt;
-&lt;li&gt;close() (워커를 즉시 중단시킴)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;와 같은 일부 기능만을 가집니다.&lt;/p&gt;
-&lt;p&gt;웹 워크를 실행하기 위해서는&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; worker &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Worker&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;code.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;와 같이 실행하며, 실행이 된다면 지정한 파일에 대한 새로운 워커 환경(브라우저 UI 스레드와는 상관없는)을 가진
-새 스레드를 생성합니다. 비동기적으로 파일을 내려받으며, 모두 내려받은 후 시작이 됩니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;이벤트로 동작을 하는데 아래와 같은 이벤트로 통신을 하게 됩니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// browser&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; worker &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Worker&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;code.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onmessage&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// 웹 워커에서 오는 정보를 받음&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;postMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;testest&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 웹 워커로 정보를 보냄&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// web worker&lt;/span&gt;
-self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onmessage&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// 브라우저에서 오는 정보를 받음&lt;/span&gt;
-  self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;postMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;hello!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 브라우저로 정보를 보냄&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
-&lt;p&gt;현실적으로 웹 워커를 사용하는 것은 브라우저 UI 스레드에 묶여있지 않고 순수한 데이터를 다루며,
-실행에 아주 긴 시간이 걸리는 스크립트에 적합합니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;사용자 경험 (UX)에 악영향을 줄 만큼 실행하면서 중요한 javascript 코드는 없습니다.
-사용자 경험이 항상 최우선 되야 함을 주의해주세요!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 7]]></title><description><![CDATA[가장 많이 쓰이며, 프론트 엔지니어에게 필수인 비동기 통신 요청인 Ajax에 대해 알아보겠습니다 7. Ajax 비동기적으로 데이터를 주고 받아서 페이지 부하를 최대한 줄일 수 있는
-고성능 javascript의 초석인 Ajax에 대해 알아보겠습니다.…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-7</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-7</guid><pubDate>Fri, 19 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;가장 많이 쓰이며, 프론트 엔지니어에게 필수인 비동기 통신 요청인 Ajax에 대해 알아보겠습니다&lt;/p&gt;
-&lt;h2 id=&quot;7-Ajax&quot; style=&quot;position:relative;&quot;&gt;7. Ajax&lt;a href=&quot;#7-Ajax&quot; aria-label=&quot;7 Ajax permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;비동기적으로 데이터를 주고 받아서 페이지 부하를 최대한 줄일 수 있는
-고성능 javascript의 초석인 Ajax에 대해 알아보겠습니다.&lt;/p&gt;
-&lt;h3 id=&quot;7-1-데이터-전송&quot; style=&quot;position:relative;&quot;&gt;7-1. 데이터 전송&lt;a href=&quot;#7-1-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%86%A1&quot; aria-label=&quot;7 1 데이터 전송 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;XMLHttpRequest&lt;/li&gt;
-&lt;li&gt;동적 &amp;#x3C;script&gt; 태그 삽입&lt;/li&gt;
-&lt;li&gt;iframe&lt;/li&gt;
-&lt;li&gt;Comet&lt;/li&gt;
-&lt;li&gt;Multipart XHR&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;5종류의 기능을 주로 사용하지만, iframe이나 Comet은 데이터 전송 용도로 사용한다기엔 무리가 있으므로 제외합니다.&lt;/p&gt;
-&lt;p&gt;보통 jQuery의 ajax 기능을 이용해서 많이 사용하는 XMLHttpRequest에는 readyState라는 중요한 요소가 있습니다.
-전송중일 경우, 즉 스트리밍을 하는 동안에 readyState 값의 변화가 있다는 점입니다. 그 말은 스트리밍이 진행중일 때를
-캐치할 수 있다는 것이지요.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; req &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;XMLHttpRequest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onreadystatechange&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;readyState &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;             &lt;span class=&quot;token comment&quot;&gt;// 일부 데이터를 받았음. 전송 진행중.&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;readyState &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;      &lt;span class=&quot;token comment&quot;&gt;// 데이터 전송이 끝남.&lt;/span&gt;
-    &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;또한 GET방식으로 데이터 요청 시 데이터는 캐시가 되기 때문에 같은 데이터를 여러번 가져 올 경우 성능이 향상됩니다.
-(물론 가져온 데이터를 저장해서 사용하는 것이 가장 효율적입니다.)&lt;/p&gt;
-&lt;p&gt;GET방식은 URL과 매개변수의 길이가 2,048자로 제한이 되기 때문에 사용 시 유의해야 합니다.
-(길이를 넘는다면 POST를 사용해야 합니다.)&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;동적 &amp;#x3C;script&gt; 태그 삽입은 다른 도메인에 있는 서버에 데이터를 요청할 수 없다는 XHR의 단점을 극복할 수 있는
-방법입니다. 그래서 해킹이라고 볼 수 있습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scriptA &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;script&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-scriptA&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;address&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;head&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scriptA&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;데이터를 받는 부분은 어떻게 해야할까요?&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scriptA &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;script&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-scriptA&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;http://test.com/lib.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;head&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scriptA&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jsonCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;// lib.js file&lt;/span&gt;
-&lt;span class=&quot;token function&quot;&gt;jsonCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;status&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;success&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;a&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이렇게 호출할 때 callback 함수를 미리 생성해 놓고, 불러온 파일 내부에서 callback 함수를 실행시키는 것입니다.
-하지만 이 방법은 누군가 인지하고 callback 함수를 구현한 javascript 파일을 불러온다면 문제가 발생할 여지가 있기에
-데이터가 변할 수 있는 기능에 추천하지 않습니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Multipart XHR은 기본 XHR 통신과 거의 같습니다. 다만, n개의 파일을 가져올 때 n번의 XHR요청을 보내는 것이 아니라
-1번의 요청을 보내면서 n개의 파일을 하나로 합쳐서 받는 것입니다.&lt;/p&gt;
-&lt;p&gt;서버에서 base64 인코딩을 한 결과 값들을 특정 구분자로 이어붙여서 리턴하면 그 값을 javascript에서 다시 잘라서 사용합니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;$images = array(&amp;#39;a.jpg&amp;#39;, &amp;#39;b.jpg&amp;#39;, &amp;#39;c.jpg&amp;#39;);
-foreach ($images as $image) {
-  $image_fh = fopen($image, &amp;#39;r&amp;#39;);
-  $image_data = fread($image_fh, filesize($image));
-  fclose($image_fh);
-  $payloads[] = base64_encode($image_data);
-}
-
-$newline = chr(1);  // 구분자. unicode 1
-
-echo implode($newline, $payloads);  // $newline을 구분자로 $payloads를 연결시킴.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;splitImages&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;imageString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; imageData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; imageString&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;\u001&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// unicode 1. 구분자를 기준으로 나눔.&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; imageElement&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; doc &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; len &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; imageData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    imageElement &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; doc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;img&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    imageElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;data:image/jpeg;base64,&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; imageData&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    doc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;container&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;imageElement&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이미지 뿐만 아니라 같은 확장자의 파일 (css, js, png, jpg, html...)모두 가능합니다.&lt;/p&gt;
-&lt;p&gt;큰 단점은 캐시가 되지 않는다는 점입니다. 파일 형식으로 불러오는 것이 아니라 string형식으로 가져오기 때문입니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;XHR을 사용할 때 속도는 GET이 POST보다 빠릅니다. GET은 기본적으로 1개의 패킷을, POST는 2개의 패킷을 사용하는데
-데이터 양이 많으면 패킷을 하나 더 쓴다는 단점이 희석되기 때문에 데이터 양이 많을 때에는 POST가 적합합니다.&lt;/p&gt;
-&lt;h3 id=&quot;7-2-데이터-포맷&quot; style=&quot;position:relative;&quot;&gt;7-2. 데이터 포맷&lt;a href=&quot;#7-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8F%AC%EB%A7%B7&quot; aria-label=&quot;7 2 데이터 포맷 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;데이터 포맷의 종류로는&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;XML&lt;/li&gt;
-&lt;li&gt;XPath&lt;/li&gt;
-&lt;li&gt;JSON&lt;/li&gt;
-&lt;li&gt;JSON-P&lt;/li&gt;
-&lt;li&gt;HTML&lt;/li&gt;
-&lt;li&gt;Custom Format&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;6가지가 있습니다.&lt;/p&gt;
-&lt;p&gt;이제는 거의 사용을 하지 않는 XML, XPath는 제외하겠습니다. 이들은 사용에 있어서 모호함이 있기 때문에
-지양됩니다. (코드를 관리하는 방법이 3가지이기 때문에 애매합니다.)&lt;/p&gt;
-&lt;p&gt;최근 가장 널리 사용되는 포맷인 JSON은 객체와 배열의 문법을 가볍게 파싱할 수 있습니다.
-eval로도 쉽게 파싱할 수 있으나, 보안의 위협이 될 수 있으므로 JSON.parse 메서드를 사용해야 합니다.&lt;/p&gt;
-&lt;p&gt;JSON-P는 XHR로 데이터를 받았을 때, JSON이 string으로 오는 이슈를 해결하기 위해 사용됩니다.
-JSON 데이터를 전달받은 즉시 JSON 형식으로 사용하기 위해선 데이터를 callback함수로 감싸야 합니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token function&quot;&gt;parseJSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;JSON과 마찬가지로 네이티브 코드인 JSON-P는 파일 크기가 조금 더 늘어나는 단점이 있으나, 파싱 시간이 줄어들기 때문에
-속도가 JSON보다 빠릅니다.&lt;/p&gt;
-&lt;p&gt;JSON-P의 단점은 파싱할 수 없는 데이터를 받았을 때 발생합니다. 파싱 불가능한 형식의 response가 온다면
-에러가 발생할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;HTML은 XML과 비슷할 정도로 복잡한 포맷입니다. 그렇기 때문에 직접적으로 서버에서 응답을 주는 것은 최소한으로 줄여야 합니다.&lt;/p&gt;
-&lt;p&gt;Custom Format은 a:junseok;jicjjang12@gmail.com; b:aa:aa@gmail.com; .... 처럼
-사용자가 직접 만든 문법을 사용하는 방식인데, split으로 간단하게 자르는 형식이기 때문에 속도는 매우 빠릅니다.
-(이 또한 보안상 이슈가 될 수 있으므로 간단하고 문제될 일 없는 데이터에만 사용하길 권장합니다.)&lt;/p&gt;
-&lt;h3 id=&quot;7-3-Ajax-성능-가이드&quot; style=&quot;position:relative;&quot;&gt;7-3. Ajax 성능 가이드&lt;a href=&quot;#7-3-Ajax-%EC%84%B1%EB%8A%A5-%EA%B0%80%EC%9D%B4%EB%93%9C&quot; aria-label=&quot;7 3 Ajax 성능 가이드 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;Ajax의-성능을-끌어올리기-위해선-응답을-캐시하도록-HTTP-Header를-설정해야-합니다&quot; style=&quot;position:relative;&quot;&gt;Ajax의 성능을 끌어올리기 위해선 응답을 캐시하도록 HTTP Header를 설정해야 합니다.&lt;a href=&quot;#Ajax%EC%9D%98-%EC%84%B1%EB%8A%A5%EC%9D%84-%EB%81%8C%EC%96%B4%EC%98%AC%EB%A6%AC%EA%B8%B0-%EC%9C%84%ED%95%B4%EC%84%A0-%EC%9D%91%EB%8B%B5%EC%9D%84-%EC%BA%90%EC%8B%9C%ED%95%98%EB%8F%84%EB%A1%9D-HTTP-Header%EB%A5%BC-%EC%84%A4%EC%A0%95%ED%95%B4%EC%95%BC-%ED%95%A9%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;Ajax의 성능을 끌어올리기 위해선 응답을 캐시하도록 HTTP Header를 설정해야 합니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;얼마의 기간동안 지니고 있어도 되는지를 파악하고 해당 Expires를 설정하여 브라우저에 저장합니다.
-해당 날짜가 지나면 Cache의 값 대신 서버로 요처을 보냅니다.&lt;/p&gt;
-&lt;h4 id=&quot;클라이언트-측에서-가져온-데이터를-로컬에-저장해-재요청을-줄입니다&quot; style=&quot;position:relative;&quot;&gt;클라이언트 측에서 가져온 데이터를 로컬에 저장해 재요청을 줄입니다.&lt;a href=&quot;#%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%B8%A1%EC%97%90%EC%84%9C-%EA%B0%80%EC%A0%B8%EC%98%A8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%A1%9C%EC%BB%AC%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%B4-%EC%9E%AC%EC%9A%94%EC%B2%AD%EC%9D%84-%EC%A4%84%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;클라이언트 측에서 가져온 데이터를 로컬에 저장해 재요청을 줄입니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;로컬 스토리지에 URL을 키값으로 하는 데이터를 저장합니다. 그러면 키값에 대한 고민이 해결되고
-데이터를 쉽게 로컬 스토리지에 저장할 수 있습니다. 로컬 스토리지에 값이 없을 때에만 서버로 요청을 보냅니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;이번 장은 여기까지 입니다.
-XML은 널리, 많이 사용되지만 파싱에 많은 시간이 소모되는 단점이 있습니다. 이미 널리 사용되었기 때문에
-이전 데이터를 모두 수정하기에 힘든 부분이 많습니다. 이제부터라도 저장되는 데이터는 JSON 형식으로 사용하는 것이
-필수적입니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 4]]></title><description><![CDATA[4장 시작하겠습니다. 4. 알고리즘과 흐름 제어 4-1. 루프 언어 대부분에서의 코드 실행 시간을 대부분 루프에서 소비합니다.
+수고하셨습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 4]]></title><description><![CDATA[4장 시작하겠습니다. 4. 알고리즘과 흐름 제어 4-1. 루프 언어 대부분에서의 코드 실행 시간을 대부분 루프에서 소비합니다.
 그만큼 성능을 많이 좌우한다고 할 수 있습니다. for for-in while do-while…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-4</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-4</guid><pubDate>Fri, 19 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;4장 시작하겠습니다.&lt;/p&gt;
 &lt;h2 id=&quot;4-알고리즘과-흐름-제어&quot; style=&quot;position:relative;&quot;&gt;4. 알고리즘과 흐름 제어&lt;a href=&quot;#4-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%ED%9D%90%EB%A6%84-%EC%A0%9C%EC%96%B4&quot; aria-label=&quot;4 알고리즘과 흐름 제어 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&quot;4-1-루프&quot; style=&quot;position:relative;&quot;&gt;4-1. 루프&lt;a href=&quot;#4-1-%EB%A3%A8%ED%94%84&quot; aria-label=&quot;4 1 루프 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
@@ -8970,7 +8714,263 @@ switch가 더 효율적입니다.&lt;/p&gt;
 성능이 아주 중요한 함수는 이러한 &lt;code class=&quot;language-text&quot;&gt;메모이제이션&lt;/code&gt; 기능을 &lt;code class=&quot;language-text&quot;&gt;직접&lt;/code&gt; 추가하는 것이 좋습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;4장도 모두 포스팅했습니다. 정규표현식(5장)은 일단 건너뛰고 진행하려합니다.
-남은 장도 열심히 포스팅하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 1]]></title><description><![CDATA[5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
+남은 장도 열심히 포스팅하겠습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 7]]></title><description><![CDATA[가장 많이 쓰이며, 프론트 엔지니어에게 필수인 비동기 통신 요청인 Ajax에 대해 알아보겠습니다 7. Ajax 비동기적으로 데이터를 주고 받아서 페이지 부하를 최대한 줄일 수 있는
+고성능 javascript의 초석인 Ajax에 대해 알아보겠습니다.…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-7</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-7</guid><pubDate>Fri, 19 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;가장 많이 쓰이며, 프론트 엔지니어에게 필수인 비동기 통신 요청인 Ajax에 대해 알아보겠습니다&lt;/p&gt;
+&lt;h2 id=&quot;7-Ajax&quot; style=&quot;position:relative;&quot;&gt;7. Ajax&lt;a href=&quot;#7-Ajax&quot; aria-label=&quot;7 Ajax permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;비동기적으로 데이터를 주고 받아서 페이지 부하를 최대한 줄일 수 있는
+고성능 javascript의 초석인 Ajax에 대해 알아보겠습니다.&lt;/p&gt;
+&lt;h3 id=&quot;7-1-데이터-전송&quot; style=&quot;position:relative;&quot;&gt;7-1. 데이터 전송&lt;a href=&quot;#7-1-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%86%A1&quot; aria-label=&quot;7 1 데이터 전송 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;XMLHttpRequest&lt;/li&gt;
+&lt;li&gt;동적 &amp;#x3C;script&gt; 태그 삽입&lt;/li&gt;
+&lt;li&gt;iframe&lt;/li&gt;
+&lt;li&gt;Comet&lt;/li&gt;
+&lt;li&gt;Multipart XHR&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;5종류의 기능을 주로 사용하지만, iframe이나 Comet은 데이터 전송 용도로 사용한다기엔 무리가 있으므로 제외합니다.&lt;/p&gt;
+&lt;p&gt;보통 jQuery의 ajax 기능을 이용해서 많이 사용하는 XMLHttpRequest에는 readyState라는 중요한 요소가 있습니다.
+전송중일 경우, 즉 스트리밍을 하는 동안에 readyState 값의 변화가 있다는 점입니다. 그 말은 스트리밍이 진행중일 때를
+캐치할 수 있다는 것이지요.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; req &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;XMLHttpRequest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onreadystatechange&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;readyState &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;             &lt;span class=&quot;token comment&quot;&gt;// 일부 데이터를 받았음. 전송 진행중.&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;readyState &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;      &lt;span class=&quot;token comment&quot;&gt;// 데이터 전송이 끝남.&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;또한 GET방식으로 데이터 요청 시 데이터는 캐시가 되기 때문에 같은 데이터를 여러번 가져 올 경우 성능이 향상됩니다.
+(물론 가져온 데이터를 저장해서 사용하는 것이 가장 효율적입니다.)&lt;/p&gt;
+&lt;p&gt;GET방식은 URL과 매개변수의 길이가 2,048자로 제한이 되기 때문에 사용 시 유의해야 합니다.
+(길이를 넘는다면 POST를 사용해야 합니다.)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;동적 &amp;#x3C;script&gt; 태그 삽입은 다른 도메인에 있는 서버에 데이터를 요청할 수 없다는 XHR의 단점을 극복할 수 있는
+방법입니다. 그래서 해킹이라고 볼 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scriptA &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;script&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+scriptA&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;address&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;head&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scriptA&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;데이터를 받는 부분은 어떻게 해야할까요?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scriptA &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;script&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+scriptA&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;http://test.com/lib.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;head&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scriptA&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jsonCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// lib.js file&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;jsonCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;status&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;success&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;a&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 호출할 때 callback 함수를 미리 생성해 놓고, 불러온 파일 내부에서 callback 함수를 실행시키는 것입니다.
+하지만 이 방법은 누군가 인지하고 callback 함수를 구현한 javascript 파일을 불러온다면 문제가 발생할 여지가 있기에
+데이터가 변할 수 있는 기능에 추천하지 않습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Multipart XHR은 기본 XHR 통신과 거의 같습니다. 다만, n개의 파일을 가져올 때 n번의 XHR요청을 보내는 것이 아니라
+1번의 요청을 보내면서 n개의 파일을 하나로 합쳐서 받는 것입니다.&lt;/p&gt;
+&lt;p&gt;서버에서 base64 인코딩을 한 결과 값들을 특정 구분자로 이어붙여서 리턴하면 그 값을 javascript에서 다시 잘라서 사용합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;$images = array(&amp;#39;a.jpg&amp;#39;, &amp;#39;b.jpg&amp;#39;, &amp;#39;c.jpg&amp;#39;);
+foreach ($images as $image) {
+  $image_fh = fopen($image, &amp;#39;r&amp;#39;);
+  $image_data = fread($image_fh, filesize($image));
+  fclose($image_fh);
+  $payloads[] = base64_encode($image_data);
+}
+
+$newline = chr(1);  // 구분자. unicode 1
+
+echo implode($newline, $payloads);  // $newline을 구분자로 $payloads를 연결시킴.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;splitImages&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;imageString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; imageData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; imageString&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;\u001&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// unicode 1. 구분자를 기준으로 나눔.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; imageElement&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; doc &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; len &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; imageData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    imageElement &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; doc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;img&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    imageElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;data:image/jpeg;base64,&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; imageData&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    doc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;container&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;imageElement&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이미지 뿐만 아니라 같은 확장자의 파일 (css, js, png, jpg, html...)모두 가능합니다.&lt;/p&gt;
+&lt;p&gt;큰 단점은 캐시가 되지 않는다는 점입니다. 파일 형식으로 불러오는 것이 아니라 string형식으로 가져오기 때문입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;XHR을 사용할 때 속도는 GET이 POST보다 빠릅니다. GET은 기본적으로 1개의 패킷을, POST는 2개의 패킷을 사용하는데
+데이터 양이 많으면 패킷을 하나 더 쓴다는 단점이 희석되기 때문에 데이터 양이 많을 때에는 POST가 적합합니다.&lt;/p&gt;
+&lt;h3 id=&quot;7-2-데이터-포맷&quot; style=&quot;position:relative;&quot;&gt;7-2. 데이터 포맷&lt;a href=&quot;#7-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8F%AC%EB%A7%B7&quot; aria-label=&quot;7 2 데이터 포맷 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;데이터 포맷의 종류로는&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;XML&lt;/li&gt;
+&lt;li&gt;XPath&lt;/li&gt;
+&lt;li&gt;JSON&lt;/li&gt;
+&lt;li&gt;JSON-P&lt;/li&gt;
+&lt;li&gt;HTML&lt;/li&gt;
+&lt;li&gt;Custom Format&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;6가지가 있습니다.&lt;/p&gt;
+&lt;p&gt;이제는 거의 사용을 하지 않는 XML, XPath는 제외하겠습니다. 이들은 사용에 있어서 모호함이 있기 때문에
+지양됩니다. (코드를 관리하는 방법이 3가지이기 때문에 애매합니다.)&lt;/p&gt;
+&lt;p&gt;최근 가장 널리 사용되는 포맷인 JSON은 객체와 배열의 문법을 가볍게 파싱할 수 있습니다.
+eval로도 쉽게 파싱할 수 있으나, 보안의 위협이 될 수 있으므로 JSON.parse 메서드를 사용해야 합니다.&lt;/p&gt;
+&lt;p&gt;JSON-P는 XHR로 데이터를 받았을 때, JSON이 string으로 오는 이슈를 해결하기 위해 사용됩니다.
+JSON 데이터를 전달받은 즉시 JSON 형식으로 사용하기 위해선 데이터를 callback함수로 감싸야 합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token function&quot;&gt;parseJSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; username&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;JSON과 마찬가지로 네이티브 코드인 JSON-P는 파일 크기가 조금 더 늘어나는 단점이 있으나, 파싱 시간이 줄어들기 때문에
+속도가 JSON보다 빠릅니다.&lt;/p&gt;
+&lt;p&gt;JSON-P의 단점은 파싱할 수 없는 데이터를 받았을 때 발생합니다. 파싱 불가능한 형식의 response가 온다면
+에러가 발생할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;HTML은 XML과 비슷할 정도로 복잡한 포맷입니다. 그렇기 때문에 직접적으로 서버에서 응답을 주는 것은 최소한으로 줄여야 합니다.&lt;/p&gt;
+&lt;p&gt;Custom Format은 a:junseok;jicjjang12@gmail.com; b:aa:aa@gmail.com; .... 처럼
+사용자가 직접 만든 문법을 사용하는 방식인데, split으로 간단하게 자르는 형식이기 때문에 속도는 매우 빠릅니다.
+(이 또한 보안상 이슈가 될 수 있으므로 간단하고 문제될 일 없는 데이터에만 사용하길 권장합니다.)&lt;/p&gt;
+&lt;h3 id=&quot;7-3-Ajax-성능-가이드&quot; style=&quot;position:relative;&quot;&gt;7-3. Ajax 성능 가이드&lt;a href=&quot;#7-3-Ajax-%EC%84%B1%EB%8A%A5-%EA%B0%80%EC%9D%B4%EB%93%9C&quot; aria-label=&quot;7 3 Ajax 성능 가이드 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;Ajax의-성능을-끌어올리기-위해선-응답을-캐시하도록-HTTP-Header를-설정해야-합니다&quot; style=&quot;position:relative;&quot;&gt;Ajax의 성능을 끌어올리기 위해선 응답을 캐시하도록 HTTP Header를 설정해야 합니다.&lt;a href=&quot;#Ajax%EC%9D%98-%EC%84%B1%EB%8A%A5%EC%9D%84-%EB%81%8C%EC%96%B4%EC%98%AC%EB%A6%AC%EA%B8%B0-%EC%9C%84%ED%95%B4%EC%84%A0-%EC%9D%91%EB%8B%B5%EC%9D%84-%EC%BA%90%EC%8B%9C%ED%95%98%EB%8F%84%EB%A1%9D-HTTP-Header%EB%A5%BC-%EC%84%A4%EC%A0%95%ED%95%B4%EC%95%BC-%ED%95%A9%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;Ajax의 성능을 끌어올리기 위해선 응답을 캐시하도록 HTTP Header를 설정해야 합니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;얼마의 기간동안 지니고 있어도 되는지를 파악하고 해당 Expires를 설정하여 브라우저에 저장합니다.
+해당 날짜가 지나면 Cache의 값 대신 서버로 요처을 보냅니다.&lt;/p&gt;
+&lt;h4 id=&quot;클라이언트-측에서-가져온-데이터를-로컬에-저장해-재요청을-줄입니다&quot; style=&quot;position:relative;&quot;&gt;클라이언트 측에서 가져온 데이터를 로컬에 저장해 재요청을 줄입니다.&lt;a href=&quot;#%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%B8%A1%EC%97%90%EC%84%9C-%EA%B0%80%EC%A0%B8%EC%98%A8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%A1%9C%EC%BB%AC%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%B4-%EC%9E%AC%EC%9A%94%EC%B2%AD%EC%9D%84-%EC%A4%84%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;클라이언트 측에서 가져온 데이터를 로컬에 저장해 재요청을 줄입니다 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;로컬 스토리지에 URL을 키값으로 하는 데이터를 저장합니다. 그러면 키값에 대한 고민이 해결되고
+데이터를 쉽게 로컬 스토리지에 저장할 수 있습니다. 로컬 스토리지에 값이 없을 때에만 서버로 요청을 보냅니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;이번 장은 여기까지 입니다.
+XML은 널리, 많이 사용되지만 파싱에 많은 시간이 소모되는 단점이 있습니다. 이미 널리 사용되었기 때문에
+이전 데이터를 모두 수정하기에 힘든 부분이 많습니다. 이제부터라도 저장되는 데이터는 JSON 형식으로 사용하는 것이
+필수적입니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 6]]></title><description><![CDATA[오늘 새벽까지 javascript optimize 4 게시글을 작성했었는데요, 이전 파트에서 말씀드린대로
+정규표현식에 대한 5장은 스킵하고 6장으로 시작해보겠습니다. 6. 응답성 좋은 인터페이스 1장에서 브라우저 UI…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-6</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-6</guid><pubDate>Fri, 19 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;오늘 새벽까지 javascript optimize 4 게시글을 작성했었는데요, 이전 파트에서 말씀드린대로
+정규표현식에 대한 5장은 스킵하고 6장으로 시작해보겠습니다.&lt;/p&gt;
+&lt;h2 id=&quot;6-응답성-좋은-인터페이스&quot; style=&quot;position:relative;&quot;&gt;6. 응답성 좋은 인터페이스&lt;a href=&quot;#6-%EC%9D%91%EB%8B%B5%EC%84%B1-%EC%A2%8B%EC%9D%80-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4&quot; aria-label=&quot;6 응답성 좋은 인터페이스 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;1장에서 브라우저 UI 스레드에 대해 아주 간단히 알아보았습니다. 즉, UI 업데이트 후 자바스크립트를 실행해야하는데
+동시에 실행할 순 없으므로 적절한 배치가 필요합니다.&lt;/p&gt;
+&lt;h3 id=&quot;6-1-브라우저-UI-스레드&quot; style=&quot;position:relative;&quot;&gt;6-1. 브라우저 UI 스레드&lt;a href=&quot;#6-1-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-UI-%EC%8A%A4%EB%A0%88%EB%93%9C&quot; aria-label=&quot;6 1 브라우저 UI 스레드 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;브라우저에서 보통 &lt;code class=&quot;language-text&quot;&gt;스레드&lt;/code&gt;라는 단어를 사용하진 않지만, UI 업데이트 및 javascript가 공유하는 프로세스를
+UI 스레드라고 합니다. 보통 유휴상태가 될 때까지 할 일을 대기시키는 큐 역할을 합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; div &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  div&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Clicked!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;코드의 마지막 줄에서 appendChild 메서드가 실행되면 UI를 수정하도록 UI 업데이트를 큐에 추가합니다.
+정확히 말하자면&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0cd201d03ee20c52e3081130771f243d/ebd80/ui.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEA//EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAG5KljMcX//xAAZEAABBQAAAAAAAAAAAAAAAAACABASITH/2gAIAQEAAQUCIrkhx//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAIDAAAAAAAAAAAAAAAAAAABICEx/9oACAEBAAY/AmrNcf/EABoQAQADAAMAAAAAAAAAAAAAAAEAESExQdH/2gAIAQEAAT8hYBxeiWPEmtNsvJexn//aAAwDAQACAAMAAAAQzw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8QjH//xAAaEAEBAQEBAQEAAAAAAAAAAAABEQAhMUFh/9oACAEBAAE/EIg30FJ+ZVLF+cjNulOqBlx3CYd63//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ui&quot;
+        title=&quot;ui&quot;
+        src=&quot;/static/0cd201d03ee20c52e3081130771f243d/7cc5e/ui.jpg&quot;
+        srcset=&quot;/static/0cd201d03ee20c52e3081130771f243d/e439a/ui.jpg 120w,
+/static/0cd201d03ee20c52e3081130771f243d/09b79/ui.jpg 240w,
+/static/0cd201d03ee20c52e3081130771f243d/7cc5e/ui.jpg 480w,
+/static/0cd201d03ee20c52e3081130771f243d/80e3c/ui.jpg 720w,
+/static/0cd201d03ee20c52e3081130771f243d/6a068/ui.jpg 960w,
+/static/0cd201d03ee20c52e3081130771f243d/ebd80/ui.jpg 3530w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이미지와 같이&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;눌리는 모양으로 ui가 업데이트&lt;/li&gt;
+&lt;li&gt;handleClick 실행&lt;/li&gt;
+&lt;li&gt;ui 업데이트&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;순서대로 UI 스레드가 진행됩니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;브라우저는 javascript를 일정 시간 이상 허용하지 않습니다. 그렇기 때문에 너무 많거나, 많이 반복되거나, 무한 루프에 빠진다면
+에러를 보게 되는데요, 이 에러는 브라우저마다 상이하고, 시간 또한 다릅니다.&lt;/p&gt;
+&lt;p&gt;javascript를 만든 Brendan Eich가 한 말로 &lt;code class=&quot;language-text&quot;&gt;&amp;quot;자바스크립트가 1초 이상 실행된다면 아마도 그 코드는 잘못된 것이다.&amp;quot;&lt;/code&gt; 라는 말이 있다고 합니다...&lt;/p&gt;
+&lt;h3 id=&quot;6-2-타이머-다루기&quot; style=&quot;position:relative;&quot;&gt;6-2. 타이머 다루기&lt;a href=&quot;#6-2-%ED%83%80%EC%9D%B4%EB%A8%B8-%EB%8B%A4%EB%A3%A8%EA%B8%B0&quot; aria-label=&quot;6 2 타이머 다루기 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;보통 타이머는 setTimeout이나 setInterval을 이용합니다. 그러면 javascript 엔진은 일정 시간동안 대기했다가 UI 큐에 작업을 추가합니다.
+그 말은 즉&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;hahahahaha&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;greeting&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;250&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이라는 코드가 있으면 greeting 메서드를 250ms 뒤에 실행하는 것이 아니라, 250ms 뒤에 UI 큐에 추가한다는 것입니다.
+정확히 언제 실행이 될 지는 알 수 없습니다.
+(setInterval은 UI큐에 있는 작업이 아직 실행되지 않았다면 다시 UI 큐에 동일한 작업을 추가하지 않습니다.)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; button &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+button&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;oneMethod&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// blahblah...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;twoMethod&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 코드에서 만약 twoMethod 실행이 500ms 이상 걸린다면, twoMethod가 끝나기 전에 타이머 코드가 UI 큐에 등록됩니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;타이머 정확도에 대한 얘기를 해보자면, 윈도우 OS는 타이머를 15ms 단위로 갱신합니다.
+그리고 브라우저 대부분이 타이머 지연시간이 10ms 입니다.&lt;/p&gt;
+&lt;p&gt;그래서 둘을 합친 25ms를 타이머 지연 최소시간으로 해놓으면 브라우저 및 타 OS에서 타이머에 관한 문제를 예방할 수 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;코드를 한 타이밍에 한번만 처리하는 것은 비효율적일 때가 있습니다. 만약 1000개의 배열 항목에 지연시간 25ms, 처리시간 1ms라면
+(25ms + 1ms) * 1000 = 26000ms = 25s 입니다. 항목을 50개씩 묶어서 처리(너무 많이 묶는것도 비효율적일 수 있습니다.)
+할 수도 있습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;타이머의 성능 문제는 타이머를 동시에 여러 개를 사용하면서 발생합니다. 모든 타이머가 실행 시간을 얻기 위해 경쟁하기 때문에
+너무 짧은 타이머 지연시간을 여러개 선언해 놓는 것은 병목현상이 발생하기 쉽습니다. 차라리 위에 말씀드린 것처럼 느린 주기에
+한꺼번에 여러 일을 실행하는 것이 훨씬 효율적입니다.&lt;/p&gt;
+&lt;h3 id=&quot;6-3-웹-워커&quot; style=&quot;position:relative;&quot;&gt;6-3. 웹 워커&lt;a href=&quot;#6-3-%EC%9B%B9-%EC%9B%8C%EC%BB%A4&quot; aria-label=&quot;6 3 웹 워커 permalink&quot; class=&quot;autolink-headers-- after&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; height=&quot;20&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;20&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;브라우저 UI 스레드 밖에서 동작할 인터페이스의 필요성으로 만들어 진 것이 웹 워커입니다. 그래서 워커가 생성될 때마다 javascript를
+실행할 고유 스레드(브라우저 UI 스레드에 영향을 끼치지 않음)를 생성하기 때문에 성능 향상에 도움일 될 수 있습니다.&lt;/p&gt;
+&lt;p&gt;단점은 UI 스레드에 묶이지 않기 때문에 브라우저의 자원 대부분에 접근하지 못하고,
+스레드 바깥에서 DOM을 변경하기 때문에 문제가 발생하기 쉽다는 점입니다.&lt;/p&gt;
+&lt;p&gt;웹 워커는&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;navigator 객체&lt;/li&gt;
+&lt;li&gt;location 객체&lt;/li&gt;
+&lt;li&gt;self 객체&lt;/li&gt;
+&lt;li&gt;모든 ECMA 객체 (Object, Array, Date...)&lt;/li&gt;
+&lt;li&gt;XMLHttpRequest&lt;/li&gt;
+&lt;li&gt;setTimeout, setInterval&lt;/li&gt;
+&lt;li&gt;close() (워커를 즉시 중단시킴)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;와 같은 일부 기능만을 가집니다.&lt;/p&gt;
+&lt;p&gt;웹 워크를 실행하기 위해서는&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; worker &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Worker&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;code.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;와 같이 실행하며, 실행이 된다면 지정한 파일에 대한 새로운 워커 환경(브라우저 UI 스레드와는 상관없는)을 가진
+새 스레드를 생성합니다. 비동기적으로 파일을 내려받으며, 모두 내려받은 후 시작이 됩니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;이벤트로 동작을 하는데 아래와 같은 이벤트로 통신을 하게 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// browser&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; worker &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Worker&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;code.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onmessage&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 웹 워커에서 오는 정보를 받음&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;postMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;testest&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 웹 워커로 정보를 보냄&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// web worker&lt;/span&gt;
+self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onmessage&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 브라우저에서 오는 정보를 받음&lt;/span&gt;
+  self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;postMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;hello!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 브라우저로 정보를 보냄&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;현실적으로 웹 워커를 사용하는 것은 브라우저 UI 스레드에 묶여있지 않고 순수한 데이터를 다루며,
+실행에 아주 긴 시간이 걸리는 스크립트에 적합합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;사용자 경험 (UX)에 악영향을 줄 만큼 실행하면서 중요한 javascript 코드는 없습니다.
+사용자 경험이 항상 최우선 되야 함을 주의해주세요!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 성능 최적화 1]]></title><description><![CDATA[5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
 회사에서 준 yes2…]]></description><link>https://jicjjang.github.io/posts/javascript-optimize-1</link><guid isPermaLink="false">https://jicjjang.github.io/posts/javascript-optimize-1</guid><pubDate>Thu, 18 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;5월 연휴 잘 보내셨나요? 저는 연휴와 주말동안 Vue 라이브러리와 간단한 프로그램들을 만드는데 보냈습니다.
 회사에서 준 yes24 도서이용권으로 (공짜 책!!!)구매한 자바스크립트 성능 최적화에 대한 간단한 정리를 해보려 합니다.
 요점만 집어서! 써보겠습니다 :D&lt;/p&gt;
