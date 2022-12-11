@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 17 Sep 2022 07:50:46 GMT</lastBuildDate><item><title><![CDATA[i18next in react]]></title><description><![CDATA[사실 레퍼런스도 많고 다국어 적용 시 필수적으로 사용하는 는 이미 알려질대로 알려진 유명 라이브러리지만, 실제로 사용해 본 경험은 없습니다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[June]]></title><description><![CDATA[June]]></description><link>https://jicjjang.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Dec 2022 18:54:30 GMT</lastBuildDate><item><title><![CDATA[Recoil duplicate key error]]></title><description><![CDATA[recoil을 사용해서 개발하다 보면 쉽게 마주칠 수 있는 warning이 있습니다.
+바로  라는 warning 메세지 인데요,
+HMR…]]></description><link>https://jicjjang.github.io/posts/recoil-duplicated-key</link><guid isPermaLink="false">https://jicjjang.github.io/posts/recoil-duplicated-key</guid><pubDate>Sun, 11 Dec 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;recoil을 사용해서 개발하다 보면 쉽게 마주칠 수 있는 warning이 있습니다.
+바로 &lt;code class=&quot;language-text&quot;&gt;Duplicate atom key &amp;quot;...&amp;quot;&lt;/code&gt; 라는 warning 메세지 인데요,
+HMR에서 발생한다곤 하지만, 꽤나 긴 메세지가 계속 콘솔을 채우고 있는걸 보자니
+상당히 거슬립니다. 원인을 찾아 수정 해줘야겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9636b0c268fe5e5c5682fe967bb43ae6/6e7c1/error.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAEDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAc6ArB//xAAWEAADAAAAAAAAAAAAAAAAAAAAARD/2gAIAQEAAQUCjP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABgQAQEAAwAAAAAAAAAAAAAAAAEAITFx/9oACAEBAAE/ITRPIZv/2gAMAwEAAgADAAAAEAPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhAAAgIDAAAAAAAAAAAAAAAAAREAITFxsf/aAAgBAQABPxC7wMRWkWoAU5P/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;error&quot;
+        title=&quot;error&quot;
+        src=&quot;/static/9636b0c268fe5e5c5682fe967bb43ae6/7cc5e/error.jpg&quot;
+        srcset=&quot;/static/9636b0c268fe5e5c5682fe967bb43ae6/e439a/error.jpg 120w,
+/static/9636b0c268fe5e5c5682fe967bb43ae6/09b79/error.jpg 240w,
+/static/9636b0c268fe5e5c5682fe967bb43ae6/7cc5e/error.jpg 480w,
+/static/9636b0c268fe5e5c5682fe967bb43ae6/80e3c/error.jpg 720w,
+/static/9636b0c268fe5e5c5682fe967bb43ae6/6a068/error.jpg 960w,
+/static/9636b0c268fe5e5c5682fe967bb43ae6/6e7c1/error.jpg 1750w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;warning이 발생하는 원인부터 알아야겠습니다.&lt;/p&gt;
+&lt;p&gt;메세지에 있는 것처럼 HMR, 즉 유저의 파일 수정으로 인해 HMR을 통한 업데이트가 있을 때
+기존에 정의해둔 Recoil의 atom이 재정의 되면서 키가 중복되는 상태가 되는 것입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 아주 기본적인 atom. 보통 global한 modal, popup을 위해 사용&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; atom &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;recoil&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; modalState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token generic-function&quot;&gt;&lt;span class=&quot;token function&quot;&gt;atom&lt;/span&gt;&lt;span class=&quot;token generic class-name&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;IModalType &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;modalState&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;에러에 대한 &lt;a href=&quot;https://github.com/facebookexperimental/Recoil/issues/733&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;issue&lt;/a&gt;는 금방 찾을 수 있었는데요, 20년도 11월 (2년전...)부터 있었던 이슈니 꽤 오래되었습니다.&lt;/p&gt;
+&lt;p&gt;공식적인 해결책은 없었고, 얼기설기 유저들이 테스트하며 해결하는 방법밖엔 없었습니다.
+가장 깔끔했던 방법은 uuid 라이브러릴 통해 key값을 항상 다르게 만들어 주는 방법이었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; atom &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;recoil&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; v1 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;uuid&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; modalState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token generic-function&quot;&gt;&lt;span class=&quot;token function&quot;&gt;atom&lt;/span&gt;&lt;span class=&quot;token generic class-name&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;IModalType &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;modalState/&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;진행중이던 프로젝트가 적절히 마무리되고 동일한 메세지 때문에 한번 더 github issue를 확인하다 보니
+2년만에...! 버그픽스가 되었다고 &lt;a href=&quot;https://github.com/facebookexperimental/Recoil/releases/tag/0.7.6&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;0.7.6 릴리즈노트&lt;/a&gt;가 갱신되었다고 합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. recoil 패키지에서 RecoilEnv를 import 하고
+&amp;quot;RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false&amp;quot;
+설정을 해준다.
+
+2. nextjs와 같은 nodejs 환경에서
+&amp;quot;process.env.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false&amp;quot;
+와 같이 설정해줘도 된다.
+
+* 참고로 정상적인 Duplicate atom key도 포함하여 모든 키갱신 에러를 체크하지 않음.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;그리 중요하지 않은 내용이지만... 2년에 걸려 애써 무시하던 warning 메세지가가
+공식적으로 해결할 수 있게 된것이 기뻐 기록으로 남겨봅니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[i18next in react]]></title><description><![CDATA[사실 레퍼런스도 많고 다국어 적용 시 필수적으로 사용하는 는 이미 알려질대로 알려진 유명 라이브러리지만, 실제로 사용해 본 경험은 없습니다.
 globally…]]></description><link>https://jicjjang.github.io/posts/i18next</link><guid isPermaLink="false">https://jicjjang.github.io/posts/i18next</guid><pubDate>Wed, 14 Sep 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;사실 레퍼런스도 많고 다국어 적용 시 필수적으로 사용하는 &lt;a href=&quot;https://www.i18next.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;i18next&lt;/code&gt;&lt;/a&gt;는 이미 알려질대로 알려진 유명 라이브러리지만, 실제로 사용해 본 경험은 없습니다.
 globally한 개인 프로젝트를 해본적이 없었고, 라인플러스에 재직 시에는 사내 다국어 대응 라이브러리인 &lt;code class=&quot;language-text&quot;&gt;XLT&lt;/code&gt;를 사용했기 때문에 &lt;code class=&quot;language-text&quot;&gt;i18next&lt;/code&gt;를 실제로 사용해 볼 기회가 마땅치 않았습니다.&lt;/p&gt;
 &lt;p&gt;마침 회사에서 사용해볼 기회가 있었는데요. lerna monorepo 환경으로 여러 프로젝트와 여러 라이브러리들이 있는데, 전체적으로 한번에 적용하는 상황이었습니다.
