@@ -237,6 +237,7 @@ page.tsx에서 enum.ts를 호출하는 부분입니다. export가 아닌 파일 
 ![turbo-build-result3](./turbo-build-result3.jpg)
 
 역시나 webpack처럼 정의가 잘 되어있네요.
+treeshaking이 되지 않습니다.
 
 ---
 
