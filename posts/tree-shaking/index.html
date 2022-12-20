@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><style data-href="/styles.8bc7d8bd447b1029c4d8.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.gatsby-highlight-code-line{background-color:rgba(27,31,35,.05);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #f99}.gatsby-highlight{background-color:#f6f8fa;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%}:not(pre)>code[class*=language-]{background:rgba(27,31,35,.05)}</style><meta name="generator" content="Gatsby 2.29.1"/><style data-styled="" data-styled-version="5.2.1">.cURDtm{margin-top:0;margin-bottom:1.95rem;}/*!sc*/
+data-styled.g1[id="Header__StyledHeader-sc-1tyi3z1-0"]{content:"cURDtm,"}/*!sc*/
+.fEA-DoH{display:inline-block;margin:0;font-size:2.2974rem;line-height:3.25rem;}/*!sc*/
+data-styled.g2[id="Header__StyledH3-sc-1tyi3z1-1"]{content:"fEA-DoH,"}/*!sc*/
+.ifejFH{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:#000;}/*!sc*/
+data-styled.g3[id="Header__StyledLink-sc-1tyi3z1-2"]{content:"ifejFH,"}/*!sc*/
+.joNmkD{float:right;display:inline-block;margin:18px 0;}/*!sc*/
+.joNmkD:after{content:'';display:table;clear:both;}/*!sc*/
+@media (max-width:650px){.joNmkD{display:block;float:none;text-align:center;border-bottom:2px solid #cfcdcd;}}/*!sc*/
+data-styled.g4[id="Header__StyledUl-sc-1tyi3z1-3"]{content:"joNmkD,"}/*!sc*/
+.bDvteE{display:inline-block;padding:0 15px;list-style-type:none;vertical-align:middle;font-size:16px;}/*!sc*/
+@media (max-width:450px){.bDvteE{padding:0 8px;font-size:14px;}}/*!sc*/
+data-styled.g5[id="Header__StyledLi-sc-1tyi3z1-4"]{content:"bDvteE,"}/*!sc*/
+.ddEDAJ{color:#898989;}/*!sc*/
+data-styled.g6[id="Header__StyleLiLink-sc-1tyi3z1-5"]{content:"ddEDAJ,"}/*!sc*/
+.iomvtc{margin:0 auto;max-width:39rem;min-width:320px;padding:2.275rem 1.21875rem;}/*!sc*/
+data-styled.g7[id="Default__StyledDiv-sc-1g8e1t0-0"]{content:"iomvtc,"}/*!sc*/
+.kiCxlO{margin-bottom:6.5rem;}/*!sc*/
+data-styled.g8[id="Default__StyledMain-sc-1g8e1t0-1"]{content:"kiCxlO,"}/*!sc*/
+.jRNtTT{color:#000;margin-bottom:0.325rem;border-bottom:none;font-size:1.41421rem;font-weight:500;line-height:2.4375rem;}/*!sc*/
+data-styled.g9[id="common__StyledCommonH1Title-sc-93z372-0"]{content:"jRNtTT,"}/*!sc*/
+.kRNYYT{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g13[id="PostTags__StyledPTags-sc-1ielp4x-0"]{content:"kRNYYT,"}/*!sc*/
+.jcyDuJ{margin-bottom:1.95rem;}/*!sc*/
+data-styled.g15[id="PostHeader__StyledHeader-sc-77g6iv-0"]{content:"jcyDuJ,"}/*!sc*/
+.hOBBqs{display:inline-block;width:30px;height:30px;background-image:url(/img/post/speaker.png);background-size:22px;background-repeat:no-repeat;background-position:6px 10px;}/*!sc*/
+.hOBBqs:active{background-position:6px 11px;}/*!sc*/
+data-styled.g17[id="PostHeader__StyledSpeechSpan-sc-77g6iv-2"]{content:"hOBBqs,"}/*!sc*/
+.ivMKzM{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g18[id="PostHeader__StyledTime-sc-77g6iv-3"]{content:"ivMKzM,"}/*!sc*/
+</style><style type="text/css">
+    .autolink-headers--.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .autolink-headers--.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .autolink-headers-- svg,
+    h2 .autolink-headers-- svg,
+    h3 .autolink-headers-- svg,
+    h4 .autolink-headers-- svg,
+    h5 .autolink-headers-- svg,
+    h6 .autolink-headers-- svg {
+      visibility: hidden;
+    }
+    h1:hover .autolink-headers-- svg,
+    h2:hover .autolink-headers-- svg,
+    h3:hover .autolink-headers-- svg,
+    h4:hover .autolink-headers-- svg,
+    h5:hover .autolink-headers-- svg,
+    h6:hover .autolink-headers-- svg,
+    h1 .autolink-headers--:focus svg,
+    h2 .autolink-headers--:focus svg,
+    h3 .autolink-headers--:focus svg,
+    h4 .autolink-headers--:focus svg,
+    h5 .autolink-headers--:focus svg,
+    h6 .autolink-headers--:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">June | June</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="/static/486b14f334fc4c84f7c22a7629f637d5/c5e7c/favicon.png"/><meta data-react-helmet="true" name="og:title" property="og:title" content="June"/><meta data-react-helmet="true" name="og:site_name" property="og:site_name" content="June"/><meta data-react-helmet="true" name="og:url" property="og:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="og:description" property="og:description" content="typescript를 쓰면서 enum은 아주 귀찮은 녀석입니다. 사용할땐 아주 편하지만, 빌드를 하면 tree shaking이 되지 않고
+사용하는 chunk에서 각각 긴~~~ enum 코드들을 가지고 있게 됩니다. 라인 엔지니어링 블로그에 올라왔던 typescript enum tree…"/><meta data-react-helmet="true" name="description" property="description" content="typescript를 쓰면서 enum은 아주 귀찮은 녀석입니다. 사용할땐 아주 편하지만, 빌드를 하면 tree shaking이 되지 않고
+사용하는 chunk에서 각각 긴~~~ enum 코드들을 가지고 있게 됩니다. 라인 엔지니어링 블로그에 올라왔던 typescript enum tree…"/><meta data-react-helmet="true" name="og:type" property="og:type" content="website"/><meta data-react-helmet="true" name="og:image" property="og:image"/><meta data-react-helmet="true" name="twitter:description" property="twitter:description" content="typescript를 쓰면서 enum은 아주 귀찮은 녀석입니다. 사용할땐 아주 편하지만, 빌드를 하면 tree shaking이 되지 않고
+사용하는 chunk에서 각각 긴~~~ enum 코드들을 가지고 있게 됩니다. 라인 엔지니어링 블로그에 올라왔던 typescript enum tree…"/><meta data-react-helmet="true" name="twitter:title" property="twitter:title" content="June"/><meta data-react-helmet="true" name="twitter:url" property="twitter:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:site" property="twitter:site" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:domain" property="twitter:domain" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:image" property="twitter:image"/><link as="script" rel="preload" href="/webpack-runtime-51169bee99e2dec8cfd1.js"/><link as="script" rel="preload" href="/styles-8db67c5187b7b8ad64da.js"/><link as="script" rel="preload" href="/framework-ee8a4bba4771daaa13e7.js"/><link as="script" rel="preload" href="/app-2bed233af2de965db4b0.js"/><link as="script" rel="preload" href="/77f29e761df5de25d397b39b76c634399f02315e-7dd933e8bd2a66a9062b.js"/><link as="script" rel="preload" href="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"/><link as="fetch" rel="preload" href="/page-data/posts/tree-shaking/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1576648375.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1963346411.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Default__StyledDiv-sc-1g8e1t0-0 iomvtc"><header class="Header__StyledHeader-sc-1tyi3z1-0 cURDtm"><h3 scale="[object Object]" class="Header__StyledH3-sc-1tyi3z1-1 fEA-DoH"><a class="Header__StyledLink-sc-1tyi3z1-2 ifejFH" href="/">June</a></h3><ul class="Header__StyledUl-sc-1tyi3z1-3 joNmkD"><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/">Posts</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/archive">Archive</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/presentation">Presentation</a></li></ul></header><main class="Default__StyledMain-sc-1g8e1t0-1 kiCxlO"><article class="post_article"><header class="PostHeader__StyledHeader-sc-77g6iv-0 jcyDuJ"><h1 scale="[object Object]" class="common__StyledCommonH1Title-sc-93z372-0 jRNtTT">tree shaking<span class="PostHeader__StyledSpeechSpan-sc-77g6iv-2 hOBBqs"></span></h1><p class="post-meta"><time dateTime="December 20, 2022" scale="[object Object]" class="PostHeader__StyledTime-sc-77g6iv-3 ivMKzM">December 20, 2022</time></p></header><section><p>typescript를 쓰면서 enum은 아주 귀찮은 녀석입니다. 사용할땐 아주 편하지만, 빌드를 하면 tree shaking이 되지 않고
+사용하는 chunk에서 각각 긴~~~ enum 코드들을 가지고 있게 됩니다.</p>
+<p><a href="https://engineering.linecorp.com/ko/blog/typescript-enum-tree-shaking/" target="_blank" rel="noopener">라인 엔지니어링 블로그에 올라왔던 typescript enum tree shaking</a>에 관한 글인데,
+이 글이 enum tree shaking 문제에 대해 문제를 제기했던 (처음인지는 모르겠지만) 가장 널리 알려진 글인것 같습니다.</p>
+<p>어디서 <code class="language-text">vite에서는 enum이 tree shaking이 된다</code> 는 글을 보고 <code class="language-text">오, 다른 번들러는 안되나?</code> 라는 생각이 들어서 테스트를 좀 해보려고 합니다.
+코드는 거의 동일하며 번들러의 config 파일만 다르게 돌려보려 합니다.</p>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token comment">// /src/main.tsx</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> StrictMode <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./app'</span><span class="token punctuation">;</span>
+
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">StrictMode</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">App</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">StrictMode</span></span><span class="token punctuation">></span></span><span class="token punctuation">,</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token comment">// /src/app.tsx</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> CounterButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./CounterButton'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">ENUM_COUNT</span><span class="token punctuation">,</span> <span class="token constant">ENUM_TEST</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./enum'</span><span class="token punctuation">;</span> <span class="token comment">// 사용하는 ENUM_COUNT, 사용하지 않는 ENUM_TEST</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">useState</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">ENUM_COUNT</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token constant">ENUM_COUNT</span><span class="token punctuation">.</span><span class="token constant">ONE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>App<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">CounterButton</span></span> <span class="token attr-name">setCount</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>setCount<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token comment">// /src/CounterButton.tsx</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Dispatch<span class="token punctuation">,</span> SetStateAction <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">ENUM_COUNT</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./enum'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">IProps</span> <span class="token punctuation">{</span>
+  setCount<span class="token operator">:</span> Dispatch<span class="token operator">&lt;</span>SetStateAction<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">ENUM_COUNT</span></span><span class="token punctuation">></span></span><span class="token plain-text">>;
+}
+
+export const CounterButton = ({ setCount }: IProps) => </span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token constant">ENUM_COUNT</span><span class="token punctuation">.</span><span class="token constant">TWO</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">update!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token plain-text">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">export</span> <span class="token keyword">enum</span> <span class="token constant">ENUM_COUNT</span> <span class="token punctuation">{</span>
+  <span class="token constant">ONE</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token constant">TWO</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">enum</span> <span class="token constant">ENUM_TEST</span> <span class="token punctuation">{</span>
+  <span class="token constant">ONE</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token constant">TWO</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">result</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token string">'result'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p>위 코드를 가지고 여러 번들러들을 바탕으로 build를 돌려보겠습니다.
+기본적으로 react + typescript가 돌아가는 것을 제외하고 추가해야 하는 옵션들은</p>
+<ul>
+<li>build 결과물을 확인하기 위해 minify를 false로</li>
+<li>보기 쉽게 chunk 파일을 분리, node_modules는 왠만하면 제거</li>
+</ul>
+<p>이 정도가 기본적으로 필요합니다.</p>
+<h2 id="vite" style="position:relative;">vite<a href="#vite" aria-label="vite permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>우선 vite는 아주 간단합니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vite'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> react <span class="token keyword">from</span> <span class="token string">'@vitejs/plugin-react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">react</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  build<span class="token operator">:</span> <span class="token punctuation">{</span>
+    minify<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    rollupOptions<span class="token operator">:</span> <span class="token punctuation">{</span>
+      output<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">manualChunks</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>id<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'node_modules'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// node_modules는 vendor로 뻄</span>
+            <span class="token keyword">return</span> <span class="token string">'vendor'</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 나머지는 결로를 제외하고 파일명 그대로로 build 결과물을 만듬</span>
+            <span class="token keyword">const</span> fileName <span class="token operator">=</span> id<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> fileName<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0d5ddbc61f35097abde1ffee22a5caa7/adce1/vite-build-result-file-list.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHlrDAT/8QAFxABAQEBAAAAAAAAAAAAAAAAARAxEf/aAAgBAQABBQIzkMWf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGRAAAwADAAAAAAAAAAAAAAAAAAERITFh/9oACAEBAAE/IUoaLbZjpYuoU//aAAwDAQACAAMAAAAQu/8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHhAAAgICAgMAAAAAAAAAAAAAAAERIUFRMXGBkaH/2gAIAQEAAT8QRfdx8F8+gPV+SHy8t4XQiBTT0TP/2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="vite-build-result-file-list"
+        title="vite-build-result-file-list"
+        src="/static/0d5ddbc61f35097abde1ffee22a5caa7/7cc5e/vite-build-result-file-list.jpg"
+        srcset="/static/0d5ddbc61f35097abde1ffee22a5caa7/e439a/vite-build-result-file-list.jpg 120w,
+/static/0d5ddbc61f35097abde1ffee22a5caa7/09b79/vite-build-result-file-list.jpg 240w,
+/static/0d5ddbc61f35097abde1ffee22a5caa7/7cc5e/vite-build-result-file-list.jpg 480w,
+/static/0d5ddbc61f35097abde1ffee22a5caa7/adce1/vite-build-result-file-list.jpg 536w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><code class="language-text">yarn build</code> command를 통해 위와 같은 결과물이 나옵니다.
+_commonjsHelpers-<em>.js, _react-</em>.js, _vite-<em>.js 파일들은 vendor 결과물을 쉽게 쓰기위한 코드들로, 무시해도 됩니다.
+결국 vendor-</em>.js를 제외한 순수 코드는 index-*.js 파일밖에 없습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c589e65d5ebcdf8acac471fa20d2ff87/b204c/vite-build-result.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 57.50000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHJoWQD/8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQABBQJf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGBAAAgMAAAAAAAAAAAAAAAAAEBEAASH/2gAIAQEAAT8heS2Gf//aAAwDAQACAAMAAAAQZx//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAdEAACAQQDAAAAAAAAAAAAAAAAASEQETFRQXGx/9oACAEBAAE/EMFk2zZBO2dPRzxT/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="vite-build-result"
+        title="vite-build-result"
+        src="/static/c589e65d5ebcdf8acac471fa20d2ff87/7cc5e/vite-build-result.jpg"
+        srcset="/static/c589e65d5ebcdf8acac471fa20d2ff87/e439a/vite-build-result.jpg 120w,
+/static/c589e65d5ebcdf8acac471fa20d2ff87/09b79/vite-build-result.jpg 240w,
+/static/c589e65d5ebcdf8acac471fa20d2ff87/7cc5e/vite-build-result.jpg 480w,
+/static/c589e65d5ebcdf8acac471fa20d2ff87/80e3c/vite-build-result.jpg 720w,
+/static/c589e65d5ebcdf8acac471fa20d2ff87/6a068/vite-build-result.jpg 960w,
+/static/c589e65d5ebcdf8acac471fa20d2ff87/b204c/vite-build-result.jpg 1724w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>코드를 보면 <code class="language-text">ENUM_COUNT</code>는 하나만 잘 나오고 있습니다. enum.ts에서 정의만 하고 사용하지 않은 <code class="language-text">ENUM_TEST</code> enum이나 result 함수는 나와있지 않습니다.
+<code class="language-text">app.tsx</code> 에서 사용하지 않는 enum의 <code class="language-text">ENUM_TEST</code> enum을 넣어주기도 했고, enum.ts의 사용하지 않는 <code class="language-text">result</code> 함수도 나오지 않고 있습니다.</p>
+<hr>
+<h2 id="webpack" style="position:relative;">webpack<a href="#webpack" aria-label="webpack permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p><a href="https://webpack.js.org/guides/tree-shaking" target="_blank" rel="noopener">webpack에서는 tree shaking을 별도로 설정</a>해줘야 합니다. (벌써부터 복잡...)</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// webpack.config.js</span>
+optimization<span class="token operator">:</span> <span class="token punctuation">{</span>
+  usedExports<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token comment">// package.json</span>
+<span class="token punctuation">{</span>
+  <span class="token string">"sideEffects"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>webpack의 config 파일을 보겠습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">env<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    entry<span class="token operator">:</span> <span class="token string">'./src/main.tsx'</span><span class="token punctuation">,</span>
+    target<span class="token operator">:</span> <span class="token string">'web'</span><span class="token punctuation">,</span>
+    mode<span class="token operator">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+    watch<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    module<span class="token operator">:</span> <span class="token punctuation">{</span>
+      rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.tsx?$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+          use<span class="token operator">:</span> <span class="token string">'ts-loader'</span><span class="token punctuation">,</span>
+          exclude<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">node_modules</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    optimization<span class="token operator">:</span> <span class="token punctuation">{</span>
+      usedExports<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// tree shaking</span>
+      splitChunks<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// chunk</span>
+        chunks<span class="token operator">:</span> <span class="token string">'all'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    resolve<span class="token operator">:</span> <span class="token punctuation">{</span> extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'.tsx'</span><span class="token punctuation">,</span> <span class="token string">'.ts'</span><span class="token punctuation">,</span> <span class="token string">'.js'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+      filename<span class="token operator">:</span> <span class="token string">'[name].bundle.js'</span><span class="token punctuation">,</span>
+      path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      publicPath<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        template<span class="token operator">:</span> <span class="token string">'./src/index.html'</span><span class="token punctuation">,</span>
+        inject<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        minify<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p>mode를 <code class="language-text">development</code>로 설정하면 코드가 string처리 되기 때문에 보기 쉽도록 none으로 처리했습니다.
+이제 <code class="language-text">yarn build</code> 커멘드를 돌려보도록 하겠습니다.</p>
+<p>코드의 첫 시작 파일인 <code class="language-text">main.bundle.js</code>가 만들어집니다.
+실제 코드량은 많지 않지만 vite에 비해 모듈 캐시라는 이름으로 작성한 코드량의 2배 이상이 잡혀있습니다.</p>
+<p>중요한 tree shaking은...? 역시나 정상적으로 동작하진 않았습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/29fb77a30b0d1cb64f9ce51bcf9648d6/be77b/webpack-build-result1.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 74.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHHVTYgD//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEAAQUCX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABoQAQADAAMAAAAAAAAAAAAAAAEAECERMVH/2gAIAQEAAT8hDOplCBF59r//2gAMAwEAAgADAAAAEPMP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAEDBQAAAAAAAAAAAAAAAQAQQYERUaHh8f/aAAgBAQABPxDUuRD53ELPEcCuJvsqf//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="webpack-build-result1"
+        title="webpack-build-result1"
+        src="/static/29fb77a30b0d1cb64f9ce51bcf9648d6/7cc5e/webpack-build-result1.jpg"
+        srcset="/static/29fb77a30b0d1cb64f9ce51bcf9648d6/e439a/webpack-build-result1.jpg 120w,
+/static/29fb77a30b0d1cb64f9ce51bcf9648d6/09b79/webpack-build-result1.jpg 240w,
+/static/29fb77a30b0d1cb64f9ce51bcf9648d6/7cc5e/webpack-build-result1.jpg 480w,
+/static/29fb77a30b0d1cb64f9ce51bcf9648d6/80e3c/webpack-build-result1.jpg 720w,
+/static/29fb77a30b0d1cb64f9ce51bcf9648d6/6a068/webpack-build-result1.jpg 960w,
+/static/29fb77a30b0d1cb64f9ce51bcf9648d6/be77b/webpack-build-result1.jpg 1148w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>enum 코드 부분에선 <code class="language-text">/* unused harmony exports ENUM_TEST, result */</code> 라는 주석이 있긴 하지만 코드는 그대로 유지됩니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/06d8e8c6b088c67f4f7748799b66c05c/f8af3/webpack-build-result2.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAECAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAeQ5pzmMn//EABcQAAMBAAAAAAAAAAAAAAAAAAEQEQD/2gAIAQEAAQUCGhdX/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhAAAwAAAAAAAAAAAAAAAAAAACAx/9oACAEBAAY/Air/AP/EABgQAQEBAQEAAAAAAAAAAAAAAAEAETEh/9oACAEBAAE/IQp42BzPYctM3//aAAwDAQACAAMAAAAQ78//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPxBn/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8QJ//EABwQAQACAgMBAAAAAAAAAAAAAAEAEWGBIUFx4f/aAAgBAQABPxCjCGY3jpfkFIsckc0A+yh1qDm7n//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="webpack-build-result2"
+        title="webpack-build-result2"
+        src="/static/06d8e8c6b088c67f4f7748799b66c05c/7cc5e/webpack-build-result2.jpg"
+        srcset="/static/06d8e8c6b088c67f4f7748799b66c05c/e439a/webpack-build-result2.jpg 120w,
+/static/06d8e8c6b088c67f4f7748799b66c05c/09b79/webpack-build-result2.jpg 240w,
+/static/06d8e8c6b088c67f4f7748799b66c05c/7cc5e/webpack-build-result2.jpg 480w,
+/static/06d8e8c6b088c67f4f7748799b66c05c/80e3c/webpack-build-result2.jpg 720w,
+/static/06d8e8c6b088c67f4f7748799b66c05c/6a068/webpack-build-result2.jpg 960w,
+/static/06d8e8c6b088c67f4f7748799b66c05c/f8af3/webpack-build-result2.jpg 1194w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>ENUM<em>COUNT를 사용하고, ENUM</em>TEST를 import한 App에서는 <code class="language-text">_enum__WEBPACK_IMPORTED_MODULE_2__</code> 를 통해 enum 파일을 require 했습니다.
+따라서 언제든 정의되어 있는 ENUM_TEST enum이나 resuilt 함수를 접근할 수 있는 상황인거죠. 물론 사용하진 않았지만요.</p>
+<hr>
+<h2 id="turbopack" style="position:relative;">turbopack<a href="#turbopack" aria-label="turbopack permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>next.js 생태계에서 핫한 turbopack입니다.
+vite, webpack과 다르게 next.js에 초점이 맞춰져 있는데요, turbopack에서는 enum이 사용 가능할까요?</p>
+<p><code class="language-text">npx create-next-app --example with-turbopack</code> 명령어로 nextjs turbopack 예제를 생성합니다.
+turbopack의 별도의 설정파일이 보이지 않습니다. 원래 next.config.js 내부에 webpack 코드를 custom할 수 있도록
+<code class="language-text">webpack</code> 프로퍼티를 가지고 있는데, turbopack 설정도 여기서 가능할지 찾아봤으나, 별도의 프로퍼티는 존재하지 않았습니다.
+문서 또한 보이지 않네요. 자세한건 더 살펴봐야 하겠지만, 흥미롭습니다.</p>
+<p>해당 프로젝트의 코드를 모두 지우고 <code class="language-text">app/page.tsx</code>를 기존 <code class="language-text">App.tsx</code>처럼 사용하여 동일한 코드를 넣어보겠습니다.</p>
+<p><code class="language-text">yarn dev</code>로 실행하면 .next 경로가 업데이트 됩니다. 저희가 확인해볼 파일은
+<code class="language-text">.next/server/app/chunks/rsc/app_page.tsx.js</code> 경로에 있는 파일입니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/75664aef4a01badcc397078cf3322f56/73b45/turbo-build-result1.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 17.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAcuCQL//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAEFAn//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAZEAACAwEAAAAAAAAAAAAAAAAAUQERIYH/2gAIAQEAAT8hqEYjh//aAAwDAQACAAMAAAAQD8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAACAgMAAAAAAAAAAAAAAAAAAVGREWGh/9oACAEBAAE/EHA6PRbHiFs//9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="turbo-build-result1"
+        title="turbo-build-result1"
+        src="/static/75664aef4a01badcc397078cf3322f56/7cc5e/turbo-build-result1.jpg"
+        srcset="/static/75664aef4a01badcc397078cf3322f56/e439a/turbo-build-result1.jpg 120w,
+/static/75664aef4a01badcc397078cf3322f56/09b79/turbo-build-result1.jpg 240w,
+/static/75664aef4a01badcc397078cf3322f56/7cc5e/turbo-build-result1.jpg 480w,
+/static/75664aef4a01badcc397078cf3322f56/80e3c/turbo-build-result1.jpg 720w,
+/static/75664aef4a01badcc397078cf3322f56/6a068/turbo-build-result1.jpg 960w,
+/static/75664aef4a01badcc397078cf3322f56/73b45/turbo-build-result1.jpg 2438w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>page.tsx에서 enum.ts를 호출하는 부분입니다. export가 아닌 파일 전체를 require 하듯 import하고 있습니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8178197ba0293afeefd6b2083419375a/77502/turbo-build-result2.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 14.166666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAByqEB/8QAFRABAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQEAAQUCh//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABcQAQEBAQAAAAAAAAAAAAAAAAARASH/2gAIAQEAAT8hnCJj/9oADAMBAAIAAwAAABCL7//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAAMAAwAAAAAAAAAAAAAAAAABETFhkf/aAAgBAQABPxBJSKkTC4aj/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="turbo-build-result2"
+        title="turbo-build-result2"
+        src="/static/8178197ba0293afeefd6b2083419375a/7cc5e/turbo-build-result2.jpg"
+        srcset="/static/8178197ba0293afeefd6b2083419375a/e439a/turbo-build-result2.jpg 120w,
+/static/8178197ba0293afeefd6b2083419375a/09b79/turbo-build-result2.jpg 240w,
+/static/8178197ba0293afeefd6b2083419375a/7cc5e/turbo-build-result2.jpg 480w,
+/static/8178197ba0293afeefd6b2083419375a/80e3c/turbo-build-result2.jpg 720w,
+/static/8178197ba0293afeefd6b2083419375a/6a068/turbo-build-result2.jpg 960w,
+/static/8178197ba0293afeefd6b2083419375a/77502/turbo-build-result2.jpg 1910w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>변수명이 너무 길어 중간부를 생략해놨는데요, webpack과 비슷한 형태로 <code class="language-text">__turbopack_import__</code> 를 통해
+파일을 전체 import 하고, 파일에 접근하기 때문에 enum.ts에 ENUM<em>COUNT, ENUM</em>TEST, result가 모두
+사전 정의 되어있을 것입니다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0b1a761df17a4791ad9ce2ea0cdb3ec1/57a84/turbo-build-result3.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcqHIxB//8QAFhABAQEAAAAAAAAAAAAAAAAAEBFB/9oACAEBAAEFAsK//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAFhABAQEAAAAAAAAAAAAAAAAAERAx/9oACAEBAAE/ISkbf//aAAwDAQACAAMAAAAQsM//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAADAQADAAAAAAAAAAAAAAAAARExEEFR/9oACAEBAAE/EHCOrOx1PSv0cSqG8f/Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="turbo-build-result3"
+        title="turbo-build-result3"
+        src="/static/0b1a761df17a4791ad9ce2ea0cdb3ec1/7cc5e/turbo-build-result3.jpg"
+        srcset="/static/0b1a761df17a4791ad9ce2ea0cdb3ec1/e439a/turbo-build-result3.jpg 120w,
+/static/0b1a761df17a4791ad9ce2ea0cdb3ec1/09b79/turbo-build-result3.jpg 240w,
+/static/0b1a761df17a4791ad9ce2ea0cdb3ec1/7cc5e/turbo-build-result3.jpg 480w,
+/static/0b1a761df17a4791ad9ce2ea0cdb3ec1/80e3c/turbo-build-result3.jpg 720w,
+/static/0b1a761df17a4791ad9ce2ea0cdb3ec1/6a068/turbo-build-result3.jpg 960w,
+/static/0b1a761df17a4791ad9ce2ea0cdb3ec1/57a84/turbo-build-result3.jpg 1394w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>역시나 webpack처럼 정의가 잘 되어있네요.</p>
+<hr>
+<p>많이 사용하던, 그리고 사용하고 있는 webpack과 vercel에서 밀고있는 turbopack은 아직 enum의 tree shaking을
+지원해주지 않습니다. 테스트 해보지 않았지만 rollup 또한 enum의 treeshaking이 가능하다고 하며, vite도
+treeshaking이 되고 있음을 확인할 수 있었습니다.</p>
+<p>const enum, enum, union 중 아직까진 union 타입을 사용하고 있는데, 이런 번거로움을 해결하기 위해 vite를 쓰는것도
+나쁘지 않을 것 같습니다.</p>
+<p>이런 사소한 번들링 최적화는 서비스 개발 시 우선순위에서 많이 떨어지는데, 개발자라면 응당 바쁜시간 쪼개서 해결해야 하지 않을까
+스스로도 아쉬움이 많이 듭니다.</p></section><hr style="margin-bottom:1.625rem"/><footer style="color:#898989"><p scale="[object Object]" class="PostTags__StyledPTags-sc-1ielp4x-0 kRNYYT">#treeshaking <!-- -->#react <!-- -->#vite <!-- -->#webpack </p></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"></ul></nav></main><footer style="text-align:center"><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.instagram.com/jicjjang" target="_blank"><img src="/static/64b2774f0c50daac23fd881877dae854/instagram.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://github.com/jicjjang" target="_blank"><img src="/static/b33838e421fcf2eaeb2da472c1e32060/github.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.linkedin.com/in/jicjjang" target="_blank"><img src="/static/3e51027afe6b45fb6d7b38b1e194dcbb/linkedin.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="mailto:jicjjang12@gmail.com" target="_blank"><img src="/static/ababfdf6167a3ee6c8f91dd6d29c765d/mail.png" style="display:block;width:100%"/></a></span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-59806888-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/tree-shaking";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-f8cb09a0c2fa50816452.js"],"app":["/app-2bed233af2de965db4b0.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-9023e69c8b9c141f86eb.js"],"component---src-pages-archive-tsx":["/component---src-pages-archive-tsx-ba6595d573a79b6a7435.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-0d707984196c022fbb95.js"],"component---src-pages-presentation-1-tsx":["/component---src-pages-presentation-1-tsx-e08260dfe8c642888896.js"],"component---src-pages-presentation-10-tsx":["/component---src-pages-presentation-10-tsx-aad815f65e9e76a93f86.js"],"component---src-pages-presentation-2-tsx":["/component---src-pages-presentation-2-tsx-8bf9cbd2ca57b2e8b56e.js"],"component---src-pages-presentation-3-tsx":["/component---src-pages-presentation-3-tsx-258267ecfb0e9f06b980.js"],"component---src-pages-presentation-4-tsx":["/component---src-pages-presentation-4-tsx-ecb12aa44aa6126facae.js"],"component---src-pages-presentation-5-tsx":["/component---src-pages-presentation-5-tsx-9e698e03679328cf7809.js"],"component---src-pages-presentation-6-tsx":["/component---src-pages-presentation-6-tsx-e54b22325ae57e3d66b1.js"],"component---src-pages-presentation-7-tsx":["/component---src-pages-presentation-7-tsx-d1462aa5514e2e46e152.js"],"component---src-pages-presentation-8-tsx":["/component---src-pages-presentation-8-tsx-da1a624be3bcfcb7c522.js"],"component---src-pages-presentation-9-tsx":["/component---src-pages-presentation-9-tsx-7e8c25999909a33a83bc.js"],"component---src-pages-presentation-index-tsx":["/component---src-pages-presentation-index-tsx-c82568fe721c1d1e3aba.js"],"component---src-pages-resume-tsx":["/component---src-pages-resume-tsx-d8f775790bdf949434b7.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"]};/*]]>*/</script><script src="/polyfill-f8cb09a0c2fa50816452.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js" async=""></script><script src="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js" async=""></script><script src="/77f29e761df5de25d397b39b76c634399f02315e-7dd933e8bd2a66a9062b.js" async=""></script><script src="/app-2bed233af2de965db4b0.js" async=""></script><script src="/framework-ee8a4bba4771daaa13e7.js" async=""></script><script src="/styles-8db67c5187b7b8ad64da.js" async=""></script><script src="/webpack-runtime-51169bee99e2dec8cfd1.js" async=""></script></body></html>
