@@ -1,5 +1,5 @@
 ---
-title: "tree shaking"
+title: "typescript 'enum' tree shaking"
 date: "2022-12-20"
 tags: [treeshaking, react, vite, webpack]
 ---
