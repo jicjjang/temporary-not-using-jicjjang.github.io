@@ -4,12 +4,12 @@ date: "2023-01-29"
 tags: [react, ref, useRef, dependency]
 ---
 
-react의 ref는 dom을 가리키는 reference나 렌더링과 상관 없는 객체, 상태를 저장하기 위해서도 사용합니다.
+react의 ref는 dom을 가리키는 reference나 렌더링과 상관 없는 객체, 상태를 저장하기 위해서 사용합니다.
 
 렌더링과 무관하기 때문에 `ref.current`로 가리키고 있는 데이터가 업데이트 되더라도 re-render가 발생하지 않으며,
-useEffect의 의존성 배열에 `ref.current` 값을 넣어놓았더라도 업데이트는 일어나지 않습니다.
+useEffect의 의존성 배열에 `ref.current` 값을 넣어놓았더라도 업데이트가 `항상` 일어나진 않습니다.
 
-물론 re-render가 발생하고 `ref.current`를 사용하는 로직에선 해당 값이 업데이트가 잘 된 모습을 볼 수 있습니다.
+물론 side effect로 re-render가 발생하고 `ref.current`가 의존성으로 들어가있는 로직에선 해당 값이 업데이트가 잘 된 모습을 볼 수 있습니다.
 
 ## ref에 값을 넣은 예시
 
@@ -136,7 +136,7 @@ render <dom> 2
 ```
 
 첫 렌더 시 아직 할당이 없던 dom에 할당이 이루어지게 됩니다.
-이후 useEffect를 통해 콘솔이 찍힐 때, 다시 렌더될 때의 콘솔에는 `ref.current`에 dom이 할당되어 있게 됩니다.
+이후 useEffect를 통해 콘솔이 찍힐 때와 다시 렌더될 때의 콘솔에는 `ref.current`에 dom이 할당되어 있게 됩니다.
 
 ***의존성이 `ref.current에` 밖에 없는데, count의 업데이트로 인해 한번 더 useEffect가 실행된다?***
 ***이는 react가 dev 모드일 때만 발생하며, StrictMode 설정이 되어있을 경우에 실행됩니다.***
@@ -153,7 +153,7 @@ render <dom> 2
   <button
     onClick={() => {
       ref.current = null;
-      setCount(0); // 이 한줄만 추가!
+      setCount(count + 1); // 이 한줄만 추가!
     }}
   >
     버튼
@@ -173,7 +173,8 @@ render null 1
 ```
 
 ref.current가 null이 된것을 확인할 수 있습니다.
-(setCount로 업데이트만 시키면 되기에 들어가는 값은 상관이 없으며, ref.current가 업데이트 되었으므로 useEffect가 실행됩니다.)
+ref.current가 업데이트 되었으므로 useEffect가 실행되지만,
+계속 클릭하면 ref.current는 계속 null로 변화가 없으므로 useEffect는 1번만 실행됩니다.
 
 ## ref에 dom을 넣은 예시2
 
@@ -256,6 +257,7 @@ export default Example;
 위 예시에 대한 [링크](https://codesandbox.io/s/silly-carlos-fskkoq?file=/src/App.js)입니다.
 
 ref가 useCallback 함수로 변경되었습니다.
+어라...? ref안에 함수가 어떻게 들어가나요..?
 
 ```ts
   ...
@@ -266,7 +268,7 @@ ref가 useCallback 함수로 변경되었습니다.
   ...
 ```
 
-ref의 타입은 `LegacyRef`를 가리킵니다. `LegacyRef`는 `string | Ref<T>`를 가리키고,
+dom의 ref 타입은 `LegacyRef`를 가리킵니다. `LegacyRef`는 `string | Ref<T>`를 가리키고,
 `Ref` 는 `RefCallback<T> | RefObject<T> | null` 를 가리킵니다.
 
 결론적으로 RefCallback 타입을 통해 callback 함수를 넣어도 괜찮다는 결론이 나옵니다.
