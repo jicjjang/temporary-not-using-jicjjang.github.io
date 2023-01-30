@@ -1,0 +1,328 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><style data-href="/styles.8bc7d8bd447b1029c4d8.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.gatsby-highlight-code-line{background-color:rgba(27,31,35,.05);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #f99}.gatsby-highlight{background-color:#f6f8fa;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%}:not(pre)>code[class*=language-]{background:rgba(27,31,35,.05)}</style><meta name="generator" content="Gatsby 2.29.1"/><style data-styled="" data-styled-version="5.2.1">.cURDtm{margin-top:0;margin-bottom:1.95rem;}/*!sc*/
+data-styled.g1[id="Header__StyledHeader-sc-1tyi3z1-0"]{content:"cURDtm,"}/*!sc*/
+.fEA-DoH{display:inline-block;margin:0;font-size:2.2974rem;line-height:3.25rem;}/*!sc*/
+data-styled.g2[id="Header__StyledH3-sc-1tyi3z1-1"]{content:"fEA-DoH,"}/*!sc*/
+.ifejFH{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:#000;}/*!sc*/
+data-styled.g3[id="Header__StyledLink-sc-1tyi3z1-2"]{content:"ifejFH,"}/*!sc*/
+.joNmkD{float:right;display:inline-block;margin:18px 0;}/*!sc*/
+.joNmkD:after{content:'';display:table;clear:both;}/*!sc*/
+@media (max-width:650px){.joNmkD{display:block;float:none;text-align:center;border-bottom:2px solid #cfcdcd;}}/*!sc*/
+data-styled.g4[id="Header__StyledUl-sc-1tyi3z1-3"]{content:"joNmkD,"}/*!sc*/
+.bDvteE{display:inline-block;padding:0 15px;list-style-type:none;vertical-align:middle;font-size:16px;}/*!sc*/
+@media (max-width:450px){.bDvteE{padding:0 8px;font-size:14px;}}/*!sc*/
+data-styled.g5[id="Header__StyledLi-sc-1tyi3z1-4"]{content:"bDvteE,"}/*!sc*/
+.ddEDAJ{color:#898989;}/*!sc*/
+data-styled.g6[id="Header__StyleLiLink-sc-1tyi3z1-5"]{content:"ddEDAJ,"}/*!sc*/
+.iomvtc{margin:0 auto;max-width:39rem;min-width:320px;padding:2.275rem 1.21875rem;}/*!sc*/
+data-styled.g7[id="Default__StyledDiv-sc-1g8e1t0-0"]{content:"iomvtc,"}/*!sc*/
+.kiCxlO{margin-bottom:6.5rem;}/*!sc*/
+data-styled.g8[id="Default__StyledMain-sc-1g8e1t0-1"]{content:"kiCxlO,"}/*!sc*/
+.jRNtTT{color:#000;margin-bottom:0.325rem;border-bottom:none;font-size:1.41421rem;font-weight:500;line-height:2.4375rem;}/*!sc*/
+data-styled.g9[id="common__StyledCommonH1Title-sc-93z372-0"]{content:"jRNtTT,"}/*!sc*/
+.kRNYYT{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g13[id="PostTags__StyledPTags-sc-1ielp4x-0"]{content:"kRNYYT,"}/*!sc*/
+.jcyDuJ{margin-bottom:1.95rem;}/*!sc*/
+data-styled.g15[id="PostHeader__StyledHeader-sc-77g6iv-0"]{content:"jcyDuJ,"}/*!sc*/
+.hOBBqs{display:inline-block;width:30px;height:30px;background-image:url(/img/post/speaker.png);background-size:22px;background-repeat:no-repeat;background-position:6px 10px;}/*!sc*/
+.hOBBqs:active{background-position:6px 11px;}/*!sc*/
+data-styled.g17[id="PostHeader__StyledSpeechSpan-sc-77g6iv-2"]{content:"hOBBqs,"}/*!sc*/
+.ivMKzM{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g18[id="PostHeader__StyledTime-sc-77g6iv-3"]{content:"ivMKzM,"}/*!sc*/
+</style><style type="text/css">
+    .autolink-headers--.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .autolink-headers--.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .autolink-headers-- svg,
+    h2 .autolink-headers-- svg,
+    h3 .autolink-headers-- svg,
+    h4 .autolink-headers-- svg,
+    h5 .autolink-headers-- svg,
+    h6 .autolink-headers-- svg {
+      visibility: hidden;
+    }
+    h1:hover .autolink-headers-- svg,
+    h2:hover .autolink-headers-- svg,
+    h3:hover .autolink-headers-- svg,
+    h4:hover .autolink-headers-- svg,
+    h5:hover .autolink-headers-- svg,
+    h6:hover .autolink-headers-- svg,
+    h1 .autolink-headers--:focus svg,
+    h2 .autolink-headers--:focus svg,
+    h3 .autolink-headers--:focus svg,
+    h4 .autolink-headers--:focus svg,
+    h5 .autolink-headers--:focus svg,
+    h6 .autolink-headers--:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">June | June</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="/static/486b14f334fc4c84f7c22a7629f637d5/c5e7c/favicon.png"/><meta data-react-helmet="true" name="og:title" property="og:title" content="June"/><meta data-react-helmet="true" name="og:site_name" property="og:site_name" content="June"/><meta data-react-helmet="true" name="og:url" property="og:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="og:description" property="og:description" content="react의 ref는 dom을 가리키는 reference나 렌더링과 상관 없는 객체, 상태를 저장하기 위해서도 사용합니다. 렌더링과 무관하기 때문에 로 가리키고 있는 데이터가 업데이트 되더라도 re-render가 발생하지 않으며,
+useEffect…"/><meta data-react-helmet="true" name="description" property="description" content="react의 ref는 dom을 가리키는 reference나 렌더링과 상관 없는 객체, 상태를 저장하기 위해서도 사용합니다. 렌더링과 무관하기 때문에 로 가리키고 있는 데이터가 업데이트 되더라도 re-render가 발생하지 않으며,
+useEffect…"/><meta data-react-helmet="true" name="og:type" property="og:type" content="website"/><meta data-react-helmet="true" name="og:image" property="og:image"/><meta data-react-helmet="true" name="twitter:description" property="twitter:description" content="react의 ref는 dom을 가리키는 reference나 렌더링과 상관 없는 객체, 상태를 저장하기 위해서도 사용합니다. 렌더링과 무관하기 때문에 로 가리키고 있는 데이터가 업데이트 되더라도 re-render가 발생하지 않으며,
+useEffect…"/><meta data-react-helmet="true" name="twitter:title" property="twitter:title" content="June"/><meta data-react-helmet="true" name="twitter:url" property="twitter:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:site" property="twitter:site" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:domain" property="twitter:domain" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:image" property="twitter:image"/><link as="script" rel="preload" href="/webpack-runtime-51169bee99e2dec8cfd1.js"/><link as="script" rel="preload" href="/styles-8db67c5187b7b8ad64da.js"/><link as="script" rel="preload" href="/framework-ee8a4bba4771daaa13e7.js"/><link as="script" rel="preload" href="/app-2bed233af2de965db4b0.js"/><link as="script" rel="preload" href="/77f29e761df5de25d397b39b76c634399f02315e-7dd933e8bd2a66a9062b.js"/><link as="script" rel="preload" href="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"/><link as="fetch" rel="preload" href="/page-data/posts/react-useref/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1576648375.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1963346411.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Default__StyledDiv-sc-1g8e1t0-0 iomvtc"><header class="Header__StyledHeader-sc-1tyi3z1-0 cURDtm"><h3 scale="[object Object]" class="Header__StyledH3-sc-1tyi3z1-1 fEA-DoH"><a class="Header__StyledLink-sc-1tyi3z1-2 ifejFH" href="/">June</a></h3><ul class="Header__StyledUl-sc-1tyi3z1-3 joNmkD"><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/">Posts</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/archive">Archive</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/presentation">Presentation</a></li></ul></header><main class="Default__StyledMain-sc-1g8e1t0-1 kiCxlO"><article class="post_article"><header class="PostHeader__StyledHeader-sc-77g6iv-0 jcyDuJ"><h1 scale="[object Object]" class="common__StyledCommonH1Title-sc-93z372-0 jRNtTT">react의 ref 객체를 업데이트 의존성으로 넣어줘야 할 때<span class="PostHeader__StyledSpeechSpan-sc-77g6iv-2 hOBBqs"></span></h1><p class="post-meta"><time dateTime="January 29, 2023" scale="[object Object]" class="PostHeader__StyledTime-sc-77g6iv-3 ivMKzM">January 29, 2023</time></p></header><section><p>react의 ref는 dom을 가리키는 reference나 렌더링과 상관 없는 객체, 상태를 저장하기 위해서도 사용합니다.</p>
+<p>렌더링과 무관하기 때문에 <code class="language-text">ref.current</code>로 가리키고 있는 데이터가 업데이트 되더라도 re-render가 발생하지 않으며,
+useEffect의 의존성 배열에 <code class="language-text">ref.current</code> 값을 넣어놓았더라도 업데이트는 일어나지 않습니다.</p>
+<p>물론 re-render가 발생하고 <code class="language-text">ref.current</code>를 사용하는 로직에선 해당 값이 업데이트가 잘 된 모습을 볼 수 있습니다.</p>
+<h2 id="ref에-값을-넣은-예시" style="position:relative;">ref에 값을 넣은 예시<a href="#ref%EC%97%90-%EA%B0%92%EC%9D%84-%EB%84%A3%EC%9D%80-%EC%98%88%EC%8B%9C" aria-label="ref에 값을 넣은 예시 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>우선 ref를 dom을 가리키는 용도가 아닌 값을 저장하는 용도로 사용해보겠습니다.</p>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useRef <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Example</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> ref <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// ref.current에 값이 들어오고 업데이트 발생하면 호출됨</span>
+    <span class="token comment">// useEffect 특성상 첫 렌더 시에도 호출되지만, 첫 렌더때는 ref 값이 0이어서 스킵됨</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ref<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">!!! Update ref !!! => </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ref<span class="token punctuation">.</span>current<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>ref<span class="token punctuation">.</span>current<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        ref<span class="token punctuation">.</span>current <span class="token operator">=</span> ref<span class="token punctuation">.</span>current <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        테스트
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Example<span class="token punctuation">;</span></code></pre></div>
+<p>위 예시에 대한 <a href="https://codesandbox.io/s/objective-oskar-f9vrtz?file=/src/App.js" target="_blank" rel="noopener">링크</a>입니다.</p>
+<p>테스트라는 버튼을 아무리 눌러도 콘솔에는 아무것도 찍히지 않습니다.
+<code class="language-text">ref.current</code>는 계속 업데이트 되고 있지만, re-render가 발생하지 않아 보이지 않는것이죠.</p>
+<p>이번엔 코드를 한번 수정해보겠습니다.</p>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useRef<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Example</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> ref <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// ref.current에 값이 들어오고 업데이트 발생하면 호출됨</span>
+    <span class="token comment">// useEffect 특성상 첫 렌더 시에도 호출되지만, 첫 렌더때는 ref 값이 0이어서 스킵됨</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ref<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">!!! Update ref !!! => </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ref<span class="token punctuation">.</span>current<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>ref<span class="token punctuation">.</span>current<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        ref<span class="token punctuation">.</span>current <span class="token operator">=</span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        테스트
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Example<span class="token punctuation">;</span></code></pre></div>
+<p>위 예시에 대한 <a href="https://codesandbox.io/s/late-wind-ttybjj?file=/src/App.js" target="_blank" rel="noopener">링크</a>입니다.</p>
+<p>테스트 버튼을 클릭할 때마다 re-render를 위해 count를 업데이트 해줬습니다.
+re-render가 발생하며 useEffect 로직을 지나가는데, <code class="language-text">ref.current</code>의 값이 이전 렌더와 달라졌기 때문에
+버튼을 클릭할 때 마다 <code class="language-text">!!! Update ref !!! =&gt; count</code> 로그가 지속적으로 찍히게 됩니다.</p>
+<h2 id="ref에-dom을-넣은-예시1" style="position:relative;">ref에 dom을 넣은 예시1<a href="#ref%EC%97%90-dom%EC%9D%84-%EB%84%A3%EC%9D%80-%EC%98%88%EC%8B%9C1" aria-label="ref에 dom을 넣은 예시1 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>이번엔 ref를 dom에 할당해보겠습니다.</p>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useRef<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Example</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> ref <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Update Count"</span><span class="token punctuation">,</span> ref<span class="token punctuation">.</span>current<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>ref<span class="token punctuation">.</span>current<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"render"</span><span class="token punctuation">,</span> ref<span class="token punctuation">.</span>current<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>ref<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">카운트: </span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+        <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          ref<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+      <span class="token punctuation">></span></span><span class="token plain-text">
+        버튼
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Example<span class="token punctuation">;</span></code></pre></div>
+<p>위 예시에 대한 <a href="https://codesandbox.io/s/practical-alex-lh6h1d?file=/src/App.js" target="_blank" rel="noopener">링크</a>입니다.</p>
+<p>콘솔로 로그를 찍어줬는데, 이는 ref의 할당을 보기 위함입니다.
+콘솔의 결과는 아래처럼 나옵니다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">// 순서대로 [&quot;render&quot; or &quot;Update Count&quot; | dom | count]
+render undefined 0
+Update Count &lt;dom&gt; 0
+render &lt;dom&gt; 1
+Update Count &lt;dom&gt; 1
+render &lt;dom&gt; 2</code></pre></div>
+<p>첫 렌더 시 아직 할당이 없던 dom에 할당이 이루어지게 됩니다.
+이후 useEffect를 통해 콘솔이 찍힐 때, 다시 렌더될 때의 콘솔에는 <code class="language-text">ref.current</code>에 dom이 할당되어 있게 됩니다.</p>
+<p><strong><em>의존성이 <code class="language-text">ref.current에</code> 밖에 없는데, count의 업데이트로 인해 한번 더 useEffect가 실행된다?</em></strong>
+<strong><em>이는 react가 dev 모드일 때만 발생하며, StrictMode 설정이 되어있을 경우에 실행됩니다.</em></strong>
+<strong><em>(codesandbox에서 index.js의 StrictMode를 제외해도 발생하는데, 이는 가시적으로 설정하지 않은 react config에 설정되어있기 때문일 수 있습니다.)</em></strong></p>
+<p>화면에는 <code class="language-text">카운트: 2</code> 이라는 텍스트와 <code class="language-text">버튼</code> 이 노출되어 있는데요, 버튼을 클릭하면 <code class="language-text">ref.current</code>에 null을 할당하도록 해놨습니다.
+클릭하면 어떻게 될까요?</p>
+<p>위에서 설명했듯이 ref의 업데이트는 추적하지 않기 때문에 아무런 변화가 나타나지 않습니다.
+그러면 클릭할 때 상태를 한번 업데이트하도록 해보겠습니다.</p>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token operator">...</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+    <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      ref<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+      <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 이 한줄만 추가!</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+  <span class="token punctuation">></span></span><span class="token plain-text">
+    버튼
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token operator">...</span></code></pre></div>
+<p>상태 업데이트까지 추가된 코드에 대한 <a href="https://codesandbox.io/s/cool-dewdney-5q3xqf" target="_blank" rel="noopener">링크</a>입니다.</p>
+<p><code class="language-text">setCount</code> 를 추가하고 버튼을 다시 클릭하면 아래와 같은 로그가 출력됩니다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">// 순서대로 [&quot;render&quot; or &quot;Update Count&quot; | dom | count]
+render null 0
+Update Count null 0
+render null 1</code></pre></div>
+<p>ref.current가 null이 된것을 확인할 수 있습니다.
+(setCount로 업데이트만 시키면 되기에 들어가는 값은 상관이 없으며, ref.current가 업데이트 되었으므로 useEffect가 실행됩니다.)</p>
+<h2 id="ref에-dom을-넣은-예시2" style="position:relative;">ref에 dom을 넣은 예시2<a href="#ref%EC%97%90-dom%EC%9D%84-%EB%84%A3%EC%9D%80-%EC%98%88%EC%8B%9C2" aria-label="ref에 dom을 넣은 예시2 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>다른 예시를 하나 더 알아보겠습니다.</p>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useRef<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Example</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>isShowCount<span class="token punctuation">,</span> setIsShowCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> ref <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">setIsShowCount</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ref<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Update Count"</span><span class="token punctuation">,</span> ref<span class="token punctuation">.</span>current<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>ref<span class="token punctuation">.</span>current<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"render"</span><span class="token punctuation">,</span> ref<span class="token punctuation">.</span>current<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> isShowCount <span class="token operator">?</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>ref<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">카운트: </span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Example<span class="token punctuation">;</span></code></pre></div>
+<p>위 예시에 대한 <a href="https://codesandbox.io/s/amazing-colden-t3qjs5?file=/src/App.js" target="_blank" rel="noopener">링크</a>입니다.</p>
+<p>이번엔 컴포넌트 영역을 모두 가리고, setTimeout 1초를 지나면 카운트가 노출되도록 해놨습니다.
+로그에는 <code class="language-text">render undefined 0</code>이 두번 뜨게됩니다.
+useEffect 안에서는 <code class="language-text">ref.current</code>가 최초 렌더링 시 없었고, <code class="language-text">ref.current</code>를 통해 업데이트를 확인할 수 없기 때문에
+그대로 동작이 끝나게 됩니다.</p>
+<p>이번에도 코드를 바꿔볼텐데, 위에 알아본 <code class="language-text">ref에 값을 넣은 예시</code>, <code class="language-text">ref에 dom을 넣은 예시1</code>과는 다르게 어느정도 해결책이 있습니다.</p>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useCallback<span class="token punctuation">,</span> useEffect<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Example</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>isShowCount<span class="token punctuation">,</span> setIsShowCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">setIsShowCount</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> ref <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">dom</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>dom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Update Count"</span><span class="token punctuation">,</span> dom<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"render"</span><span class="token punctuation">,</span> ref<span class="token punctuation">.</span>current<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> isShowCount <span class="token operator">?</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>ref<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">카운트: </span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Example<span class="token punctuation">;</span></code></pre></div>
+<p>위 예시에 대한 <a href="https://codesandbox.io/s/silly-carlos-fskkoq?file=/src/App.js" target="_blank" rel="noopener">링크</a>입니다.</p>
+<p>ref가 useCallback 함수로 변경되었습니다.</p>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  <span class="token operator">...</span>
+  <span class="token comment">// Bivariance hack for consistent unsoundness with RefObject</span>
+  <span class="token keyword">type</span> <span class="token class-name">RefCallback<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token function">bivarianceHack</span><span class="token punctuation">(</span>instance<span class="token operator">:</span> <span class="token constant">T</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">}</span><span class="token punctuation">[</span><span class="token string">"bivarianceHack"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">type</span> <span class="token class-name">Ref<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> RefCallback<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span> <span class="token operator">|</span> RefObject<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">type</span> <span class="token class-name">LegacyRef<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token builtin">string</span> <span class="token operator">|</span> Ref<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span><span class="token punctuation">;</span>
+  <span class="token operator">...</span></code></pre></div>
+<p>ref의 타입은 <code class="language-text">LegacyRef</code>를 가리킵니다. <code class="language-text">LegacyRef</code>는 <code class="language-text">string | Ref&lt;T&gt;</code>를 가리키고,
+<code class="language-text">Ref</code> 는 <code class="language-text">RefCallback&lt;T&gt; | RefObject&lt;T&gt; | null</code> 를 가리킵니다.</p>
+<p>결론적으로 RefCallback 타입을 통해 callback 함수를 넣어도 괜찮다는 결론이 나옵니다.</p>
+<p>주의해야 할 점은 ref에 들어갈 callback 함수가 업데이트 되면 렌더 되면서 다시 호출되게 됩니다.
+예시에서는 <code class="language-text">setCount</code>을 통해 Maximum call exceed 에러가 발생할 수 있으므로 의존성 없는 useCallback으로 감싸줍니다.</p>
+<p><strong><em>일반 함수를 useCallback으로 감싸지 않으면 re-render마다 업데이트 됩니다.</em></strong>
+<strong><em>여기서 <code class="language-text">RefCallback</code>은 일반 함수와 동일하다고 생각해주세요.</em></strong>
+<strong><em>주석과 <code class="language-text">bivarianceHack</code> 에 대해선 다음 포스트로 엮어보겠습니다.</em></strong></p>
+<p>렌더가 이루어지면서 dom의 ref가 할당된 뒤, useCallback의 프로퍼티로 dom node 인자가 들어오게 됩니다.
+이제 기존에 <code class="language-text">ref.current</code>를 가지고 useEffect에서 실행했던 비즈니스 로직을 dom node 인자를 가지고 진행하면 됩니다.</p>
+<hr>
+<p><code class="language-text">ref에 값을 넣은 예시</code>, <code class="language-text">ref에 dom을 넣은 예시1</code>, <code class="language-text">ref에 dom을 넣은 예시2</code> 총 3가지 예시를 봤습니다. 이를 통해 아래 내용들을 알 수 있었습니다.</p>
+<ul>
+<li><code class="language-text">dom의 ref 속성에 ref object를 담을 경우</code>, <code class="language-text">ref에 값을 넣는 경우</code> 모두 ref 업데이트를 추적할 순 없다.</li>
+<li>ref에는 callback 함수를 대신 넣을 수 있으며 callback 함수가 업데이트 되고 렌더가 될 때 호출된다.</li>
+</ul>
+<p>여러 예시에서 ref의 강제 업데이트를 위해 setCount를 호출해 봤는데
+<code class="language-text">ref에 값을 넣은 예시</code>, <code class="language-text">ref에 dom을 넣은 예시1</code>과 같은 케이스에
+정말 꼭 필요하다면 state로 사용하고 업데이트를 미루는 방식을 지향해야 합니다.
+그리고 ref의 강제 업데이트를 위해 re-render를 만들어내면 안됩니다.
+하나의 업데이트라도 서비스에 영향 없이 줄여서 성능을 올려야 하는데 일부로 업데이트를 만들 수는 없으니까요.</p>
+<p>결론적으로 ref는 dom을 가리키는게 아니라면 최대한 re-render와 관련 없는 데이터를 저장해놓는 용도로만 조심히 써야 한다는 것입니다.</p></section><hr style="margin-bottom:1.625rem"/><footer style="color:#898989"><p scale="[object Object]" class="PostTags__StyledPTags-sc-1ielp4x-0 kRNYYT">#react <!-- -->#ref <!-- -->#useRef <!-- -->#dependency </p></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"></ul></nav></main><footer style="text-align:center"><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.instagram.com/jicjjang" target="_blank"><img src="/static/64b2774f0c50daac23fd881877dae854/instagram.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://github.com/jicjjang" target="_blank"><img src="/static/b33838e421fcf2eaeb2da472c1e32060/github.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.linkedin.com/in/jicjjang" target="_blank"><img src="/static/3e51027afe6b45fb6d7b38b1e194dcbb/linkedin.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="mailto:jicjjang12@gmail.com" target="_blank"><img src="/static/ababfdf6167a3ee6c8f91dd6d29c765d/mail.png" style="display:block;width:100%"/></a></span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-59806888-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/react-useref";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-f8cb09a0c2fa50816452.js"],"app":["/app-2bed233af2de965db4b0.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-9023e69c8b9c141f86eb.js"],"component---src-pages-archive-tsx":["/component---src-pages-archive-tsx-ba6595d573a79b6a7435.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-0d707984196c022fbb95.js"],"component---src-pages-presentation-1-tsx":["/component---src-pages-presentation-1-tsx-e08260dfe8c642888896.js"],"component---src-pages-presentation-10-tsx":["/component---src-pages-presentation-10-tsx-aad815f65e9e76a93f86.js"],"component---src-pages-presentation-2-tsx":["/component---src-pages-presentation-2-tsx-8bf9cbd2ca57b2e8b56e.js"],"component---src-pages-presentation-3-tsx":["/component---src-pages-presentation-3-tsx-258267ecfb0e9f06b980.js"],"component---src-pages-presentation-4-tsx":["/component---src-pages-presentation-4-tsx-ecb12aa44aa6126facae.js"],"component---src-pages-presentation-5-tsx":["/component---src-pages-presentation-5-tsx-9e698e03679328cf7809.js"],"component---src-pages-presentation-6-tsx":["/component---src-pages-presentation-6-tsx-e54b22325ae57e3d66b1.js"],"component---src-pages-presentation-7-tsx":["/component---src-pages-presentation-7-tsx-d1462aa5514e2e46e152.js"],"component---src-pages-presentation-8-tsx":["/component---src-pages-presentation-8-tsx-da1a624be3bcfcb7c522.js"],"component---src-pages-presentation-9-tsx":["/component---src-pages-presentation-9-tsx-7e8c25999909a33a83bc.js"],"component---src-pages-presentation-index-tsx":["/component---src-pages-presentation-index-tsx-c82568fe721c1d1e3aba.js"],"component---src-pages-resume-tsx":["/component---src-pages-resume-tsx-d8f775790bdf949434b7.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"]};/*]]>*/</script><script src="/polyfill-f8cb09a0c2fa50816452.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js" async=""></script><script src="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js" async=""></script><script src="/77f29e761df5de25d397b39b76c634399f02315e-7dd933e8bd2a66a9062b.js" async=""></script><script src="/app-2bed233af2de965db4b0.js" async=""></script><script src="/framework-ee8a4bba4771daaa13e7.js" async=""></script><script src="/styles-8db67c5187b7b8ad64da.js" async=""></script><script src="/webpack-runtime-51169bee99e2dec8cfd1.js" async=""></script></body></html>
