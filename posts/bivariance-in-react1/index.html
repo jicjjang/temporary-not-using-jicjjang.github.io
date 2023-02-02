@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><style data-href="/styles.8bc7d8bd447b1029c4d8.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.gatsby-highlight-code-line{background-color:rgba(27,31,35,.05);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:.75em;border-left:.25em solid #f99}.gatsby-highlight{background-color:#f6f8fa;border-radius:.3em;margin:.5em 0;padding:1em;overflow:auto}.gatsby-highlight pre[class*=language-]{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%}:not(pre)>code[class*=language-]{background:rgba(27,31,35,.05)}</style><meta name="generator" content="Gatsby 2.29.1"/><style data-styled="" data-styled-version="5.2.1">.cURDtm{margin-top:0;margin-bottom:1.95rem;}/*!sc*/
+data-styled.g1[id="Header__StyledHeader-sc-1tyi3z1-0"]{content:"cURDtm,"}/*!sc*/
+.fEA-DoH{display:inline-block;margin:0;font-size:2.2974rem;line-height:3.25rem;}/*!sc*/
+data-styled.g2[id="Header__StyledH3-sc-1tyi3z1-1"]{content:"fEA-DoH,"}/*!sc*/
+.ifejFH{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:#000;}/*!sc*/
+data-styled.g3[id="Header__StyledLink-sc-1tyi3z1-2"]{content:"ifejFH,"}/*!sc*/
+.joNmkD{float:right;display:inline-block;margin:18px 0;}/*!sc*/
+.joNmkD:after{content:'';display:table;clear:both;}/*!sc*/
+@media (max-width:650px){.joNmkD{display:block;float:none;text-align:center;border-bottom:2px solid #cfcdcd;}}/*!sc*/
+data-styled.g4[id="Header__StyledUl-sc-1tyi3z1-3"]{content:"joNmkD,"}/*!sc*/
+.bDvteE{display:inline-block;padding:0 15px;list-style-type:none;vertical-align:middle;font-size:16px;}/*!sc*/
+@media (max-width:450px){.bDvteE{padding:0 8px;font-size:14px;}}/*!sc*/
+data-styled.g5[id="Header__StyledLi-sc-1tyi3z1-4"]{content:"bDvteE,"}/*!sc*/
+.ddEDAJ{color:#898989;}/*!sc*/
+data-styled.g6[id="Header__StyleLiLink-sc-1tyi3z1-5"]{content:"ddEDAJ,"}/*!sc*/
+.iomvtc{margin:0 auto;max-width:39rem;min-width:320px;padding:2.275rem 1.21875rem;}/*!sc*/
+data-styled.g7[id="Default__StyledDiv-sc-1g8e1t0-0"]{content:"iomvtc,"}/*!sc*/
+.kiCxlO{margin-bottom:6.5rem;}/*!sc*/
+data-styled.g8[id="Default__StyledMain-sc-1g8e1t0-1"]{content:"kiCxlO,"}/*!sc*/
+.jRNtTT{color:#000;margin-bottom:0.325rem;border-bottom:none;font-size:1.41421rem;font-weight:500;line-height:2.4375rem;}/*!sc*/
+data-styled.g9[id="common__StyledCommonH1Title-sc-93z372-0"]{content:"jRNtTT,"}/*!sc*/
+.kRNYYT{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g13[id="PostTags__StyledPTags-sc-1ielp4x-0"]{content:"kRNYYT,"}/*!sc*/
+.jcyDuJ{margin-bottom:1.95rem;}/*!sc*/
+data-styled.g15[id="PostHeader__StyledHeader-sc-77g6iv-0"]{content:"jcyDuJ,"}/*!sc*/
+.hOBBqs{display:inline-block;width:30px;height:30px;background-image:url(/img/post/speaker.png);background-size:22px;background-repeat:no-repeat;background-position:6px 10px;}/*!sc*/
+.hOBBqs:active{background-position:6px 11px;}/*!sc*/
+data-styled.g17[id="PostHeader__StyledSpeechSpan-sc-77g6iv-2"]{content:"hOBBqs,"}/*!sc*/
+.ivMKzM{color:#898989;font-size:0.93303rem;line-height:1.625rem;}/*!sc*/
+data-styled.g18[id="PostHeader__StyledTime-sc-77g6iv-3"]{content:"ivMKzM,"}/*!sc*/
+</style><style type="text/css">
+    .autolink-headers--.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .autolink-headers--.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .autolink-headers-- svg,
+    h2 .autolink-headers-- svg,
+    h3 .autolink-headers-- svg,
+    h4 .autolink-headers-- svg,
+    h5 .autolink-headers-- svg,
+    h6 .autolink-headers-- svg {
+      visibility: hidden;
+    }
+    h1:hover .autolink-headers-- svg,
+    h2:hover .autolink-headers-- svg,
+    h3:hover .autolink-headers-- svg,
+    h4:hover .autolink-headers-- svg,
+    h5:hover .autolink-headers-- svg,
+    h6:hover .autolink-headers-- svg,
+    h1 .autolink-headers--:focus svg,
+    h2 .autolink-headers--:focus svg,
+    h3 .autolink-headers--:focus svg,
+    h4 .autolink-headers--:focus svg,
+    h5 .autolink-headers--:focus svg,
+    h6 .autolink-headers--:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">June | June</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="/static/486b14f334fc4c84f7c22a7629f637d5/c5e7c/favicon.png"/><meta data-react-helmet="true" name="og:title" property="og:title" content="June"/><meta data-react-helmet="true" name="og:site_name" property="og:site_name" content="June"/><meta data-react-helmet="true" name="og:url" property="og:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="og:description" property="og:description" content="react의 ref 객체를 업데이트 의존성으로 넣어줘야 할 때 포스트에서 일반 함수를 useCallback으로 감싸지 않으면 re-render마다 업데이트 됩니다. 여기서 RefCallback은 일반 함수와 동일하다고 생각해주세요. 주석과 bivarianceHack…"/><meta data-react-helmet="true" name="description" property="description" content="react의 ref 객체를 업데이트 의존성으로 넣어줘야 할 때 포스트에서 일반 함수를 useCallback으로 감싸지 않으면 re-render마다 업데이트 됩니다. 여기서 RefCallback은 일반 함수와 동일하다고 생각해주세요. 주석과 bivarianceHack…"/><meta data-react-helmet="true" name="og:type" property="og:type" content="website"/><meta data-react-helmet="true" name="og:image" property="og:image"/><meta data-react-helmet="true" name="twitter:description" property="twitter:description" content="react의 ref 객체를 업데이트 의존성으로 넣어줘야 할 때 포스트에서 일반 함수를 useCallback으로 감싸지 않으면 re-render마다 업데이트 됩니다. 여기서 RefCallback은 일반 함수와 동일하다고 생각해주세요. 주석과 bivarianceHack…"/><meta data-react-helmet="true" name="twitter:title" property="twitter:title" content="June"/><meta data-react-helmet="true" name="twitter:url" property="twitter:url" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:site" property="twitter:site" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:domain" property="twitter:domain" content="https://jicjjang.github.io"/><meta data-react-helmet="true" name="twitter:image" property="twitter:image"/><link as="script" rel="preload" href="/webpack-runtime-51169bee99e2dec8cfd1.js"/><link as="script" rel="preload" href="/styles-8db67c5187b7b8ad64da.js"/><link as="script" rel="preload" href="/framework-ee8a4bba4771daaa13e7.js"/><link as="script" rel="preload" href="/app-2bed233af2de965db4b0.js"/><link as="script" rel="preload" href="/77f29e761df5de25d397b39b76c634399f02315e-7dd933e8bd2a66a9062b.js"/><link as="script" rel="preload" href="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"/><link as="fetch" rel="preload" href="/page-data/posts/bivariance-in-react1/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1576648375.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1963346411.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Default__StyledDiv-sc-1g8e1t0-0 iomvtc"><header class="Header__StyledHeader-sc-1tyi3z1-0 cURDtm"><h3 scale="[object Object]" class="Header__StyledH3-sc-1tyi3z1-1 fEA-DoH"><a class="Header__StyledLink-sc-1tyi3z1-2 ifejFH" href="/">June</a></h3><ul class="Header__StyledUl-sc-1tyi3z1-3 joNmkD"><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/">Posts</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/archive">Archive</a></li><li class="Header__StyledLi-sc-1tyi3z1-4 bDvteE"><a class="Header__StyleLiLink-sc-1tyi3z1-5 ddEDAJ" href="/presentation">Presentation</a></li></ul></header><main class="Default__StyledMain-sc-1g8e1t0-1 kiCxlO"><article class="post_article"><header class="PostHeader__StyledHeader-sc-77g6iv-0 jcyDuJ"><h1 scale="[object Object]" class="common__StyledCommonH1Title-sc-93z372-0 jRNtTT">bivariance(이변성) in react1<span class="PostHeader__StyledSpeechSpan-sc-77g6iv-2 hOBBqs"></span></h1><p class="post-meta"><time dateTime="February 02, 2023" scale="[object Object]" class="PostHeader__StyledTime-sc-77g6iv-3 ivMKzM">February 02, 2023</time></p></header><section><p><a href="https://jicjjang.github.io/posts/react-useref" target="_blank" rel="noopener">react의 ref 객체를 업데이트 의존성으로 넣어줘야 할 때</a> 포스트에서</p>
+<p><strong><em>일반 함수를 useCallback으로 감싸지 않으면 re-render마다 업데이트 됩니다. 여기서 RefCallback은 일반 함수와 동일하다고 생각해주세요. 주석과 bivarianceHack 에 대해선 다음 포스트로 엮어보겠습니다.</em></strong></p>
+<p>라는 글을 남겼었는데, 이번 포스트를 통해 <code class="language-text">bivarianceHack</code>이 뭔지에 대해 한번 자세히 알아보...기 전에!
+타입스크립트를 사용한다면 <code class="language-text">bivariance</code> 라는 용어가 종종 등장하는데, 대체 뭐길래 react에서도, 타입스크립트에서도
+자꾸 등장하는지 짚어보고 가겠습니다.</p>
+<h2 id="공변성-반공변성-이변성" style="position:relative;">공변성, 반공변성, 이변성<a href="#%EA%B3%B5%EB%B3%80%EC%84%B1-%EB%B0%98%EA%B3%B5%EB%B3%80%EC%84%B1-%EC%9D%B4%EB%B3%80%EC%84%B1" aria-label="공변성 반공변성 이변성 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>우선 이변성을 알기 위해 함께 알아야 할 공변성, 반공변성을 포함해 함께 뜻을 알아봅시다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/846cc2ee18b9b946326610e5b8122786/2b08c/words_wiki.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 22.499999999999996%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB2rCgf//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEAAQUCf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABkQAAIDAQAAAAAAAAAAAAAAAAABESExYf/aAAgBAQABPyG40SrWR0//2gAMAwEAAgADAAAAEPAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGBABAQEBAQAAAAAAAAAAAAAAAQARQVH/2gAIAQEAAT8QMgOZUNa9X//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="words_wiki"
+        title="words_wiki"
+        src="/static/846cc2ee18b9b946326610e5b8122786/7cc5e/words_wiki.jpg"
+        srcset="/static/846cc2ee18b9b946326610e5b8122786/e439a/words_wiki.jpg 120w,
+/static/846cc2ee18b9b946326610e5b8122786/09b79/words_wiki.jpg 240w,
+/static/846cc2ee18b9b946326610e5b8122786/7cc5e/words_wiki.jpg 480w,
+/static/846cc2ee18b9b946326610e5b8122786/80e3c/words_wiki.jpg 720w,
+/static/846cc2ee18b9b946326610e5b8122786/6a068/words_wiki.jpg 960w,
+/static/846cc2ee18b9b946326610e5b8122786/2b08c/words_wiki.jpg 2974w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><a href="https://ko.wikipedia.org/wiki/%EA%B3%B5%EB%B3%80%EC%84%B1%EA%B3%BC_%EB%B0%98%EA%B3%B5%EB%B3%80%EC%84%B1_(%EC%BB%B4%ED%93%A8%ED%84%B0_%EA%B3%BC%ED%95%99)" target="_blank" rel="noopener">위키백과</a>의 내용을 저희가 확인한 주석이 있었던 definition file, 즉 typescript 관점에서 살펴보겠습니다.</p>
+<ul>
+<li>우선 subtype과 supertype에 대해 알고 가야 합니다. <code class="language-text">A</code>, <code class="language-text">B</code> 라는 타입이 있을 때 <code class="language-text">A</code>타입이 <code class="language-text">B</code>타입을 포함한다면 <code class="language-text">A</code>타입을 supertype, <code class="language-text">B</code>타입을 subtype이라고 합니다.</li>
+<li>공변성은 supertype, subtype 관계인 <code class="language-text">A</code>, <code class="language-text">B</code> (<code class="language-text">A-&gt;B</code>)는 <code class="language-text">T&lt;A&gt;</code>, <code class="language-text">T&lt;B&gt;</code> 형식에서도 supertype, subtype 관계를 유지한다(<code class="language-text">T&lt;A&gt; -&gt; T&lt;B&gt;</code>)는 의미입니다.</li>
+<li>반공변성은 supertype, subtype 관계인 <code class="language-text">A</code>, <code class="language-text">B</code> (<code class="language-text">A-&gt;B</code>)는 <code class="language-text">T&lt;A&gt;</code>, <code class="language-text">T&lt;B&gt;</code> 형식에서는 supertype, subtype 관계가 역전된다(<code class="language-text">T&lt;B&gt; -&gt; T&lt;A&gt;</code>)는 의미입니다.</li>
+<li>이변성은 공변성, 반공변성의 성질을 모두 가집니다. supertype, subtype 관계인 <code class="language-text">A</code>, <code class="language-text">B</code> (<code class="language-text">A-&gt;B</code>)는 <code class="language-text">T&lt;A&gt;</code>, <code class="language-text">T&lt;B&gt;</code> 형식에서는 서로 supertype, subtype 관계를 가집니다. (<code class="language-text">T&lt;A&gt; -&gt; T&lt;B&gt;, T&lt;B&gt; -&gt; T&lt;A&gt;</code>)</li>
+</ul>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name">Variance<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span>
+
+<span class="token keyword">let</span> a<span class="token operator">:</span> Variance<span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> b<span class="token operator">:</span> Variance<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 공변성</span>
+a <span class="token operator">=</span> b<span class="token punctuation">;</span> <span class="token comment">// OK</span>
+b <span class="token operator">=</span> a<span class="token punctuation">;</span> <span class="token comment">// Error</span>
+
+<span class="token comment">// 반공변성</span>
+a <span class="token operator">=</span> b<span class="token punctuation">;</span> <span class="token comment">// Error</span>
+b <span class="token operator">=</span> a<span class="token punctuation">;</span> <span class="token comment">// OK</span>
+
+<span class="token comment">// 이변성</span>
+a <span class="token operator">=</span> b<span class="token punctuation">;</span> <span class="token comment">// OK</span>
+b <span class="token operator">=</span> a<span class="token punctuation">;</span> <span class="token comment">// OK</span></code></pre></div>
+<h2 id="typescript에서의-공변성-반공변성-이변성" style="position:relative;">typescript에서의 공변성, 반공변성, 이변성<a href="#typescript%EC%97%90%EC%84%9C%EC%9D%98-%EA%B3%B5%EB%B3%80%EC%84%B1-%EB%B0%98%EA%B3%B5%EB%B3%80%EC%84%B1-%EC%9D%B4%EB%B3%80%EC%84%B1" aria-label="typescript에서의 공변성 반공변성 이변성 permalink" class="autolink-headers-- after"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2>
+<p>typescript는 기본적으로 값은 공변성을, 함수는 이변성을 유지합니다.</p>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">let</span> convariance1<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> convariance2<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+convariance1 <span class="token operator">=</span> convariance2<span class="token punctuation">;</span> <span class="token comment">// OK</span>
+convariance2 <span class="token operator">=</span> convariance1<span class="token punctuation">;</span> <span class="token comment">// Error</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Variance<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span>
+
+<span class="token keyword">let</span> a<span class="token operator">:</span> Variance<span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> b<span class="token operator">:</span> Variance<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+a <span class="token operator">=</span> b<span class="token punctuation">;</span> <span class="token comment">// OK</span>
+b <span class="token operator">=</span> a<span class="token punctuation">;</span> <span class="token comment">// OK</span></code></pre></div>
+<p>왜 이런 특성을 갖는지 알아보기 전에, 한번 고민해봅시다.
+변수는 <code class="language-text">Array&lt;string | number&gt;</code>타입 안에 <code class="language-text">Array&lt;string&gt;</code>타입 값이 들어가는게(공변성) 맞을까요?
+아니면 반대(반공변성)가 맞을까요?</p>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">let</span> convariance1<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 맞다면 반공변성</span>
+<span class="token keyword">let</span> convariance1<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 맞다면 공변성</span></code></pre></div>
+<p>값을 직접 넣어 비교해보자면 무조건 공변성이 맞을것 같습니다. 함수도 한번 살펴볼까요?</p>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name">Variance<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span>
+
+<span class="token keyword">let</span> a<span class="token operator">:</span> Variance<span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> b<span class="token operator">:</span> Variance<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// a = b가 맞다면, a의 타입이 string | number 이므로, number 타입이 값이 들어와도 통과되어야 함</span>
+<span class="token comment">// 약간... 다운캐스팅의 느낌?</span>
+a <span class="token operator">=</span> b<span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// b는 애초에 string 타입만 됨.</span>
+<span class="token comment">// 약간... 업캐스팅의 느낌?</span>
+b <span class="token operator">=</span> a<span class="token punctuation">;</span>
+<span class="token function">b</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span></code></pre></div>
+<p>이런 차이에 대해 생각해봤을 때 똑같은건 아니지만 OOP에 대해 배웠다면 알고있을 <code class="language-text">업캐스팅 &amp; 다운캐스팅</code>이 생각나더라구요.
+타입스크립트에선 타입이지만, <code class="language-text">업캐스팅 &amp; 다운캐스팅</code>에선 메서드가 더 있는지 없는지의 차이가 있는거죠.</p>
+<p><strong><em>글을 작성하면서 검색해봤더니 업캐스팅 &#x26; 다운캐스팅이 공변성, 반공변성 특성을 가지고 있는게 맞았네요.</em></strong>
+<strong><em>다른 언어에서는 공변성, 반공변성을 컨트롤 할 수 있는 방법이 코드 레벨로 있다고 합니다.</em></strong></p>
+<p>함수에선 기본적으로 반공변성이 맞습니다.
+일부러 타입 지정을 위해 타입스크립트를 사용하는데 왜 반공변성이 아닌 이변성을 기본적으로 지정해놨을까요?
+설명해보자면 <code class="language-text">string | number</code>타입이 <code class="language-text">string</code>타입을 포함하는게 자명합니다.
+그런데 함수가 된다면 <code class="language-text">Variance&lt;string&gt;</code>타입 파라미터를 받는 함수에
+<code class="language-text">Variance&lt;string | number&gt;</code>타입의 함수<code class="language-text">만</code> 할당 가능하다는게 모호해지는 것이죠.</p>
+<p>그래서 유저가 자유롭게 컨트롤 할 수 있도록 설정과 꼼수와 같은 방법들이 만들어놨습니다.</p>
+<ol>
+<li><code class="language-text">strictFunctionTypes</code></li>
+</ol>
+<p>기본적으로 유지하는 공변성에 반하는 특성을 가진 함수형태만 가능하다는게 조금 아쉽지만
+타입스크립트 tsconfig 옵션중에 <code class="language-text">strictFunctionTypes</code> 옵션이 있습니다.</p>
+<p>위에 공변성 함수 형태와 일반적인 변수 형태 모두 보여드렸는데,
+옵션에 있는 이름 그대로 함수 타입의 공변성을 반공변성으로 바꿔주는 역할을 해줍니다.</p>
+<p>함수에만 해당되기 때문에 변수는 그대로 출력되게 됩니다.</p>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token comment">// 변수 형태</span>
+<span class="token keyword">let</span> convariance1<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> convariance2<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+convariance1 <span class="token operator">=</span> convariance2<span class="token punctuation">;</span> <span class="token comment">// OK</span>
+convariance2 <span class="token operator">=</span> convariance1<span class="token punctuation">;</span> <span class="token comment">// Error</span>
+
+<span class="token comment">// 함수 형태</span>
+<span class="token keyword">type</span> <span class="token class-name">Variance<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span>
+
+<span class="token keyword">let</span> a<span class="token operator">:</span> Variance<span class="token operator">&lt;</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> b<span class="token operator">:</span> Variance<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+a <span class="token operator">=</span> b<span class="token punctuation">;</span> <span class="token comment">// Error</span>
+b <span class="token operator">=</span> a<span class="token punctuation">;</span> <span class="token comment">// OK</span></code></pre></div>
+<ol start="2">
+<li>클래스 구조로 코드 만들기</li>
+</ol>
+<p><a href="https://www.typescriptlang.org/ko/tsconfig#strictFunctionTypes" target="_blank" rel="noopener">공식 문서</a>를 보시면 아시겠지만
+<code class="language-text">strictFunctionTypes</code> 설정을 만드는 도중 클래스에서 안전하지 않은 부분을 발견했기 때문에, 함수레벨만 고려해서 만들었다고 합니다.
+따라서 <code class="language-text">strictFunctionTypes</code> 설정이 되어있더라도 클래스 구조라면 이변성의 특징 그대로 사용이 가능합니다.</p>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name">Methodish</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">func</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello, "</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Ultimately an unsafe assignment, but not detected</span>
+<span class="token keyword">const</span> m<span class="token operator">:</span> Methodish <span class="token operator">=</span> <span class="token punctuation">{</span>
+  func<span class="token operator">:</span> fn<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+m<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// OK</span></code></pre></div>
+<ol start="3">
+<li>일반 인터페이스로 사용하기</li>
+</ol>
+<p><a href="https://github.com/microsoft/TypeScript/pull/18654" target="_blank" rel="noopener">strictFunctionTypes 설정을 추가한 PR</a>을 보면 인터페이스에서 가능한 케이스도 정리되어있습니다.</p>
+<blockquote>
+<p>왜 docs에는 안써놓은거죠...?
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/78e9ad47bc86c4edc429d28838aabdeb/b99c8/except-interface-description1.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 36.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB2aBoJ//EABgQAQADAQAAAAAAAAAAAAAAAAABERIh/9oACAEBAAEFAuQ0t//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABgQAAMBAQAAAAAAAAAAAAAAAAABESFh/9oACAEBAAE/IbiyOipH/9oADAMBAAIAAwAAABCL3//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EIj/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCn/8QAGRABAAIDAAAAAAAAAAAAAAAAAQARQVGx/9oACAEBAAE/EFiVo7XsCxB3Ak//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="except-interface-description1"
+        title="except-interface-description1"
+        src="/static/78e9ad47bc86c4edc429d28838aabdeb/7cc5e/except-interface-description1.jpg"
+        srcset="/static/78e9ad47bc86c4edc429d28838aabdeb/e439a/except-interface-description1.jpg 120w,
+/static/78e9ad47bc86c4edc429d28838aabdeb/09b79/except-interface-description1.jpg 240w,
+/static/78e9ad47bc86c4edc429d28838aabdeb/7cc5e/except-interface-description1.jpg 480w,
+/static/78e9ad47bc86c4edc429d28838aabdeb/80e3c/except-interface-description1.jpg 720w,
+/static/78e9ad47bc86c4edc429d28838aabdeb/6a068/except-interface-description1.jpg 960w,
+/static/78e9ad47bc86c4edc429d28838aabdeb/b99c8/except-interface-description1.jpg 1612w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c701dcd6477d2b07ca14b5541ca50baf/b260b/except-interface-description2.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 77.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe3U0aD/xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAZEAACAwEAAAAAAAAAAAAAAAAAARARcSH/2gAIAQEAAT8hWHIWFKP/2gAMAwEAAgADAAAAEMMP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAQADAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPxBebwfBHNBDLxiBeEODV//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="except-interface-description2"
+        title="except-interface-description2"
+        src="/static/c701dcd6477d2b07ca14b5541ca50baf/7cc5e/except-interface-description2.jpg"
+        srcset="/static/c701dcd6477d2b07ca14b5541ca50baf/e439a/except-interface-description2.jpg 120w,
+/static/c701dcd6477d2b07ca14b5541ca50baf/09b79/except-interface-description2.jpg 240w,
+/static/c701dcd6477d2b07ca14b5541ca50baf/7cc5e/except-interface-description2.jpg 480w,
+/static/c701dcd6477d2b07ca14b5541ca50baf/80e3c/except-interface-description2.jpg 720w,
+/static/c701dcd6477d2b07ca14b5541ca50baf/6a068/except-interface-description2.jpg 960w,
+/static/c701dcd6477d2b07ca14b5541ca50baf/b260b/except-interface-description2.jpg 1658w"
+        sizes="(max-width: 480px) 100vw, 480px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+</blockquote>
+<p>결론적으로 이 둘의 차이는 method 타입에서는 이변성을, function 타입에서는 반변성을 줍니다.</p>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name"><span class="token constant">IB</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">// method type parameter position</span>
+  <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name"><span class="token constant">IA</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">// function type parameter position</span>
+  <span class="token function-variable function">a</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이는 공변성, 반공변성을 코드 레벨로 컨트롤하는 타 언어와는 다르지만,
+필요할 때 아예 사용하지 못하게 막을 순 없으니 편법으로 남겨둔 것이라 여겨집니다.</p>
+<hr>
+<p>이렇게 공변성, 반공변성, 이변성에 대해 알아봤습니다.
+다음 포스트로 react에서의 이변성 hack이 무엇인지 알아보겠습니다.</p></section><hr style="margin-bottom:1.625rem"/><footer style="color:#898989"><p scale="[object Object]" class="PostTags__StyledPTags-sc-1ielp4x-0 kRNYYT">#react <!-- -->#bivariance <!-- -->#covariance <!-- -->#contravariance </p></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"></ul></nav></main><footer style="text-align:center"><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.instagram.com/jicjjang" target="_blank"><img src="/static/64b2774f0c50daac23fd881877dae854/instagram.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://github.com/jicjjang" target="_blank"><img src="/static/b33838e421fcf2eaeb2da472c1e32060/github.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="https://www.linkedin.com/in/jicjjang" target="_blank"><img src="/static/3e51027afe6b45fb6d7b38b1e194dcbb/linkedin.png" style="display:block;width:100%"/></a></span><span style="display:inline-block;width:2.275rem;vertical-align:top;margin:0 10px"><a href="mailto:jicjjang12@gmail.com" target="_blank"><img src="/static/ababfdf6167a3ee6c8f91dd6d29c765d/mail.png" style="display:block;width:100%"/></a></span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-59806888-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/bivariance-in-react1";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-f8cb09a0c2fa50816452.js"],"app":["/app-2bed233af2de965db4b0.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-9023e69c8b9c141f86eb.js"],"component---src-pages-archive-tsx":["/component---src-pages-archive-tsx-ba6595d573a79b6a7435.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-0d707984196c022fbb95.js"],"component---src-pages-presentation-1-tsx":["/component---src-pages-presentation-1-tsx-e08260dfe8c642888896.js"],"component---src-pages-presentation-10-tsx":["/component---src-pages-presentation-10-tsx-aad815f65e9e76a93f86.js"],"component---src-pages-presentation-2-tsx":["/component---src-pages-presentation-2-tsx-8bf9cbd2ca57b2e8b56e.js"],"component---src-pages-presentation-3-tsx":["/component---src-pages-presentation-3-tsx-258267ecfb0e9f06b980.js"],"component---src-pages-presentation-4-tsx":["/component---src-pages-presentation-4-tsx-ecb12aa44aa6126facae.js"],"component---src-pages-presentation-5-tsx":["/component---src-pages-presentation-5-tsx-9e698e03679328cf7809.js"],"component---src-pages-presentation-6-tsx":["/component---src-pages-presentation-6-tsx-e54b22325ae57e3d66b1.js"],"component---src-pages-presentation-7-tsx":["/component---src-pages-presentation-7-tsx-d1462aa5514e2e46e152.js"],"component---src-pages-presentation-8-tsx":["/component---src-pages-presentation-8-tsx-da1a624be3bcfcb7c522.js"],"component---src-pages-presentation-9-tsx":["/component---src-pages-presentation-9-tsx-7e8c25999909a33a83bc.js"],"component---src-pages-presentation-index-tsx":["/component---src-pages-presentation-index-tsx-c82568fe721c1d1e3aba.js"],"component---src-pages-resume-tsx":["/component---src-pages-resume-tsx-d8f775790bdf949434b7.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js"]};/*]]>*/</script><script src="/polyfill-f8cb09a0c2fa50816452.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-e9c916fc5ea161c75466.js" async=""></script><script src="/96d63672732fbc000942c853d1f1d8bc5d3b9750-7b8233a4781b428b273e.js" async=""></script><script src="/77f29e761df5de25d397b39b76c634399f02315e-7dd933e8bd2a66a9062b.js" async=""></script><script src="/app-2bed233af2de965db4b0.js" async=""></script><script src="/framework-ee8a4bba4771daaa13e7.js" async=""></script><script src="/styles-8db67c5187b7b8ad64da.js" async=""></script><script src="/webpack-runtime-51169bee99e2dec8cfd1.js" async=""></script></body></html>
