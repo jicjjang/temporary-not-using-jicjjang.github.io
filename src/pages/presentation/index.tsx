@@ -13,16 +13,19 @@ const TITLE = 'Presentation';
 
 export default function Presentation({ data, location: pLocation }: PageProps) {
   const presentations: IPresentationData[] = [];
-  (data as Query).allSitePage.edges
-    .sort((a, b) => parseInt(b.node.path.split('/')[2], 10) - parseInt(a.node.path.split('/')[2], 10))
-    .forEach(presentationData => {
-      const path = removeTrailingSlash(presentationData.node.path);
-      console.log(path);
+
+  (data as Query).allSitePage.edges.forEach(presentationData => {
+    const path = removeTrailingSlash(presentationData.node.path);
+    const data = PRESENTATION_DATA.find(data => data.path === path);
+
+    if (data) {
       presentations.push({
-        ...PRESENTATION_DATA[path],
-        path
+        ...data
       });
-    });
+    }
+  });
+
+  presentations.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <DefaultLayout title={TITLE} pathname={pLocation.pathname}>

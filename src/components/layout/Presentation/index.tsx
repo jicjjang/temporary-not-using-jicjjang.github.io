@@ -24,7 +24,7 @@ const PresentationLayout: React.FunctionComponent<React.PropsWithChildren<IProps
   children
 }) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const title = PRESENTATION_DATA[removeTrailingSlash(pathname)].title || '';
+  const data = PRESENTATION_DATA.find(data => data.path === removeTrailingSlash(pathname));
 
   let isInitLoadedReveal = false;
   const repeatEvent = setInterval(
@@ -76,7 +76,7 @@ const PresentationLayout: React.FunctionComponent<React.PropsWithChildren<IProps
 
   return (
     <>
-      <SEO title={title} description={description} link={REVEAL_LIB.link} script={REVEAL_LIB.script} />
+      <SEO title={data?.title} description={description} link={REVEAL_LIB.link} script={REVEAL_LIB.script} />
       <div className="reveal" style={{ position: 'absolute', display: isLoaded ? 'block' : 'none' }}>
         {children}
       </div>
