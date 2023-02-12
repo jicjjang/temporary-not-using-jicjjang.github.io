@@ -2,14 +2,13 @@ import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 
 import PresentationLayout from '~/components/layout/Presentation';
-import { PRESENTATION_DATA, removeTrailingSlash } from '~/configs/urls';
 import { Query } from '~/gatsby-graphql-types';
 
 export default function reactBasic({ location: pLocation, data }: PageProps) {
   const linkedinUrl = (data as Query).site!.siteMetadata!.social!.linkedin || undefined;
 
   return (
-    <PresentationLayout title={PRESENTATION_DATA[removeTrailingSlash(pLocation.pathname)].title || ''}>
+    <PresentationLayout pathname={pLocation.pathname}>
       <div className="slides">
         <section>
           <h1>React.js</h1>

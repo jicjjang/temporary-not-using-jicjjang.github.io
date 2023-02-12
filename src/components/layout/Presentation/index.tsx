@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 
 import SEO from '~/components/SEO';
+import { PRESENTATION_DATA, removeTrailingSlash } from '~/configs/urls';
 
 declare var Reveal: RevealStatic & {
   isReady: () => boolean;
@@ -13,18 +14,17 @@ declare var window: Window & {
 };
 
 interface IProps {
-  title: string;
-  pathname?: string;
+  pathname: string;
   description?: string;
 }
 
 const PresentationLayout: React.FunctionComponent<React.PropsWithChildren<IProps>> = ({
-  title,
-  // pathname = '/',
+  pathname,
   description,
   children
 }) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const title = PRESENTATION_DATA[removeTrailingSlash(pathname)].title || '';
 
   let isInitLoadedReveal = false;
   const repeatEvent = setInterval(

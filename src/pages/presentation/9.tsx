@@ -2,11 +2,10 @@ import * as React from 'react';
 import { PageProps } from 'gatsby';
 
 import PresentationLayout from '~/components/layout/Presentation';
-import { PRESENTATION_DATA, removeTrailingSlash } from '~/configs/urls';
 
 export default function graphqlStartClient({ location: pLocation }: PageProps) {
   return (
-    <PresentationLayout title={PRESENTATION_DATA[removeTrailingSlash(pLocation.pathname)].title || ''}>
+    <PresentationLayout pathname={pLocation.pathname}>
       <div className="slides">
         <section>
           <div>

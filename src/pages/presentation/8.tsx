@@ -2,14 +2,13 @@ import * as React from 'react';
 import { PageProps, graphql } from 'gatsby';
 
 import PresentationLayout from '~/components/layout/Presentation';
-import { PRESENTATION_DATA, removeTrailingSlash } from '~/configs/urls';
 import { Query } from '~/gatsby-graphql-types';
 
 export default function vueApolloGraphql({ location: pLocation, data }: PageProps) {
   const siteUrl = (data as Query).site!.siteMetadata!.siteUrl! || undefined;
 
   return (
-    <PresentationLayout title={PRESENTATION_DATA[removeTrailingSlash(pLocation.pathname)].title || ''}>
+    <PresentationLayout pathname={pLocation.pathname}>
       <div className="slides">
         <section data-background="/img/presentation/vue-apollo-graphql/vuetifulkorea4_background.png">
           <aside className="notes">
