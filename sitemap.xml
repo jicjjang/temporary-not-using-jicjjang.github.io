@@ -54,13 +54,13 @@
 <url> <loc>https://jicjjang.github.io/posts/2017-seoul-app-contest-develop</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/review-you-dont-know-js</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/jwt</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://jicjjang.github.io/posts/dooray-bot-front</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/dooray-bot-server</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/posts/dooray-bot-front</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/airbnb-review</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-8</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/posts/javascript-optimize-6</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-4</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-7</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://jicjjang.github.io/posts/javascript-optimize-6</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/posts/javascript-optimize-3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -93,4 +93,8 @@
 <url> <loc>https://jicjjang.github.io/presentation/8/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/presentation/9/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jicjjang.github.io/presentation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/presentation/typescript/ot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/presentation/typescript/about/how-when-use-typescript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/presentation/typescript/about/why-use-typescript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jicjjang.github.io/presentation/typescript/about/worries-of-users-who-do-not-use-typescript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
