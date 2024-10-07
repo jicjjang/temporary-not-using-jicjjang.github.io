@@ -2,10 +2,17 @@
   "experience": [
     {
       "title": "FE Developer",
+      "when": "2022.09 -",
+      "company": "Levvels, Gangnam (subsidiary compnay of Dunamu)",
+      "usecase": "React, node, React-query, pnpm, Emotion, vanilla-extract, React Context, React Hook...",
+      "details": "현재 Levvels에 재직중입니다. <a href='https://momentica.com/' target='_blank'>Momentica 서비스</a>와 서비스 어드민을 개발중이며, 현재는 신규서비스와 해당 서비스 어드민을 준비중입니다."
+    },
+    {
+      "title": "FE Developer",
       "when": "2022.05 -",
       "company": "Dunamu, Gangnam (Works at home)",
       "usecase": "React, node, React-query, Emotion, React Context, React Hook...",
-      "details": "현재 두나무에 재직중입니다. 두나무에서 Levvels 업무를 진행하고 있습니다."
+      "details": "블록체인과 nft에 대한 궁금증으로 이직을 하게 되었습니다. 두나무에서 <a href='https://momentica.com/' target='_blank'>Momentica 서비스</a> 업무를 위해 dive 팀(가칭)으로 입사했으며, 자회사로 이동하게된 9월부터 Levvels에서 업무를 진행하게 되었습니다."
     },
     {
       "title": "FE Developer",
@@ -38,12 +45,17 @@
   ],
   "project": [
     {
-      "company": "Dunamu",
+      "company": "Dunamu, Levvels (subsidiary compnay of Dunamu)",
       "contents": [
         {
-          "link": "",
-          "title": "(noname)",
-          "content": "신규 프로젝트 FE 개발 진행중입니다."
+          "link": "https://momentica.com/",
+          "title": "Momentica 어드민",
+          "content": "Momentica 서비스와 함께 진행하였습니다. 스펙상으로 차이점은 react-hook-form을 많이 사용했다는 점입니다. 입력 form 관리 및 filter 조회 등 post, put, delete 위주의 복잡한 작업을 간단하게 처리할 수 있었습니다."
+        },
+        {
+          "link": "https://momentica.com/",
+          "title": "Momentica",
+          "content": "프로젝트가 시작된지 2-3개월이 지난 시점에 팀에 조인하였습니다. 오픈에만 1년이 넘는 시간이 걸렸으며, Next.js, Emotion, React-query, React Context, React Hook 을 사용하여 개발하였습니다. SSR로 서비스를 제공하며, 최적화를 위해 많은 노력을 기울였습니다. (코드 스플리팅, 이미지 최적화, 서버사이드 렌더링, 렌더링 최적화 등등...)"
         }
       ]
     },
@@ -134,6 +146,16 @@
     {
       "company": "Seminar",
       "contents": [
+        {
+          "link": "/posts/langchain-ai-concept",
+          "title": "Langchain AI Concept",
+          "content": "UIT 조직 내에서 퍼블리싱을 위주로 개발하는 팀에서 제작한 코드 중, return 부분의 조건문이 re-render가 많이 일어나는 방식으로 만들어지는 것을 보고 reconcilication에 대해 익힌 내용에 대해 정리 및 발표(UIT 조직 월간 미팅)를 진행하였습니다."
+        },
+        {
+          "link": "/posts/flutter-tutorial",
+          "title": "Flutter로 앱개발 시작하기",
+          "content": "Flutter로 <a href='https://website-slush.vercel.app/' target='_blank'>앱을 출시</a>했습니다. 미국의 GAS 앱의 카피캣으로, 마케팅을 제대로 해보지 않아 사용자는 거의 없었으나 처음으로 flutter로 앱을 만드는것에 의의를 두고 진행했습니다. (<a href='https://apps.apple.com/kr/app/slush/id6475641636?platform=iphone' target='_blank'>앱스토어</a>는 남아있으나, 구글플레이는 사업자 문제로 내려감) 디자인, 기획, 백엔드 개발자 세명과 함께 개발 진행하였고, 앱푸시, 배포, 인앱알림, 결제 등 모든 앱 플로우를 경험해볼 수 있었습니다."
+        },
         {
           "link": "/posts/react-reconciliation",
           "title": "Line Plus UIT 조직 내 발표 - React reconciliation(재조정)",
